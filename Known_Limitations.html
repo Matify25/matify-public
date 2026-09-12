@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Known limitations — Access Auditor for Jira</title>
+<meta name="description" content="Documentation for Access Auditor for Jira, a read-only Jira Cloud permission audit app by Matify.">
+<style>
+:root{
+  --bg:#ffffff; --fg:#172b4d; --muted:#5e6c84; --line:#dfe1e6;
+  --accent:#0b2f52; --accent-fg:#ffffff; --code-bg:#f4f5f7; --flag:#ffab00;
+  --max:64rem;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#0e1117; --fg:#e6edf3; --muted:#9198a1; --line:#2a2f37;
+         --accent:#0b2f52; --code-bg:#161b22; }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{background:var(--accent);color:var(--accent-fg);padding:1.25rem 1.5rem}
+header .brand{display:flex;align-items:center;gap:.75rem;max-width:var(--max);margin:0 auto}
+header .mark{width:28px;height:28px;border-radius:6px;background:#fff;position:relative;flex:none}
+header .mark::after{content:"";position:absolute;right:5px;bottom:5px;width:7px;height:7px;background:var(--flag)}
+header h1{font-size:1.05rem;margin:0;font-weight:600;letter-spacing:.2px}
+header .vendor{margin-left:auto;font-size:.85rem;opacity:.8}
+nav{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:5}
+nav ul{max-width:var(--max);margin:0 auto;padding:0 1.5rem;list-style:none;display:flex;
+  flex-wrap:wrap;gap:.25rem 1.1rem}
+nav a{display:inline-block;padding:.7rem 0;color:var(--muted);text-decoration:none;font-size:.9rem}
+nav a:hover,nav a:focus{color:var(--fg)}
+nav a[aria-current="page"]{color:var(--fg);box-shadow:inset 0 -2px 0 var(--flag)}
+main{max-width:var(--max);margin:0 auto;padding:2rem 1.5rem 4rem}
+h1,h2,h3,h4{line-height:1.25;margin:2rem 0 .75rem}
+main>h1:first-child{margin-top:0;font-size:1.9rem}
+h2{font-size:1.35rem;padding-top:.5rem;border-top:1px solid var(--line)}
+h3{font-size:1.1rem}
+h4{font-size:1rem;color:var(--muted)}
+p,ul,ol{margin:.75rem 0}
+li{margin:.3rem 0}
+a{color:#0b62c4}
+@media (prefers-color-scheme:dark){a{color:#79b8ff}}
+code{background:var(--code-bg);padding:.12em .38em;border-radius:4px;
+  font:0.88em/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+pre{background:var(--code-bg);padding:1rem;border-radius:6px;overflow-x:auto;
+  border:1px solid var(--line)}
+pre code{background:none;padding:0}
+.table-wrap{overflow-x:auto;margin:1rem 0}
+table{border-collapse:collapse;width:100%;font-size:.94rem}
+th,td{border:1px solid var(--line);padding:.5rem .65rem;text-align:left;vertical-align:top}
+th{background:var(--code-bg);font-weight:600}
+blockquote{margin:1rem 0;padding:.6rem 1rem;border-left:3px solid var(--flag);
+  background:var(--code-bg);color:var(--muted)}
+hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer div{max-width:var(--max);margin:0 auto;padding:1.5rem}
+.notice{border:1px solid var(--flag);border-left-width:4px;border-radius:4px;
+  padding:.85rem 1rem;margin:1.5rem 0;background:var(--code-bg)}
+</style>
+</head>
+<body>
+<header><div class="brand">
+  <span class="mark" aria-hidden="true"></span>
+  <h1>Access Auditor for Jira</h1>
+  <span class="vendor">by Matify</span>
+</div></header>
+<nav aria-label="Documentation"><ul><li><a href="index.html">Overview</a></li><li><a href="Getting_Started.html">Getting started</a></li><li><a href="User_Guide.html">User guide</a></li><li><a href="Permissions_and_Security.html">Permissions & security</a></li><li><a href="Privacy_and_Data.html">Privacy & data</a></li><li><a href="Troubleshooting.html">Troubleshooting</a></li><li><a href="FAQ.html">FAQ</a></li><li><a href="Known_Limitations.html" aria-current="page">Known limitations</a></li><li><a href="CHANGELOG.html">Changelog</a></li><li><a href="support.html">Support</a></li><li><a href="privacy.html">Privacy policy</a></li><li><a href="terms.html">Terms</a></li></ul></nav>
+<main>
+<h1>Known Limitations</h1>
+<p>Copyright 2026 Matify. All Rights Reserved.</p>
+<p>Access Auditor for Jira reads Jira's configuration through Atlassian's public Cloud REST API. Some things that API does not expose, and some deliberate trade-offs, are listed here so you know exactly what the audit does and does not cover. Everything below is a real boundary of the product, not a placeholder.</p>
+<h2>Site administration cannot be read directly</h2>
+<p>Jira Cloud provides no API for <strong>global permission grants</strong>. There is no endpoint that answers "which groups hold Administer Jira or site administration". We verified this against the Jira Cloud OpenAPI specification, which contains no global-permission operation at all.</p>
+<p>Access Auditor therefore does not claim to list your site administrators. Instead it marks a group as <strong>privileged</strong> when at least one of three verifiable signals applies, and always tells you which one:</p>
+<div class="table-wrap"><table><thead><tr><th>Signal</th><th>What it means</th><th>Reliability</th></tr></thead><tbody><tr><td>Grants product access</td><td>The group appears in a Jira application role, so membership hands out a licence</td><td>Read directly from Jira</td></tr><tr><td>Holds project administration</td><td>The group holds <em>Administer projects</em> in a permission scheme</td><td>Read directly from Jira</td></tr><tr><td>Matches an administrator naming convention</td><td>The group is named like an Atlassian default admin group, for example <code>site-admins</code> or <code>jira-admins-yoursite</code></td><td><strong>A naming heuristic</strong></td></tr></tbody></table></div>
+<p>The third signal is labelled as a heuristic everywhere it appears in the app. If you have renamed your administrator groups, Access Auditor will not recognise them by name. Add them to the audit by giving them a permission scheme grant, or review them directly in Jira's own global permissions screen.</p>
+<p>We considered reconstructing global permissions from the Jira audit log and decided against it. Audit log retention varies by Atlassian plan, so the result would be silently incomplete on exactly the sites that most need it, and a partial list of administrators in a compliance tool invites false assurance. The app does not request the audit log scope at all.</p>
+<h2>Changes are detected by comparison, not attribution</h2>
+<p>The Changes tab tells you <strong>what</strong> changed since the previous scan. It does not tell you <strong>who</strong> changed it or exactly when, because that would require the audit log described above.</p>
+<p>A change is therefore only visible if it existed at the time of one scan and not at the time of another. A permission that was added and removed again between two scans leaves no trace. On the default daily schedule, that window is 24 hours.</p>
+<p>The very first scan reports no changes, because there is nothing to compare it against.</p>
+<h2>Team-managed projects are out of scope</h2>
+<p>Team-managed projects (Jira calls them "next-gen"; the API marks them <code>simplified</code>) control access inside the project itself rather than through a permission scheme. Their access model is not exposed the way scheme-based access is.</p>
+<p>Access Auditor lists these projects and labels them clearly, but shows no permission matrix for them and raises no findings about them. Company-managed projects are fully covered.</p>
+<h2>Some holders can only be resolved per issue</h2>
+<p>Several Jira grant types do not resolve to a fixed set of people:</p>
+<ul><li><strong>Current assignee</strong> and <strong>Reporter</strong> depend on the individual issue.</li><li><strong>Project lead</strong> resolves to one person, but that person changes with the</li></ul>
+<p>project's configuration.</p>
+<ul><li><strong>User custom field value</strong> and <strong>Group custom field value</strong> depend on what is</li></ul>
+<p>in that field on each issue.</p>
+<p>The app marks these holders as <em>resolves per issue</em> rather than guessing. It reports the grant so you can see it exists, and flags a sensitive permission held through a custom field as its own finding, because such a grant cannot be reviewed from configuration alone.</p>
+<h2>Shared filters and dashboards: what is visible</h2>
+<p>Filters are read with Jira's share-permission override, which is what lets the app see filters it does not own. Dashboards are read through the standard search.</p>
+<p>If your site restricts either, the app records the capability as degraded and says so on the Overview tab rather than silently reporting fewer results. The filter's JQL body and a dashboard's gadgets are never read — only the name, the owner and the sharing.</p>
+<h2>Very large sites are collected within caps</h2>
+<p>Collection is deliberately bounded so a scan cannot run away with your site's API budget:</p>
+<div class="table-wrap"><table><thead><tr><th>What</th><th>Cap</th></tr></thead><tbody><tr><td>Projects</td><td>2,000</td></tr><tr><td>Groups</td><td>2,000</td></tr><tr><td>Members read per group</td><td>2,000</td></tr><tr><td>Members read per scan, site-wide</td><td>40,000</td></tr><tr><td>Shared filters</td><td>4,000</td></tr><tr><td>Dashboards</td><td>4,000</td></tr></tbody></table></div>
+<p>When a cap is reached the scan completes and is marked <strong>incomplete</strong>, and the Overview tab tells you which part was truncated. Group membership counts stay accurate even when the member list is capped, because the app records Jira's own total for the group rather than counting the rows it read.</p>
+<p>Group membership is only read for groups that actually carry access — a group referenced by a permission grant, a project role, a shared filter or an application role. Membership of unrelated groups is deliberately not read, which keeps both the scan and your data footprint smaller.</p>
+<h2>Issue security is checked where it matters</h2>
+<p>The "project has no issue security scheme" finding is only evaluated for projects that are broadly readable, because that is the only situation in which the absence of issue security is a risk. Reading issue security for every project would cost one extra API call per project for a result no rule would use.</p>
+<h2>What the app never reads</h2>
+<p>Issue content. Attachments. Comments. Worklogs. Email addresses. Avatars. Filter JQL. Dashboard gadgets. User profile attributes beyond display name, account type and whether the account is active.</p>
+<h2>What the app never does</h2>
+<p>Write to Jira. Change any configuration. Delete anything. Send data outside Atlassian. The app holds twenty read-only Jira scopes, app storage, and the <code>report:personal-data</code> scope Atlassian requires of any app that stores account identifiers — and no write, administration or egress scope of any kind.</p>
+<h2>Permissions required to use it</h2>
+<p>The Jira <strong>Administer Jira</strong> global permission. Every screen verifies this with your own credentials on every request, so a user without it sees an explanation rather than data.</p>
+<h2>Scheduling</h2>
+<p>The scan schedule is daily, weekly or manual. The platform trigger fires once a day; a weekly setting simply skips days. You cannot pick the hour it runs.</p>
+<hr>
+<p><strong>Questions about any of these?</strong> mira.maty@web.de</p>
+<h2>Jira Service Management</h2>
+<p>Service Management projects are audited like any other company-managed project, because they use the same Jira permission schemes, project roles and group grants. The app also recognises the holder type that only exists there: a grant to <code>sd.customer.portal.only</code> is reported as "Service project customers (portal only)", and portal customer accounts are excluded from the "every logged-in user" analysis, because a portal customer is not a member of staff and counting them would inflate that finding.</p>
+<p>What is <strong>not</strong> audited is everything Service Management layers on top of the permission scheme:</p>
+<ul><li>Customer organisations and their membership</li><li>Which individual portal customers can reach which portal</li><li>Request type level permissions</li><li>Approver configuration</li><li>Queue visibility</li></ul>
+<p>So a Service Management team gets a complete picture of who can administer, browse and work on their projects, and no picture at all of their portal customers. If an access review needs the second, it has to come from elsewhere.</p>
+</main>
+<footer><div>
+  Copyright 2026 Matify. All Rights Reserved. &middot;
+  Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a>
+</div></footer>
+</body>
+</html>

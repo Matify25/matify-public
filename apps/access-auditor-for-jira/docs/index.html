@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Documentation — Access Auditor for Jira — Matify</title>
+<meta name="description" content="Documentation for Access Auditor for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<meta name="color-scheme" content="dark">
+<style>
+:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand">
+  <span class="name">Matify</span>
+  <span class="sep">/</span>
+  <span class="product">Access Auditor for Jira</span>
+</div></div></header>
+<nav class="site" aria-label="Sections"><ul><li><a href="../">Overview</a></li><li><a href="../docs/" aria-current="page">Documentation</a></li><li><a href="../security-privacy/">Security & privacy</a></li><li><a href="../privacy/">Privacy policy</a></li><li><a href="../terms/">Terms</a></li><li><a href="../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<h1>Access Auditor for Jira</h1>
+<p>Copyright 2026 Matify. All Rights Reserved.</p>
+<p>Access Auditor for Jira answers one question for a Jira Cloud administrator: <strong>who can access what, and why.</strong> It scans your site's permission schemes, project roles, groups and shared filters and dashboards, resolves each grant down to the people and groups who actually hold it, and reports the configurations most likely to be a risk. It then tracks what changes between scans, so an access review is a comparison, not a re-investigation from scratch.</p>
+<h2>Who this is for</h2>
+<p>A Jira Cloud site administrator who holds the <strong>Administer Jira</strong> global permission and is responsible for answering "who has access to this project", preparing for an access review, or noticing when a permission scheme has quietly drifted.</p>
+<h2>What it does</h2>
+<ul><li>Scans permission schemes, project roles, groups, shared filters and shared</li></ul>
+<p>dashboards, and resolves each grant to the people and groups who hold it.</p>
+<ul><li>Raises twelve findings covering anonymous access, over-broad grants,</li></ul>
+<p>stale accounts, oversized administrator groups, duplicate schemes and more. See <a href="user-guide/">User_Guide.md</a> for the full list.</p>
+<ul><li>Lets you acknowledge, resolve or reopen a finding, with a note, so a</li></ul>
+<p>reviewed item stays reviewed across scans.</p>
+<ul><li>Shows what changed since the previous scan.</li><li>Exports findings, the permission matrix and the change list as CSV or</li></ul>
+<p>JSON.</p>
+<ul><li>Runs entirely inside Atlassian's infrastructure as a Forge app. It reads</li></ul>
+<p>Jira configuration and writes nothing back to Jira. See <a href="permissions-and-security/">Permissions_and_Security.md</a> and <a href="privacy-and-data/">Privacy_and_Data.md</a>.</p>
+<h2>What it does not do</h2>
+<ul><li>It does not list your Jira <strong>site administrators</strong>. Jira Cloud's API</li></ul>
+<p>exposes no endpoint for global permission grants, so this cannot be read directly by any app. Access Auditor instead marks a group as privileged on three verifiable signals and always tells you which one applied. Details in <a href="known-limitations/">Known_Limitations.md</a>.</p>
+<ul><li>It does not tell you <strong>who made a change</strong> or exactly when. The Changes</li></ul>
+<p>tab reports what differs between two scans, not who did it, because that would require reading Jira's audit log, which this app does not request.</p>
+<ul><li>It does not cover <strong>team-managed (next-gen) projects</strong>' own access model.</li></ul>
+<p>These projects are listed and labelled but carry no permission matrix and raise no findings.</p>
+<ul><li>It is not a compliance guarantee. It reports what the Jira Cloud REST API</li></ul>
+<p>exposes; see <a href="known-limitations/">Known_Limitations.md</a> for the exact boundaries before you rely on it for an audit.</p>
+<ul><li>It makes no changes to Jira. Every declared scope is read-only.</li></ul>
+<h2>Where to start</h2>
+<div class="table-wrap"><table><thead><tr><th>Document</th><th>Read this for</th></tr></thead><tbody><tr><td><a href="getting-started/">Getting_Started.md</a></td><td>Installing the app and reaching your first finding</td></tr><tr><td><a href="user-guide/">User_Guide.md</a></td><td>What each of the eight tabs shows and how to read it</td></tr><tr><td><a href="permissions-and-security/">Permissions_and_Security.md</a></td><td>Why the app needs Administer Jira, and what every declared scope is for</td></tr><tr><td><a href="privacy-and-data/">Privacy_and_Data.md</a></td><td>What is read, what is stored, for how long, and how to remove it</td></tr><tr><td><a href="known-limitations/">Known_Limitations.md</a></td><td>The real boundaries of what the Jira Cloud API exposes</td></tr><tr><td><a href="troubleshooting/">Troubleshooting.md</a></td><td>Specific errors and what to do about them</td></tr><tr><td><a href="faq/">FAQ.md</a></td><td>Common buyer and administrator questions</td></tr><tr><td><a href="changelog/">CHANGELOG.md</a></td><td>Release history</td></tr></tbody></table></div>
+<h2>Support</h2>
+<p>mira.maty@web.de</p>
+</div></main>
+<footer class="site"><div class="wrap">
+  <p>Access Auditor for Jira is published by Matify for Atlassian Jira Cloud.</p>
+  <p>Security and support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+  <p>Copyright 2026 Matify. All Rights Reserved.</p>
+</div></footer>
+</body>
+</html>

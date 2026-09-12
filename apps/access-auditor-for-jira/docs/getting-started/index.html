@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Getting started — Access Auditor for Jira — Matify</title>
+<meta name="description" content="Getting started for Access Auditor for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<meta name="color-scheme" content="dark">
+<style>
+:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand">
+  <span class="name">Matify</span>
+  <span class="sep">/</span>
+  <span class="product">Access Auditor for Jira</span>
+</div></div></header>
+<nav class="site" aria-label="Sections"><ul><li><a href="../">Overview</a></li><li><a href="../docs/">Documentation</a></li><li><a href="../security-privacy/">Security & privacy</a></li><li><a href="../privacy/">Privacy policy</a></li><li><a href="../terms/">Terms</a></li><li><a href="../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<h1>Getting Started</h1>
+<p>Copyright 2026 Matify. All Rights Reserved.</p>
+<p>This page takes you from installing Access Auditor for Jira to acting on your first finding. Every step happens in your browser, in Jira itself. Nothing here needs a developer tool, a command line, or a demo site.</p>
+<h2>Before you start</h2>
+<p>You need the Jira <strong>Administer Jira</strong> global permission on the site you install into. Access Auditor checks this on every request, using your own Jira credentials, before it shows you anything.</p>
+<h2>Steps</h2>
+<ol><li><strong>Install Access Auditor for Jira</strong> from the Atlassian Marketplace onto</li></ol>
+<p>your Jira Cloud site, or ask your Atlassian organisation administrator to install it for you.</p>
+<ol><li><strong>Open the app.</strong> In Jira, go to **Settings (the gear icon) → Apps →</li></ol>
+<p>Access Auditor**.</p>
+<ol><li><strong>Check the first scan.</strong> A first scan is queued automatically as soon</li></ol>
+<p>as the app is installed. If it has already finished, the Overview tab shows its results. If it is still running, you will see progress on screen. If for any reason no scan has started, select <strong>Run scan now</strong> on the Overview tab.</p>
+<ol><li><strong>Read the Overview tab.</strong> It shows your open findings grouped by</li></ol>
+<p>severity (critical, high, medium, low, info), when the last scan ran, how long it took, and whether it was able to read everything it needed to. If a warning banner appears saying the scan is incomplete, see <a href="Troubleshooting.html">Troubleshooting.md</a>.</p>
+<ol><li><strong>Open the highest-severity finding.</strong> From the Overview tab's list of</li></ol>
+<p>top findings, or from the <strong>Findings</strong> tab sorted by severity, open the first critical or high finding.</p>
+<ol><li><strong>Read the finding.</strong> Each one has a plain-language summary, a</li></ol>
+<p>suggested remediation, a list of evidence that shows how the app reached its conclusion, and — where Jira supports it — a link straight into the relevant Jira administration screen.</p>
+<ol><li><strong>Act on it.</strong> Two options, and they are not exclusive:</li></ol>
+<ul><li>Follow the deep link into Jira and change the permission scheme,</li></ul>
+<p>project role or share setting directly in Jira.</p>
+<ul><li>Or, from the finding, mark it <strong>acknowledged</strong> or <strong>resolved</strong>, with</li></ul>
+<p>an optional note explaining the decision. This keeps a record inside Access Auditor even if you decide the configuration is intentional.</p>
+<ol><li><strong>Look around the other tabs when you have time.</strong> The</li></ol>
+<p><a href="User_Guide.html">User_Guide.md</a> explains each of the eight tabs — Overview, Findings, Explorer, Schemes, Changes, Exports, Settings and Diagnostics — in detail.</p>
+<ol><li><strong>Adjust Settings if the defaults don't suit your site.</strong> Scan</li></ol>
+<p>frequency, the sensitivity profile, the large-group threshold, history retention and exclusion lists are all on the <strong>Settings</strong> tab. The defaults are a daily scan, the standard sensitivity profile and 90 days of retention.</p>
+<h2>What "first value" looks like</h2>
+<p>By the end of these steps you have seen your site's open findings ranked by severity, understood why the highest one was raised, and either fixed it in Jira or recorded a decision about it. That is the loop Access Auditor is built around, and it repeats on every scan.</p>
+<h2>Next</h2>
+<ul><li><a href="User_Guide.html">User_Guide.md</a> for a full tour of every tab.</li><li><a href="Permissions_and_Security.html">Permissions_and_Security.md</a> if you need to</li></ul>
+<p>explain to your security team why the app asked for the scopes it did.</p>
+<ul><li><a href="Troubleshooting.html">Troubleshooting.md</a> if something above did not go as</li></ul>
+<p>described.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+  <p>Access Auditor for Jira is published by Matify for Atlassian Jira Cloud.</p>
+  <p>Security and support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+  <p>Copyright 2026 Matify. All Rights Reserved.</p>
+</div></footer>
+</body>
+</html>

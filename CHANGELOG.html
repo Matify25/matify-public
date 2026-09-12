@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Changelog — Access Auditor for Jira</title>
+<meta name="description" content="Documentation for Access Auditor for Jira, a read-only Jira Cloud permission audit app by Matify.">
+<style>
+:root{
+  --bg:#ffffff; --fg:#172b4d; --muted:#5e6c84; --line:#dfe1e6;
+  --accent:#0b2f52; --accent-fg:#ffffff; --code-bg:#f4f5f7; --flag:#ffab00;
+  --max:64rem;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#0e1117; --fg:#e6edf3; --muted:#9198a1; --line:#2a2f37;
+         --accent:#0b2f52; --code-bg:#161b22; }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{background:var(--accent);color:var(--accent-fg);padding:1.25rem 1.5rem}
+header .brand{display:flex;align-items:center;gap:.75rem;max-width:var(--max);margin:0 auto}
+header .mark{width:28px;height:28px;border-radius:6px;background:#fff;position:relative;flex:none}
+header .mark::after{content:"";position:absolute;right:5px;bottom:5px;width:7px;height:7px;background:var(--flag)}
+header h1{font-size:1.05rem;margin:0;font-weight:600;letter-spacing:.2px}
+header .vendor{margin-left:auto;font-size:.85rem;opacity:.8}
+nav{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:5}
+nav ul{max-width:var(--max);margin:0 auto;padding:0 1.5rem;list-style:none;display:flex;
+  flex-wrap:wrap;gap:.25rem 1.1rem}
+nav a{display:inline-block;padding:.7rem 0;color:var(--muted);text-decoration:none;font-size:.9rem}
+nav a:hover,nav a:focus{color:var(--fg)}
+nav a[aria-current="page"]{color:var(--fg);box-shadow:inset 0 -2px 0 var(--flag)}
+main{max-width:var(--max);margin:0 auto;padding:2rem 1.5rem 4rem}
+h1,h2,h3,h4{line-height:1.25;margin:2rem 0 .75rem}
+main>h1:first-child{margin-top:0;font-size:1.9rem}
+h2{font-size:1.35rem;padding-top:.5rem;border-top:1px solid var(--line)}
+h3{font-size:1.1rem}
+h4{font-size:1rem;color:var(--muted)}
+p,ul,ol{margin:.75rem 0}
+li{margin:.3rem 0}
+a{color:#0b62c4}
+@media (prefers-color-scheme:dark){a{color:#79b8ff}}
+code{background:var(--code-bg);padding:.12em .38em;border-radius:4px;
+  font:0.88em/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+pre{background:var(--code-bg);padding:1rem;border-radius:6px;overflow-x:auto;
+  border:1px solid var(--line)}
+pre code{background:none;padding:0}
+.table-wrap{overflow-x:auto;margin:1rem 0}
+table{border-collapse:collapse;width:100%;font-size:.94rem}
+th,td{border:1px solid var(--line);padding:.5rem .65rem;text-align:left;vertical-align:top}
+th{background:var(--code-bg);font-weight:600}
+blockquote{margin:1rem 0;padding:.6rem 1rem;border-left:3px solid var(--flag);
+  background:var(--code-bg);color:var(--muted)}
+hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer div{max-width:var(--max);margin:0 auto;padding:1.5rem}
+.notice{border:1px solid var(--flag);border-left-width:4px;border-radius:4px;
+  padding:.85rem 1rem;margin:1.5rem 0;background:var(--code-bg)}
+</style>
+</head>
+<body>
+<header><div class="brand">
+  <span class="mark" aria-hidden="true"></span>
+  <h1>Access Auditor for Jira</h1>
+  <span class="vendor">by Matify</span>
+</div></header>
+<nav aria-label="Documentation"><ul><li><a href="index.html">Overview</a></li><li><a href="Getting_Started.html">Getting started</a></li><li><a href="User_Guide.html">User guide</a></li><li><a href="Permissions_and_Security.html">Permissions & security</a></li><li><a href="Privacy_and_Data.html">Privacy & data</a></li><li><a href="Troubleshooting.html">Troubleshooting</a></li><li><a href="FAQ.html">FAQ</a></li><li><a href="Known_Limitations.html">Known limitations</a></li><li><a href="CHANGELOG.html" aria-current="page">Changelog</a></li><li><a href="support.html">Support</a></li><li><a href="privacy.html">Privacy policy</a></li><li><a href="terms.html">Terms</a></li></ul></nav>
+<main>
+<h1>Changelog</h1>
+<p>Copyright 2026 Matify. All Rights Reserved.</p>
+<p>All notable changes to Access Auditor for Jira are documented in this file. The format follows <a href="https://keepachangelog.com/en/1.1.0/" rel="noopener noreferrer" target="_blank">Keep a Changelog</a>.</p>
+<h2>[1.0.0] - 2026-09-12</h2>
+<h3>Added</h3>
+<ul><li>Initial release of Access Auditor for Jira.</li><li>Eight-tab administration app: Overview, Findings, Explorer, Schemes,</li></ul>
+<p>Changes, Exports, Settings and Diagnostics.</p>
+<ul><li>Twelve finding rules (R1 through R12) covering anonymous or public</li></ul>
+<p>access, sensitive permissions granted too broadly, publicly shared filters and dashboards, deactivated accounts that still hold access, oversized or stale administrator groups, unused and near-duplicate permission schemes, projects without issue security, empty administrator roles, project administration held by large groups, custom-field-based grants, and archived projects with broad access.</p>
+<ul><li>Standard and strict sensitivity profiles.</li><li>Permission Explorer with by-project, by-group and by-user views, showing</li></ul>
+<p>the full granted-via chain for every resolved holder.</p>
+<ul><li>Permission scheme comparison, including near-duplicate detection with a</li></ul>
+<p>match percentage.</p>
+<ul><li>Change tracking between consecutive scans, with before → after detail</li></ul>
+<p>for changed sharing and changed scheme bindings.</p>
+<ul><li>CSV and JSON export for findings, the permission matrix and the change</li></ul>
+<p>list, with a clipboard fallback for browsers that block iframe downloads.</p>
+<ul><li>Configurable scan frequency, history retention, acknowledgement expiry,</li></ul>
+<p>large-group threshold, and project and group exclusion lists.</p>
+<ul><li>Diagnostics tab with a capability matrix, an on-demand capability check,</li></ul>
+<p>and a support report that excludes personal data and credentials.</p>
+<ul><li>Automatic first scan on installation; manual scans thereafter, one at a</li></ul>
+<p>time.</p>
+<ul><li>Weekly reporting of stored account identifiers to Atlassian, with a rescan</li></ul>
+<p>when an account changes and erasure of that account’s history when it is closed. Runs regardless of licence state.</p>
+<ul><li>Entirely read-only against Jira: 22 declared scopes, none of them a write,</li></ul>
+<p>administration or management scope, and no external egress.</p>
+</main>
+<footer><div>
+  Copyright 2026 Matify. All Rights Reserved. &middot;
+  Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a>
+</div></footer>
+</body>
+</html>

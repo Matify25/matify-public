@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Troubleshooting — Access Auditor for Jira — Matify</title>
+<meta name="description" content="Troubleshooting for Access Auditor for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<meta name="color-scheme" content="dark">
+<style>
+:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand">
+  <span class="name">Matify</span>
+  <span class="sep">/</span>
+  <span class="product">Access Auditor for Jira</span>
+</div></div></header>
+<nav class="site" aria-label="Sections"><ul><li><a href="../">Overview</a></li><li><a href="../docs/">Documentation</a></li><li><a href="../security-privacy/">Security & privacy</a></li><li><a href="../privacy/">Privacy policy</a></li><li><a href="../terms/">Terms</a></li><li><a href="../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<h1>Troubleshooting</h1>
+<p>Copyright 2026 Matify. All Rights Reserved.</p>
+<p>Specific problems, what they mean, and what to do about them. If your problem is not listed here, see <a href="FAQ.html">FAQ.md</a>, or send a support report from the Diagnostics tab to mira.maty@web.de.</p>
+<h2>I don't see the app in Jira settings</h2>
+<p>Check that Access Auditor is installed on the site you are looking at — installation is per-site. Go to <strong>Settings → Apps → Manage your apps</strong> and confirm it is listed and enabled. If it is not there, it has not been installed on this site, or your Atlassian organisation administrator has restricted which apps can be installed; ask them to install it.</p>
+<h2>"You need the Jira administrator permission to use Access Auditor" (MAA-E401)</h2>
+<p>Every screen checks, on every request, whether you hold the Jira <strong>Administer Jira</strong> global permission — using your own Jira credentials, not the app's. If you do not hold it, you see this message instead of data. This is not an app-level restriction; it is Jira's own permission model. Ask a site administrator to either run the audit for you or grant you Administer Jira.</p>
+<h2>"Access Auditor is not licensed on this site" (MAA-L001)</h2>
+<p>The app's Marketplace licence is not active — most often an expired trial or an expired or cancelled subscription. Start a trial or subscribe from the app's Atlassian Marketplace listing, then reload the page.</p>
+<h2>"A scan is already running" (MAA-E403)</h2>
+<p>Access Auditor runs one scan at a time. If a scheduled scan is already in progress and you select <strong>Run scan now</strong>, you will see this message. Wait for the current scan to finish — check its progress on the Overview tab — then start another one. A scan that appears stuck for longer than about 20 minutes is treated as stale by the app itself and will not block a new scan indefinitely.</p>
+<h2>Rate limiting (MAA-E429)</h2>
+<p>Jira Cloud rate-limits API traffic on every site. A scan that hits a rate limit retries automatically, honouring Jira's own retry-after guidance, so an occasional rate-limit response during a scan is expected and usually invisible to you. If rate limiting is severe enough that a scan cannot finish, it is marked incomplete or failed and the failure surfaces as described below. This is more likely on a very large site; consider narrowing scope with the exclusion lists on the Settings tab if it recurs.</p>
+<h2>An unexpected error (MAA-E500)</h2>
+<p>A general failure that does not fall into the above categories — either an unexpected condition during a scan, or an error a screen could not otherwise classify. Reload the page and try again. If it persists, open <strong>Diagnostics</strong>, select <strong>Copy diagnostic report</strong>, and send it to mira.maty@web.de along with what you were doing when it happened.</p>
+<h2>A scan is marked incomplete</h2>
+<p>The Overview tab shows a warning banner when the last scan could not read everything it needed to. This happens when a Jira capability the scan depends on came back degraded or forbidden, or when a site-wide collection cap was reached (see <a href="Known_Limitations.html">Known_Limitations.md</a> for the exact caps). The banner tells you which part was affected. Findings and the permission matrix from an incomplete scan are still shown; treat the affected area as under-reported until the next successful, complete scan.</p>
+<h2>A capability is shown as degraded or forbidden</h2>
+<p>On the Diagnostics tab, each Jira capability the scan depends on is marked <strong>ok</strong>, <strong>degraded</strong> or <strong>forbidden</strong>. A degraded or forbidden capability usually means your site restricts that data even from an app with the matching scope granted — for example, some sites restrict who can see shared filters and dashboards beyond their owner. When this happens the app records it rather than silently showing fewer results. Use <strong>run an on-demand capability check</strong> on Diagnostics to re-test without waiting for the next scheduled scan.</p>
+<h2>My team-managed project shows no permissions</h2>
+<p>This is expected, not an error. Team-managed (next-gen) projects control access inside the project itself rather than through a permission scheme, and that access model is not exposed the same way scheme-based access is. Access Auditor lists these projects and labels them clearly, but shows no permission matrix and raises no findings for them. Company-managed projects are fully covered. See <a href="Known_Limitations.html">Known_Limitations.md</a>.</p>
+<h2>A group shows no members</h2>
+<p>Two possible reasons. First, group membership is only collected for groups that actually carry access — a group referenced by a permission grant, a project role, a shared filter or an application role. An unrelated group is never queried for members, by design, to keep both the scan and your data footprint smaller. Second, on a very large site a group's member list can be truncated by the per-group collection cap; the member count shown still reflects Jira's own total for the group even when the list is capped.</p>
+<h2>The export did not download</h2>
+<p>The app runs inside a Forge iframe inside Jira, and some browsers or browser extensions block a file download initiated from inside an iframe. If <strong>Download</strong> does not produce a file, use the <strong>Copy to clipboard</strong> option next to it instead, and paste the CSV or JSON into a file yourself.</p>
+<h2>How to send a useful support report</h2>
+<ol><li>Open the <strong>Diagnostics</strong> tab.</li><li>Select <strong>Copy diagnostic report</strong>. This report is built to contain no</li></ol>
+<p>personal data and no credentials — no project name, group name, account identifier or permission holder appears in it.</p>
+<ol><li>Paste the report into an email to mira.maty@web.de, along with a short</li></ol>
+<p>description of what you expected and what happened instead.</p>
+<h2>See also</h2>
+<ul><li><a href="FAQ.html">FAQ.md</a></li><li><a href="Known_Limitations.html">Known_Limitations.md</a></li><li><a href="Permissions_and_Security.html">Permissions_and_Security.md</a></li></ul>
+</div></main>
+<footer class="site"><div class="wrap">
+  <p>Access Auditor for Jira is published by Matify for Atlassian Jira Cloud.</p>
+  <p>Security and support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+  <p>Copyright 2026 Matify. All Rights Reserved.</p>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>End user terms — Access Auditor for Jira — Matify</title>
+<meta name="description" content="The end user terms for Access Auditor for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<meta name="color-scheme" content="dark">
+<style>
+:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand">
+  <span class="name">Matify</span>
+  <span class="sep">/</span>
+  <span class="product">Access Auditor for Jira</span>
+</div></div></header>
+<nav class="site" aria-label="Sections"><ul><li><a href="../">Overview</a></li><li><a href="../docs/">Documentation</a></li><li><a href="../security-privacy/">Security & privacy</a></li><li><a href="../privacy/">Privacy policy</a></li><li><a href="../terms/" aria-current="page">Terms</a></li><li><a href="../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<h1>End User Terms of Use (Draft)</h1>
+<p>Copyright 2026 Matify. All Rights Reserved.</p>
+<blockquote><strong>DRAFT FOR OWNER REVIEW — NOT LEGAL ADVICE.</strong> This is a starting draft only. It must be reviewed by a qualified lawyer before publication, and every "OWNER DECISION REQUIRED" line below must be resolved first. See <a href="Legal_Owner_Review_Checklist.html">Legal_Owner_Review_Checklist.md</a>.</blockquote>
+<p><strong>Product:</strong> Access Auditor for Jira <strong>Vendor:</strong> Matify <strong>Contact:</strong> mira.maty@web.de <strong>Draft prepared:</strong> 2026-09-12</p>
+<h2>0. Atlassian's standard end user agreement</h2>
+<p>Atlassian offers a standard Marketplace End User Agreement that a vendor can adopt instead of publishing custom terms.</p>
+<p>OWNER DECISION REQUIRED: decide whether Access Auditor for Jira will be distributed under Atlassian's standard Marketplace End User Agreement, or under custom terms such as this draft. This draft assumes custom terms are being considered; if the owner instead adopts Atlassian's standard agreement, this document should not be published and can be discarded or kept only as an internal reference.</p>
+<h2>1. Acceptance</h2>
+<p>By installing, accessing or using Access Auditor for Jira ("the App"), the customer and its authorised users agree to these terms. If the customer does not agree, they must not install or use the App.</p>
+<h2>2. Licence grant</h2>
+<p>Subject to these terms and to payment of any applicable fees, Matify grants the customer a non-exclusive, non-transferable, revocable licence to access and use the App during the term of the customer's Atlassian Marketplace subscription, solely in connection with the customer's own Jira Cloud site and for the customer's own internal business purposes.</p>
+<h2>3. Permitted use</h2>
+<p>The App may be used only:</p>
+<ul><li>by individuals the customer has authorised to act as Jira administrators</li></ul>
+<p>on its own site;</p>
+<ul><li>to review the customer's own Jira site's access configuration; and</li><li>in accordance with Atlassian's Marketplace terms and the customer's own</li></ul>
+<p>agreement with Atlassian.</p>
+<p>The customer must not attempt to reverse engineer, decompile or extract the App's source code except to the extent applicable law makes such a restriction unenforceable, and must not use the App to build a competing product.</p>
+<h2>4. The read-only nature of the App</h2>
+<p>The App is read-only against Jira. It reads the customer's Jira configuration to produce findings, a permission matrix and a change list, and it does not create, modify or delete anything in the customer's Jira site. The customer remains solely responsible for making any change to their own Jira configuration; the App does not make such changes on the customer's behalf, whether automatically or otherwise.</p>
+<h2>5. No warranty that findings are exhaustive</h2>
+<p><strong>This is important.</strong> The App reports what is visible through the Jira Cloud REST API, subject to the documented limitations in the published Known Limitations page in the app documentation. In particular, and without limiting that document:</p>
+<ul><li>The App cannot list the customer's Jira site administrators, because</li></ul>
+<p>Jira Cloud exposes no API for global permission grants.</p>
+<ul><li>The App does not identify who made a configuration change or exactly</li></ul>
+<p>when.</p>
+<ul><li>The App does not evaluate team-managed (next-gen) project access.</li><li>A configuration change made and reverted between two scans is not</li></ul>
+<p>detected.</p>
+<ul><li>Collection is subject to documented caps on very large sites.</li></ul>
+<p>Access Auditor is a tool to assist an access review. <strong>It is not a guarantee of compliance with any law, regulation, contractual obligation, or security standard, and it must not be represented, sold, purchased or relied upon as one.</strong> A finding not being raised does not mean no risk exists. The customer is responsible for exercising its own judgement, and for engaging appropriately qualified personnel, when using the App's output for a compliance, audit, insurance, or regulatory purpose.</p>
+<h2>6. Disclaimer of warranties</h2>
+<p>To the maximum extent permitted by applicable law, the App is provided "as is" and "as available", without warranty of any kind, whether express, implied or statutory, including any implied warranty of merchantability, fitness for a particular purpose, or non-infringement.</p>
+<p>OWNER DECISION REQUIRED: confirm whether any jurisdiction the App is sold into grants consumer or business customers statutory rights that cannot be disclaimed, and adjust this section accordingly with legal advice.</p>
+<h2>7. Limitation of liability</h2>
+<p>To the maximum extent permitted by applicable law, Matify's total liability arising out of or relating to the App, whether in contract, tort or otherwise, will not exceed the amount the customer paid for the App in the twelve months preceding the claim. Matify will not be liable for indirect, incidental, consequential, special or punitive damages, or for lost profits, lost data, or the cost of substitute access-review measures, arising from use of, or inability to use, the App.</p>
+<p>OWNER DECISION REQUIRED: confirm this limitation is consistent with any statutory floor that cannot be excluded in the jurisdictions the App is sold into (for example, liability for death, personal injury, or fraud is often non-excludable), with legal advice.</p>
+<h2>8. Customer's own responsibility for their Jira configuration</h2>
+<p>The customer's Jira permission configuration remains the customer's own responsibility at all times. The App assists in reviewing that configuration; it does not assume responsibility for it, and using the App does not transfer any part of that responsibility to Matify.</p>
+<h2>9. Support</h2>
+<p>Matify provides support by email at mira.maty@web.de.</p>
+<p>OWNER DECISION REQUIRED: define any committed support hours or response time, if the owner wishes to commit to one; this draft commits to none.</p>
+<h2>10. Term and termination</h2>
+<p>These terms remain in effect for as long as the customer's Marketplace subscription to the App is active. Either party may terminate by uninstalling the App (for the customer) or by removing the App's Marketplace listing in accordance with Atlassian's Marketplace terms (for Matify). On termination, sections 5 through 8 of these terms survive. Uninstalling the App removes the App's stored data as described in <a href="Privacy_and_Data.html">Privacy_and_Data.md</a>.</p>
+<h2>11. Changes to these terms</h2>
+<p>OWNER DECISION REQUIRED: define the process and notice period for changing these terms before publication.</p>
+<h2>12. Governing law and jurisdiction</h2>
+<p>OWNER DECISION REQUIRED: the governing law and the courts or forum with jurisdiction over a dispute must be chosen by the owner, normally with legal advice, and inserted here. No governing law is asserted in this draft.</p>
+<h2>13. Contact</h2>
+<p>mira.maty@web.de</p>
+</div></main>
+<footer class="site"><div class="wrap">
+  <p>Access Auditor for Jira is published by Matify for Atlassian Jira Cloud.</p>
+  <p>Security and support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+  <p>Copyright 2026 Matify. All Rights Reserved.</p>
+</div></footer>
+</body>
+</html>

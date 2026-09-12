@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Permissions and security — Access Auditor for Jira — Matify</title>
+<meta name="description" content="Permissions and security for Access Auditor for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<meta name="color-scheme" content="dark">
+<style>
+:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand">
+  <span class="name">Matify</span>
+  <span class="sep">/</span>
+  <span class="product">Access Auditor for Jira</span>
+</div></div></header>
+<nav class="site" aria-label="Sections"><ul><li><a href="../">Overview</a></li><li><a href="../docs/">Documentation</a></li><li><a href="../security-privacy/">Security & privacy</a></li><li><a href="../privacy/">Privacy policy</a></li><li><a href="../terms/">Terms</a></li><li><a href="../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<h1>Permissions and Security</h1>
+<p>Copyright 2026 Matify. All Rights Reserved.</p>
+<p>This page explains why Access Auditor for Jira asks for the Jira permission it does, how it decides who is allowed to use it, what every declared scope is for, and what security properties the app is built to hold. It is written for the administrator who has to answer their own security team's questions before approving the install.</p>
+<h2>Why the app needs the Jira administrator permission</h2>
+<p>Access Auditor audits site-wide permission configuration: every permission scheme, every project's role membership, every group, and every shared filter and dashboard. Jira does not expose that scope of configuration to a non-administrator, so the product only makes sense for someone who already holds the Jira <strong>Administer Jira</strong> global permission.</p>
+<h2>Authorisation model</h2>
+<p>Every screen and every action in Access Auditor goes through the same check before it reads or returns anything: the app asks Jira, using <strong>your own credentials</strong> (<code>asUser()</code> against <code>GET /rest/api/3/mypermissions</code>), whether you hold the <code>ADMINISTER</code> global permission. Jira — not the app — makes that decision. Only after Jira confirms it does the app read configuration data with its own app-level credentials.</p>
+<p>Background code paths have no such option, because they have no user to check. The daily scheduled trigger, the installation trigger and the asynchronous scan worker all run with the app's own credentials by design and never attempt a per-user permission check. This was confirmed on a real Jira site: calling <code>asUser()</code> from a background trigger fails outright with <code>AUTH_TYPE_UNAVAILABLE</code>, so there is no code path where a background job could be tricked into acting as a particular person.</p>
+<p>If you use Access Auditor without the Administer Jira permission, every screen shows an explanation instead of data (error <code>MAA-E401</code>). See <a href="Troubleshooting.html">Troubleshooting.md</a>.</p>
+<h2>The app is read-only</h2>
+<p>Access Auditor declares zero write scopes, zero administration scopes, and zero <code>manage:*</code> scopes. It issues only HTTP GET requests against the Jira Cloud REST API. It never creates, edits or deletes anything in Jira. The only things it writes are its own audit history, findings, settings and your acknowledgement notes, and all of that is written to Forge's Atlassian-hosted app storage, never back to Jira.</p>
+<h2>Declared scopes, grouped by purpose</h2>
+<p>Access Auditor declares 22 scopes. Every one of them is either used directly by a feature, or required by Jira as part of the fixed set of scopes an operation demands — Jira Cloud's granular scopes are cumulative, not alternatives, so an endpoint can require a scope the app never reads data through. Both kinds are listed here, and neither kind grants write access.</p>
+<h3>Scopes the audit reads data through</h3>
+<div class="table-wrap"><table><thead><tr><th>Scope</th><th>Used for</th></tr></thead><tbody><tr><td><code>read:permission-scheme:jira</code></td><td>Reading every permission scheme and its grants — the core of the audit</td></tr><tr><td><code>read:permission:jira</code></td><td>Reading grants, and confirming you are a Jira administrator via <code>/mypermissions</code></td></tr><tr><td><code>read:project:jira</code></td><td>Every project-scoped read the audit performs</td></tr><tr><td><code>read:project-role:jira</code></td><td>Resolving a project-role grant to the people who actually hold it</td></tr><tr><td><code>read:group:jira</code></td><td>Listing groups and resolving a group grant to its members</td></tr><tr><td><code>read:user:jira</code></td><td>Telling an active account from a deactivated one (finding R4)</td></tr><tr><td><code>read:application-role:jira</code></td><td>Identifying which groups grant Jira product access, one of the three privileged-group signals</td></tr><tr><td><code>read:field:jira</code></td><td>Naming the custom field behind a custom-field grant (finding R11)</td></tr><tr><td><code>read:issue-security-scheme:jira</code></td><td>Detecting a project with no issue security scheme (finding R8)</td></tr><tr><td><code>read:issue-security-level:jira</code></td><td>Required by Jira alongside the scheme scope for the same per-project check</td></tr><tr><td><code>read:filter:jira</code></td><td>Detecting shared filters that expose issue data beyond the team (finding R3)</td></tr><tr><td><code>read:jql:jira</code></td><td>Required by Jira to list filters at all; the JQL body of a filter is never read</td></tr><tr><td><code>read:dashboard:jira</code></td><td>Detecting shared dashboards that expose data beyond the team (finding R3)</td></tr><tr><td><code>read:project-category:jira</code></td><td>Required by Jira as part of the cumulative scope set for project, scheme and role reads</td></tr><tr><td><code>storage:app</code></td><td>Storing audit history — snapshots, findings, the change list, acknowledgements and settings — in Atlassian-hosted app storage</td></tr></tbody></table></div>
+<h3>Scopes required only because Jira bundles them into an operation the audit needs</h3>
+<p>These are not used by the product for their own data. Jira's granular scopes are cumulative: removing any one of them causes the operation the app depends on to fail with HTTP 401. None of them lets the app read anything beyond configuration metadata.</p>
+<div class="table-wrap"><table><thead><tr><th>Scope</th><th>Bundled into</th></tr></thead><tbody><tr><td><code>read:avatar:jira</code></td><td><code>/group/member</code>, <code>/user/bulk</code> and related lookups — no avatar is ever read, stored or displayed</td></tr><tr><td><code>read:issue-type-hierarchy:jira</code></td><td><code>/project/search</code>, <code>/filter/search</code>, <code>/dashboard/search</code></td></tr><tr><td><code>read:issue-type:jira</code></td><td><code>/project/search</code>, <code>/dashboard/search</code></td></tr><tr><td><code>read:project-version:jira</code></td><td><code>/project/search</code></td></tr><tr><td><code>read:project.component:jira</code></td><td><code>/project/search</code></td></tr><tr><td><code>read:project.property:jira</code></td><td><code>/project/search</code></td></tr></tbody></table></div>
+<p>Every scope's customer impact is the same: read access to configuration metadata only. No issue content, no attachments and no email addresses are ever read through any declared scope. The full technical derivation of this table — including which Jira REST operation required which scope — is available from Matify on request for anyone who wants to verify it scope by scope, and every scope listed here can also be read directly from the app's own published manifest in the Atlassian Marketplace.</p>
+<h3>The scope Atlassian requires of any app that stores personal data</h3>
+<div class="table-wrap"><table><thead><tr><th>Scope</th><th>Used for</th></tr></thead><tbody><tr><td><code>report:personal-data</code></td><td>Reporting the Atlassian account identifiers the app has stored back to Atlassian once a week, so Atlassian can tell the app which of them have changed or been closed. Nothing is read through this scope and nothing leaves Atlassian; it is the platform obligation described under "Keeping stored account data current" in <a href="Privacy_and_Data.html">Privacy_and_Data.md</a>.</td></tr></tbody></table></div>
+<h2>What the app does not request</h2>
+<p>The app does not request <code>manage:jira-configuration</code> or any other administration scope. An earlier build considered reading Jira's audit log to reconstruct global permission grants; that scope was removed before release. See <a href="Known_Limitations.html">Known_Limitations.md</a> for why.</p>
+<h2>Tenant isolation</h2>
+<p>Forge storage is scoped to your installation; one site's data is never addressable from another site's install of the app. The app adds a second guarantee on top of that: nothing is held in memory across requests. Forge can reuse a running container between invocations, so the app re-reads storage on every single request rather than caching a value that might have been set by a different installation's turn on that container.</p>
+<h2>Secrets</h2>
+<p>The app holds no secrets. It has no API token, no OAuth client secret and no external credential of any kind, because it never talks to a service outside Atlassian. Nothing is stored with Forge's secret storage. No credential appears anywhere in the app: not in the source, the manifest, the bundled frontend, the logs, this documentation, or the Marketplace listing.</p>
+<h2>Nothing is cached between requests</h2>
+<p>Every resolver call re-reads whatever it needs from Forge storage or from Jira. There is no in-memory cache of permission data, group membership or settings that could persist from one request to the next, or from one tenant's request to another's.</p>
+<h2>See also</h2>
+<ul><li><a href="Privacy_and_Data.html">Privacy_and_Data.md</a></li><li><a href="Known_Limitations.html">Known_Limitations.md</a></li><li><a href="Troubleshooting.html">Troubleshooting.md</a></li></ul>
+</div></main>
+<footer class="site"><div class="wrap">
+  <p>Access Auditor for Jira is published by Matify for Atlassian Jira Cloud.</p>
+  <p>Security and support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+  <p>Copyright 2026 Matify. All Rights Reserved.</p>
+</div></footer>
+</body>
+</html>

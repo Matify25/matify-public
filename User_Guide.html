@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>User guide — Access Auditor for Jira</title>
+<meta name="description" content="Documentation for Access Auditor for Jira, a read-only Jira Cloud permission audit app by Matify.">
+<style>
+:root{
+  --bg:#ffffff; --fg:#172b4d; --muted:#5e6c84; --line:#dfe1e6;
+  --accent:#0b2f52; --accent-fg:#ffffff; --code-bg:#f4f5f7; --flag:#ffab00;
+  --max:64rem;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#0e1117; --fg:#e6edf3; --muted:#9198a1; --line:#2a2f37;
+         --accent:#0b2f52; --code-bg:#161b22; }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{background:var(--accent);color:var(--accent-fg);padding:1.25rem 1.5rem}
+header .brand{display:flex;align-items:center;gap:.75rem;max-width:var(--max);margin:0 auto}
+header .mark{width:28px;height:28px;border-radius:6px;background:#fff;position:relative;flex:none}
+header .mark::after{content:"";position:absolute;right:5px;bottom:5px;width:7px;height:7px;background:var(--flag)}
+header h1{font-size:1.05rem;margin:0;font-weight:600;letter-spacing:.2px}
+header .vendor{margin-left:auto;font-size:.85rem;opacity:.8}
+nav{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:5}
+nav ul{max-width:var(--max);margin:0 auto;padding:0 1.5rem;list-style:none;display:flex;
+  flex-wrap:wrap;gap:.25rem 1.1rem}
+nav a{display:inline-block;padding:.7rem 0;color:var(--muted);text-decoration:none;font-size:.9rem}
+nav a:hover,nav a:focus{color:var(--fg)}
+nav a[aria-current="page"]{color:var(--fg);box-shadow:inset 0 -2px 0 var(--flag)}
+main{max-width:var(--max);margin:0 auto;padding:2rem 1.5rem 4rem}
+h1,h2,h3,h4{line-height:1.25;margin:2rem 0 .75rem}
+main>h1:first-child{margin-top:0;font-size:1.9rem}
+h2{font-size:1.35rem;padding-top:.5rem;border-top:1px solid var(--line)}
+h3{font-size:1.1rem}
+h4{font-size:1rem;color:var(--muted)}
+p,ul,ol{margin:.75rem 0}
+li{margin:.3rem 0}
+a{color:#0b62c4}
+@media (prefers-color-scheme:dark){a{color:#79b8ff}}
+code{background:var(--code-bg);padding:.12em .38em;border-radius:4px;
+  font:0.88em/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+pre{background:var(--code-bg);padding:1rem;border-radius:6px;overflow-x:auto;
+  border:1px solid var(--line)}
+pre code{background:none;padding:0}
+.table-wrap{overflow-x:auto;margin:1rem 0}
+table{border-collapse:collapse;width:100%;font-size:.94rem}
+th,td{border:1px solid var(--line);padding:.5rem .65rem;text-align:left;vertical-align:top}
+th{background:var(--code-bg);font-weight:600}
+blockquote{margin:1rem 0;padding:.6rem 1rem;border-left:3px solid var(--flag);
+  background:var(--code-bg);color:var(--muted)}
+hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer div{max-width:var(--max);margin:0 auto;padding:1.5rem}
+.notice{border:1px solid var(--flag);border-left-width:4px;border-radius:4px;
+  padding:.85rem 1rem;margin:1.5rem 0;background:var(--code-bg)}
+</style>
+</head>
+<body>
+<header><div class="brand">
+  <span class="mark" aria-hidden="true"></span>
+  <h1>Access Auditor for Jira</h1>
+  <span class="vendor">by Matify</span>
+</div></header>
+<nav aria-label="Documentation"><ul><li><a href="index.html">Overview</a></li><li><a href="Getting_Started.html">Getting started</a></li><li><a href="User_Guide.html" aria-current="page">User guide</a></li><li><a href="Permissions_and_Security.html">Permissions & security</a></li><li><a href="Privacy_and_Data.html">Privacy & data</a></li><li><a href="Troubleshooting.html">Troubleshooting</a></li><li><a href="FAQ.html">FAQ</a></li><li><a href="Known_Limitations.html">Known limitations</a></li><li><a href="CHANGELOG.html">Changelog</a></li><li><a href="support.html">Support</a></li><li><a href="privacy.html">Privacy policy</a></li><li><a href="terms.html">Terms</a></li></ul></nav>
+<main>
+<h1>User Guide</h1>
+<p>Copyright 2026 Matify. All Rights Reserved.</p>
+<p>This guide covers every tab in Access Auditor for Jira, in the order they appear: Overview, Findings, Explorer, Schemes, Changes, Exports, Settings, Diagnostics. Read <a href="Getting_Started.html">Getting_Started.md</a> first if you have not yet run a scan.</p>
+<h2>Vocabulary used throughout this guide</h2>
+<p><strong>Holder</strong> — whatever a permission grant names as the recipient: a user, a group, a project role, an application role, or a symbolic holder such as "the current assignee".</p>
+<p><strong>Symbolic holder</strong> — a holder that does not name a fixed set of people. Current assignee, reporter, project lead, and a user or group custom field value all resolve differently depending on the issue in front of you. Access Auditor labels these <strong>resolves per issue</strong> rather than guessing who they are. See <a href="Known_Limitations.html">Known_Limitations.md</a> for the full list.</p>
+<p><strong>Granted via</strong> — the chain of configuration that connects a holder to a permission: for example, a permission scheme grants <em>Administer projects</em> to the <em>Administrators</em> project role, and a named user is a member of that role. The app shows every link in that chain, not just the endpoints.</p>
+<p><strong>Privileged group signal</strong> — the reason a group is treated as an administrator group. Jira Cloud exposes no API for global permission grants, so Access Auditor cannot read who your site administrators are. It instead marks a group as privileged when at least one of three signals applies: the group grants product access through an application role, the group holds <em>Administer projects</em> in a permission scheme, or the group's name matches an Atlassian default administrator naming convention (a heuristic, labelled as such everywhere it appears).</p>
+<p><strong>Capability degradation</strong> — when a scan asks Jira for something and receives a restricted or forbidden response rather than the normal one. The app records this per capability rather than silently showing fewer results.</p>
+<p><strong>Incomplete scan</strong> — a scan is marked incomplete when any capability it depends on came back degraded or forbidden, or when a site-wide collection cap was reached. The Overview tab tells you which part was affected.</p>
+<h2>Overview</h2>
+<p>Answers: <em>is my site's access configuration healthy right now, and did the last scan see everything it needed to?</em></p>
+<ul><li>Open findings, grouped by severity: critical, high, medium, low, info.</li><li>The last scan's metadata: when it ran, how long it took, how many Jira</li></ul>
+<p>API calls it made, and whether it was marked incomplete.</p>
+<ul><li><strong>Run scan now</strong>, with live progress, for starting a scan by hand between</li></ul>
+<p>scheduled runs.</p>
+<ul><li>The top findings, so you do not have to open the Findings tab to see what</li></ul>
+<p>needs attention first.</p>
+<ul><li>A findings trend across recent scans, so you can see whether your open</li></ul>
+<p>finding count is going up or down over time.</p>
+<ul><li>A warning banner when a scan could not read something it needed. Follow</li></ul>
+<p>it to <a href="Troubleshooting.html">Troubleshooting.md</a>.</p>
+<h2>Findings</h2>
+<p>Answers: <em>what, specifically, is wrong, and what should I do about it?</em></p>
+<p>Filter by severity, rule, project, status or free text. Each finding shows:</p>
+<ul><li>A plain-language <strong>summary</strong> of the configuration the rule detected.</li><li>A <strong>remediation</strong> — what to consider changing.</li><li>An <strong>evidence</strong> list showing exactly what the app read to reach its</li></ul>
+<p>conclusion.</p>
+<ul><li>Where Jira supports it, a <strong>deep link</strong> straight into the relevant Jira</li></ul>
+<p>administration screen.</p>
+<p>You can <strong>acknowledge</strong>, <strong>resolve</strong> or <strong>reopen</strong> a finding, each with an optional note. An acknowledged or resolved finding stays in that state across future scans until the underlying configuration changes, or until the acknowledgement expiry you set in Settings elapses.</p>
+<h3>The twelve findings</h3>
+<p>Every finding on this tab is generated by one of the following rules. Names and default severities are fixed; only the sensitivity profile changes which permissions count as sensitive for rules that check permission grants.</p>
+<div class="table-wrap"><table><thead><tr><th>Rule</th><th>Name</th><th>Default severity</th></tr></thead><tbody><tr><td>R1</td><td>Anonymous or public access granted</td><td>Critical</td></tr><tr><td>R2</td><td>Sensitive permission granted to every logged-in user</td><td>High</td></tr><tr><td>R3</td><td>Filter or dashboard shared beyond the team</td><td>Critical</td></tr><tr><td>R4</td><td>Deactivated account still holds access</td><td>High</td></tr><tr><td>R5</td><td>Privileged group is oversized or contains inactive accounts</td><td>High</td></tr><tr><td>R6</td><td>Permission scheme is not used by any project</td><td>Low</td></tr><tr><td>R7</td><td>Near-duplicate permission schemes</td><td>Low</td></tr><tr><td>R8</td><td>Broadly readable project without an issue security scheme</td><td>Medium</td></tr><tr><td>R9</td><td>Project role "Administrators" has no members</td><td>Medium</td></tr><tr><td>R10</td><td>Project administration granted to a large group</td><td>Medium</td></tr><tr><td>R11</td><td>Sensitive permission depends on a custom field value</td><td>Info</td></tr><tr><td>R12</td><td>Archived project still grants broad access</td><td>Info</td></tr></tbody></table></div>
+<ul><li><strong>R1</strong> fires when a permission is granted to the "Anyone" holder, which</li></ul>
+<p>can expose project data to users who are not logged in wherever the site and project allow anonymous access.</p>
+<ul><li><strong>R2</strong> fires when a destructive or administrative permission is granted</li></ul>
+<p>to every logged-in user, which removes any separation of duties.</p>
+<ul><li><strong>R3</strong> fires on a filter or dashboard shared beyond the team, which can</li></ul>
+<p>expose issue summaries or metrics outside the organisation.</p>
+<ul><li><strong>R4</strong> fires when a deactivated account remains in a project role or an</li></ul>
+<p>administrator group; the access returns in full if the account is ever reactivated.</p>
+<ul><li><strong>R5</strong> fires when a group carrying administrator access is larger than</li></ul>
+<p>your configured large-group threshold, or contains inactive accounts.</p>
+<ul><li><strong>R6</strong> fires on a permission scheme that no project uses.</li><li><strong>R7</strong> fires on two permission schemes that differ by only a small number</li></ul>
+<p>of grants and are usually candidates for consolidation.</p>
+<ul><li><strong>R8</strong> fires on a project that is broadly readable and has no issue</li></ul>
+<p>security scheme, so there is no way to restrict an individual sensitive issue within it.</p>
+<ul><li><strong>R9</strong> fires when a project's <em>Administrators</em> role has no members, which</li></ul>
+<p>means every change to that project escalates to a site administrator.</p>
+<ul><li><strong>R10</strong> fires when <em>Administer projects</em> is granted to a group larger</li></ul>
+<p>than your configured large-group threshold.</p>
+<ul><li><strong>R11</strong> fires on a sensitive permission granted through a user or group</li></ul>
+<p>custom field, because that grant resolves per issue and cannot be reviewed from configuration alone.</p>
+<ul><li><strong>R12</strong> fires on an archived project that still carries a broad grant,</li></ul>
+<p>because the grant remains in place if the project is ever restored.</p>
+<h2>Explorer</h2>
+<p>Answers: <em>what does this specific project, group or person actually reach?</em> Three modes:</p>
+<ul><li><strong>By project</strong> — the permission matrix for that project: every</li></ul>
+<p>permission, its resolved holders, and the granted-via chain for each.</p>
+<ul><li><strong>By group</strong> — every project and permission that group reaches, across</li></ul>
+<p>the whole site.</p>
+<ul><li><strong>By user</strong> — the same as group mode, for one person, including which</li></ul>
+<p>group carried each permission they hold.</p>
+<p>In every mode, select <strong>View access</strong> on a row to open its detail; the list is replaced, and a <strong>Back to all …</strong> control returns you to it.</p>
+<h3>How to read the permission matrix</h3>
+<ol><li>Find the project in the list and select <strong>View access</strong>. The matrix</li></ol>
+<p>replaces the list; <strong>Back to all projects</strong> returns you to it. Each row is one Jira permission (for example <em>Browse projects</em> or <em>Administer projects</em>).</p>
+<ol><li>The <strong>Granted to</strong> column lists everyone and everything that can</li></ol>
+<p>exercise that permission in that project: named users, groups (with a member count), project roles, application roles, and holders that resolve per issue.</p>
+<ol><li>Under each holder is its <strong>granted via</strong> chain, always visible — nothing</li></ol>
+<p>to expand. For a group member it typically reads scheme → grant → group → member. For a project role it reads scheme → grant → role → actor.</p>
+<ol><li>A holder marked <strong>resolves per issue</strong> (assignee, reporter, project</li></ol>
+<p>lead, or a custom field value) has no fixed member list; the chain explains the grant, not a name.</p>
+<ol><li>A holder marked <strong>no members in this project</strong> is a project role that</li></ol>
+<p>the scheme grants a permission to, but which nobody holds. The grant is real and the access is not — worth knowing before you assume a role covers a permission. Finding R9 raises this for the Administrators role.</p>
+<ol><li>A holder marked <strong>deactivated</strong> is a disabled account that still holds</li></ol>
+<p>the permission — this is exactly what finding R4 flags.</p>
+<ol><li>A note above the matrix reports Atlassian app accounts that also hold</li></ol>
+<p>access. They are excluded from the rows because they are installed apps rather than people, and their count is shown so the exclusion is visible.</p>
+<ol><li>Team-managed projects show no matrix here; see</li></ol>
+<p><a href="Known_Limitations.html">Known_Limitations.md</a>.</p>
+<h2>Schemes</h2>
+<p>Answers: <em>what do my permission schemes actually contain, and are any of them redundant?</em></p>
+<ul><li>Every permission scheme, its grant count, and which projects use it.</li><li>A detail view of a scheme's permissions and resolved holders.</li><li>Detection of near-duplicate schemes (finding R7), with a match</li></ul>
+<p>percentage and a list of exactly what differs on each side.</p>
+<h2>Changes</h2>
+<p>Answers: <em>what changed since the previous scan?</em></p>
+<p>Filterable by change type. Changed sharing and changed scheme bindings show a before → after comparison. This tab reports <strong>what</strong> changed, never <strong>who</strong> changed it or precisely when — Jira's audit log is not read by this app. See <a href="Known_Limitations.html">Known_Limitations.md</a> for why. The first scan after installation always shows no changes, because there is nothing yet to compare it against.</p>
+<h2>Exports</h2>
+<p>Answers: <em>how do I get this data out for a report or an auditor?</em></p>
+<p>Three exports, each available as CSV or JSON:</p>
+<ul><li>Findings</li><li>The full permission matrix</li><li>The change list</li></ul>
+<p>If a download does not start, see <a href="Troubleshooting.html">Troubleshooting.md</a> for the Copy to clipboard fallback.</p>
+<h2>Settings</h2>
+<p>Configures how the app scans and what it keeps:</p>
+<div class="table-wrap"><table><thead><tr><th>Setting</th><th>Values</th><th>Default</th></tr></thead><tbody><tr><td>Scan frequency</td><td>Daily, weekly, manual</td><td>Daily</td></tr><tr><td>Sensitivity profile</td><td>Standard, strict</td><td>Standard</td></tr><tr><td>Large-group threshold</td><td>Member count above which a group counts as large (used by R5 and R10)</td><td>100</td></tr><tr><td>History retention</td><td>30, 90, 180 or 365 days</td><td>90 days</td></tr><tr><td>Acknowledgement expiry</td><td>Days after which an acknowledgement expires; 0 means never</td><td>0 (never)</td></tr><tr><td>Excluded project keys</td><td>Project keys left out of scanning and findings</td><td>None</td></tr><tr><td>Excluded group names</td><td>Group names left out of scanning and findings</td><td>None</td></tr></tbody></table></div>
+<p>The <strong>strict</strong> profile treats a wider set of permissions as sensitive for rule R2 — for example editing, transitioning, assigning, resolving and closing issues, and managing watchers, in addition to the permissions the standard profile already treats as sensitive. Expect more R2 findings on the same site under strict than under standard.</p>
+<p>Every value you set here is re-validated on the server before it is stored; the browser is not trusted with this decision.</p>
+<p>Below the settings is the <strong>Danger zone</strong>, which deletes everything Access Auditor has stored for your site — every scan, finding, change record and acknowledgement — after showing you a count of what that is and asking you to confirm in writing. The app stays installed and scans again afterwards. Nothing in Jira is touched.</p>
+<h2>Diagnostics</h2>
+<p>Answers: <em>what is this app doing, and what do I send to support if something goes wrong?</em></p>
+<ul><li>App version, environment and licence state.</li><li>A summary of the last scan.</li><li>The capability matrix — whether each Jira capability the scan depends on</li></ul>
+<p>responded normally, was degraded, or was forbidden on your site.</p>
+<ul><li>An on-demand capability check you can run without waiting for the next</li></ul>
+<p>scheduled scan.</p>
+<ul><li>A copyable support report, built to contain no personal data and no</li></ul>
+<p>credentials, for sending to mira.maty@web.de.</p>
+<h2>See also</h2>
+<ul><li><a href="Permissions_and_Security.html">Permissions_and_Security.md</a></li><li><a href="Privacy_and_Data.html">Privacy_and_Data.md</a></li><li><a href="Known_Limitations.html">Known_Limitations.md</a></li><li><a href="Troubleshooting.html">Troubleshooting.md</a></li></ul>
+</main>
+<footer><div>
+  Copyright 2026 Matify. All Rights Reserved. &middot;
+  Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a>
+</div></footer>
+</body>
+</html>

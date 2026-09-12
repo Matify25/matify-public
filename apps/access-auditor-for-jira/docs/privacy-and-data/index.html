@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy and data — Access Auditor for Jira — Matify</title>
+<meta name="description" content="Privacy and data for Access Auditor for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<meta name="color-scheme" content="dark">
+<style>
+:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand">
+  <span class="name">Matify</span>
+  <span class="sep">/</span>
+  <span class="product">Access Auditor for Jira</span>
+</div></div></header>
+<nav class="site" aria-label="Sections"><ul><li><a href="../">Overview</a></li><li><a href="../docs/">Documentation</a></li><li><a href="../security-privacy/">Security & privacy</a></li><li><a href="../privacy/">Privacy policy</a></li><li><a href="../terms/">Terms</a></li><li><a href="../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<h1>Privacy and Data</h1>
+<p>Copyright 2026 Matify. All Rights Reserved.</p>
+<p>This page is the customer-facing explanation of what Access Auditor for Jira reads, what it stores, where, for how long, and how to remove it. It is written directly from the app's internal security and data manifest and must not claim anything beyond it. The full public version of that detail, including hosting, egress, retention and subprocessors, is the <a href="">data security and privacy statement</a>.</p>
+<p>For the draft privacy policy intended for your legal review before publication, see <a href="Privacy_Policy.html">Privacy_Policy.md</a>.</p>
+<h2>Where everything lives</h2>
+<p>Access Auditor is a Forge app. All of its compute and all of its storage are hosted by Atlassian, inside your own Jira Cloud installation. The app sends no data outside Atlassian — see <a href="Permissions_and_Security.html">Permissions_and_Security.md</a> for the authorisation and scope detail.</p>
+<h2>What is read</h2>
+<div class="table-wrap"><table><thead><tr><th>Category</th><th>Contains personal data</th><th>Read from</th></tr></thead><tbody><tr><td>Permission scheme configuration</td><td>Only where a grant names an individual account</td><td>Jira Cloud</td></tr><tr><td>Project metadata</td><td>Only the project lead's account identifier</td><td>Jira Cloud</td></tr><tr><td>Group membership</td><td>Yes — account identifier and display name</td><td>Jira Cloud</td></tr><tr><td>Account status (active or deactivated)</td><td>Yes — account identifier, display name, active flag, account type</td><td>Jira Cloud</td></tr><tr><td>Shared filter and dashboard ownership and sharing</td><td>Yes — the owner's account identifier and display name</td><td>Jira Cloud</td></tr></tbody></table></div>
+<p>Group membership is only read for groups that actually carry access — a group referenced by a permission grant, a project role, a shared filter or an application role. Membership of an unrelated group is never read. Collection is capped per group and site-wide; when a cap is reached the app records Jira's own membership total for that group rather than reading every row, so the count you see stays accurate even when the member list is not complete. See <a href="Known_Limitations.html">Known_Limitations.md</a> for the exact caps.</p>
+<h2>What is stored, and where</h2>
+<div class="table-wrap"><table><thead><tr><th>What</th><th>Storage location</th><th>Retention</th><th>Removed</th></tr></thead><tbody><tr><td>Permission scheme and project snapshot</td><td>Forge custom entity store (<code>maa-snapshot-data</code>)</td><td>Most recent scan only; the previous generation is pruned</td><td>Overwritten by the next scan; removed on uninstall</td></tr><tr><td>Group membership snapshot</td><td>Forge custom entity store (<code>maa-snapshot-data</code>)</td><td>Most recent scan only</td><td>Overwritten by the next scan; removed on uninstall</td></tr><tr><td>Findings, change history and snapshots</td><td>Forge custom entity store (<code>maa-snapshot</code>, <code>maa-finding-chunk</code>, <code>maa-drift-chunk</code>, <code>maa-fingerprint</code>)</td><td>Your configured retention period, default 90 days; change comparisons only ever look one scan back, so drift data older than two generations is kept for no purpose and pruned</td><td>Pruned automatically after each successful scan; removed on uninstall</td></tr><tr><td>Acknowledgement, resolution or reopen decisions, and any note you attach</td><td>Forge custom entity store (<code>maa-finding-state</code>)</td><td>Until you change it, or until your configured acknowledgement expiry elapses</td><td>Removed on uninstall</td></tr><tr><td>Settings</td><td>Forge key-value store (<code>maa:settings</code>)</td><td>Until you change it</td><td>Removed on uninstall</td></tr></tbody></table></div>
+<p>All storage is Atlassian-hosted Forge storage and inherits your Jira site's own data residency. No data is moved to a region other than the one your Jira site is already pinned to, because the app never leaves Atlassian's platform to move it anywhere.</p>
+<h2>Retention you control</h2>
+<p>Set <strong>History retention</strong> on the Settings tab to 30, 90, 180 or 365 days. The default is 90 days. Findings, the change list and snapshots older than this are pruned automatically after each successful scan; a failed scan never triggers deletion, so a bad scan cannot silently wipe your history.</p>
+<p>Set <strong>Acknowledgement expiry</strong> on the Settings tab to control how long an acknowledged finding stays acknowledged before it reopens for review. The default is 0, meaning an acknowledgement never expires on its own.</p>
+<h2>Keeping stored account data current</h2>
+<p>Because Access Auditor stores Atlassian account identifiers, it takes part in Atlassian's personal data reporting cycle. Once a week the app reports every account identifier it holds to Atlassian and acts on the answer:</p>
+<ul><li><strong>The account changed</strong> — the app queues a scan, so the display name it shows</li></ul>
+<p>you is refreshed from Jira rather than left stale.</p>
+<ul><li><strong>The account was closed</strong> — the app deletes that account’s finding history</li></ul>
+<p>and then purges its stored audit data before rebuilding it by scanning, so a closed account does not survive inside an old snapshot. Your settings and exclusion lists are kept.</p>
+<p>This runs whether or not your licence is active. Erasing data about someone who has left is an obligation, not a paid feature, so the weekly report is deliberately not gated behind a subscription.</p>
+<p>Nothing leaves Atlassian to make this happen: the report is an Atlassian platform call, not an external service.</p>
+<h2>Deleting your data</h2>
+<ul><li><strong>A specific acknowledgement or note</strong>: reopen the finding from the</li></ul>
+<p>Findings tab, or overwrite the note when you change its status.</p>
+<ul><li><strong>Everything the app has stored, without uninstalling</strong>: open the <strong>Settings</strong></li></ul>
+<p>tab and use <strong>Danger zone → Delete all Access Auditor data</strong>. It shows you a count of exactly what is stored before you confirm, and requires you to type the confirmation it asks for. This removes every scan, finding, change record and acknowledgement. The app stays installed and will scan again.</p>
+<ul><li><strong>Everything the app has stored, by removing the app</strong>: uninstall it. Forge removes all</li></ul>
+<p>of the app's storage for your site as part of uninstallation — the snapshot data, findings, change history, acknowledgements and settings are all deleted, not merely hidden.</p>
+<h2>What is never read</h2>
+<p>Issue content. Attachments. Comments. Worklogs. Email addresses. Avatars. A filter's JQL body. A dashboard's gadgets. Any user profile attribute beyond display name, account type, and whether the account is active.</p>
+<p>None of the above is read, stored or displayed by any part of the app, under any setting.</p>
+<h2>Administrator-entered notes</h2>
+<p>When you acknowledge or resolve a finding you may add a free-text note, up to 500 characters. This note is stored as part of the finding's state. Because it is free text, do not put confidential information in it — treat it the way you would a comment in any shared admin tool.</p>
+<h2>App accounts are not treated as people</h2>
+<p>Atlassian app accounts (including Access Auditor's own account) can appear in project roles and groups like any other principal. They are excluded from every human-facing count and reported separately where relevant, so an installed Marketplace app is never counted as a risky user or inflates an administrator group's headcount.</p>
+<h2>Logging</h2>
+<p>Operational logs record counts, durations, HTTP statuses and error codes. They deliberately exclude project keys, project names, group names, account identifiers, display names and permission holders, and error messages written to logs are truncated. A support investigation into this app never requires reading your data out of a log line.</p>
+<h2>Questions</h2>
+<p>mira.maty@web.de</p>
+</div></main>
+<footer class="site"><div class="wrap">
+  <p>Access Auditor for Jira is published by Matify for Atlassian Jira Cloud.</p>
+  <p>Security and support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+  <p>Copyright 2026 Matify. All Rights Reserved.</p>
+</div></footer>
+</body>
+</html>

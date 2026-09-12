@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data security and privacy statement — Access Auditor for Jira — Matify</title>
+<meta name="description" content="How Access Auditor for Jira by Matify processes, stores and protects data: Forge hosting, personal data, storage, residency, zero external egress, scopes, retention, personal data reporting, logging and subprocessors.">
+<meta name="robots" content="index,follow">
+<meta name="color-scheme" content="dark">
+<style>
+:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand">
+  <span class="name">Matify</span>
+  <span class="sep">/</span>
+  <span class="product">Access Auditor for Jira</span>
+</div></div></header>
+<nav class="site" aria-label="Sections"><ul><li><a href="../">Overview</a></li><li><a href="../docs/">Documentation</a></li><li><a href="../security-privacy/" aria-current="page">Security & privacy</a></li><li><a href="../privacy/">Privacy policy</a></li><li><a href="../terms/">Terms</a></li><li><a href="../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<h1>Data Security and Privacy Statement</h1>
+<p><strong>Product:</strong> Access Auditor for Jira <strong>Publisher:</strong> Matify <strong>Platform:</strong> Atlassian Forge, Jira Cloud <strong>Last updated:</strong> 2026-09-13</p>
+<p>Every statement below describes the app as it ships. Nothing here describes a planned feature, and no security certification is claimed. Where a claim can be checked against the app's own published manifest, this document says how.</p>
+<hr>
+<h2>1. Overview</h2>
+<p>Access Auditor for Jira is a read-only auditing app for Jira Cloud. It reads your site's permission configuration — permission schemes, project roles, groups, shared filters and shared dashboards — resolves each grant to the people and groups who actually hold it, and reports configurations that are likely to be a risk.</p>
+<p>Three properties define its security posture, and each is enforced by the Atlassian Forge platform rather than by the app's own discipline:</p>
+<ul><li>It runs entirely inside Atlassian's infrastructure.</li><li>It declares no ability to send data anywhere outside Atlassian.</li><li>It declares no ability to write anything to Jira.</li></ul>
+<p>It does store personal data, in the form of Atlassian account identifiers and display names. Section 4 says exactly what and why.</p>
+<h2>2. Hosting and architecture</h2>
+<p>Access Auditor is an <strong>Atlassian Forge</strong> app. Both its compute and its storage are hosted by Atlassian, inside your own Jira Cloud installation. Matify operates no server, no database and no endpoint that this app talks to.</p>
+<div class="table-wrap"><table><thead><tr><th>Component</th><th>Where it runs</th></tr></thead><tbody><tr><td>Backend functions and triggers</td><td>Atlassian Forge, <code>nodejs22.x</code> runtime</td></tr><tr><td>Administration interface</td><td>Forge Custom UI, served from the app's own bundled resources</td></tr><tr><td>All app storage</td><td>Forge custom entity store and Forge key-value store</td></tr></tbody></table></div>
+<p>The Forge CLI reported the app <strong>eligible for Atlassian's Runs on Atlassian programme</strong> on each deployment, including the production deployment. That is Atlassian's tooling making the determination, not a self-assessment. The programme badge itself is granted by Atlassian on the listing, not by this document.</p>
+<h2>3. Data we process</h2>
+<p>Read from Jira Cloud, using read-only scopes:</p>
+<div class="table-wrap"><table><thead><tr><th>Category</th><th>What it contains</th></tr></thead><tbody><tr><td>Permission scheme configuration</td><td>Schemes and their permission grants — the object being audited</td></tr><tr><td>Project metadata</td><td>Project key, name, type, archived state, and the project lead</td></tr><tr><td>Project roles and role actors</td><td>Which users and groups hold which role in which project</td></tr><tr><td>Groups and group membership</td><td>Group names, and the members of groups that carry access</td></tr><tr><td>Application roles</td><td>Which groups grant Jira product access</td></tr><tr><td>Account status</td><td>Whether an account is active or deactivated, and its account type</td></tr><tr><td>Issue security schemes and levels</td><td>Whether a project has issue security configured</td></tr><tr><td>Shared filters and dashboards</td><td>Name, owner and share permissions only</td></tr><tr><td>Custom field definitions</td><td>The name of a field used as a permission holder</td></tr></tbody></table></div>
+<p>Derived by the app and stored as audit results:</p>
+<div class="table-wrap"><table><thead><tr><th>Category</th><th>What it contains</th></tr></thead><tbody><tr><td>Access relationships</td><td>Each resolved holder of each permission, with the chain of configuration that granted it</td></tr><tr><td>Findings</td><td>Rule identifier, severity, the affected object, evidence and a suggested remedy</td></tr><tr><td>Change history</td><td>What differs between two consecutive scans</td></tr><tr><td>Acknowledgement metadata</td><td>Whether a finding is open, acknowledged or resolved, when, and by which administrator account</td></tr><tr><td>Administrator-entered notes</td><td>Free text an administrator optionally attaches when acknowledging or resolving a finding, capped at 500 characters</td></tr></tbody></table></div>
+<h3>What is never read</h3>
+<p>Issue content. Attachments. Comments. Worklogs. Email addresses. Avatars. The JQL body of a filter. The gadgets on a dashboard. Any user profile attribute beyond display name, account type and whether the account is active.</p>
+<h2>4. Personal data</h2>
+<p><strong>Access Auditor stores personal data.</strong> Saying otherwise would be false.</p>
+<p>An Atlassian account identifier (<code>accountId</code>) is personal data under Atlassian's own definition, and the app cannot do its job without one: an access review that cannot name who holds a permission is not an access review.</p>
+<div class="table-wrap"><table><thead><tr><th>Personal data stored</th><th>Why it is necessary</th></tr></thead><tbody><tr><td>Atlassian account identifier</td><td>Identifies the holder of a permission, and links a finding to the account it concerns</td></tr><tr><td>Display name</td><td>So an administrator reading the audit sees a person rather than an opaque identifier</td></tr><tr><td>Active or deactivated flag</td><td>The core of the "deactivated account still holds access" finding</td></tr><tr><td>Account type</td><td>So Atlassian app accounts can be excluded from human-facing figures</td></tr><tr><td>The acting administrator's account identifier</td><td>Recorded against an acknowledgement or resolution, so a review has an author</td></tr><tr><td>Administrator-entered note text</td><td>Free text, whatever the administrator chooses to write</td></tr></tbody></table></div>
+<p>Personal data appears in the app's stored audit results because it appears in the Jira configuration being audited. It is not enriched, not profiled, not combined with any other source, and not used for any purpose other than presenting the audit to the administrator who requested it.</p>
+<p><strong>Administrator-entered notes are free text.</strong> The documentation tells customers not to put confidential information in them, because they are stored as part of a finding's state and are visible to any Jira administrator on the site.</p>
+<h2>5. Data storage</h2>
+<p>All storage is Atlassian-hosted Forge storage. <strong>Matify operates no external database, no object store and no backup of customer data.</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Store</th><th>Holds</th></tr></thead><tbody><tr><td><code>maa-snapshot</code></td><td>Scan metadata</td></tr><tr><td><code>maa-snapshot-data</code></td><td>The permission, project and group membership snapshot</td></tr><tr><td><code>maa-finding-chunk</code></td><td>Findings, stored in chunks</td></tr><tr><td><code>maa-drift-chunk</code></td><td>The change list between scans</td></tr><tr><td><code>maa-fingerprint</code></td><td>Comparison fingerprints used to detect change</td></tr><tr><td><code>maa-finding-state</code></td><td>Acknowledgement and resolution decisions, and notes</td></tr><tr><td><code>maa:settings</code> (key-value)</td><td>The site's configuration for the app</td></tr></tbody></table></div>
+<h3>Tenant isolation</h3>
+<p>Forge storage is scoped to the installation, so one site's data is not addressable from another site's installation of the app.</p>
+<p>The app adds a second guarantee on top of the platform's: <strong>nothing is cached in module scope.</strong> Forge may reuse a running container between invocations, so a tenant-derived value held outside a single request would risk crossing installations. Every read goes to storage on every request instead.</p>
+<h2>6. Data residency</h2>
+<p>Access Auditor stores data only in Atlassian-hosted Forge storage, which follows the data residency configuration of the Jira Cloud site it is installed in.</p>
+<p>Because the app never moves data out of Atlassian's platform, there is no second location for residency to apply to and no mechanism by which data could be moved to another region. Residency is therefore inherited from your site rather than configured separately in the app.</p>
+<h2>7. External data egress</h2>
+<p><strong>No app data is transmitted to Matify, to any analytics provider, or to any other external service.</strong></p>
+<p>This is enforced by the platform, not merely intended:</p>
+<div class="table-wrap"><table><thead><tr><th>Control</th><th>Evidence in the shipped app</th></tr></thead><tbody><tr><td>No egress permission declared</td><td><code>manifest.yml</code> contains no <code>permissions.external</code> block — no <code>fetch</code>, <code>images</code>, <code>scripts</code>, <code>styles</code> or <code>frames</code>. Forge blocks any outbound request that is not declared, so an undeclared request cannot occur at runtime even by accident.</td></tr><tr><td>No remotes</td><td>The manifest declares no <code>remotes</code> entry, so there is no external service the app is permitted to address.</td></tr><tr><td>No web triggers</td><td>The app exposes no <code>webTrigger</code> module, so there is no unauthenticated inbound URL either.</td></tr><tr><td>No third-party backend dependencies</td><td>The backend's runtime dependencies are <code>@forge/api</code>, <code>@forge/events</code>, <code>@forge/kvs</code> and <code>@forge/resolver</code> — all first-party Atlassian packages. No analytics SDK, no error-reporting service, no telemetry library.</td></tr><tr><td>No external assets in the interface</td><td>The Custom UI is bundled and served from the app's own resources. It loads no font, script, stylesheet or image from a third-party host, so no administrator's browser contacts a non-Atlassian domain on the app's behalf.</td></tr><tr><td>No outbound email</td><td>The app sends no mail. The support address appears only as text for an administrator to use.</td></tr></tbody></table></div>
+<p>There is no telemetry, no usage analytics, no crash reporting and no product instrumentation of any kind.</p>
+<h2>8. Permissions and scopes</h2>
+<h3>Read-only by construction</h3>
+<p>The app declares <strong>zero write scopes, zero administration scopes and zero <code>manage:*</code> scopes</strong>, and issues only HTTP GET requests against the Jira Cloud REST API. It never creates, edits or deletes a permission scheme, project, group, user, filter or dashboard. The only things it writes are its own audit results, to Forge storage.</p>
+<h3>Authorisation</h3>
+<p>Every screen and every action proves the caller holds the Jira <code>ADMINISTER</code> global permission before anything is read or returned. The app asks Jira with the <strong>caller's own credentials</strong> (<code>asUser()</code> against <code>GET /rest/api/3/mypermissions</code>). Jira, not the app, makes that decision. Only afterwards does the app read configuration with its own app-level credentials.</p>
+<p>Background paths — the scheduled trigger, the install lifecycle trigger and the asynchronous scan worker — have no user context at all; on the Forge platform <code>asUser()</code> fails there with <code>AUTH_TYPE_UNAVAILABLE</code>. Those paths therefore never attempt a per-user check and do only what the installation itself consented to.</p>
+<h3>Every declared scope</h3>
+<p>Twenty-two in total, and none of them is withheld from this list. Jira Cloud's granular scopes are cumulative rather than alternatives, so some are required only because Jira bundles them into an operation the audit needs.</p>
+<p><strong>Read data through these:</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Scope</th><th>Purpose</th></tr></thead><tbody><tr><td><code>read:permission-scheme:jira</code></td><td>Permission schemes and their grants — the core of the audit</td></tr><tr><td><code>read:permission:jira</code></td><td>Grants, and the administrator check via <code>/mypermissions</code></td></tr><tr><td><code>read:project:jira</code></td><td>Every project-scoped read</td></tr><tr><td><code>read:project-role:jira</code></td><td>Resolving a project-role grant to the people who hold it</td></tr><tr><td><code>read:group:jira</code></td><td>Groups, and the members of groups that carry access</td></tr><tr><td><code>read:user:jira</code></td><td>Telling an active account from a deactivated one</td></tr><tr><td><code>read:application-role:jira</code></td><td>Which groups grant Jira product access</td></tr><tr><td><code>read:field:jira</code></td><td>Naming the custom field behind a custom-field grant</td></tr><tr><td><code>read:issue-security-scheme:jira</code></td><td>Whether a project has issue security configured</td></tr><tr><td><code>read:issue-security-level:jira</code></td><td>Required alongside the scheme scope for the same check</td></tr><tr><td><code>read:filter:jira</code></td><td>Shared filters that expose issue data beyond the team</td></tr><tr><td><code>read:jql:jira</code></td><td>Required by Jira to list filters at all; a filter's JQL body is never read</td></tr><tr><td><code>read:dashboard:jira</code></td><td>Shared dashboards that expose data beyond the team</td></tr><tr><td><code>read:project-category:jira</code></td><td>Required as part of the cumulative set for project, scheme and role reads</td></tr><tr><td><code>storage:app</code></td><td>Storing audit results in Atlassian-hosted app storage</td></tr></tbody></table></div>
+<p><strong>Required only because Jira bundles them into an operation the audit needs.</strong> Removing any one of these causes the operation the app depends on to fail with HTTP 401. None lets the app read anything beyond configuration metadata.</p>
+<div class="table-wrap"><table><thead><tr><th>Scope</th><th>Bundled into</th></tr></thead><tbody><tr><td><code>read:avatar:jira</code></td><td><code>/group/member</code>, <code>/user/bulk</code> — no avatar is ever read, stored or displayed</td></tr><tr><td><code>read:issue-type-hierarchy:jira</code></td><td><code>/project/search</code>, <code>/filter/search</code>, <code>/dashboard/search</code></td></tr><tr><td><code>read:issue-type:jira</code></td><td><code>/project/search</code>, <code>/dashboard/search</code></td></tr><tr><td><code>read:project-version:jira</code></td><td><code>/project/search</code></td></tr><tr><td><code>read:project.component:jira</code></td><td><code>/project/search</code></td></tr><tr><td><code>read:project.property:jira</code></td><td><code>/project/search</code></td></tr></tbody></table></div>
+<p><strong>Required by Atlassian of any app that stores personal data:</strong></p>
+<div class="table-wrap"><table><thead><tr><th>Scope</th><th>Purpose</th></tr></thead><tbody><tr><td><code>report:personal-data</code></td><td>Reporting stored account identifiers to Atlassian on the schedule described in section 10. Nothing is read through this scope, and nothing leaves Atlassian.</td></tr></tbody></table></div>
+<h3>Not requested</h3>
+<p>The app does not request <code>manage:jira-configuration</code> or any other administration scope. Reading Jira's audit log was considered during design and rejected; that scope is not requested either.</p>
+<h2>9. Data retention</h2>
+<div class="table-wrap"><table><thead><tr><th>What</th><th>Retention</th></tr></thead><tbody><tr><td>Permission, project and group membership snapshot</td><td>The most recent scan only. The previous generation is pruned.</td></tr><tr><td>Findings, change history and scan history</td><td>The configured retention period. Default 90 days; selectable as 30, 90, 180 or 365.</td></tr><tr><td>Comparison fingerprints</td><td>Two generations, because only the previous scan is ever compared against</td></tr><tr><td>Acknowledgement and resolution decisions, and notes</td><td>Until an administrator changes them, or until the configured acknowledgement expiry elapses</td></tr><tr><td>Settings</td><td>Until an administrator changes them</td></tr></tbody></table></div>
+<p>Pruning runs automatically after each <strong>successful</strong> scan. A failed scan never triggers deletion, so a bad scan cannot silently destroy audit history.</p>
+<h3>Deleting everything</h3>
+<p>Two routes, both complete:</p>
+<ul><li><strong>Settings → Danger zone → Delete all Access Auditor data.</strong> Removes every</li></ul>
+<p>scan, finding, change record and acknowledgement stored for the site. The screen shows a count of exactly what is stored before the administrator confirms, and the request is rejected unless it carries a literal <code>DELETE</code> confirmation, so a mis-wired interface or a replayed request cannot trigger it. The app stays installed and scans again afterwards. Nothing in Jira is touched.</p>
+<ul><li><strong>Uninstalling the app.</strong> Forge removes all of the app's storage for the site</li></ul>
+<p>as part of uninstallation — snapshot data, findings, change history, acknowledgements and settings are deleted, not hidden.</p>
+<h2>10. Personal data requests</h2>
+<p>Because Access Auditor stores Atlassian account identifiers, it implements Atlassian's <strong>Personal Data Reporting API</strong>.</p>
+<p>Once a week the app reports every account identifier it holds to Atlassian, in batches, and acts on Atlassian's answer for each account:</p>
+<div class="table-wrap"><table><thead><tr><th>Atlassian's answer</th><th>What the app does</th></tr></thead><tbody><tr><td>The account was <strong>updated</strong></td><td>Queues a scan, so the stored display name is refreshed from Jira rather than left stale</td></tr><tr><td>The account was <strong>closed</strong></td><td>Deletes that account's finding-state records individually, then purges the stored audit data and rebuilds it by scanning, so a closed account does not survive inside an old snapshot. The site's settings and exclusion lists are kept.</td></tr></tbody></table></div>
+<p>This cycle runs <strong>whether or not the site's licence is active.</strong> The scheduled trigger deliberately carries no licence filter: erasing data about someone who has left is an obligation that does not lapse with a subscription.</p>
+<p>The report is a call between the app and the Atlassian platform. No data reaches Matify or any third party through it.</p>
+<p>A customer who needs data removed sooner than the weekly cycle can use either deletion route in section 9, both of which are immediate.</p>
+<h2>11. Logging</h2>
+<p>The app writes operational log lines to the Forge platform log. They record <strong>counts, durations, HTTP status codes, error codes and reasons — and nothing that identifies a person, a project or a group.</strong></p>
+<p>Concretely, the complete set of logged events is: a scan starting, being skipped with a reason, completing with its counts and duration, or failing; expired acknowledgements as a count; a scan being queued; an install lifecycle event as a type; the personal data report with its counts; and app data being deleted with its counts.</p>
+<p><strong>Never written to a log:</strong> account identifiers, display names, project keys, project names, group names, permission holders, note text, or any Jira content. Error messages that reach a log are truncated before they are written.</p>
+<p>A support investigation into this app never requires reading customer data out of a log line. The diagnostic report an administrator can copy from the Diagnostics tab is built to the same rule.</p>
+<h2>12. Encryption and transport security</h2>
+<p>Access Auditor adds no transport of its own, so it inherits Atlassian's:</p>
+<ul><li>The administration interface is served by Atlassian over HTTPS.</li><li>All communication with the Jira Cloud REST API goes through the Forge platform</li></ul>
+<p>over HTTPS.</p>
+<ul><li>All data at rest is held in Atlassian-hosted Forge storage and is subject to</li></ul>
+<p>Atlassian's encryption-at-rest controls for that storage.</p>
+<p>Because there is no external egress, no self-hosted endpoint and no Matify-held credential, the app introduces no additional transport path that would need to be secured separately. Atlassian's own platform documentation is the authority for the specifics of its encryption implementation; Matify does not restate them here as though they were its own controls.</p>
+<h3>Secrets</h3>
+<p>The app holds no secrets. No API token, no OAuth client secret, no external credential of any kind, because it talks to no external service. Nothing is stored using Forge's secret storage. No credential appears in the source, the manifest, the interface bundle, the logs, the documentation or the Marketplace listing.</p>
+<h2>13. External services and subprocessors</h2>
+<p><strong>None.</strong></p>
+<p>Access Auditor uses no external service, and Matify engages no subprocessor for customer data, because no customer data ever reaches Matify. There is no analytics provider, no error-reporting service, no hosting provider besides Atlassian, no content delivery network and no third-party API.</p>
+<p>The only party that processes data on the customer's behalf in connection with this app is <strong>Atlassian</strong>, as the operator of the Jira Cloud site and of the Forge platform on which the app runs. The customer's existing agreement with Atlassian governs that relationship.</p>
+<h2>14. Compliance posture, stated plainly</h2>
+<p>Matify holds no SOC 2 report, no ISO 27001 certificate and no other third-party security certification, and this document does not claim one. What it offers instead is a set of properties that can be checked rather than taken on trust:</p>
+<ul><li>The read-only claim is checkable in the manifest: count the write scopes.</li><li>The no-egress claim is checkable in the manifest: there is no <code>external</code> block,</li></ul>
+<p>and Forge enforces its absence.</p>
+<ul><li>The storage claim is checkable in the manifest: every entity store is declared</li></ul>
+<p>there.</p>
+<ul><li>Data residency is inherited from your own Jira site, which you control.</li></ul>
+<p>Access Auditor is a tool that supports an access review. It is not itself a compliance guarantee, and it is described that way in its documentation.</p>
+<h2>15. Security contact</h2>
+<div class="table-wrap"><table><thead><tr><th></th><th></th></tr></thead><tbody><tr><td>Publisher</td><td>Matify</td></tr><tr><td>Security and support contact</td><td>mira.maty@web.de</td></tr></tbody></table></div>
+<p>Report a suspected vulnerability to that address. Please include enough detail to reproduce the issue. A diagnostic report from the app's Diagnostics tab is helpful and contains no personal data and no credentials.</p>
+<h2>16. Related documents</h2>
+<ul><li><a href="">Privacy policy</a> — the formal policy covering the app and this site</li><li><a href="">Documentation</a> — setup, every screen, every scope, and the known limits</li><li><a href="">Privacy and data</a> — the same subject as this page, written for the administrator using the app rather than for the person approving it</li><li><a href="">Support</a> — how to reach Matify</li></ul>
+<h2>17. Last updated</h2>
+<p>2026-09-13.</p>
+<p>This statement is revised whenever the app's scopes, storage, retention or data handling change. The Marketplace listing links to the published version, so the listing always points at the current text.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+  <p>Access Auditor for Jira is published by Matify for Atlassian Jira Cloud.</p>
+  <p>Security and support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+  <p>Copyright 2026 Matify. All Rights Reserved.</p>
+</div></footer>
+</body>
+</html>

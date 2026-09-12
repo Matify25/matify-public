@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FAQ — Access Auditor for Jira</title>
+<meta name="description" content="Documentation for Access Auditor for Jira, a read-only Jira Cloud permission audit app by Matify.">
+<style>
+:root{
+  --bg:#ffffff; --fg:#172b4d; --muted:#5e6c84; --line:#dfe1e6;
+  --accent:#0b2f52; --accent-fg:#ffffff; --code-bg:#f4f5f7; --flag:#ffab00;
+  --max:64rem;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --bg:#0e1117; --fg:#e6edf3; --muted:#9198a1; --line:#2a2f37;
+         --accent:#0b2f52; --code-bg:#161b22; }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+header{background:var(--accent);color:var(--accent-fg);padding:1.25rem 1.5rem}
+header .brand{display:flex;align-items:center;gap:.75rem;max-width:var(--max);margin:0 auto}
+header .mark{width:28px;height:28px;border-radius:6px;background:#fff;position:relative;flex:none}
+header .mark::after{content:"";position:absolute;right:5px;bottom:5px;width:7px;height:7px;background:var(--flag)}
+header h1{font-size:1.05rem;margin:0;font-weight:600;letter-spacing:.2px}
+header .vendor{margin-left:auto;font-size:.85rem;opacity:.8}
+nav{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:0;z-index:5}
+nav ul{max-width:var(--max);margin:0 auto;padding:0 1.5rem;list-style:none;display:flex;
+  flex-wrap:wrap;gap:.25rem 1.1rem}
+nav a{display:inline-block;padding:.7rem 0;color:var(--muted);text-decoration:none;font-size:.9rem}
+nav a:hover,nav a:focus{color:var(--fg)}
+nav a[aria-current="page"]{color:var(--fg);box-shadow:inset 0 -2px 0 var(--flag)}
+main{max-width:var(--max);margin:0 auto;padding:2rem 1.5rem 4rem}
+h1,h2,h3,h4{line-height:1.25;margin:2rem 0 .75rem}
+main>h1:first-child{margin-top:0;font-size:1.9rem}
+h2{font-size:1.35rem;padding-top:.5rem;border-top:1px solid var(--line)}
+h3{font-size:1.1rem}
+h4{font-size:1rem;color:var(--muted)}
+p,ul,ol{margin:.75rem 0}
+li{margin:.3rem 0}
+a{color:#0b62c4}
+@media (prefers-color-scheme:dark){a{color:#79b8ff}}
+code{background:var(--code-bg);padding:.12em .38em;border-radius:4px;
+  font:0.88em/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+pre{background:var(--code-bg);padding:1rem;border-radius:6px;overflow-x:auto;
+  border:1px solid var(--line)}
+pre code{background:none;padding:0}
+.table-wrap{overflow-x:auto;margin:1rem 0}
+table{border-collapse:collapse;width:100%;font-size:.94rem}
+th,td{border:1px solid var(--line);padding:.5rem .65rem;text-align:left;vertical-align:top}
+th{background:var(--code-bg);font-weight:600}
+blockquote{margin:1rem 0;padding:.6rem 1rem;border-left:3px solid var(--flag);
+  background:var(--code-bg);color:var(--muted)}
+hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+footer div{max-width:var(--max);margin:0 auto;padding:1.5rem}
+.notice{border:1px solid var(--flag);border-left-width:4px;border-radius:4px;
+  padding:.85rem 1rem;margin:1.5rem 0;background:var(--code-bg)}
+</style>
+</head>
+<body>
+<header><div class="brand">
+  <span class="mark" aria-hidden="true"></span>
+  <h1>Access Auditor for Jira</h1>
+  <span class="vendor">by Matify</span>
+</div></header>
+<nav aria-label="Documentation"><ul><li><a href="index.html">Overview</a></li><li><a href="Getting_Started.html">Getting started</a></li><li><a href="User_Guide.html">User guide</a></li><li><a href="Permissions_and_Security.html">Permissions & security</a></li><li><a href="Privacy_and_Data.html">Privacy & data</a></li><li><a href="Troubleshooting.html">Troubleshooting</a></li><li><a href="FAQ.html" aria-current="page">FAQ</a></li><li><a href="Known_Limitations.html">Known limitations</a></li><li><a href="CHANGELOG.html">Changelog</a></li><li><a href="support.html">Support</a></li><li><a href="privacy.html">Privacy policy</a></li><li><a href="terms.html">Terms</a></li></ul></nav>
+<main>
+<h1>Frequently Asked Questions</h1>
+<p>Copyright 2026 Matify. All Rights Reserved.</p>
+<h2>Is anything written back to Jira?</h2>
+<p>No. Access Auditor declares zero write scopes and issues only HTTP GET requests against the Jira Cloud REST API. It never creates, edits or deletes a permission scheme, project, group, user, filter or dashboard. The only things it writes are its own audit history and your acknowledgement notes, and those are written to Atlassian-hosted app storage, not to Jira. See <a href="Permissions_and_Security.html">Permissions_and_Security.md</a>.</p>
+<h2>Does any data leave Atlassian?</h2>
+<p>No. The app is a Forge app: all compute and storage are Atlassian-hosted. It declares no external egress, no remotes and no web triggers, and its backend has no third-party runtime dependency. See <a href="Privacy_and_Data.html">Privacy_and_Data.md</a>.</p>
+<h2>Does it work with team-managed projects?</h2>
+<p>Partially. Team-managed (next-gen) projects are listed and labelled clearly, but they control access inside the project itself rather than through a permission scheme, so Access Auditor shows no permission matrix and raises no findings for them. Company-managed projects are fully covered. See <a href="Known_Limitations.html">Known_Limitations.md</a>.</p>
+<h2>Can it tell me who my site administrators are?</h2>
+<p>No. Jira Cloud's REST API exposes no endpoint for global permission grants, so no app — including this one — can read that list directly. What Access Auditor does instead is mark a group as <strong>privileged</strong> when it grants product access through an application role, holds project administration in a permission scheme, or matches an Atlassian default admin group naming convention (a labelled heuristic). If you have renamed your administrator groups, they will not be recognised by name; review them directly in Jira's own global permissions screen. See <a href="Known_Limitations.html">Known_Limitations.md</a>.</p>
+<h2>Does it tell me who made a change?</h2>
+<p>No. The Changes tab compares two scans and reports what is different between them — it does not identify who made the change or exactly when, because that would require reading Jira's audit log, which this app does not request. A change that happened and was reverted between two scans leaves no trace either. See <a href="Known_Limitations.html">Known_Limitations.md</a>.</p>
+<h2>How often does it scan?</h2>
+<p>Daily by default. You can set it to weekly or manual on the Settings tab. The underlying platform trigger fires once a day; a weekly setting simply skips days, and you cannot choose the hour it runs. A first scan is queued automatically the moment the app is installed, and you can start one by hand from the Overview tab at any time, subject to only one scan running at once.</p>
+<h2>What does it cost to run, beyond the licence fee?</h2>
+<p>Nothing separate. The app calls Jira's own REST API from inside Atlassian's platform; it does not draw on any API budget you manage yourself, and it makes no calls to any metered external service. Your Access Auditor licence cost is set on the Marketplace listing.</p>
+<h2>What happens to my data when I uninstall?</h2>
+<p>All of the app's storage — snapshots, findings, change history, acknowledgements and settings — is removed by the platform as part of uninstallation. You do not have to uninstall to clear it: <strong>Settings → Danger zone → Delete all Access Auditor data</strong> removes the same thing while leaving the app in place. See <a href="Privacy_and_Data.html">Privacy_and_Data.md</a>.</p>
+<h2>Does the app tell Atlassian whose accounts it has stored?</h2>
+<p>Yes, and it has to. Because Access Auditor stores Atlassian account identifiers, it takes part in Atlassian's personal data reporting cycle: once a week it reports the identifiers it holds to Atlassian, and Atlassian answers which of them have changed or been closed. A changed account triggers a rescan so the name you see is current. A closed account has its finding history deleted and the app's stored audit data purged and rebuilt, so someone who has left does not survive inside an old snapshot. Your settings and exclusion lists are kept.</p>
+<p>This is a call between the app and the Atlassian platform — no data goes to Matify or to any third party — and it runs whether or not your licence is active, because erasing data about someone who has left is an obligation rather than a paid feature. See <a href="Privacy_and_Data.html">Privacy_and_Data.md</a>.</p>
+<h2>Can non-admins use it?</h2>
+<p>No. Every screen checks, on every request and using your own credentials, whether you hold the Jira <strong>Administer Jira</strong> global permission. Without it you see an explanation, not data. There is no separate read-only or viewer role.</p>
+<h2>Does it support data residency?</h2>
+<p>Yes, by inheritance. Access Auditor stores everything in Atlassian-hosted Forge storage, which follows your Jira site's own data residency setting. The app never moves data to a different region, because it never leaves Atlassian's platform to do so.</p>
+<h2>How large a site does it handle?</h2>
+<p>Collection is bounded so a scan cannot exhaust your site's API budget: 2,000 projects, 2,000 groups, 2,000 members read per group, 40,000 members read per scan site-wide, 4,000 shared filters and 4,000 dashboards. If a cap is reached, the scan still completes; it is marked incomplete and the Overview tab tells you which part was truncated. See <a href="Known_Limitations.html">Known_Limitations.md</a>.</p>
+<h2>What is a symbolic holder?</h2>
+<p>A permission holder that does not resolve to a fixed list of people from configuration alone: current assignee, reporter, project lead (which changes with the project's own configuration), and a user or group custom field value (which depends on what is set on each issue). Access Auditor labels these <strong>resolves per issue</strong> rather than guessing, and flags a sensitive permission granted this way as its own finding (R11).</p>
+<h2>Why does an app account appear in a group or project role?</h2>
+<p>Atlassian Marketplace apps, including Access Auditor itself, have their own accounts, and those accounts can appear in project roles and groups like any other principal. The app excludes accounts of type "app" from every human-facing figure and reports them separately where relevant, so an installed app is never counted as a risky user or inflates an administrator group's headcount.</p>
+<h2>What is the difference between the standard and strict sensitivity profiles?</h2>
+<p>Both profiles run all twelve rules. The difference is which permissions count as "sensitive" for rule R2 (sensitive permission granted to every logged-in user). The strict profile treats a wider set of permissions as sensitive — for example editing, transitioning, assigning, resolving and closing issues, and managing watchers — in addition to the permissions the standard profile already covers. Expect more R2 findings under strict on the same site. Set this on the Settings tab.</p>
+<h2>How do I prove an access review to an auditor?</h2>
+<p>Use the Findings tab to acknowledge or resolve each finding with a note explaining your decision — that record persists across scans. Then use the Exports tab to export the findings list, the full permission matrix, or the change list as CSV or JSON, each reflecting the scan it was taken from, as your evidence for the review.</p>
+<h2>Does it need my own Jira API token or a separate OAuth app?</h2>
+<p>No. Access Auditor is a Forge app; it authenticates to Jira using Forge's own built-in mechanisms. You never create or paste an API token, and the app never asks for one.</p>
+<h2>Does it work on Jira Service Management projects?</h2>
+<p>The distinction Access Auditor makes is company-managed versus team-managed, not one product versus another. A company-managed project of any type, including Jira Service Management, uses a permission scheme and is fully covered. A team-managed project of any type is out of scope, for the reasons given above.</p>
+<h2>Where do I ask something not covered here?</h2>
+<p>mira.maty@web.de</p>
+</main>
+<footer><div>
+  Copyright 2026 Matify. All Rights Reserved. &middot;
+  Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a>
+</div></footer>
+</body>
+</html>
