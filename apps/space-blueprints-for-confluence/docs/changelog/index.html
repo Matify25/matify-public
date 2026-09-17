@@ -2,8 +2,9 @@
 <html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Matify apps for Atlassian</title>
-<meta name="description" content="Documentation, security and privacy statements, policies, terms and support for Matify's Atlassian Marketplace apps.">
+<title>Changelog — Space Blueprints for Confluence — Matify</title>
+<meta name="description" content="Changelog for Space Blueprints for Confluence, published by Matify.">
+<meta name="robots" content="index,follow">
 <style>:root{
   --graphite-900:#14171a;
   --graphite-800:#1a1e22;
@@ -115,22 +116,40 @@ footer.site p{margin:0 0 .3rem}
   a{color:#000}
 }
 </style>
-<header class="site"><div class="wrap"><a class="brand" href="../">Matify</a><span class="product">Apps</span></div></header>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../../">Matify</a>
+    <span class="product">Space Blueprints for Confluence</span>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><a href="../../">Overview</a><a href="../../docs/">Documentation</a><a href="../../security-privacy/">Security & privacy</a><a href="../../privacy/">Privacy policy</a><a href="../../terms/">Terms</a><a href="../../support/">Support</a></div></nav>
 <main class="wrap">
-<h1>Matify apps for Atlassian</h1>
-<p class="lede">Documentation, security and privacy statements, policies, terms and support.</p>
-<div class="cards">
-  <a class="card" href="access-auditor-for-jira/">
-    <span class="card-title">Access Auditor for Jira</span>
-    <span class="card-desc">Read-only permission auditing for Jira Cloud: who can access what, why, and what changed.</span>
-  </a>
-  <a class="card" href="space-blueprints-for-confluence/">
-    <span class="card-title">Space Blueprints for Confluence</span>
-    <span class="card-desc">Space templates, governed space requests and provisioning for Confluence Cloud.</span>
-  </a>
-</div>
+<h1>Changelog</h1>
+<h2>1.0.0 — initial release</h2>
+<p>First public release of Space Blueprints for Confluence.</p>
+<p><strong>Blueprints</strong></p>
+<ul><li>Capture any Confluence space as a reusable blueprint</li><li>Fidelity report shown before a blueprint is confirmed: page count against the 500-page cap, and</li></ul>
+<p>whether the space contains whiteboards, databases, folders or blog posts</p>
+<ul><li>Default owner, owner space role, review interval and naming policy per blueprint</li><li>Archive and re-capture</li></ul>
+<p><strong>Naming policies</strong></p>
+<ul><li>Pattern for the space name, optional pattern for the key, and a worked example</li><li>Live validation in the policy editor and in the request form</li><li>Patterns are length-bounded and screened for constructs that could hang the evaluator</li></ul>
+<p><strong>Requests and approvals</strong></p>
+<ul><li>Request form for any eligible user, with live name validation and key suggestion</li><li>Approval queue with a preview of exactly what will be created</li><li>Reject with a reason, visible to the requester</li><li>Auto-approval rules per blueprint and group</li><li>Requesters can withdraw a request that has not started provisioning</li></ul>
+<p><strong>Provisioning</strong></p>
+<ul><li>Creates the space with the blueprint's access configuration copied by Confluence</li><li>Assigns the owner their space role</li><li>Copies the page tree with attachments, labels and content properties through Confluence's own</li></ul>
+<p>server-side copy task</p>
+<ul><li>Applies space labels and writes the blueprint reference and review date onto the space</li><li>Live progress with the copy task's own percentage</li><li>Every step idempotent; retry from the failed step without starting over or creating a second space</li><li>Page-level restrictions are never copied, by design</li></ul>
+<p><strong>Inventory and drift</strong></p>
+<ul><li>Every space with owner, blueprint, provisioned date, review date, last activity and drift status</li><li>Drift detection for role assignments, labels, ownership and overdue reviews</li><li>Bulk assign owner and review date</li><li>Weekly scheduled sweep in rate-limit aware batches, plus run-now and per-space re-check</li><li>CSV export</li></ul>
+<p><strong>Audit and diagnostics</strong></p>
+<ul><li>Append-only audit trail of requests, decisions, provisioning steps and configuration changes</li><li>Configurable retention between 6 and 60 months, 24 by default</li><li>CSV export</li><li>Diagnostics page with sweep state, rate-limit budget, queue health, recent failures and app version</li></ul>
+<p><strong>Platform</strong></p>
+<ul><li>Runs on Atlassian: Atlassian hosted compute and storage, no external data egress</li><li>Personal data reporting implemented; erasure requests honoured</li><li>Free for up to ten users</li></ul>
 </main>
-<footer class="site"><div class="wrap">
-<p>Published by Matify. Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
-<p class="faint">Atlassian, Confluence and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
-</div></footer>
+<footer class="site">
+  <div class="wrap">
+    <p>Space Blueprints for Confluence is published by Matify for Atlassian Confluence Cloud.</p>
+    <p>Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+    <p class="faint">Atlassian, Confluence and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+  </div>
+</footer>

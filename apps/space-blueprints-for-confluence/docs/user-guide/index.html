@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>User guide — Space Blueprints for Confluence — Matify</title>
+<meta name="description" content="User guide for Space Blueprints for Confluence, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+</style>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../../">Matify</a>
+    <span class="product">Space Blueprints for Confluence</span>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><a href="../../">Overview</a><a href="../../docs/">Documentation</a><a href="../../security-privacy/">Security & privacy</a><a href="../../privacy/">Privacy policy</a><a href="../../terms/">Terms</a><a href="../../support/">Support</a></div></nav>
+<main class="wrap">
+<h1>User Guide</h1>
+<p>Every screen in the app, what it does, and the decisions behind it.</p>
+<p>The app has three surfaces:</p>
+<div class="table-wrap"><table><thead><tr><th>Surface</th><th>Who</th><th>Where</th></tr></thead><tbody><tr><td>Requester</td><td>any eligible user</td><td>Confluence <strong>Apps</strong> menu → <strong>Space Blueprints</strong></td></tr><tr><td>Admin console</td><td>Confluence product administrators</td><td><strong>Settings</strong> → <strong>Apps</strong> → <strong>Space Blueprints</strong></td></tr><tr><td>Space panel</td><td>administrators, per space</td><td>a space's <strong>Space settings</strong> → <strong>Space Blueprints</strong></td></tr></tbody></table></div>
+<hr>
+<h1>For requesters</h1>
+<h2>Request a space</h2>
+<p>Pick a blueprint, then fill in four things.</p>
+<p><strong>Name.</strong> Validated as you type. If the blueprint has a naming policy attached, the policy's own worked example is shown next to the field, and the submit button stays disabled until the name matches. The message tells you what is wrong rather than only that something is.</p>
+<p><strong>Key.</strong> The app suggests one derived from the name. You can override it. Keys are uppercase and alphanumeric; the app checks availability before the space is created, not only when you type, because someone else may take it in between.</p>
+<p><strong>Owner.</strong> Who will own the space. The blueprint may propose a default. The owner is assigned a space role when the space is created, and appears in the inventory as the person responsible.</p>
+<p><strong>Purpose.</strong> A sentence for whoever approves. It is stored with the request and shown in the audit trail.</p>
+<p>Submit. If an auto-approval rule covers you and this blueprint, provisioning starts immediately; otherwise the request joins the approval queue.</p>
+<h2>Blueprint gallery</h2>
+<p>Every blueprint you are allowed to request from. A blueprint only appears if you can view the space it was captured from, so the gallery never advertises content you cannot see.</p>
+<p>Each card shows what the blueprint contains and — prominently, not in a footnote — <strong>what will not be copied</strong>: whiteboards, databases, folders, blog posts, page history and space themes. Confluence's copy task does not carry these, and the app says so before you ask for a space rather than after.</p>
+<h2>My requests</h2>
+<p>Your own requests, newest first, with a status:</p>
+<div class="table-wrap"><table><thead><tr><th>Status</th><th>Meaning</th></tr></thead><tbody><tr><td>Pending</td><td>waiting for an administrator</td></tr><tr><td>Approved</td><td>accepted, queued for provisioning</td></tr><tr><td>Provisioning</td><td>running now</td></tr><tr><td>Complete</td><td>the space exists; the row links to it</td></tr><tr><td>Rejected</td><td>declined, with the reason</td></tr><tr><td>Failed</td><td>something went wrong; an administrator can retry</td></tr></tbody></table></div>
+<p>While a request is provisioning you see the step list and Confluence's own copy percentage, updating while the tab is open. You can withdraw a request that has not started provisioning.</p>
+<hr>
+<h1>For administrators</h1>
+<h2>Overview</h2>
+<p>Four numbers — pending approvals, spaces provisioned this month, spaces due for review, spaces in drift — and a <strong>Needs attention</strong> list that collects the things actually waiting on you: approvals, failed provisioning runs, overdue reviews and drifted spaces. Below that, recent activity from the audit trail.</p>
+<h2>Blueprints</h2>
+<p>The list of blueprints with their source space, page count and status.</p>
+<p><strong>Capture blueprint</strong> walks through: choose a source space → read the <strong>fidelity report</strong> → set the blueprint's name, description, default owner, owner role, review interval and naming policy → confirm.</p>
+<p>The fidelity report is generated by inspecting the real space: page count against the 500-page cap, and whether the space holds whiteboards, databases, folders or blog posts. If the space is over the cap, the capture is blocked rather than allowed to fail later.</p>
+<p><strong>Editing</strong> a blueprint changes its metadata and policy, not the source space. <strong>Archiving</strong> hides it from the gallery without touching spaces already provisioned from it. <strong>Re-capture</strong> refreshes the fidelity report and the access baseline after the source space changes.</p>
+<h2>Naming policies</h2>
+<p>A policy has a pattern for the space name, an optional pattern for the key, and a worked example.</p>
+<p>The editor validates the example against the pattern live, so a broken pattern is visible immediately rather than when a requester hits it. Patterns are length-bounded and screened for constructs that can hang an evaluator; the editor refuses one it considers unsafe rather than accepting it and timing out later.</p>
+<p>A policy is attached to a blueprint, so different kinds of space can have different rules.</p>
+<h2>Approvals</h2>
+<p>The queue of pending requests. Opening one shows a preview of exactly what will be created: blueprint, name, key, owner, the access configuration that will be copied and the list of what will not be copied.</p>
+<p><strong>Approve</strong> queues provisioning. <strong>Reject</strong> requires a reason, which the requester sees. Bulk approval is available and asks for confirmation, listing what it is about to do.</p>
+<p>The app checks, at approval time, that the name and key are still free and that the blueprint still exists. A request approved against a blueprint that has since been deleted fails clearly rather than producing a wrong space.</p>
+<h2>Inventory</h2>
+<p>Every space the app knows about, not only the ones it provisioned:</p>
+<div class="table-wrap"><table><thead><tr><th>Column</th><th>Notes</th></tr></thead><tbody><tr><td>Space</td><td>name and key, linking into Confluence</td></tr><tr><td>Owner</td><td>assigned by the app, or set here</td></tr><tr><td>Blueprint</td><td>which blueprint it came from, if any</td></tr><tr><td>Provisioned</td><td>when the app created it</td></tr><tr><td>Review date</td><td>when someone should look at it again</td></tr><tr><td>Last activity</td><td>the most recent page change</td></tr><tr><td>Drift</td><td>whether it still matches its blueprint</td></tr></tbody></table></div>
+<p>Sort, filter and search across all of it. <strong>Bulk assign</strong> sets owner or review date on several spaces at once — which is how you build a register for spaces that existed before the app did. <strong>Export CSV</strong> produces the whole table in the browser.</p>
+<p><strong>Drift</strong> means one of four things: role assignments changed, labels changed, the owner changed, or the review date has passed. Opening the drift detail says which. The app reports drift; it never silently puts anything back.</p>
+<p><strong>Run sweep now</strong> refreshes the whole inventory on demand. <strong>Re-check now</strong> refreshes one space.</p>
+<h2>Audit log</h2>
+<p>Append-only: who requested, who approved or rejected and why, every provisioning step and its result, every configuration change, every deletion. Exportable to CSV.</p>
+<p>Entries are kept for the retention period in Settings — 24 months by default, adjustable between 6 and 60.</p>
+<h2>Settings</h2>
+<p><strong>Approval</strong> — manual, or auto-approval rules. A rule pairs a blueprint with a group: requests from that group for that blueprint provision without waiting. Rules are listed with an on/off switch.</p>
+<p><strong>Who may request</strong> — everyone with a licence, or named groups.</p>
+<p><strong>Review defaults</strong> — the default review interval applied to new blueprints.</p>
+<p><strong>Inventory sweep</strong> — day of the week and batch size. Lower the batch on a very large site if you see rate-limit pauses in Diagnostics.</p>
+<p><strong>Audit retention</strong> — 6 to 60 months.</p>
+<p><strong>Legacy fallback</strong> — whether the app may create spaces on a site without role-based space access. With it on, spaces are created but the blueprint's access configuration is not copied, and the app says so. With it off, requests on such a site fail with a clear message instead.</p>
+<p><strong>Delete all app data</strong> — removes blueprints, policies, requests, inventory and audit entries. It asks you to confirm and states plainly that it does not touch any Confluence space or page.</p>
+<h2>Diagnostics</h2>
+<p>Last sweep and how long it took, points spent against the rate-limit budget, any pause and when it lifts, queue health, recent failures with their error codes, and the app version. <strong>Copy diagnostics</strong> produces a JSON block containing no page content, names or email addresses — the right thing to attach to a support request.</p>
+<hr>
+<h1>Space panel</h1>
+<p>Inside any space: <strong>Space settings → Space Blueprints</strong>. Shows the blueprint the space came from, its owner, its review date, its drift status and what drifted. <strong>Re-check now</strong> refreshes it immediately rather than waiting for the weekly sweep.</p>
+<hr>
+<h1>How provisioning actually works</h1>
+<p>Worth knowing, because it explains what the app can and cannot recover from.</p>
+<ol><li><strong>Validate</strong> — name and key against the policy, and a fresh collision check.</li><li><strong>Create space</strong> — with the blueprint's access configuration copied by Confluence itself.</li><li><strong>Assign role</strong> — the owner is given their space role. This is a separate step because Confluence</li></ol>
+<p>does not allow copying access and assigning roles in the same call.</p>
+<ol><li><strong>Copy pages</strong> — Confluence's own server-side page-hierarchy copy starts.</li><li><strong>Wait for copy</strong> — the app polls, backing off as it goes, and reports the percentage. It gives up</li></ol>
+<p>after an hour.</p>
+<ol><li><strong>Finish</strong> — space labels, and the blueprint reference and review date written onto the space.</li><li><strong>Record</strong> — the inventory row and the audit entries.</li></ol>
+<p>Each step is idempotent: a retried or duplicated run continues rather than repeating. If a step fails, the request stops there with the code and a message, and <strong>Retry from this step</strong> resumes from exactly that point. The app never deletes the partially created space — that decision stays with you.</p>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>Space Blueprints for Confluence is published by Matify for Atlassian Confluence Cloud.</p>
+    <p>Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+    <p class="faint">Atlassian, Confluence and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+  </div>
+</footer>

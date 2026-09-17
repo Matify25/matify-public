@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FAQ — Space Blueprints for Confluence — Matify</title>
+<meta name="description" content="FAQ for Space Blueprints for Confluence, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+</style>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../../">Matify</a>
+    <span class="product">Space Blueprints for Confluence</span>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><a href="../../">Overview</a><a href="../../docs/">Documentation</a><a href="../../security-privacy/">Security & privacy</a><a href="../../privacy/">Privacy policy</a><a href="../../terms/">Terms</a><a href="../../support/">Support</a></div></nav>
+<main class="wrap">
+<h1>FAQ</h1>
+<p><strong>Does this replace Copy Space or Copy Page Tree?</strong> It does the same copying, and adds the part those tools leave to you: a request form with a naming policy, an approval step, an owner and review date on every space, an inventory, drift detection and an audit trail. If all you need is to duplicate a space once, a copy tool is enough. If you need new spaces to be consistent and accounted for, that is what this is.</p>
+<p><strong>Do I need Confluence Premium?</strong> No. Copying a space's access configuration on Premium is a native feature; this app does it on every plan through the role-based space access API.</p>
+<p><strong>Can a normal user create a space with this?</strong> Only by asking. A request always needs an administrator approval, or an auto-approval rule an administrator set up in advance. That gate is the product.</p>
+<p><strong>What exactly gets copied?</strong> Pages and their nesting, attachments, labels and content properties — copied by Confluence's own server-side task. Plus the blueprint's space access configuration, and any space labels you configured. Not copied: whiteboards, databases, folders, blog posts, page history, space themes, and page-level restrictions. The app shows this list before you confirm a blueprint.</p>
+<p><strong>Why not copy page restrictions?</strong> Because it would create invisible access rules in a brand new space that neither the requester nor the approver reviewed. Space-level access is copied, and it is visible and reviewable. Page-level restrictions are deliberately left off.</p>
+<p><strong>How big can a blueprint be?</strong> 500 pages. The cap is enforced when you capture the blueprint, so you find out immediately rather than when a provisioning run times out. For a larger source space, point the blueprint at a subtree.</p>
+<p><strong>How long does provisioning take?</strong> A small blueprint finishes in seconds. Larger ones take a few minutes, driven by Confluence's copy task rather than by the app. Progress is shown while it runs.</p>
+<p><strong>What if provisioning fails halfway?</strong> The request stops at the failed step with an error code, and an administrator can retry from that step. The app does not start over and does not create a second space. It also does not delete the partially created space; removing it is your decision, not the app's.</p>
+<p><strong>Does the app ever delete anything?</strong> No. It never deletes or archives a space or page, never removes a permission, and never reverts a drift. The only deletions it performs are of its own stored data, and only when an administrator asks.</p>
+<p><strong>Does my content leave Atlassian?</strong> No. The app runs on Atlassian's platform, stores data in Atlassian's storage in your region, and makes no external network calls at all — no analytics, no error reporting, no fonts, nothing. Page content is never even read by the app: Confluence copies it internally.</p>
+<p><strong>What does the app store about people?</strong> Atlassian account ids, to record who requested, approved and owns each space, and who performed each audited action. No names, no email addresses, no profile data. See <a href="">Privacy and data</a>.</p>
+<p><strong>Who can see the admin console?</strong> Confluence product administrators. The check happens in the backend, so a bookmarked URL does not get a non-administrator in.</p>
+<p><strong>Can I use it with Jira Service Management, so a ticket creates a space?</strong> Not in version 1.0. It would require a public web-trigger endpoint, and the app's own eligibility check confirms that a web trigger disqualifies it from Atlassian's Runs on Atlassian programme. That trade-off is not worth making silently, so the integration waits for a version where it can be an explicit choice.</p>
+<p><strong>How often does the inventory update?</strong> Weekly, in bounded batches, plus on demand. Space creation and deletion register immediately. The weekly cadence exists because an app shares one hourly request budget across every site it is installed on, and sweeping continuously would spend other customers' share of it.</p>
+<p><strong>What happens on a very large site?</strong> The sweep spreads across the week and yields whenever Confluence signals it is near the limit. Space requests always take priority over sweeping, so a provisioning run is never delayed by an inventory scan.</p>
+<p><strong>What happens when the licence lapses?</strong> Reading keeps working so administrators can see the state of things, changes are refused, and the weekly sweep stops. Nothing is deleted. Everything is there when the licence returns.</p>
+<p><strong>What happens if I uninstall?</strong> Forge removes the app's storage: blueprints, policies, requests, inventory and audit trail. The spaces, pages, labels, space properties and role assignments created while it was installed stay, because they are your content.</p>
+<p><strong>Is there a free tier?</strong> Yes, up to ten users, following the category convention.</p>
+<p><strong>How do I get support?</strong> Email mira.maty@web.de, or use the public tracker linked from the support page. Do not put credentials, personal data or confidential content in a public issue. Suspected security vulnerabilities go to the email address privately.</p>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>Space Blueprints for Confluence is published by Matify for Atlassian Confluence Cloud.</p>
+    <p>Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+    <p class="faint">Atlassian, Confluence and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+  </div>
+</footer>

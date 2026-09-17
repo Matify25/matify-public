@@ -2,8 +2,9 @@
 <html lang="en">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Matify apps for Atlassian</title>
-<meta name="description" content="Documentation, security and privacy statements, policies, terms and support for Matify's Atlassian Marketplace apps.">
+<title>Privacy and data — Space Blueprints for Confluence — Matify</title>
+<meta name="description" content="Privacy and data for Space Blueprints for Confluence, published by Matify.">
+<meta name="robots" content="index,follow">
 <style>:root{
   --graphite-900:#14171a;
   --graphite-800:#1a1e22;
@@ -115,22 +116,40 @@ footer.site p{margin:0 0 .3rem}
   a{color:#000}
 }
 </style>
-<header class="site"><div class="wrap"><a class="brand" href="../">Matify</a><span class="product">Apps</span></div></header>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../../">Matify</a>
+    <span class="product">Space Blueprints for Confluence</span>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><a href="../../">Overview</a><a href="../../docs/">Documentation</a><a href="../../security-privacy/">Security & privacy</a><a href="../../privacy/">Privacy policy</a><a href="../../terms/">Terms</a><a href="../../support/">Support</a></div></nav>
 <main class="wrap">
-<h1>Matify apps for Atlassian</h1>
-<p class="lede">Documentation, security and privacy statements, policies, terms and support.</p>
-<div class="cards">
-  <a class="card" href="access-auditor-for-jira/">
-    <span class="card-title">Access Auditor for Jira</span>
-    <span class="card-desc">Read-only permission auditing for Jira Cloud: who can access what, why, and what changed.</span>
-  </a>
-  <a class="card" href="space-blueprints-for-confluence/">
-    <span class="card-title">Space Blueprints for Confluence</span>
-    <span class="card-desc">Space templates, governed space requests and provisioning for Confluence Cloud.</span>
-  </a>
-</div>
+<h1>Privacy and Data</h1>
+<p>A plain-language summary of what the app keeps. The formal documents are the Privacy Policy and the Data Security and Privacy Statement linked from the Marketplace listing.</p>
+<h2>The short version</h2>
+<p>The app stores configuration, requests, an audit trail and a small amount of space metadata. It stores Atlassian account ids to record who asked for a space, who approved it and who owns it. It stores no page content, no attachments, no names and no email addresses. Nothing leaves Atlassian.</p>
+<h2>What is stored</h2>
+<div class="table-wrap"><table><thead><tr><th>Kind</th><th>Examples</th><th>Why</th></tr></thead><tbody><tr><td>Configuration</td><td>Blueprints, naming policies, approval rules, settings</td><td>The administrator created them</td></tr><tr><td>Requests</td><td>Proposed name and key, purpose, chosen owner, decision and reason</td><td>The request, and the record of what was approved</td></tr><tr><td>Account ids</td><td>Requester, approver, owner, blueprint creator, audit actor</td><td>Attribution</td></tr><tr><td>Space metadata</td><td>Id, key, name, page count, last activity, review date</td><td>The inventory</td></tr><tr><td>Hashes</td><td>Role assignments, labels</td><td>Drift detection without keeping a copy of your permissions</td></tr><tr><td>Audit trail</td><td>Who did what, when, and the result</td><td>Governance</td></tr></tbody></table></div>
+<h2>What is never stored</h2>
+<p>Page content. Attachments. Comments. Display names. Email addresses. IP addresses. Anything from a product other than the Confluence site the app is installed on.</p>
+<p>When a space is provisioned, the pages are copied by Confluence's own server-side copy task. The content does not pass through the app.</p>
+<h2>Where it lives</h2>
+<p>In Forge hosted storage, inside the region of your Confluence site. Matify operates no servers and holds no copy of your data. There are no subprocessors and no third-party services.</p>
+<h2>How long</h2>
+<p>Audit entries are kept for 24 months by default and an administrator can set anything from 6 to 60 months. Inventory snapshots keep the newest twelve per space. Blueprints, policies and requests stay until someone deletes them.</p>
+<h2>Deleting it</h2>
+<ul><li>Delete individual blueprints, policies, requests or audit ranges from the admin console.</li><li><strong>Settings → Delete all app data</strong> removes everything the app stores, behind a confirmation.</li><li>Uninstalling the app makes Forge remove its storage.</li></ul>
+<p>Spaces, pages, labels and role assignments the app created stay in Confluence after uninstall. They are your content, not the app's, and removing them would be destroying your work.</p>
+<h2>Personal data requests</h2>
+<p>The app implements Atlassian's personal data reporting interface. Atlassian can ask which account ids the app holds and instruct it to erase them; the app removes the id from its own records. It does not delete spaces or pages in response, because that content belongs to your organisation rather than to an individual.</p>
+<p>For a request about data the app holds, talk to your Confluence administrator or write to <strong>mira.maty@web.de</strong>.</p>
+<h2>Logging</h2>
+<p>The app writes operational logs to Forge: request ids, space ids, step names, timings and error codes, with account ids where an action needs attribution. Logs never contain page content, space descriptions, the purpose text a requester typed, display names or email addresses.</p>
 </main>
-<footer class="site"><div class="wrap">
-<p>Published by Matify. Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
-<p class="faint">Atlassian, Confluence and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
-</div></footer>
+<footer class="site">
+  <div class="wrap">
+    <p>Space Blueprints for Confluence is published by Matify for Atlassian Confluence Cloud.</p>
+    <p>Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+    <p class="faint">Atlassian, Confluence and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+  </div>
+</footer>

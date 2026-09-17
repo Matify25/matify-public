@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data security and privacy statement — Space Blueprints for Confluence — Matify</title>
+<meta name="description" content="How Space Blueprints for Confluence by Matify processes, stores and protects data: Forge hosting, personal data, storage, residency, zero external egress, scopes, retention, personal data reporting and logging.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+</style>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../">Matify</a>
+    <span class="product">Space Blueprints for Confluence</span>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><a href="../">Overview</a><a href="../docs/">Documentation</a><span class="nav-current" aria-current="page">Security & privacy</span><a href="../privacy/">Privacy policy</a><a href="../terms/">Terms</a><a href="../support/">Support</a></div></nav>
+<main class="wrap">
+<h1>Data Security and Privacy Statement</h1>
+<p><strong>Space Blueprints for Confluence</strong>, published by <strong>Matify</strong>. Last updated: 17 September 2026.</p>
+<h2>Overview</h2>
+<p>Space Blueprints lets a Confluence administrator turn an existing space into a blueprint, lets any licensed user request a new space through a form, and provisions that space once an administrator approves it. This statement describes exactly what the app reads, what it writes, what it keeps and where that data lives.</p>
+<p>The short version: the app runs entirely on Atlassian's own platform, stores only metadata and Atlassian account ids, and sends nothing anywhere else.</p>
+<h2>Hosting and architecture</h2>
+<p>The app is built on <strong>Atlassian Forge</strong>. Its code runs on Atlassian-hosted compute and its data lives in Atlassian-hosted storage inside your site's own region. There is no Matify server, no external database, no queue outside Atlassian and no third-party service in the request path.</p>
+<p>There is no external data egress of any kind: no analytics, no error reporting service, no content delivery network, no remote fonts. The user interface is bundled and served from the app itself.</p>
+<h2>Data the app processes</h2>
+<div class="table-wrap"><table><thead><tr><th>Data</th><th>Read</th><th>Stored</th><th>Why</th></tr></thead><tbody><tr><td>Space metadata (id, key, name, type, status, homepage id)</td><td>Yes</td><td>Yes</td><td>The inventory, blueprint definitions and provisioning need to know which spaces exist.</td></tr><tr><td>Page metadata (counts, parent, last modified date)</td><td>Yes</td><td>Counts and dates only</td><td>Blueprint fidelity reports and "last activity" in the inventory.</td></tr><tr><td>Space role assignments and permissions</td><td>Yes</td><td>As a hash only</td><td>Drift detection compares a fresh hash with the previous one. The app does not keep a copy of who holds which permission.</td></tr><tr><td>Space labels</td><td>Yes</td><td>As a hash only</td><td>Same as above.</td></tr><tr><td>Atlassian account ids</td><td>Yes</td><td>Yes</td><td>Requester, approver, space owner and the actor on each audit row.</td></tr><tr><td>Request details (proposed name, key, purpose)</td><td>Yes</td><td>Yes</td><td>The request itself, and the audit trail of what was approved.</td></tr><tr><td>Blueprint definitions and naming policies</td><td>—</td><td>Yes</td><td>Configuration an administrator created.</td></tr><tr><td>Page content, attachments, comments</td><td><strong>No</strong></td><td><strong>No</strong></td><td>The page tree is copied by Atlassian's own server-side copy task. Content never passes through app code.</td></tr><tr><td>Email addresses, names, profile data</td><td><strong>No</strong></td><td><strong>No</strong></td><td>The app resolves display names for rendering only and never stores them.</td></tr></tbody></table></div>
+<h2>Personal data</h2>
+<p>The app stores <strong>Atlassian account ids</strong>. They identify a person, so the app treats them as personal data and implements Atlassian's personal data reporting API: Atlassian can ask which account ids the app holds, and can instruct the app to erase them. On erasure the app removes the id from its records and marks the record accordingly. It never deletes a customer's space, page or content in response.</p>
+<p>No other personal data is stored. The app holds no email addresses, no display names, no profile information and no page content.</p>
+<h2>Data storage, retention and deletion</h2>
+<ul><li><strong>Where:</strong> Forge hosted storage (key-value store and custom entities), pinned to the region of the</li></ul>
+<p>Confluence site the app is installed on.</p>
+<ul><li><strong>Retention:</strong> audit rows are kept for 24 months by default and the retention period is configurable</li></ul>
+<p>between 6 and 60 months. Inventory snapshots keep the newest twelve per space. Blueprints, naming policies and requests are kept until an administrator deletes them.</p>
+<ul><li><strong>Deletion:</strong> administrators can delete blueprints, policies, requests and audit ranges at any time,</li></ul>
+<p>and "Delete all app data" removes everything the app stores in one guarded action.</p>
+<ul><li><strong>On uninstall:</strong> Forge removes the app's storage. Spaces, pages, labels, space properties and role</li></ul>
+<p>assignments the app created remain in Confluence, because they are your content, not the app's.</p>
+<h2>Tenant isolation</h2>
+<p>Forge storage is scoped to a single installation. The app holds no cross-site cache and no shared identifier. Data from one Confluence site is never readable from another.</p>
+<h2>Data residency</h2>
+<p>The app uses only Atlassian-hosted storage and therefore follows the data residency of the Confluence site it is installed on.</p>
+<h2>Permissions the app requests, and why</h2>
+<div class="table-wrap"><table><thead><tr><th>Scope</th><th>What it is for</th></tr></thead><tbody><tr><td><code>read:space:confluence</code></td><td>Read the space inventory and space properties.</td></tr><tr><td><code>write:space:confluence</code></td><td>Create the requested space and write the blueprint reference and review date onto it.</td></tr><tr><td><code>read:space.permission:confluence</code></td><td>Read the space role catalogue and a space's role assignments, for drift detection.</td></tr><tr><td><code>write:space.permission:confluence</code></td><td>Assign the owner their role on the newly created space.</td></tr><tr><td><code>read:page:confluence</code></td><td>Page counts and last-activity dates for blueprint fidelity and the inventory.</td></tr><tr><td><code>read:configuration:confluence</code></td><td>Read whether the site uses role-based space access, to choose the correct create path.</td></tr><tr><td><code>write:confluence-content</code></td><td>Start Confluence's own page-hierarchy copy task.</td></tr><tr><td><code>write:confluence-space</code></td><td>Apply space labels, and create a space on sites without role-based access.</td></tr><tr><td><code>read:confluence-space.summary</code></td><td>Poll the status of the copy task, and receive space events.</td></tr><tr><td><code>read:confluence-content.summary</code></td><td>Receive page and label events.</td></tr><tr><td><code>storage:app</code></td><td>The app's own storage.</td></tr><tr><td><code>report:personal-data</code></td><td>Report stored account ids to Atlassian and honour erasure requests.</td></tr></tbody></table></div>
+<p>The app does <strong>not</strong> request permission to read users, read attachments, or change site configuration.</p>
+<h2>What the app deliberately does not do</h2>
+<ul><li>It never deletes or archives a space or a page, including when provisioning fails part-way. A failed</li></ul>
+<p>run is reported with a retry, and any cleanup is left to an administrator.</p>
+<ul><li>It never copies page-level restrictions from a blueprint. Copying them would create access rules in a</li></ul>
+<p>new space that nobody reviewed, so <code>copyPermissions</code> is off and stays off.</p>
+<ul><li>It never acts as one of your users. The app performs its work under its own app identity, and records</li></ul>
+<p>in the audit trail which person requested and which person approved.</p>
+<h2>Logging</h2>
+<p>The app writes structured operational logs to Forge: request ids, space ids, step names, durations and error codes. Logs contain account ids where an action needs attribution. They never contain page content, space descriptions, request purpose text, display names or email addresses.</p>
+<h2>Security practices</h2>
+<ul><li>Least privilege: every scope above maps to an endpoint the app actually calls.</li><li>All input from the user interface is validated on the server before use. Administrator-supplied naming</li></ul>
+<p>patterns are length-bounded and screened for patterns that could hang the evaluator.</p>
+<ul><li>All Confluence traffic uses Atlassian's authenticated product API over TLS. The app holds no</li></ul>
+<p>credentials, no API tokens and no secrets of its own.</p>
+<ul><li>Every policy-changing operation is checked against Confluence product administration in the backend,</li></ul>
+<p>not only in the interface.</p>
+<ul><li>The audit trail is append-only.</li></ul>
+<h2>Subprocessors</h2>
+<p>None. The app uses no third-party service.</p>
+<h2>Contact</h2>
+<p>Security or privacy questions, including vulnerability reports: <strong>mira.maty@web.de</strong>. Please report suspected vulnerabilities privately to that address rather than in a public issue.</p>
+<h2>Related documents</h2>
+<ul><li>Privacy policy: https://matify25.github.io/matify-public/apps/space-blueprints-for-confluence/privacy/</li><li>Documentation: https://matify25.github.io/matify-public/apps/space-blueprints-for-confluence/docs/</li><li>Support: https://matify25.github.io/matify-public/apps/space-blueprints-for-confluence/support/</li></ul>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>Space Blueprints for Confluence is published by Matify for Atlassian Confluence Cloud.</p>
+    <p>Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+    <p class="faint">Atlassian, Confluence and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+  </div>
+</footer>
