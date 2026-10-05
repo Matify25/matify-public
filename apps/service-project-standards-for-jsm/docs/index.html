@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Documentation — Service Project Standards for JSM — Matify</title>
+<meta name="description" content="Documentation for Service Project Standards for JSM, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;text-decoration:none}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.tabs{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.tabs a,nav.tabs .nav-current{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.tabs a:hover,nav.tabs a:focus-visible{color:var(--fg)}
+nav.tabs .nav-current{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.tabs,footer.site{display:none}
+  a{color:#000}
+}
+</style>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="https://matify25.github.io/matify-public/"><span class="name">Matify</span></a>
+    <span class="product">Service Project Standards for JSM</span>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap">
+  <span class="nav-current" aria-current="page">Documentation</span>
+  <a href="../security-privacy/">Security &amp; privacy</a>
+  <a href="../privacy/">Privacy policy</a>
+  <a href="../terms/">Terms</a>
+  <a href="../support/">Support</a>
+</div></nav>
+<main class="wrap">
+<h1>Service Project Standards for JSM</h1>
+<p class="lede">Capture what one good service project looks like. Compare every other one against it. Know the moment any of them drift.</p>
+<p>Published by <strong>Matify</strong> for Atlassian Jira Service Management Cloud. Read-only: the app never writes to your Jira or JSM configuration.</p>
+
+<h2>What it is for</h2>
+<p>A Jira Service Management site accumulates service projects the way a filing cabinet accumulates
+folders: each one starts as a copy of a reasonable idea and slowly drifts as different people configure
+it over time. Nothing in Jira tells you which desk still matches the standard, which one quietly lost a
+request type's required field, or which queue's JQL stopped matching what the portal actually shows.</p>
+<p>This app closes that loop, read-only, end to end:</p>
+<ol>
+<li>An administrator captures a <strong>standard</strong> from a reference service project: its request
+types, form fields (including hidden and preset fields), queues, workflow/issue-type/screen/permission/
+notification scheme content, screens, roles and components.</li>
+<li>The app <strong>compares</strong> every assigned service project against that standard, on a daily
+light scan and a weekly full scan, or on demand.</li>
+<li>Each project gets a <strong>score</strong>, and every deviation becomes a <strong>finding</strong>
+with a plain-language summary and a rebuild checklist — because Atlassian publishes no write API that
+would let any app safely fix the deviation for you.</li>
+<li>The <strong>change log</strong> records what moved between two scans — the record Jira itself does
+not keep for request types, fields and queues.</li>
+<li><strong>Exceptions</strong> let an admin accept a specific deviation, with a reason, an owner and an
+optional expiry, without it re-appearing as a finding on every scan until it is reviewed again.</li>
+<li><strong>Evidence export</strong> produces a CSV or a printable HTML summary of the whole matrix, for
+an auditor who was not in the room when any of this happened.</li>
+</ol>
+
+<h2>Where things live</h2>
+<div class="tablewrap"><table><thead><tr><th>You want to</th><th>Go to</th></tr></thead><tbody>
+<tr><td>Capture a standard, see the matrix, manage exceptions and settings</td><td>Jira <strong>Settings</strong> → <strong>Apps</strong> → <strong>Service Project Standards</strong></td></tr>
+<tr><td>See one service project's own deviations and rebuild checklist</td><td>That project's <strong>Project settings</strong> → <strong>Standards check</strong></td></tr>
+<tr><td>Put the conformance score and drift on a dashboard</td><td>Add the <strong>Service project standards</strong> gadget to a Jira dashboard</td></tr>
+</tbody></table></div>
+
+<h2>What it deliberately does not cover</h2>
+<p>Stated in the product's own Coverage tab and repeated on every exported evidence pack, not hidden in a
+footnote: SLA goals/calendars/conditions, automation rules, portal branding and settings, customer/portal
+permissions, fields that live in a JSM Form, issue security scheme association, team-managed service
+projects (they have no shared schemes to compare), and exactly who changed something and when (Jira's own
+audit log does not record it for these object types — the change log reports what changed between two
+scans, not a timestamped author). Each exclusion names the actual API limitation behind it rather than
+saying "not supported."</p>
+
+<h2>Requirements</h2>
+<ul>
+<li>Jira Service Management Cloud, company-managed (classic) service projects. Team-managed projects are
+listed as not comparable rather than silently skipped.</li>
+<li>A Jira administrator to install the app, capture the first standard and assign projects to it.</li>
+</ul>
+
+<h2>Documentation</h2>
+<ul>
+<li><a href="../security-privacy/">Security and privacy</a> — what the app reads, what it stores, and why</li>
+<li><a href="../privacy/">Privacy policy</a></li>
+<li><a href="../terms/">Terms</a></li>
+<li><a href="../support/">Support</a></li>
+</ul>
+
+<h2>Trust</h2>
+<p>The app runs entirely on Atlassian's platform. It makes no external network call of any kind — no
+analytics, no error reporting, no content delivery network, no remote fonts. Its Jira permission set is
+30 granular read scopes plus its own storage scope and the personal-data reporting scope: zero write
+scopes, zero <code>manage:*</code> scopes, zero issue-content scopes. It stores Atlassian account ids and
+a compact, hashed form of your service project configuration — never issue content, never a display name
+or email address.</p>
+
+<h2>Support</h2>
+<p><strong>mira.maty@web.de</strong>, or the <a href="../support/">support page</a>. Please do not include
+credentials, personal data or confidential content in a support request. Suspected security
+vulnerabilities go to the email address privately, never to a public issue.</p>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>Service Project Standards for JSM is published by Matify for Atlassian Jira Service Management Cloud.</p>
+    <p>Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+    <p class="faint">© 2026 Matify. Atlassian, Jira and Jira Service Management are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+  </div>
+</footer>
+</html>

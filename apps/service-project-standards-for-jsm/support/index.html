@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Support — Service Project Standards for JSM — Matify</title>
+<meta name="description" content="How to get support for Service Project Standards for JSM from Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;text-decoration:none}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.tabs{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.tabs a,nav.tabs .nav-current{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.tabs a:hover,nav.tabs a:focus-visible{color:var(--fg)}
+nav.tabs .nav-current{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.tabs,footer.site{display:none}
+  a{color:#000}
+}
+</style>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="https://matify25.github.io/matify-public/"><span class="name">Matify</span></a>
+    <span class="product">Service Project Standards for JSM</span>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap">
+  <a href="../docs/">Documentation</a>
+  <a href="../security-privacy/">Security &amp; privacy</a>
+  <a href="../privacy/">Privacy policy</a>
+  <a href="../terms/">Terms</a>
+  <span class="nav-current" aria-current="page">Support</span>
+</div></nav>
+<main class="wrap">
+<h1>Support</h1>
+<p class="lede">Service Project Standards for JSM is supported by Matify. One address, read by a person.</p>
+
+<h2>Before you write</h2>
+<p>Check the <a href="../docs/">documentation</a> first — it covers what the app compares, where each
+screen lives, and what the app deliberately does not verify (SLA configuration, automation rules, portal
+settings, customer permissions, JSM Forms fields and issue security scheme association are all outside
+what any read-only app can check today, and the reason is stated for each).</p>
+
+<h2>Ask a question or report a problem</h2>
+<ul>
+<li><strong>Email:</strong> <a href="mailto:mira.maty@web.de">mira.maty@web.de</a> — for anything, and
+the only channel for anything confidential.</li>
+<li><strong>Public tracker:</strong>
+<a href="https://github.com/Matify25/matify-support/issues/new/choose">open a support request, bug report
+or feature request</a>. You can also
+<a href="https://github.com/Matify25/matify-support/issues">browse existing work items</a>.</li>
+</ul>
+
+<h2>What to include</h2>
+<ul>
+<li>The Jira site type (company-managed vs. team-managed for the service project involved) and whether
+the issue is in the site-wide admin console, a project's Standards check panel, or the dashboard gadget.</li>
+<li>Whether a scan was running, and, if so, its scan id from the Scan status screen.</li>
+<li>What you were doing, and what you expected instead.</li>
+<li>The diagnostics bundle from the admin console's Diagnostics screen. It contains only counts, codes
+and scan metadata — no project name, no finding text, no account id resolved to a name.</li>
+</ul>
+
+<h2>What never to include</h2>
+<p>The tracker is public and its history stays readable after an edit. Never post a password, an API
+token, an Atlassian account id, an email address, a project name, an exception's reason text, queue JQL,
+or anything else your organisation would not publish. If a question cannot be asked without one, email it
+instead.</p>
+
+<h2>Security vulnerabilities</h2>
+<p>Never a public issue. Email <a href="mailto:mira.maty@web.de">mira.maty@web.de</a> privately, and
+please do not include customer data or credentials in the report.</p>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>Service Project Standards for JSM is published by Matify for Atlassian Jira Service Management Cloud.</p>
+    <p>Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+    <p class="faint">© 2026 Matify. Atlassian, Jira and Jira Service Management are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+  </div>
+</footer>
+</html>
