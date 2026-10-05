@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Getting started — Space Blueprints for Confluence — Matify</title>
+<meta name="description" content="Getting started for Space Blueprints for Confluence, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+</style>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../../">Matify</a>
+    <span class="product">Space Blueprints for Confluence</span>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><a href="../../">Overview</a><a href="../../docs/">Documentation</a><a href="../../security-privacy/">Security & privacy</a><a href="../../privacy/">Privacy policy</a><a href="../../terms/">Terms</a><a href="../../support/">Support</a></div></nav>
+<main class="wrap">
+<h1>Getting Started</h1>
+<p>From installing the app to a provisioned space, in about fifteen minutes. You need to be a Confluence product administrator.</p>
+<h2>1. Install</h2>
+<p>Install from the Atlassian Marketplace. Confluence shows the permissions the app asks for; each one is explained in <a href="">Permissions and security</a>.</p>
+<p>Nothing else needs configuring. The app starts building its space inventory in the background as soon as it is installed, so the admin console has something to show you within a minute or two.</p>
+<h2>2. Look at what you already have</h2>
+<p><strong>Confluence settings → Apps → Space Blueprints → Inventory.</strong></p>
+<p>Before you create anything, this is a useful screen on its own: every space on the site with its page count and last activity. You can assign owners and review dates here in bulk, which gives you a register of who is responsible for what — even for spaces that predate the app.</p>
+<h2>3. Capture your first blueprint</h2>
+<p><strong>Blueprints → Capture blueprint.</strong></p>
+<p>Pick a space you would be happy to clone — a project space, a client space, a team space with the structure you keep rebuilding by hand.</p>
+<p>The app inspects it and shows a <strong>fidelity report</strong> before you confirm: how many pages it contains, whether it holds whiteboards, databases, folders or blog posts, and therefore what a copy cannot carry across. Read it. It is the honest part of the product, and it is shown here rather than discovered later.</p>
+<p>Then set:</p>
+<ul><li><strong>Name and description</strong> — what a requester sees in the gallery.</li><li><strong>Default owner</strong> — who is proposed as owner for spaces made from this blueprint.</li><li><strong>Role for the owner</strong> — which space role the owner is assigned on the new space.</li><li><strong>Review interval</strong> — how far ahead the review date is set, in days. The default is a year.</li><li><strong>Naming policy</strong> — optional, see the next step.</li></ul>
+<p>Blueprints are capped at 500 pages. If your source space is larger, point the blueprint at a subtree.</p>
+<h2>4. Define a naming policy (optional, recommended)</h2>
+<p><strong>Naming policies → New policy.</strong></p>
+<p>A policy is a pattern the space name must match, plus a worked example the requester sees while typing. For example, a pattern requiring client spaces to start <code>CL-</code> with an uppercase client code, and the example <code>CL-ACME-2026</code>.</p>
+<p>The editor validates live against your own example, so you find out immediately if the pattern is wrong. Attach the policy to a blueprint from the blueprint editor.</p>
+<h2>5. Decide how requests get approved</h2>
+<p><strong>Settings.</strong></p>
+<ul><li><strong>Manual approval</strong> (default): every request waits for an administrator.</li><li><strong>Auto-approval rules</strong>: pick a blueprint and a group. Requests from that group, for that blueprint,</li></ul>
+<p>provision immediately. The audit trail records them as auto-approved.</p>
+<p>Also here: who may request a space (everyone, or named groups), the weekly sweep schedule and batch size, and how long audit entries are kept.</p>
+<h2>6. Send yourself a test request</h2>
+<p>Open the <strong>Apps</strong> menu → <strong>Space Blueprints</strong>. This is what your team sees.</p>
+<p>Pick your blueprint, type a name — watch it validate against the policy as you type — accept the suggested key, pick yourself as owner, write a purpose, and submit.</p>
+<h2>7. Approve it</h2>
+<p>Back in <strong>Settings → Apps → Space Blueprints → Approvals</strong>.</p>
+<p>The request detail shows exactly what will be created: the blueprint, the name, the key, the owner and what will and will not be copied. Approve.</p>
+<p>Provisioning runs in the background. You can watch it: create space → assign owner role → copy pages (with Confluence's own progress percentage) → apply labels → record. A small blueprint finishes in well under a minute; a large one takes a few minutes.</p>
+<p>When it is done the request shows a link to the new space.</p>
+<h2>8. Tell your team</h2>
+<p>Share the <strong>Apps → Space Blueprints</strong> link. That is the whole onboarding for a requester: they see the blueprint gallery, the request form, and their own requests.</p>
+<h2>What happens from then on</h2>
+<ul><li>Every new space request runs through the same loop.</li><li>Once a week the app sweeps the site and refreshes the inventory: owners, review dates, last activity,</li></ul>
+<p>and drift where a space's roles, labels or owner have moved away from its blueprint.</p>
+<ul><li><strong>Diagnostics</strong> shows the last sweep, the rate-limit budget used and any recent failures.</li></ul>
+<h2>If something goes wrong</h2>
+<p>Every error carries a code, and <a href="">Troubleshooting</a> lists them all with what to do. Provisioning failures can be retried from the step that failed — the app never starts over and never creates a second space.</p>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>Space Blueprints for Confluence is published by Matify for Atlassian Confluence Cloud.</p>
+    <p>Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+    <p class="faint">Atlassian, Confluence and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+  </div>
+</footer>

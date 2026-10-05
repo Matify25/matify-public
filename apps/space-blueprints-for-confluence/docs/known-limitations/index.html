@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Known limitations — Space Blueprints for Confluence — Matify</title>
+<meta name="description" content="Known limitations for Space Blueprints for Confluence, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+</style>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../../">Matify</a>
+    <span class="product">Space Blueprints for Confluence</span>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><a href="../../">Overview</a><a href="../../docs/">Documentation</a><a href="../../security-privacy/">Security & privacy</a><a href="../../privacy/">Privacy policy</a><a href="../../terms/">Terms</a><a href="../../support/">Support</a></div></nav>
+<main class="wrap">
+<h1>Known Limitations</h1>
+<p>Everything on this page is a deliberate boundary of version 1.0, verified against the real Confluence Cloud API. We would rather you read it before buying than discover it afterwards.</p>
+<h2>What a blueprint does not copy</h2>
+<p>Confluence performs the page copy with its own server-side task. That task copies pages, their nesting, attachments, labels and content properties. It does <strong>not</strong> carry across:</p>
+<div class="table-wrap"><table><thead><tr><th>Not copied</th><th>What happens instead</th></tr></thead><tbody><tr><td>Whiteboards</td><td>The blueprint's whiteboards are detected at capture time and listed in the fidelity report. They are not recreated in the new space.</td></tr><tr><td>Databases</td><td>Same as whiteboards: detected, reported, not recreated.</td></tr><tr><td>Folders</td><td>Detected and reported; the pages inside a folder are copied, the folder itself is not.</td></tr><tr><td>Blog posts</td><td>Not copied.</td></tr><tr><td>Page history and versions</td><td>The copied pages start at version 1. The original history stays with the blueprint.</td></tr><tr><td>Space themes and look-and-feel</td><td>Not copied.</td></tr><tr><td>Page-level restrictions</td><td><strong>Deliberately not copied.</strong> See below.</td></tr></tbody></table></div>
+<p>The app shows this list in the blueprint gallery and again on the capture screen, before an administrator confirms a blueprint — not in a footnote afterwards.</p>
+<h2>Page restrictions are never copied, on purpose</h2>
+<p>Confluence's copy task can carry page-level restrictions across. The app switches that off and keeps it off. Copying restrictions would create invisible access rules in a brand new space that neither the requester nor the approver ever reviewed. Space-level access <em>is</em> copied, because that is the point of a blueprint, and it is visible and reviewable in the space's own settings.</p>
+<h2>Blueprint size limit</h2>
+<p>A blueprint is capped at <strong>500 pages</strong>. The cap is enforced when the blueprint is captured, not when a space is provisioned, so an administrator learns about it immediately. Larger source spaces can still be used by pointing the blueprint at a subtree.</p>
+<h2>The app never deletes anything</h2>
+<p>By design there is no delete. If provisioning fails after the space was created, the app reports exactly which step failed and offers a retry from that step. It leaves the partially provisioned space in place for an administrator to inspect and remove manually. The app also never archives a space, never deletes a page and never removes a permission.</p>
+<h2>Drift is detected, not repaired</h2>
+<p>The weekly inventory tells you when a provisioned space no longer matches its blueprint: role assignments changed, labels changed, the owner changed, or the review date has passed. Version 1.0 reports these. It does not automatically put them back, because a safe repair needs a diff preview and an undo path, and both are planned for a later version.</p>
+<h2>Requests, not self-service</h2>
+<p>A requester cannot create a space directly through the app. Every request needs an administrator approval, or an auto-approval rule an administrator configured in advance. This is the product's purpose rather than a limitation, but it is worth stating plainly.</p>
+<h2>One inventory sweep a week</h2>
+<p>The inventory refreshes on a weekly schedule, in bounded chunks, and can be triggered manually from the admin console. It is not real-time. Space creation and deletion events update the inventory immediately; everything else is picked up by the next sweep or by "Re-check now" on an individual space.</p>
+<p>The reason is the Confluence rate limit: an app shares one pool of 65,000 points per hour across every site it is installed on. Sweeping continuously would spend other customers' budget. On a very large site (several thousand spaces) a full sweep is spread across the week.</p>
+<h2>Plan and tenant requirements</h2>
+<p>The app uses Confluence's role-based space access when the site has it, which covers sites reporting <code>ROLES</code> or <code>ROLES_TRANSITION</code> — that is every Standard, Premium and Enterprise site as the roles rollout completes. On a site without role-based access the app falls back to the legacy space-creation path; that path creates the space but cannot copy the blueprint's access configuration, so access must be set manually afterwards. The app tells you when it is in that mode instead of failing silently.</p>
+<h2>No JSM or Jira entry point yet</h2>
+<p>Version 1.0 has no web-trigger endpoint, so a Jira Service Management ticket cannot start a provisioning run. This is deferred deliberately: a web trigger would disqualify the app from Atlassian's "Runs on Atlassian" programme, which is verified and confirmed — the app's own eligibility check reports a web trigger as data egress. The integration is planned for a version where that trade-off can be made explicit.</p>
+<h2>Attachment listing</h2>
+<p>The app does not request permission to read attachments. Attachments inside a blueprint are copied by Confluence's task, but the app cannot show you an attachment inventory. This keeps the permission set smaller than the feature would be worth.</p>
+<h2>Notifications</h2>
+<p>Version 1.0 notifies inside the app: a requester sees their request status, an approver sees the queue. There is no email notification and no Confluence notification, because Forge offers no supported way to send one for this kind of event.</p>
+<h2>Browser support</h2>
+<p>The interface uses Atlassian's own design system and runs wherever Confluence Cloud runs. There is no separate mobile app; the admin console is built for a desktop-width screen.</p>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>Space Blueprints for Confluence is published by Matify for Atlassian Confluence Cloud.</p>
+    <p>Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+    <p class="faint">Atlassian, Confluence and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+  </div>
+</footer>
