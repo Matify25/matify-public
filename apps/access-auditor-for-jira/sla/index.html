@@ -4,9 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Service level agreement — Access Auditor for Jira — Matify</title>
-<meta name="description" content="Support hours, first-response times, security fix timelines and what is not covered, for Access Auditor for Jira by Matify.">
+<meta name="description" content="The Matify service level agreement covers every Matify app.">
 <meta name="robots" content="index,follow">
 <meta name="color-scheme" content="dark">
+<meta http-equiv="refresh" content="0; url=../../../sla/">
+<link rel="canonical" href="../../../sla/">
 <style>
 :root{
   --graphite-900:#14171a;
@@ -128,61 +130,7 @@ footer.site p{margin:0 0 .3rem}
 </div></div></header>
 <nav class="site" aria-label="Sections"><ul><li><a href="../">Overview</a></li><li><a href="../docs/">Documentation</a></li><li><a href="../security-privacy/">Security & privacy</a></li><li><a href="../privacy/">Privacy policy</a></li><li><a href="../support/">Support</a></li></ul></nav>
 <main><div class="wrap">
-<h1>Service Level Agreement</h1>
-<p><strong>Product:</strong> Access Auditor for Jira <strong>Publisher:</strong> Matify <strong>Applies to:</strong> Jira Cloud installations obtained through the Atlassian Marketplace <strong>Last updated:</strong> 2026-10-05</p>
-<p>This page sets out what support you can expect from Matify, how quickly, and what this agreement does not cover. It applies to every installation — paid, trial and the free tier — because there is one support queue, not several.</p>
-<hr>
-<h2>1. How to reach support</h2>
-<p>Two routes, and they are equal. Use whichever suits you.</p>
-<div class="table-wrap"><table><thead><tr><th>Route</th><th>Address</th><th>Notes</th></tr></thead><tbody><tr><td>Public tracker</td><td><a href="https://github.com/Matify25/matify-support/issues/new/choose" rel="noopener noreferrer" target="_blank">Open a ticket</a></td><td>Reading existing tickets needs no account. Opening one needs a free GitHub account.</td></tr><tr><td>Email</td><td>&lt;mira.maty@web.de&gt;</td><td>No account needed. The right choice for anything you would rather not write in public.</td></tr></tbody></table></div>
-<p>A <strong>suspected security vulnerability</strong> must never be reported in a public ticket. Email the address above with <em>security</em> in the subject line, or use the private reporting option on the tracker's <a href="https://github.com/Matify25/matify-support/security/policy" rel="noopener noreferrer" target="_blank">security policy</a>.</p>
-<h2>2. Hours of operation</h2>
-<p><strong>Monday to Friday, 09:00 to 17:00 Central European Time</strong> — CET in winter, CEST in summer — excluding public holidays and announced closures.</p>
-<p>Every response time below is counted in these business hours. A ticket opened on Friday evening is first seen on Monday morning.</p>
-<p>Planned closures longer than two business days are announced on the support tracker in advance, together with the date support resumes.</p>
-<h2>3. First-response times</h2>
-<p>A first response is a reply written by a person. It confirms the ticket has been read, states the severity it has been assessed at, and either answers the question or says what happens next. There is no automated acknowledgement, so the first reply you receive is always a real one.</p>
-<div class="table-wrap"><table><thead><tr><th>Severity</th><th>What it means</th><th>First response within</th></tr></thead><tbody><tr><td><strong>Critical</strong></td><td>The app cannot be used by any administrator on the site, or a security vulnerability is suspected</td><td><strong>1 business day</strong></td></tr><tr><td><strong>High</strong></td><td>A core function — scanning, findings, the permission explorer or exports — fails and there is no workaround</td><td><strong>2 business days</strong></td></tr><tr><td><strong>Normal</strong></td><td>Something misbehaves but a workaround exists, or a question about configuration or about what a result means</td><td><strong>3 business days</strong></td></tr><tr><td><strong>Low</strong></td><td>A cosmetic issue, a documentation correction or a feature request</td><td><strong>5 business days</strong></td></tr></tbody></table></div>
-<p>You choose the severity when you open a ticket. It may be adjusted after the first assessment, and the reply will say why.</p>
-<h2>4. Resolution</h2>
-<p>Matify does not promise a fixed resolution time for ordinary defects, because the cause decides what is possible. A good share of what is reported against an Atlassian Forge app turns out to be Jira configuration, a limit of what the Jira Cloud REST API exposes, or Atlassian platform behaviour — none of which a fix in the app can change. Promising a deadline for those would be promising something outside Matify's control.</p>
-<p>What is committed instead:</p>
-<ul><li>For <strong>Critical</strong> and <strong>High</strong> tickets, a status update at least every two</li></ul>
-<p>business days until the problem is resolved or a workaround is in place.</p>
-<ul><li>Every ticket is closed with a reason: fixed and in which release, not</li></ul>
-<p>reproducible, working as designed with the explanation, or outside this agreement.</p>
-<h3>How fixes reach you</h3>
-<p>Fixes are released through the Atlassian Marketplace as a new version of the app. A fix that does not change the app's permissions reaches every installation automatically; there is nothing for you to install. A fix that needs a new permission requires a Jira administrator to approve the update, as Atlassian requires for any change of permissions.</p>
-<h2>5. Security vulnerabilities</h2>
-<p>Security reports are handled ahead of everything else.</p>
-<ul><li><strong>Acknowledgement</strong> within 1 business day, the same as a Critical ticket.</li><li><strong>Resolution</strong> follows Atlassian's</li></ul>
-<p><a href="https://developer.atlassian.com/platform/marketplace/security-bugfix-policy/" rel="noopener noreferrer" target="_blank">Security Bug Fix Policy for Marketplace apps</a>. At the time of writing, that policy requires a vulnerability in a cloud app to be fixed within these periods of being reported or triaged:</p>
-<div class="table-wrap"><table><thead><tr><th>Severity</th><th>CVSS score</th><th>Fixed within</th></tr></thead><tbody><tr><td>Critical</td><td>9.0 and above</td><td>10 days</td></tr><tr><td>High</td><td>7.0 and above</td><td>4 weeks</td></tr><tr><td>Medium</td><td>4.0 and above</td><td>12 weeks</td></tr><tr><td>Low</td><td>below 4.0</td><td>25 weeks</td></tr></tbody></table></div>
-<p>Atlassian's policy is the authority. If it changes, the shorter of the two periods applies.</p>
-<p>If a vulnerability affected customer data, the affected customers and Atlassian are notified.</p>
-<h2>6. Service availability</h2>
-<p>Access Auditor for Jira runs entirely on Atlassian Forge, inside your own Jira Cloud site. Matify operates no servers, no database and no service of its own that the app depends on.</p>
-<p>The app is therefore available exactly when Jira Cloud and the Forge platform are, and that availability is Atlassian's. <strong>Matify makes no separate uptime commitment</strong> — it would be a promise about infrastructure Matify does not run.</p>
-<p>Current platform status is published by Atlassian:</p>
-<ul><li><a href="https://status.atlassian.com/" rel="noopener noreferrer" target="_blank">Atlassian Status</a> — Jira Cloud and other products</li><li><a href="https://developer.status.atlassian.com/" rel="noopener noreferrer" target="_blank">Atlassian Developer Status</a> — the Forge platform</li></ul>
-<p>Two properties of the app itself matter here. A scan that fails during a platform incident is simply retried on the next scheduled run. And a failed scan never triggers deletion, so a platform incident cannot erase your audit history.</p>
-<h2>7. What this agreement does not cover</h2>
-<ul><li>Incidents in Jira Cloud or the Atlassian Forge platform. Report those to</li></ul>
-<p>Atlassian; Matify will help you work out whether a problem lies with the app or with the platform.</p>
-<ul><li>Jira Data Center and Jira Server, which the app does not support.</li><li>The access model of team-managed projects, and the other boundaries of the Jira</li></ul>
-<p>Cloud REST API described in the <a href="../docs/known-limitations/">known limitations</a>.</p>
-<ul><li>Changes to your Jira configuration. The app is read-only by design and never</li></ul>
-<p>writes to Jira, so it cannot fix a finding for you.</p>
-<ul><li>Custom development, integrations and on-site work.</li></ul>
-<h2>8. Remedies</h2>
-<p>This agreement does not provide service credits, refunds or any other financial remedy. Refunds for Marketplace purchases are handled under the Atlassian Marketplace's own terms.</p>
-<p>If Matify misses a response time in this agreement, the reply says so, gives the reason, and states when you can expect the next update.</p>
-<h2>9. Changes to this agreement</h2>
-<p>Material changes are announced on the support tracker at least 30 days before they take effect. A ticket is handled under the version of this agreement that was published when the ticket was opened.</p>
-<h2>10. Related documents</h2>
-<ul><li><a href="../support/">Support</a> — how to write a ticket that gets answered on the first reply</li><li><a href="../docs/">Documentation</a> — setup, every screen, every permission scope</li><li><a href="../docs/troubleshooting/">Troubleshooting</a> — every error code the app can show</li><li><a href="../security-privacy/">Security and privacy statement</a> — hosting, data handling, retention and subprocessors</li><li><a href="../privacy/">Privacy policy</a></li></ul>
-<hr>
-<p><strong>Publisher:</strong> Matify · <strong>Support:</strong> &lt;mira.maty@web.de&gt;</p>
+<h1>Service level agreement</h1><p class="lede">Matify has one service level agreement for every app it publishes.</p><p><a href="../../../sla/">Read the Matify service level agreement</a></p>
 </div></main>
 <footer class="site"><div class="wrap">
   <p>Access Auditor for Jira is published by Matify for Atlassian Jira Cloud.</p>
