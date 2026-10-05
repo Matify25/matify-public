@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Overview — Service Project Standards for JSM — Matify</title>
+<meta name="description" content="Service Project Standards for JSM by Matify: capture one service project as the standard, compare every other against it, and see what drifted. Documentation, security and privacy statement, privacy policy, terms and support.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;text-decoration:none}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.tabs{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.tabs a,nav.tabs .nav-current{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.tabs a:hover,nav.tabs a:focus-visible{color:var(--fg)}
+nav.tabs .nav-current{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.tabs,footer.site{display:none}
+  a{color:#000}
+}
+</style>
+<style>
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;border:1px solid var(--line);border-radius:4px;color:inherit}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim, currentColor)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem}
+.cards .card-desc{display:block;font-size:.9rem;line-height:1.5;opacity:.85}
+</style>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="https://matify25.github.io/matify-public/"><span class="name">Matify</span></a>
+    <span class="product">Service Project Standards for JSM</span>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap">
+  <span class="nav-current" aria-current="page">Overview</span>
+  <a href="docs/">Documentation</a>
+  <a href="security-privacy/">Security &amp; privacy</a>
+  <a href="privacy/">Privacy policy</a>
+  <a href="terms/">Terms</a>
+  <a href="support/">Support</a>
+</div></nav>
+<main class="wrap">
+<h1>Service Project Standards for JSM</h1>
+<p class="lede">Capture what one good service project looks like. Compare every other one against it. Know the moment any of them drift.</p>
+<p>Published by <strong>Matify</strong> for Atlassian Jira Service Management Cloud. Read-only: the app never writes to your Jira or JSM configuration.</p>
+
+<div class="cards">
+  <a class="card" href="docs/">
+    <span class="card-title">Documentation</span>
+    <span class="card-desc">What the app compares, where everything lives, and how to read a finding.</span>
+  </a>
+  <a class="card" href="security-privacy/">
+    <span class="card-title">Security &amp; privacy statement</span>
+    <span class="card-desc">What the app reads and stores, how it is protected, and why it sends nothing anywhere.</span>
+  </a>
+  <a class="card" href="privacy/">
+    <span class="card-title">Privacy policy</span>
+    <span class="card-desc">The formal policy for the data the app processes.</span>
+  </a>
+  <a class="card" href="terms/">
+    <span class="card-title">Terms</span>
+    <span class="card-desc">The terms that apply to using the app.</span>
+  </a>
+  <a class="card" href="support/">
+    <span class="card-title">Support</span>
+    <span class="card-desc">How to ask a question, report a bug or request a feature.</span>
+  </a>
+</div>
+
+<h2>What it does</h2>
+<ol>
+<li>An administrator captures a <strong>standard</strong> from a reference service project: its request types, request form fields including hidden and preset ones, queues, schemes, screens, roles and components.</li>
+<li>The app <strong>compares</strong> every assigned service project against that standard, on a daily light scan, a weekly full scan, or on demand.</li>
+<li>Each project gets a <strong>score</strong>, and every deviation becomes a <strong>finding</strong> with a plain-language summary and a rebuild checklist.</li>
+<li>The <strong>change log</strong> records what moved between two scans — the record Jira itself does not keep for request types, fields and queues.</li>
+<li><strong>Exceptions</strong> let an administrator accept a specific deviation with a reason, an owner and an expiry.</li>
+</ol>
+
+<h2>Trust</h2>
+<p>The app runs entirely on Atlassian's Forge platform and makes no external network calls of any kind. It holds no write scope, so it cannot change anything it reads. It stores configuration metadata and Atlassian account ids, never issue content, and it says plainly which configuration areas no public API lets it check.</p>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>Service Project Standards for JSM is published by Matify for Atlassian Jira Service Management Cloud.</p>
+    <p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a></p>
+    <p class="faint">© 2026 Matify. Atlassian, Jira and Jira Service Management are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+  </div>
+</footer>
+</html>
