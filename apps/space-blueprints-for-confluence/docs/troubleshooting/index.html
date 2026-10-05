@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Troubleshooting — Space Blueprints for Confluence — Matify</title>
+<meta name="description" content="Troubleshooting for Space Blueprints for Confluence, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+</style>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../../">Matify</a>
+    <span class="product">Space Blueprints for Confluence</span>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><a href="../../">Overview</a><a href="../../docs/">Documentation</a><a href="../../security-privacy/">Security & privacy</a><a href="../../privacy/">Privacy policy</a><a href="../../terms/">Terms</a><a href="../../support/">Support</a></div></nav>
+<main class="wrap">
+<h1>Troubleshooting</h1>
+<p>Every error the app shows carries a code. Find the code here.</p>
+<h2>Diagnostics first</h2>
+<p><strong>Confluence settings → Apps → Space Blueprints → Diagnostics</strong> shows the last inventory sweep, the rate-limit budget the app has used, queue health, recent failures and the app version. There is a "Copy diagnostics" button that produces a JSON block with no personal data in it. Attaching that to a support request usually removes a round trip.</p>
+<hr>
+<h2>SBC-100 — Validation</h2>
+<p><strong>What happened.</strong> Something in the request could not be accepted: a missing field, a name that is too long, or a value that is not what the form expects.</p>
+<p><strong>What to do.</strong> The message names the field. Correct it and submit again. If the form itself looks wrong, reload the page: a stale tab can post an outdated shape after an app upgrade.</p>
+<h2>SBC-101 — The name does not match the naming policy</h2>
+<p><strong>What happened.</strong> The blueprint has a naming policy attached and the proposed space name does not match its pattern.</p>
+<p><strong>What to do.</strong> The message shows the policy's own worked example. Follow that shape. Administrators can see and edit the pattern under <strong>Naming policies</strong>; if the policy is wrong rather than the name, fix the policy and the requester can resubmit without starting over.</p>
+<h2>SBC-102 — That space key or name is already taken</h2>
+<p><strong>What happened.</strong> Between submitting and provisioning, a space with the same key or name appeared. The app re-checks immediately before creating, on purpose, so it never collides with something created in the meantime.</p>
+<p><strong>What to do.</strong> Reject the request with a note, and ask for a different name; or edit the key and retry. Keys cannot be reused from a deleted space until Confluence releases them.</p>
+<h2>SBC-103 — The blueprint no longer exists</h2>
+<p><strong>What happened.</strong> The blueprint, or the space it was captured from, was deleted or archived after the request was submitted.</p>
+<p><strong>What to do.</strong> Re-capture the blueprint from a current space, then ask the requester to submit again. Existing spaces already provisioned from the old blueprint are unaffected; their inventory rows will show the blueprint as missing.</p>
+<h2>SBC-200 — Permission denied</h2>
+<p><strong>What happened.</strong> Confluence refused an action the app tried to take.</p>
+<p><strong>What to do.</strong> Check that the app is still installed with all the permissions it was granted at install. An administrator can reinstall or upgrade the app to re-grant them. If the app was installed and the site's space-access model changed afterwards, run a sweep so the app re-reads the current mode.</p>
+<h2>SBC-201 — You need to be a Confluence administrator</h2>
+<p><strong>What happened.</strong> A non-administrator tried to reach an administrative function. The app checks this on the server, not just by hiding buttons, so this can appear even from a bookmarked URL.</p>
+<p><strong>What to do.</strong> Ask a Confluence product administrator to perform the action, or to grant you that role.</p>
+<h2>SBC-202 — The app could not create a space</h2>
+<p><strong>What happened.</strong> Confluence rejected the space creation itself.</p>
+<p><strong>What to do.</strong> Two usual causes. First, the site restricts who may create spaces; the app creates spaces under its own app identity, so the app must be allowed to. Second, the site is not using role-based space access and the legacy fallback is switched off in <strong>Settings</strong>. The message says which case it is.</p>
+<h2>SBC-300 — Rate limited</h2>
+<p><strong>What happened.</strong> Confluence asked the app to slow down. This is not a fault: the app shares an hourly request budget across every site it is installed on, and it yields rather than pushing through.</p>
+<p><strong>What to do.</strong> Nothing. Provisioning resumes automatically, and the message says roughly when. Sweeps yield to provisioning, so an in-flight space request is never blocked by an inventory scan. If you see this constantly on a very large site, raise the sweep interval or lower the batch size in <strong>Settings</strong>.</p>
+<h2>SBC-400 — The page copy failed</h2>
+<p><strong>What happened.</strong> Confluence's own page-hierarchy copy task reported a failure. The space itself was created; the pages did not all arrive.</p>
+<p><strong>What to do.</strong> Open the request and use <strong>Retry from this step</strong>. The app does not start over and does not create a second space. If it fails again, the copy is usually hitting a specific page: check the blueprint for pages with unusual macros or very large attachments. The app never deletes the partially filled space — an administrator can remove it manually if the request is abandoned.</p>
+<h2>SBC-401 — The page copy timed out</h2>
+<p><strong>What happened.</strong> The copy task was still running after 60 minutes, so the app stopped waiting.</p>
+<p><strong>What to do.</strong> Check the new space: the copy may in fact have completed after the app gave up. If it did, mark the request complete from the request detail view. If it did not, the blueprint is probably too large or too deep; reduce it and re-capture. The 500-page cap exists to prevent this.</p>
+<h2>SBC-500 — Storage error</h2>
+<p><strong>What happened.</strong> The app could not read or write its own data.</p>
+<p><strong>What to do.</strong> Retry once. If it persists, this is an app or platform fault rather than a configuration problem: send the diagnostics JSON to mira.maty@web.de.</p>
+<h2>SBC-600 — Licence required</h2>
+<p><strong>What happened.</strong> The app's licence is not active, so actions that change something are refused. Reading still works, so an administrator can see the state of things.</p>
+<p><strong>What to do.</strong> Check the subscription in <strong>Manage apps</strong>. A lapsed licence also pauses the weekly inventory sweep. Nothing is deleted: your blueprints, requests, inventory and audit trail are all still there when the licence is restored.</p>
+<h2>SBC-900 — Unexpected error</h2>
+<p><strong>What happened.</strong> Something the app did not anticipate.</p>
+<p><strong>What to do.</strong> Copy the diagnostics JSON and send it to mira.maty@web.de with a note about what you were doing. The diagnostics contain no page content, no names and no email addresses.</p>
+<hr>
+<h2>Situations without an error code</h2>
+<p><strong>A request sits at "Provisioning" for a long time.</strong> Large page trees take longer; the progress bar reflects Confluence's own reported percentage. If it has not moved in 15 minutes, open Diagnostics and check whether the app is paused for rate limiting.</p>
+<p><strong>The inventory looks out of date.</strong> It refreshes weekly. Use <strong>Run sweep now</strong>, or <strong>Re-check now</strong> on one space. Space creation and deletion update immediately; role and label changes wait for the sweep.</p>
+<p><strong>A space shows as "drifted" and it should not.</strong> Drift means the space's roles, labels or owner no longer match its blueprint, or the review date has passed. If the change was intentional, re-capture the blueprint or update the review date from the inventory; the app reports drift, it never silently reverts anything.</p>
+<p><strong>Whiteboards and databases are missing from a provisioned space.</strong> They are never copied. Confluence's copy task does not carry them, which is stated on the blueprint before you confirm it and in Known Limitations.</p>
+<p><strong>The app says the site is using the legacy creation path.</strong> The site does not have role-based space access yet. Spaces are still created; the blueprint's access configuration is not copied, so set access manually afterwards. This resolves itself when the site completes Atlassian's roles rollout.</p>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>Space Blueprints for Confluence is published by Matify for Atlassian Confluence Cloud.</p>
+    <p>Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+    <p class="faint">Atlassian, Confluence and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+  </div>
+</footer>

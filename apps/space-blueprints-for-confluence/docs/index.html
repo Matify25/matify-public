@@ -1,14 +1,11 @@
 <!doctype html>
 <html lang="en">
-<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Apps — Matify</title>
-<meta name="description" content="Atlassian Marketplace apps published by Matify.">
+<title>Documentation — Space Blueprints for Confluence — Matify</title>
+<meta name="description" content="Documentation for Space Blueprints for Confluence, published by Matify.">
 <meta name="robots" content="index,follow">
-<meta name="color-scheme" content="dark">
-<style>
-:root{
+<style>:root{
   --graphite-900:#14171a;
   --graphite-800:#1a1e22;
   --graphite-700:#22272c;
@@ -119,33 +116,43 @@ footer.site p{margin:0 0 .3rem}
   a{color:#000}
 }
 </style>
-</head>
-<body>
-<header class="site"><div class="wrap"><div class="brand">
-  <span class="name">Matify</span>
-  <span class="sep">/</span>
-  <span class="product">Atlassian Marketplace apps</span>
-</div></div></header>
-<nav class="site" aria-label="Sections"><ul><li><a href="../">Matify</a></li><li><a href="./" aria-current="page">Apps</a></li><li><a href="../sla/">Service level agreement</a></li><li><a href="../support/">Support</a></li></ul></nav>
-<main><div class="wrap">
-<h1>Apps</h1>
-<p class="lede">Atlassian Marketplace apps published by Matify. Every one is
-covered by the same <a href="../sla/">service level agreement</a>.</p>
-<ul class="cards">
-  <li><a class="card" href="access-auditor-for-jira/">
-    <span class="card-title">Access Auditor for Jira</span>
-    <span class="card-body">Read-only permission auditing for Jira Cloud: who can access what, and why.</span>
-  </a></li>
-  <li><a class="card" href="space-blueprints-for-confluence/">
-    <span class="card-title">Space Blueprints for Confluence</span>
-    <span class="card-body">Space templates, governed space requests and provisioning for Confluence Cloud.</span>
-  </a></li>
-</ul>
-</div></main>
-<footer class="site"><div class="wrap">
-  <p>Matify publishes apps for Atlassian Cloud on the Atlassian Marketplace.</p>
-  <p>Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a> &middot; <a href="https://github.com/Matify25/matify-support">support tracker</a></p>
-  <p>Copyright 2026 Matify. All Rights Reserved.</p>
-</div></footer>
-</body>
-</html>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../">Matify</a>
+    <span class="product">Space Blueprints for Confluence</span>
+  </div>
+</header>
+<nav class="tabs"><div class="wrap"><a href="../">Overview</a><span class="nav-current" aria-current="page">Documentation</span><a href="../security-privacy/">Security & privacy</a><a href="../privacy/">Privacy policy</a><a href="../terms/">Terms</a><a href="../support/">Support</a></div></nav>
+<main class="wrap">
+<h1>Space Blueprints for Confluence</h1>
+<p>Turn a space you already trust into a blueprint. Let your team request new spaces through a form that enforces your naming policy. Approve with one click. The app does the rest, and keeps a record.</p>
+<p>Published by <strong>Matify</strong> for Atlassian Confluence Cloud.</p>
+<h2>What it is for</h2>
+<p>Confluence gives you no way to define your own space template and no way for someone to ask for a space. So administrators build every new space by hand and nobody can say later who asked for it, who approved it, or which standard it was supposed to follow.</p>
+<p>This app closes that loop:</p>
+<ol><li>An administrator marks an existing space as a <strong>blueprint</strong>.</li><li>Anyone eligible <strong>requests</strong> a space from that blueprint. The form validates the name against your</li></ol>
+<p>naming policy before it will submit.</p>
+<ol><li>An administrator <strong>approves</strong> — or an auto-approval rule handles it.</li><li>The app <strong>provisions</strong> the space: creates it with the blueprint's access configuration, assigns the</li></ol>
+<p>owner their role, copies the page tree through Confluence's own copy task, applies labels, and stamps the blueprint reference and a review date onto the space.</p>
+<ol><li>The <strong>inventory</strong> keeps track: owner, blueprint, review date, last activity, and drift when a space</li></ol>
+<p>stops matching its blueprint.</p>
+<ol><li>The <strong>audit trail</strong> records all of it.</li></ol>
+<h2>Where things live</h2>
+<div class="table-wrap"><table><thead><tr><th>You want to</th><th>Go to</th></tr></thead><tbody><tr><td>Request a space</td><td>Confluence <strong>Apps</strong> menu → <strong>Space Blueprints</strong></td></tr><tr><td>Approve requests, manage blueprints and policies</td><td>Confluence <strong>Settings</strong> → <strong>Apps</strong> → <strong>Space Blueprints</strong></td></tr><tr><td>See one space's blueprint, owner, review date and drift</td><td>That space's <strong>Space settings</strong> → <strong>Space Blueprints</strong></td></tr></tbody></table></div>
+<h2>Documentation</h2>
+<ul><li><a href="">Getting started</a> — first blueprint, first request, first provisioned space</li><li><a href="">User guide</a> — every screen and setting</li><li><a href="">Permissions and security</a> — what the app asks for and why</li><li><a href="">Privacy and data</a> — what is stored, for how long, and how to delete it</li><li><a href="">Troubleshooting</a> — every error code and what to do about it</li><li><a href="">FAQ</a></li><li><a href="">Known limitations</a> — what the app deliberately does not do</li><li><a href="">Changelog</a></li></ul>
+<h2>Requirements</h2>
+<ul><li>Confluence Cloud, any plan.</li><li>A Confluence product administrator to install the app and define blueprints.</li><li>Sites using role-based space access get the full blueprint access copy. On sites that do not have it</li></ul>
+<p>yet, spaces are still created and the app tells you access was not copied.</p>
+<h2>Trust</h2>
+<p>The app runs entirely on Atlassian's platform. It makes no external network calls of any kind — no analytics, no error reporting, no content delivery network, no remote fonts. It stores metadata and Atlassian account ids, never page content. It never deletes or archives a space.</p>
+<h2>Support</h2>
+<p><strong>mira.maty@web.de</strong>, or the public tracker linked from the <a href="">support page</a>. Please do not include credentials, personal data or confidential content in a support request. Suspected security vulnerabilities go to the email address privately, never to a public issue.</p>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <p>Space Blueprints for Confluence is published by Matify for Atlassian Confluence Cloud.</p>
+    <p>Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a></p>
+    <p class="faint">Atlassian, Confluence and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+  </div>
+</footer>
