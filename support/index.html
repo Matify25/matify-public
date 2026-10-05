@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Open a support ticket — Matify</title>
+<meta name="description" content="Open a support ticket for any Matify Atlassian Marketplace app. No account needed.">
+<meta name="robots" content="index,follow">
+<meta name="color-scheme" content="dark">
+<style>
+:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand">
+  <span class="name">Matify</span>
+  <span class="sep">/</span>
+  <span class="product">Atlassian Marketplace apps</span>
+</div></div></header>
+<nav class="site" aria-label="Sections"><ul><li><a href="../">Matify</a></li><li><a href="../apps/">Apps</a></li><li><a href="../sla/">Service level agreement</a></li><li><a href="./" aria-current="page">Support</a></li></ul></nav>
+<main><div class="wrap">
+<style>
+.ticket{display:grid;gap:1.15rem;margin:0 0 2rem}
+.ticket .row{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
+.ticket label,.ticket .label-text{display:block;font-weight:600;font-size:.92rem;margin-bottom:.35rem}
+.ticket .hint{display:block;font-weight:400;color:var(--fg-dim);font-size:.84rem;margin-top:.1rem}
+.ticket input,.ticket select,.ticket textarea{width:100%;font:inherit;color:var(--fg);
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;padding:.55rem .65rem}
+.ticket textarea{min-height:6.5rem;resize:vertical}
+.ticket textarea.mono{font-family:var(--mono);font-size:.84rem;min-height:5rem}
+.ticket input:focus,.ticket select:focus,.ticket textarea:focus{outline:2px solid var(--gold);outline-offset:1px}
+.ticket .req{color:var(--gold);font-weight:600}
+.ticket fieldset{border:1px solid var(--line);border-radius:4px;padding:.9rem 1rem 1rem;margin:0;display:grid;gap:1rem}
+.ticket legend{padding:0 .4rem;font-weight:600;color:var(--fg)}
+.ticket .check{display:flex;gap:.6rem;align-items:flex-start;font-weight:400}
+.ticket .check input{width:auto;margin-top:.3rem;flex:none}
+.ticket .actions{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center}
+.ticket button,.result button{font:inherit;font-weight:600;color:#14171a;background:var(--gold);
+  border:0;border-radius:4px;padding:.7rem 1.2rem;cursor:pointer}
+.ticket button:hover,.result button:hover{filter:brightness(1.08)}
+.result{border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:0 4px 4px 0;
+  background:var(--graphite-800);padding:1rem 1.1rem;margin:0 0 2rem}
+.result textarea{width:100%;min-height:16rem;font-family:var(--mono);font-size:.82rem;color:var(--fg);
+  background:var(--graphite-900);border:1px solid var(--line);border-radius:4px;padding:.6rem;margin:.6rem 0}
+.result [data-copied]{color:var(--gold);margin-left:.75rem}
+</style>
+
+<h1>Open a support ticket</h1>
+<p class="lede">No account needed. Fill in the form, and your own email program
+opens with the ticket written out and addressed to Matify support. Nothing you type
+is sent to or stored on this website.</p>
+
+<div class="callout">
+  <span class="label">Before you write</span>
+  <p>Do not include passwords, API tokens, confidential customer data or other
+  secrets. Nothing on this form needs them. Your name and email are only used to
+  reply to you.</p>
+</div>
+
+<form id="ticket" class="ticket" action="mailto:mira.maty@web.de" method="post" enctype="text/plain">
+
+  <fieldset>
+    <legend>You</legend>
+    <div class="row">
+      <div>
+        <label for="t-name">Your name <span class="req" aria-hidden="true">*</span></label>
+        <input id="t-name" name="Name" autocomplete="name" required>
+      </div>
+      <div>
+        <label for="t-email">Your email <span class="req" aria-hidden="true">*</span>
+          <span class="hint">So the reply reaches you.</span></label>
+        <input id="t-email" name="Email" type="email" autocomplete="email" required>
+      </div>
+      <div>
+        <label for="t-company">Company <span class="hint">Optional.</span></label>
+        <input id="t-company" name="Company" autocomplete="organization">
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>The request</legend>
+    <div class="row">
+      <div>
+        <label for="t-type">Type <span class="req" aria-hidden="true">*</span></label>
+        <select id="t-type" name="Type" required>
+          <option value="Question">Question</option>
+          <option value="Bug report">Bug report</option>
+          <option value="Feature request">Feature request</option>
+          <option value="Security vulnerability">Security vulnerability (private)</option>
+        </select>
+      </div>
+      <div>
+        <label for="t-severity">Severity <span class="req" aria-hidden="true">*</span>
+          <span class="hint">First response times in the <a href="../sla/">SLA</a>.</span></label>
+        <select id="t-severity" name="Severity" required>
+          <option value="Normal">Normal - workaround exists, or a question (3 business days)</option>
+          <option value="Critical">Critical - app unusable, or a suspected vulnerability (1 business day)</option>
+          <option value="High">High - core function fails, no workaround (2 business days)</option>
+          <option value="Low">Low - cosmetic, documentation, feature request (5 business days)</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="t-app">App <span class="req" aria-hidden="true">*</span></label>
+        <select id="t-app" name="App" required>
+          <option value="Access Auditor for Jira">Access Auditor for Jira</option>
+          <option value="Another Matify app">Another Matify app (name it below)</option>
+          <option value="Before buying">A question before buying</option>
+        </select>
+      </div>
+      <div>
+        <label for="t-version">App version
+          <span class="hint">In the app's Diagnostics tab.</span></label>
+        <input id="t-version" name="Version" placeholder="1.0.0">
+      </div>
+      <div>
+        <label for="t-size">Site size <span class="req" aria-hidden="true">*</span></label>
+        <select id="t-size" name="Site size" required>
+          <option value="Not sure">Not sure</option>
+          <option value="1-10 users">1-10 users</option>
+          <option value="11-100 users">11-100 users</option>
+          <option value="101-250 users">101-250 users</option>
+          <option value="251-1,000 users">251-1,000 users</option>
+          <option value="1,001-2,500 users">1,001-2,500 users</option>
+          <option value="2,501-10,000 users">2,501-10,000 users</option>
+          <option value="More than 10,000 users">More than 10,000 users</option>
+        </select>
+      </div>
+    </div>
+    <div>
+      <label for="t-summary">Summary <span class="req" aria-hidden="true">*</span>
+        <span class="hint">One line. It becomes the subject of the email.</span></label>
+      <input id="t-summary" name="Summary" required maxlength="140">
+    </div>
+    <div>
+      <label for="t-description">What is happening, or what you need <span class="req" aria-hidden="true">*</span></label>
+      <textarea id="t-description" name="Description" required></textarea>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>For a bug report</legend>
+    <div>
+      <label for="t-steps">Steps to reproduce
+        <span class="hint">Numbered, starting from opening the app.</span></label>
+      <textarea id="t-steps" name="Steps to reproduce"></textarea>
+    </div>
+    <div class="row">
+      <div>
+        <label for="t-expected">Expected behaviour</label>
+        <textarea id="t-expected" name="Expected behaviour"></textarea>
+      </div>
+      <div>
+        <label for="t-actual">Actual behaviour</label>
+        <textarea id="t-actual" name="Actual behaviour"></textarea>
+      </div>
+    </div>
+    <div class="row">
+      <div>
+        <label for="t-error">Error code <span class="hint">For example MAA-E500.</span></label>
+        <input id="t-error" name="Error code">
+      </div>
+    </div>
+    <div>
+      <label for="t-diagnostics">Diagnostic report
+        <span class="hint">Diagnostics tab, then Copy diagnostic report. It carries no
+        personal data and no credentials.</span></label>
+      <textarea id="t-diagnostics" name="Diagnostic report" class="mono"></textarea>
+    </div>
+  </fieldset>
+
+  <label class="check" for="t-hygiene">
+    <input id="t-hygiene" name="Confirmed no secrets" type="checkbox" value="yes" required>
+    <span>I have not included passwords, API tokens, confidential customer data or
+    other secrets. <span class="req" aria-hidden="true">*</span></span>
+  </label>
+
+  <div class="actions">
+    <button type="submit">Write the email</button>
+  </div>
+</form>
+
+<section id="ticket-result" class="result" hidden role="status" aria-live="polite">
+  <p><strong>Your email program should now be open</strong>, with the ticket
+  addressed to <a href="mailto:mira.maty@web.de">mira.maty@web.de</a>. Check it and
+  press send.</p>
+  <p>If nothing opened — common with webmail — copy the ticket below and send it to
+  that address from wherever you read your email.</p>
+  <textarea id="ticket-text" readonly aria-label="The ticket, ready to copy"></textarea>
+  <button type="button" id="ticket-copy">Copy ticket text</button><span data-copied hidden>Copied.</span>
+</section>
+
+<h2>Other ways in</h2>
+<p><strong>Email directly:</strong> <a href="mailto:mira.maty@web.de">mira.maty@web.de</a>.
+Please name the app and its version.</p>
+<p><strong>Public tracker:</strong> if you have a GitHub account and do not mind the
+ticket being public, you can
+<a href="https://github.com/Matify25/matify-support/issues/new/choose">open it on GitHub</a>
+instead, and <a href="https://github.com/Matify25/matify-support/issues">see what is
+already reported</a> without an account. Never report a security vulnerability there.</p>
+<p>Response times and hours are in the <a href="../sla/">service level agreement</a>.</p>
+<script>/*
+ * Turns the support form into an email in the visitor's own mail program.
+ *
+ * Nothing leaves the page except through that mail program: no request, no
+ * storage, no cookie. Without JavaScript the form still works - it posts
+ * name=value lines to the same mailto: address - this only makes the email
+ * readable and gives webmail users a copy of the text.
+ */
+(function () {
+  'use strict';
+
+  var form = document.getElementById('ticket');
+  if (!form) return;
+
+  var TO = 'mira.maty@web.de';
+  var NL = '\r\n';
+  // Long mailto: links are cut short or refused by some mail programs.
+  var MAX_MAILTO = 1900;
+
+  var result = document.getElementById('ticket-result');
+  var output = document.getElementById('ticket-text');
+  var copyButton = document.getElementById('ticket-copy');
+  var copied = result.querySelector('[data-copied]');
+  var type = document.getElementById('t-type');
+  var severity = document.getElementById('t-severity');
+
+  function value(id) {
+    var el = document.getElementById(id);
+    return el ? el.value.trim() : '';
+  }
+
+  function section(title, text) {
+    if (!text) return '';
+    var rule = new Array(title.length + 1).join('-');
+    return NL + title + NL + rule + NL + text + NL;
+  }
+
+  function pad(label) {
+    return (label + ':' + '              ').slice(0, 14);
+  }
+
+  function compose() {
+    var from = value('t-name') + ' <' + value('t-email') + '>';
+    var lines = [
+      'Matify support ticket',
+      '=====================',
+      pad('Type') + value('t-type'),
+      pad('Severity') + value('t-severity'),
+      pad('App') + value('t-app'),
+      pad('Version') + (value('t-version') || 'not given'),
+      pad('Site size') + value('t-size'),
+      pad('From') + from,
+    ];
+    if (value('t-company')) lines.push(pad('Company') + value('t-company'));
+
+    var body =
+      lines.join(NL) +
+      NL +
+      section('Summary', value('t-summary')) +
+      section('Description', value('t-description')) +
+      section('Steps to reproduce', value('t-steps')) +
+      section('Expected behaviour', value('t-expected')) +
+      section('Actual behaviour', value('t-actual')) +
+      section('Error code', value('t-error')) +
+      section('Diagnostic report', value('t-diagnostics'));
+
+    var tag = value('t-type') === 'Security vulnerability' ? 'SECURITY' : value('t-type');
+    var subject = '[' + tag + '] ' + value('t-app') + ': ' + value('t-summary');
+    return { subject: subject, body: body };
+  }
+
+  function copy(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text).then(
+        function () { return true; },
+        function () { return fallbackCopy(); }
+      );
+    }
+    return Promise.resolve(fallbackCopy());
+  }
+
+  function fallbackCopy() {
+    try {
+      output.focus();
+      output.select();
+      return document.execCommand('copy');
+    } catch (e) {
+      return false;
+    }
+  }
+
+  // A security report is always handled first, whatever severity was picked.
+  type.addEventListener('change', function () {
+    if (type.value === 'Security vulnerability') severity.value = 'Critical';
+  });
+
+  form.addEventListener('submit', function (event) {
+    // The browser has already checked the required fields by the time this runs.
+    event.preventDefault();
+
+    var ticket = compose();
+    output.value = 'To: ' + TO + NL + 'Subject: ' + ticket.subject + NL + NL + ticket.body;
+    result.hidden = false;
+
+    var href =
+      'mailto:' + TO +
+      '?subject=' + encodeURIComponent(ticket.subject) +
+      '&body=' + encodeURIComponent(ticket.body);
+
+    if (href.length > MAX_MAILTO) {
+      // Too long for a link. Put the full ticket on the clipboard, and open an
+      // email that says so rather than one that is silently cut off.
+      copy(ticket.body);
+      href =
+        'mailto:' + TO +
+        '?subject=' + encodeURIComponent(ticket.subject) +
+        '&body=' + encodeURIComponent(
+          'The full ticket is on your clipboard. Please paste it here.' + NL + NL +
+          'If it is not, copy it from the support page you just used.'
+        );
+    }
+
+    // Kept on the page as well, so the link that was opened can be inspected.
+    result.setAttribute('data-mailto', href);
+    result.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    window.location.href = href;
+  });
+
+  copyButton.addEventListener('click', function () {
+    copy(output.value).then(function (ok) {
+      copied.hidden = !ok;
+    });
+  });
+})();
+</script>
+</div></main>
+<footer class="site"><div class="wrap">
+  <p>Matify publishes apps for Atlassian Cloud on the Atlassian Marketplace.</p>
+  <p>Support: <a href="mailto:mira.maty@web.de">mira.maty@web.de</a> &middot; <a href="https://github.com/Matify25/matify-support">support tracker</a></p>
+  <p>Copyright 2026 Matify. All Rights Reserved.</p>
+</div></footer>
+</body>
+</html>
