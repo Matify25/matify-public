@@ -130,7 +130,7 @@ footer.site p{margin:0 0 .3rem}
 <main><div class="wrap">
 <style>
 .ticket{display:grid;gap:1.15rem;margin:0 0 2rem}
-.ticket .row{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
+.ticket .row{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));align-items:end}
 .ticket label,.ticket .label-text{display:block;font-weight:600;font-size:.92rem;margin-bottom:.35rem}
 .ticket .hint{display:block;font-weight:400;color:var(--fg-dim);font-size:.84rem;margin-top:.1rem}
 .ticket input,.ticket select,.ticket textarea{width:100%;font:inherit;color:var(--fg);
@@ -201,15 +201,16 @@ is sent to or stored on this website.</p>
       </div>
       <div>
         <label for="t-severity">Severity <span class="req" aria-hidden="true">*</span>
-          <span class="hint">First response times in the <a href="../sla/">SLA</a>.</span></label>
+          <span class="hint">Time to a first reply, per the <a href="../sla/">SLA</a>.</span></label>
         <select id="t-severity" name="Severity" required>
-          <option value="Normal">Normal - workaround exists, or a question (3 business days)</option>
-          <option value="Critical">Critical - app unusable, or a suspected vulnerability (1 business day)</option>
-          <option value="High">High - core function fails, no workaround (2 business days)</option>
-          <option value="Low">Low - cosmetic, documentation, feature request (5 business days)</option>
+          <option value="Normal">Normal &middot; 3 business days</option>
+          <option value="Critical">Critical &middot; 1 business day</option>
+          <option value="High">High &middot; 2 business days</option>
+          <option value="Low">Low &middot; 5 business days</option>
         </select>
       </div>
     </div>
+    <p class="hint" style="margin:-.4rem 0 0"><strong>Critical:</strong> an app cannot be used, or a suspected vulnerability. <strong>High:</strong> a core function fails and there is no workaround. <strong>Normal:</strong> a workaround exists, or a question. <strong>Low:</strong> cosmetic, documentation, or a feature request.</p>
     <div class="row">
       <div>
         <label for="t-app">App <span class="req" aria-hidden="true">*</span></label>
