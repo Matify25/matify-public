@@ -126,11 +126,11 @@ footer.site p{margin:0 0 .3rem}
   <span class="sep">/</span>
   <span class="product">Access Auditor for Jira</span>
 </div></div></header>
-<nav class="site" aria-label="Sections"><ul><li><a href="../">Overview</a></li><li><a href="../docs/">Documentation</a></li><li><a href="../security-privacy/">Security & privacy</a></li><li><a href="../privacy/">Privacy policy</a></li><li><a href="../terms/">Terms</a></li><li><a href="../support/">Support</a></li></ul></nav>
+<nav class="site" aria-label="Sections"><ul><li><a href="../../">Overview</a></li><li><a href="../">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../support/">Support</a></li></ul></nav>
 <main><div class="wrap">
 <h1>Troubleshooting</h1>
 <p>Copyright 2026 Matify. All Rights Reserved.</p>
-<p>Specific problems, what they mean, and what to do about them. If your problem is not listed here, see <a href="FAQ.html">FAQ.md</a>, or send a support report from the Diagnostics tab to mira.maty@web.de.</p>
+<p>Specific problems, what they mean, and what to do about them. If your problem is not listed here, see <a href="../faq/">FAQ.md</a>, or send a support report from the Diagnostics tab to mira.maty@web.de.</p>
 <h2>I don't see the app in Jira settings</h2>
 <p>Check that Access Auditor is installed on the site you are looking at — installation is per-site. Go to <strong>Settings → Apps → Manage your apps</strong> and confirm it is listed and enabled. If it is not there, it has not been installed on this site, or your Atlassian organisation administrator has restricted which apps can be installed; ask them to install it.</p>
 <h2>"You need the Jira administrator permission to use Access Auditor" (MAA-E401)</h2>
@@ -144,11 +144,11 @@ footer.site p{margin:0 0 .3rem}
 <h2>An unexpected error (MAA-E500)</h2>
 <p>A general failure that does not fall into the above categories — either an unexpected condition during a scan, or an error a screen could not otherwise classify. Reload the page and try again. If it persists, open <strong>Diagnostics</strong>, select <strong>Copy diagnostic report</strong>, and send it to mira.maty@web.de along with what you were doing when it happened.</p>
 <h2>A scan is marked incomplete</h2>
-<p>The Overview tab shows a warning banner when the last scan could not read everything it needed to. This happens when a Jira capability the scan depends on came back degraded or forbidden, or when a site-wide collection cap was reached (see <a href="Known_Limitations.html">Known_Limitations.md</a> for the exact caps). The banner tells you which part was affected. Findings and the permission matrix from an incomplete scan are still shown; treat the affected area as under-reported until the next successful, complete scan.</p>
+<p>The Overview tab shows a warning banner when the last scan could not read everything it needed to. This happens when a Jira capability the scan depends on came back degraded or forbidden, or when a site-wide collection cap was reached (see <a href="../known-limitations/">Known_Limitations.md</a> for the exact caps). The banner tells you which part was affected. Findings and the permission matrix from an incomplete scan are still shown; treat the affected area as under-reported until the next successful, complete scan.</p>
 <h2>A capability is shown as degraded or forbidden</h2>
 <p>On the Diagnostics tab, each Jira capability the scan depends on is marked <strong>ok</strong>, <strong>degraded</strong> or <strong>forbidden</strong>. A degraded or forbidden capability usually means your site restricts that data even from an app with the matching scope granted — for example, some sites restrict who can see shared filters and dashboards beyond their owner. When this happens the app records it rather than silently showing fewer results. Use <strong>run an on-demand capability check</strong> on Diagnostics to re-test without waiting for the next scheduled scan.</p>
 <h2>My team-managed project shows no permissions</h2>
-<p>This is expected, not an error. Team-managed (next-gen) projects control access inside the project itself rather than through a permission scheme, and that access model is not exposed the same way scheme-based access is. Access Auditor lists these projects and labels them clearly, but shows no permission matrix and raises no findings for them. Company-managed projects are fully covered. See <a href="Known_Limitations.html">Known_Limitations.md</a>.</p>
+<p>This is expected, not an error. Team-managed (next-gen) projects control access inside the project itself rather than through a permission scheme, and that access model is not exposed the same way scheme-based access is. Access Auditor lists these projects and labels them clearly, but shows no permission matrix and raises no findings for them. Company-managed projects are fully covered. See <a href="../known-limitations/">Known_Limitations.md</a>.</p>
 <h2>A group shows no members</h2>
 <p>Two possible reasons. First, group membership is only collected for groups that actually carry access — a group referenced by a permission grant, a project role, a shared filter or an application role. An unrelated group is never queried for members, by design, to keep both the scan and your data footprint smaller. Second, on a very large site a group's member list can be truncated by the per-group collection cap; the member count shown still reflects Jira's own total for the group even when the list is capped.</p>
 <h2>The export did not download</h2>
@@ -159,7 +159,7 @@ footer.site p{margin:0 0 .3rem}
 <ol><li>Paste the report into an email to mira.maty@web.de, along with a short</li></ol>
 <p>description of what you expected and what happened instead.</p>
 <h2>See also</h2>
-<ul><li><a href="FAQ.html">FAQ.md</a></li><li><a href="Known_Limitations.html">Known_Limitations.md</a></li><li><a href="Permissions_and_Security.html">Permissions_and_Security.md</a></li></ul>
+<ul><li><a href="../faq/">FAQ.md</a></li><li><a href="../known-limitations/">Known_Limitations.md</a></li><li><a href="../permissions-and-security/">Permissions_and_Security.md</a></li></ul>
 </div></main>
 <footer class="site"><div class="wrap">
   <p>Access Auditor for Jira is published by Matify for Atlassian Jira Cloud.</p>

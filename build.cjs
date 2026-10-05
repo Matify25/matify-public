@@ -181,7 +181,6 @@ const NAV = [
   ['CHANGELOG.html', 'Changelog'],
   ['support.html', 'Support'],
   ['privacy.html', 'Privacy policy'],
-  ['terms.html', 'Terms'],
 ];
 
 const CSS = `
@@ -329,7 +328,7 @@ the cause of a permission change on your site. If a permission changed unexpecte
   ),
 });
 
-/* Privacy and terms pages carry a prominent draft notice. */
+/* The privacy policy. The end user terms draft is deliberately not published. */
 {
   const privacyMd = fs.readFileSync(path.join(LEGAL, 'Privacy_Policy.md'), 'utf8');
   built.push({
@@ -338,19 +337,6 @@ the cause of a permission change on your site. If a permission changed unexpecte
     bytes: page('privacy.html', 'Privacy policy', markdownToHtml(privacyMd)),
   });
 
-  const termsMd = fs.readFileSync(path.join(LEGAL, 'End_User_Terms_Draft.md'), 'utf8');
-  built.push({
-    outFile: 'terms.html',
-    source: path.join(LEGAL, 'End_User_Terms_Draft.md'),
-    bytes: page(
-      'terms.html',
-      'Terms',
-      `<div class="notice"><strong>Draft pending the publisher's review.</strong>
-The publisher has not yet decided whether to use these terms or Atlassian's standard
-Marketplace end-user agreement. This page must not be linked from a live listing until
-that decision is made.</div>` + markdownToHtml(termsMd),
-    ),
-  });
 }
 
 /* A README for whoever deploys it. */

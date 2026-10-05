@@ -126,7 +126,7 @@ footer.site p{margin:0 0 .3rem}
   <span class="sep">/</span>
   <span class="product">Access Auditor for Jira</span>
 </div></div></header>
-<nav class="site" aria-label="Sections"><ul><li><a href="../">Overview</a></li><li><a href="../docs/">Documentation</a></li><li><a href="../security-privacy/">Security & privacy</a></li><li><a href="../privacy/">Privacy policy</a></li><li><a href="../terms/">Terms</a></li><li><a href="../support/">Support</a></li></ul></nav>
+<nav class="site" aria-label="Sections"><ul><li><a href="../../">Overview</a></li><li><a href="../">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../support/">Support</a></li></ul></nav>
 <main><div class="wrap">
 <h1>Permissions and Security</h1>
 <p>Copyright 2026 Matify. All Rights Reserved.</p>
@@ -136,7 +136,7 @@ footer.site p{margin:0 0 .3rem}
 <h2>Authorisation model</h2>
 <p>Every screen and every action in Access Auditor goes through the same check before it reads or returns anything: the app asks Jira, using <strong>your own credentials</strong> (<code>asUser()</code> against <code>GET /rest/api/3/mypermissions</code>), whether you hold the <code>ADMINISTER</code> global permission. Jira — not the app — makes that decision. Only after Jira confirms it does the app read configuration data with its own app-level credentials.</p>
 <p>Background code paths have no such option, because they have no user to check. The daily scheduled trigger, the installation trigger and the asynchronous scan worker all run with the app's own credentials by design and never attempt a per-user permission check. This was confirmed on a real Jira site: calling <code>asUser()</code> from a background trigger fails outright with <code>AUTH_TYPE_UNAVAILABLE</code>, so there is no code path where a background job could be tricked into acting as a particular person.</p>
-<p>If you use Access Auditor without the Administer Jira permission, every screen shows an explanation instead of data (error <code>MAA-E401</code>). See <a href="Troubleshooting.html">Troubleshooting.md</a>.</p>
+<p>If you use Access Auditor without the Administer Jira permission, every screen shows an explanation instead of data (error <code>MAA-E401</code>). See <a href="../troubleshooting/">Troubleshooting.md</a>.</p>
 <h2>The app is read-only</h2>
 <p>Access Auditor declares zero write scopes, zero administration scopes, and zero <code>manage:*</code> scopes. It issues only HTTP GET requests against the Jira Cloud REST API. It never creates, edits or deletes anything in Jira. The only things it writes are its own audit history, findings, settings and your acknowledgement notes, and all of that is written to Forge's Atlassian-hosted app storage, never back to Jira.</p>
 <h2>Declared scopes, grouped by purpose</h2>
@@ -148,9 +148,9 @@ footer.site p{margin:0 0 .3rem}
 <div class="table-wrap"><table><thead><tr><th>Scope</th><th>Bundled into</th></tr></thead><tbody><tr><td><code>read:avatar:jira</code></td><td><code>/group/member</code>, <code>/user/bulk</code> and related lookups — no avatar is ever read, stored or displayed</td></tr><tr><td><code>read:issue-type-hierarchy:jira</code></td><td><code>/project/search</code>, <code>/filter/search</code>, <code>/dashboard/search</code></td></tr><tr><td><code>read:issue-type:jira</code></td><td><code>/project/search</code>, <code>/dashboard/search</code></td></tr><tr><td><code>read:project-version:jira</code></td><td><code>/project/search</code></td></tr><tr><td><code>read:project.component:jira</code></td><td><code>/project/search</code></td></tr><tr><td><code>read:project.property:jira</code></td><td><code>/project/search</code></td></tr></tbody></table></div>
 <p>Every scope's customer impact is the same: read access to configuration metadata only. No issue content, no attachments and no email addresses are ever read through any declared scope. The full technical derivation of this table — including which Jira REST operation required which scope — is available from Matify on request for anyone who wants to verify it scope by scope, and every scope listed here can also be read directly from the app's own published manifest in the Atlassian Marketplace.</p>
 <h3>The scope Atlassian requires of any app that stores personal data</h3>
-<div class="table-wrap"><table><thead><tr><th>Scope</th><th>Used for</th></tr></thead><tbody><tr><td><code>report:personal-data</code></td><td>Reporting the Atlassian account identifiers the app has stored back to Atlassian once a week, so Atlassian can tell the app which of them have changed or been closed. Nothing is read through this scope and nothing leaves Atlassian; it is the platform obligation described under "Keeping stored account data current" in <a href="Privacy_and_Data.html">Privacy_and_Data.md</a>.</td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Scope</th><th>Used for</th></tr></thead><tbody><tr><td><code>report:personal-data</code></td><td>Reporting the Atlassian account identifiers the app has stored back to Atlassian once a week, so Atlassian can tell the app which of them have changed or been closed. Nothing is read through this scope and nothing leaves Atlassian; it is the platform obligation described under "Keeping stored account data current" in <a href="../privacy-and-data/">Privacy_and_Data.md</a>.</td></tr></tbody></table></div>
 <h2>What the app does not request</h2>
-<p>The app does not request <code>manage:jira-configuration</code> or any other administration scope. An earlier build considered reading Jira's audit log to reconstruct global permission grants; that scope was removed before release. See <a href="Known_Limitations.html">Known_Limitations.md</a> for why.</p>
+<p>The app does not request <code>manage:jira-configuration</code> or any other administration scope. An earlier build considered reading Jira's audit log to reconstruct global permission grants; that scope was removed before release. See <a href="../known-limitations/">Known_Limitations.md</a> for why.</p>
 <h2>Tenant isolation</h2>
 <p>Forge storage is scoped to your installation; one site's data is never addressable from another site's install of the app. The app adds a second guarantee on top of that: nothing is held in memory across requests. Forge can reuse a running container between invocations, so the app re-reads storage on every single request rather than caching a value that might have been set by a different installation's turn on that container.</p>
 <h2>Secrets</h2>
@@ -158,7 +158,7 @@ footer.site p{margin:0 0 .3rem}
 <h2>Nothing is cached between requests</h2>
 <p>Every resolver call re-reads whatever it needs from Forge storage or from Jira. There is no in-memory cache of permission data, group membership or settings that could persist from one request to the next, or from one tenant's request to another's.</p>
 <h2>See also</h2>
-<ul><li><a href="Privacy_and_Data.html">Privacy_and_Data.md</a></li><li><a href="Known_Limitations.html">Known_Limitations.md</a></li><li><a href="Troubleshooting.html">Troubleshooting.md</a></li></ul>
+<ul><li><a href="../privacy-and-data/">Privacy_and_Data.md</a></li><li><a href="../known-limitations/">Known_Limitations.md</a></li><li><a href="../troubleshooting/">Troubleshooting.md</a></li></ul>
 </div></main>
 <footer class="site"><div class="wrap">
   <p>Access Auditor for Jira is published by Matify for Atlassian Jira Cloud.</p>

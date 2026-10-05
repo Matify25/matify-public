@@ -6,7 +6,7 @@
  *   /apps/access-auditor-for-jira/docs/
  *   /apps/access-auditor-for-jira/privacy/
  *   /apps/access-auditor-for-jira/security-privacy/
- *   /apps/access-auditor-for-jira/terms/
+ *   /apps/access-auditor-for-jira/sla/
  *   /apps/access-auditor-for-jira/support/
  *
  * Directory-per-page, so every URL a listing field carries ends in a slash and
@@ -32,6 +32,7 @@ const APP = 'apps/access-auditor-for-jira';
 const DOCS = 'MarketplaceRelease/Documentation';
 const LEGAL = 'MarketplaceRelease/LegalDrafts';
 const PRIV = 'MarketplaceRelease/PrivacySecurity';
+const LISTING = 'MarketplaceRelease/Listing';
 
 /* ------------------------------------------------------------------ theme -- */
 
@@ -157,11 +158,12 @@ const NAV = [
   ['docs/', 'Documentation'],
   ['security-privacy/', 'Security & privacy'],
   ['privacy/', 'Privacy policy'],
-  ['terms/', 'Terms'],
   ['support/', 'Support'],
 ];
 
 const built = [];
+
+fs.rmSync(path.join(ROOT, APP), { recursive: true, force: true });
 
 /**
  * @param {string} slug   '' for the app root, otherwise 'docs/' and friends
@@ -170,9 +172,10 @@ const built = [];
  * @param {string} body   page HTML, already converted
  */
 function page(slug, title, desc, body) {
-  const up = slug === '' ? '' : '../';
+  // relativeSlug, not a fixed '../': the documentation sub-pages sit two levels
+  // deep, and a one-level prefix sent their whole header navigation to 404.
   const nav = NAV.map(([href, label]) => {
-    const target = href === '' ? up || './' : up + href;
+    const target = relativeSlug(slug, href);
     const current = href === slug ? ' aria-current="page"' : '';
     return `<li><a href="${target}"${current}>${label}</a></li>`;
   }).join('');
@@ -213,9 +216,74 @@ ${body}
   built.push({ url: '/' + APP + '/' + slug, file, bytes: Buffer.byteLength(html) });
 }
 
+/*
+ * Every page built from a source document, keyed by the source filename. The
+ * sources link to one another by filename (User_Guide.md) or by app-root
+ * directory (../privacy/); both are rewritten here for the page they land on.
+ *
+ * The shared Markdown converter was written for the flat site, where every page
+ * sits in one directory, so it keeps only the last segment of a relative link.
+ * On this site that turned ../privacy/ into href="" and User_Guide.md into a
+ * flat .html name that does not exist here - 45 dead links across eight pages
+ * before this was fixed. Links are therefore swapped for tokens the converter
+ * passes through untouched, and restored afterwards.
+ */
+const SOURCE_SLUGS = {
+  'README.md': 'docs/',
+  'Getting_Started.md': 'docs/getting-started/',
+  'User_Guide.md': 'docs/user-guide/',
+  'Permissions_and_Security.md': 'docs/permissions-and-security/',
+  'Privacy_and_Data.md': 'docs/privacy-and-data/',
+  'Known_Limitations.md': 'docs/known-limitations/',
+  'Troubleshooting.md': 'docs/troubleshooting/',
+  'FAQ.md': 'docs/faq/',
+  'CHANGELOG.md': 'docs/changelog/',
+  'Privacy_Policy.md': 'privacy/',
+  'Security_Privacy_Statement.md': 'security-privacy/',
+  'Service_Level_Agreement.md': 'sla/',
+};
+const PUBLISHED = new Set(['', 'support/', ...Object.values(SOURCE_SLUGS)]);
+
+/** Relative path from one page directory to another, both app-root relative. */
+function relativeSlug(fromSlug, toSlug) {
+  const from = fromSlug.split('/').filter(Boolean);
+  const to = toSlug.split('/').filter(Boolean);
+  let i = 0;
+  while (i < from.length && i < to.length && from[i] === to[i]) i++;
+  const down = to.slice(i).join('/');
+  return '../'.repeat(from.length - i) + (down ? down + '/' : '') || './';
+}
+
+/** The href for a source link on the given page, or null if nothing public exists. */
+function resolveLink(target, fromSlug) {
+  const hash = target.indexOf('#');
+  const pathPart = hash === -1 ? target : target.slice(0, hash);
+  const anchor = hash === -1 ? '' : target.slice(hash);
+  const last = pathPart.split('/').pop();
+  let slug;
+  if (/[.]md$/.test(last)) slug = SOURCE_SLUGS[last];
+  else if (pathPart === '' || pathPart.endsWith('/')) slug = pathPart.replace(/^([.][.]\/)+/, '');
+  if (slug === undefined || !PUBLISHED.has(slug)) return null;
+  return relativeSlug(fromSlug, slug) + anchor;
+}
+
 function fromMarkdown(slug, title, desc, sourceFile) {
-  const md = fs.readFileSync(sourceFile, 'utf8');
-  page(slug, title, desc, markdownToHtml(md));
+  let md = fs.readFileSync(sourceFile, 'utf8');
+  const hrefs = [];
+  md = md.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (whole, text, target) => {
+    if (/^(https?:|mailto:|#)/.test(target)) return whole;
+    const href = resolveLink(target, slug);
+    if (href === null) {
+      // No public page to point at - most often an internal working document.
+      // Keep the words, drop the link, and say so in the build output.
+      console.warn('  unlinked on /' + slug + ': ' + target + ' (no public page)');
+      return text;
+    }
+    hrefs.push(href);
+    return '[' + text + '](MAALINK' + (hrefs.length - 1) + 'X)';
+  });
+  const html = markdownToHtml(md).replace(/MAALINK([0-9]+)X/g, (t, n) => hrefs[Number(n)]);
+  page(slug, title, desc, html);
 }
 
 /* --------------------------------------------------------- the app root -- */
@@ -248,9 +316,9 @@ them.</p>
     <span class="card-title">Privacy policy</span>
     <span class="card-body">The formal policy covering the app and this site.</span>
   </a></li>
-  <li><a class="card" href="terms/">
-    <span class="card-title">End user terms</span>
-    <span class="card-body">The terms under which the app is licensed.</span>
+  <li><a class="card" href="sla/">
+    <span class="card-title">Service level agreement</span>
+    <span class="card-body">Support hours, first-response times, security fix timelines, and what is not covered.</span>
   </a></li>
   <li><a class="card" href="support/">
     <span class="card-title">Support</span>
@@ -293,11 +361,15 @@ fromMarkdown(
 );
 
 fromMarkdown(
-  'terms/',
-  'End user terms',
-  'The end user terms for Access Auditor for Jira, published by Matify.',
-  path.join(LEGAL, 'End_User_Terms_Draft.md'),
+  'sla/',
+  'Service level agreement',
+  'Support hours, first-response times, security fix timelines and what is not covered, for Access Auditor for Jira by Matify.',
+  path.join(LISTING, 'Service_Level_Agreement.md'),
 );
+
+/* The end user terms draft is deliberately not published. It is an unreviewed
+   draft, and the recommended EULA is Atlassian's standard agreement, which needs
+   no page of its own. */
 
 /* Documentation lands as one page per source document, with the README as its
    index; the listing's Documentation field points at the index. */
@@ -313,30 +385,9 @@ const DOC_PAGES = [
   ['docs/changelog/', 'Changelog', 'CHANGELOG.md'],
 ];
 for (const [slug, title, src] of DOC_PAGES) {
-  if (slug === 'docs/') continue; // handled below, so its cross-links can be rewritten
   fromMarkdown(slug, title, title + ' for Access Auditor for Jira, published by Matify.', path.join(DOCS, src));
 }
 
-/* The README's cross-links point at sibling .md files; on the site they are
-   sibling directories. */
-{
-  const md = fs.readFileSync(path.join(DOCS, 'README.md'), 'utf8');
-  let html = markdownToHtml(md);
-  const MAP = {
-    'Getting_Started.html': 'getting-started/',
-    'User_Guide.html': 'user-guide/',
-    'Permissions_and_Security.html': 'permissions-and-security/',
-    'Privacy_and_Data.html': 'privacy-and-data/',
-    'Known_Limitations.html': 'known-limitations/',
-    'Troubleshooting.html': 'troubleshooting/',
-    'FAQ.html': 'faq/',
-    'CHANGELOG.html': 'changelog/',
-  };
-  for (const [from, to] of Object.entries(MAP)) {
-    html = html.split('href="' + from + '"').join('href="' + to + '"');
-  }
-  page('docs/', 'Documentation', 'Documentation for Access Auditor for Jira, published by Matify.', html);
-}
 
 /* Support is written for the site rather than converted from a document. */
 page(
@@ -368,6 +419,14 @@ person.</p>
     the <a href="https://github.com/Matify25/matify-support/security/policy">security
     policy</a>. A flaw posted in public is readable by everyone before a fix
     exists.</p>
+</div>
+
+<div class="callout">
+  <span class="label">Hours and response times</span>
+  <p>Monday to Friday, 09:00&ndash;17:00 Central European Time. A person replies
+    within 1 business day for a critical problem or a suspected vulnerability,
+    2 for high, 3 for normal and 5 for low. The full terms, including security
+    fix timelines, are in the <a href="../sla/">service level agreement</a>.</p>
 </div>
 
 <h2>Before you write</h2>

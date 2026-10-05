@@ -126,14 +126,14 @@ footer.site p{margin:0 0 .3rem}
   <span class="sep">/</span>
   <span class="product">Access Auditor for Jira</span>
 </div></div></header>
-<nav class="site" aria-label="Sections"><ul><li><a href="../">Overview</a></li><li><a href="../docs/">Documentation</a></li><li><a href="../security-privacy/">Security & privacy</a></li><li><a href="../privacy/">Privacy policy</a></li><li><a href="../terms/">Terms</a></li><li><a href="../support/">Support</a></li></ul></nav>
+<nav class="site" aria-label="Sections"><ul><li><a href="../../">Overview</a></li><li><a href="../">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../support/">Support</a></li></ul></nav>
 <main><div class="wrap">
 <h1>User Guide</h1>
 <p>Copyright 2026 Matify. All Rights Reserved.</p>
-<p>This guide covers every tab in Access Auditor for Jira, in the order they appear: Overview, Findings, Explorer, Schemes, Changes, Exports, Settings, Diagnostics. Read <a href="Getting_Started.html">Getting_Started.md</a> first if you have not yet run a scan.</p>
+<p>This guide covers every tab in Access Auditor for Jira, in the order they appear: Overview, Findings, Explorer, Schemes, Changes, Exports, Settings, Diagnostics. Read <a href="../getting-started/">Getting_Started.md</a> first if you have not yet run a scan.</p>
 <h2>Vocabulary used throughout this guide</h2>
 <p><strong>Holder</strong> — whatever a permission grant names as the recipient: a user, a group, a project role, an application role, or a symbolic holder such as "the current assignee".</p>
-<p><strong>Symbolic holder</strong> — a holder that does not name a fixed set of people. Current assignee, reporter, project lead, and a user or group custom field value all resolve differently depending on the issue in front of you. Access Auditor labels these <strong>resolves per issue</strong> rather than guessing who they are. See <a href="Known_Limitations.html">Known_Limitations.md</a> for the full list.</p>
+<p><strong>Symbolic holder</strong> — a holder that does not name a fixed set of people. Current assignee, reporter, project lead, and a user or group custom field value all resolve differently depending on the issue in front of you. Access Auditor labels these <strong>resolves per issue</strong> rather than guessing who they are. See <a href="../known-limitations/">Known_Limitations.md</a> for the full list.</p>
 <p><strong>Granted via</strong> — the chain of configuration that connects a holder to a permission: for example, a permission scheme grants <em>Administer projects</em> to the <em>Administrators</em> project role, and a named user is a member of that role. The app shows every link in that chain, not just the endpoints.</p>
 <p><strong>Privileged group signal</strong> — the reason a group is treated as an administrator group. Jira Cloud exposes no API for global permission grants, so Access Auditor cannot read who your site administrators are. It instead marks a group as privileged when at least one of three signals applies: the group grants product access through an application role, the group holds <em>Administer projects</em> in a permission scheme, or the group's name matches an Atlassian default administrator naming convention (a heuristic, labelled as such everywhere it appears).</p>
 <p><strong>Capability degradation</strong> — when a scan asks Jira for something and receives a restricted or forbidden response rather than the normal one. The app records this per capability rather than silently showing fewer results.</p>
@@ -149,7 +149,7 @@ footer.site p{margin:0 0 .3rem}
 <ul><li>A findings trend across recent scans, so you can see whether your open</li></ul>
 <p>finding count is going up or down over time.</p>
 <ul><li>A warning banner when a scan could not read something it needed. Follow</li></ul>
-<p>it to <a href="Troubleshooting.html">Troubleshooting.md</a>.</p>
+<p>it to <a href="../troubleshooting/">Troubleshooting.md</a>.</p>
 <h2>Findings</h2>
 <p>Answers: <em>what, specifically, is wrong, and what should I do about it?</em></p>
 <p>Filter by severity, rule, project, status or free text. Each finding shows:</p>
@@ -208,19 +208,19 @@ footer.site p{margin:0 0 .3rem}
 <ol><li>A note above the matrix reports Atlassian app accounts that also hold</li></ol>
 <p>access. They are excluded from the rows because they are installed apps rather than people, and their count is shown so the exclusion is visible.</p>
 <ol><li>Team-managed projects show no matrix here; see</li></ol>
-<p><a href="Known_Limitations.html">Known_Limitations.md</a>.</p>
+<p><a href="../known-limitations/">Known_Limitations.md</a>.</p>
 <h2>Schemes</h2>
 <p>Answers: <em>what do my permission schemes actually contain, and are any of them redundant?</em></p>
 <ul><li>Every permission scheme, its grant count, and which projects use it.</li><li>A detail view of a scheme's permissions and resolved holders.</li><li>Detection of near-duplicate schemes (finding R7), with a match</li></ul>
 <p>percentage and a list of exactly what differs on each side.</p>
 <h2>Changes</h2>
 <p>Answers: <em>what changed since the previous scan?</em></p>
-<p>Filterable by change type. Changed sharing and changed scheme bindings show a before → after comparison. This tab reports <strong>what</strong> changed, never <strong>who</strong> changed it or precisely when — Jira's audit log is not read by this app. See <a href="Known_Limitations.html">Known_Limitations.md</a> for why. The first scan after installation always shows no changes, because there is nothing yet to compare it against.</p>
+<p>Filterable by change type. Changed sharing and changed scheme bindings show a before → after comparison. This tab reports <strong>what</strong> changed, never <strong>who</strong> changed it or precisely when — Jira's audit log is not read by this app. See <a href="../known-limitations/">Known_Limitations.md</a> for why. The first scan after installation always shows no changes, because there is nothing yet to compare it against.</p>
 <h2>Exports</h2>
 <p>Answers: <em>how do I get this data out for a report or an auditor?</em></p>
 <p>Three exports, each available as CSV or JSON:</p>
 <ul><li>Findings</li><li>The full permission matrix</li><li>The change list</li></ul>
-<p>If a download does not start, see <a href="Troubleshooting.html">Troubleshooting.md</a> for the Copy to clipboard fallback.</p>
+<p>If a download does not start, see <a href="../troubleshooting/">Troubleshooting.md</a> for the Copy to clipboard fallback.</p>
 <h2>Settings</h2>
 <p>Configures how the app scans and what it keeps:</p>
 <div class="table-wrap"><table><thead><tr><th>Setting</th><th>Values</th><th>Default</th></tr></thead><tbody><tr><td>Scan frequency</td><td>Daily, weekly, manual</td><td>Daily</td></tr><tr><td>Sensitivity profile</td><td>Standard, strict</td><td>Standard</td></tr><tr><td>Large-group threshold</td><td>Member count above which a group counts as large (used by R5 and R10)</td><td>100</td></tr><tr><td>History retention</td><td>30, 90, 180 or 365 days</td><td>90 days</td></tr><tr><td>Acknowledgement expiry</td><td>Days after which an acknowledgement expires; 0 means never</td><td>0 (never)</td></tr><tr><td>Excluded project keys</td><td>Project keys left out of scanning and findings</td><td>None</td></tr><tr><td>Excluded group names</td><td>Group names left out of scanning and findings</td><td>None</td></tr></tbody></table></div>
@@ -236,7 +236,7 @@ footer.site p{margin:0 0 .3rem}
 <ul><li>A copyable support report, built to contain no personal data and no</li></ul>
 <p>credentials, for sending to mira.maty@web.de.</p>
 <h2>See also</h2>
-<ul><li><a href="Permissions_and_Security.html">Permissions_and_Security.md</a></li><li><a href="Privacy_and_Data.html">Privacy_and_Data.md</a></li><li><a href="Known_Limitations.html">Known_Limitations.md</a></li><li><a href="Troubleshooting.html">Troubleshooting.md</a></li></ul>
+<ul><li><a href="../permissions-and-security/">Permissions_and_Security.md</a></li><li><a href="../privacy-and-data/">Privacy_and_Data.md</a></li><li><a href="../known-limitations/">Known_Limitations.md</a></li><li><a href="../troubleshooting/">Troubleshooting.md</a></li></ul>
 </div></main>
 <footer class="site"><div class="wrap">
   <p>Access Auditor for Jira is published by Matify for Atlassian Jira Cloud.</p>
