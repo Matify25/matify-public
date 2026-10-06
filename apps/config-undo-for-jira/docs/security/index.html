@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Permissions and security — Config Undo for Jira — Matify</title>
+<meta name="description" content="Permissions and security for Config Undo for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Config Undo for Jira</span></div></div></header>
+<nav class="site" aria-label="Config Undo for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/restore-guide/">Restore guide</a></li><li><span aria-current="page">Permissions and security</span></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1>Permissions and security</h1>
+<h2>The six permissions (scopes), in plain words</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col">Scope</th><th scope="col">What Config Undo uses it for</th><th scope="col">Read / write</th></tr></thead><tbody><tr><td><code>read:jira-work</code></td><td>Read permission schemes; check that the person using the app holds Administer Jira</td><td>read</td></tr><tr><td><code>manage:jira-configuration</code></td><td>Read the audit log, workflow history, workflows, workflow and notification schemes, custom field contexts and options, field schemes. Write schemes, workflows and options <strong>only</strong> for an approved restore</td><td>read + write</td></tr><tr><td><code>manage:jira-project</code></td><td>Write project settings (details, scheme associations, role actors, components, versions) and screens <strong>only</strong> for an approved restore</td><td>write</td></tr><tr><td><code>read:jira-user</code></td><td>Show people's names in the app when you view a page, and the author filter; show group names in diffs. People's names are never stored</td><td>read</td></tr><tr><td><code>storage:app</code></td><td>Store versions, the journal, restore points, requests and the ledger in Forge hosted storage on your site</td><td>app storage</td></tr><tr><td><code>report:personal-data</code></td><td>Report stored account ids to Atlassian weekly so closed accounts are erased</td><td>—</td></tr></tbody></table></div>
+<p>There is no narrower classic scope that lets an app read the audit log, workflows, notification schemes or field contexts, and Jira has no granular scope for notification-scheme writes. Config Undo doesn't ask for issue writes (<code>write:jira-work</code>), webhooks, Confluence or any external access.</p>
+<h2>What the app user can do — stated plainly</h2>
+<p>Because of <code>manage:jira-configuration</code> and <code>manage:jira-project</code>, Jira gives the Config Undo <strong>app user Jira-admin-equivalent permissions</strong>. In our capability test it held <strong>Administer Jira</strong>, <strong>Administer projects</strong> and <strong>Bulk change</strong>. Jira's global permission settings can't narrow this.</p>
+<p>Config Undo itself writes to your Jira configuration only when <strong>all</strong> of these hold:</p>
+<ul><li>a Jira admin turned on restore for that configuration type (off by default),</li><li>an admin previewed the restore and submitted it with a reason,</li><li>the request was approved (by a second Jira admin by default), the approval window hasn't passed and the live object still matches the preview,</li><li>the kill switch (&quot;Disable all restores&quot;) is off and the licence is active.</li></ul>
+<p>The <strong>guided safe test</strong> is the only case with fewer conditions: on your request it creates a permission scheme named &quot;Config Undo test …&quot; that no project uses, restores it after you changed it, and deletes it again. Its restore doesn't need restore to be enabled for permission schemes or a second approver. That exception applies only to the test scheme the current test created, which the server checks before every step, and the test refuses to restore the scheme if it has been added to a project. The kill switch and the licence apply to the guided test like to every other write.</p>
+<p>Config Undo never deletes your schemes, workflows, screens, fields or projects. In restores it disables options and archives versions instead of deleting them, and lists components for manual removal.</p>
+<h2>Who can use the app</h2>
+<p>Only users with the <strong>Administer Jira</strong> global permission. Every request from the app's pages is checked on the server: the app asks Jira whether the calling user holds Administer Jira (cached for at most five minutes) before it returns any data or does anything. Menu visibility is only a convenience, never the security boundary.</p>
+<p>Restore-specific rules, all enforced on the server:</p>
+<ul><li>four-eyes approval by default: the requester can't approve their own request;</li><li>single-admin mode requires typing the object's exact name;</li><li>exactly one decision per request: approve, reject and cancel exclude each other, and a rejection that arrives while an approval is running wins;</li><li>approval expires (24 hours by default);</li><li>the live object is re-read at approval and again right before the first write; any change stops the restore;</li><li>one restore per object at a time (lock);</li><li>every request, approval, execution, result and settings change is written to the hash-chained ledger.</li></ul>
+<p>Four-eyes approval protects against mistakes. It is not a control against a malicious administrator: any Jira admin can switch to single-admin mode or delete all app data. Both need an explicit confirmation and are recorded in the ledger (Delete all app data removes the ledger too, so export it first if you need it as evidence).</p>
+<h2>How restores appear in Jira's audit log</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col">How the restore runs</th><th scope="col">Jira's audit log shows</th><th scope="col">Config Undo records</th></tr></thead><tbody><tr><td>Directly in the approval request (most single-object restores; estimated up to about 18 seconds)</td><td><strong>the approving admin</strong> — the write is made with that admin's own permissions</td><td>ledger + journal entry &quot;restored by Config Undo&quot;</td></tr><tr><td>In the background (longer restores)</td><td><strong>the Config Undo app</strong></td><td>ledger with the approver; before the first write the app re-checks through Jira's permissions API that the approver still holds Administer Jira</td></tr><tr><td>Started directly, finished in the background (the restore took longer than estimated, or Jira asked the app to slow down)</td><td>the approving admin for the first steps, <strong>the Config Undo app</strong> for the rest</td><td>ledger entry &quot;Continued in the background as the app&quot; with the number of remaining steps</td></tr></tbody></table></div>
+<p>The preview tells you in advance when a restore is estimated to run in the background. The guided safe test creates and deletes its test scheme as the app.</p>
+<p>Reads of your configuration (recording, previews, compare with live) are made as the app.</p>
+<h2>Platform and architecture</h2>
+<ul><li><strong>Forge only.</strong> Config Undo runs on Atlassian Forge: Atlassian-hosted functions and Forge hosted storage. Matify runs no servers and no database, and has no access to your data.</li><li><strong>No egress.</strong> The app declares no external domains, no remote backend and no web triggers. It talks only to Jira's REST APIs and Forge services. The admin interface loads everything from its own bundle under Forge's default content security policy.</li><li><strong>Tenant isolation.</strong> Forge hosted storage is separate per installation; the app keeps no state between invocations except in that storage.</li><li><strong>Data residency.</strong> Stored data lives in Forge hosted storage, which follows your Jira site's data residency.</li><li><strong>Runs on Atlassian.</strong> Atlassian's deployment check reported the production version 2.0.0 eligible for the Runs on Atlassian program. The badge itself is granted and shown by Atlassian on the Marketplace listing.</li></ul>
+<h2>Application security</h2>
+<ul><li>Every request payload is validated on the server against a strict schema (allowed values, patterns for object keys and ids, length limits). Identifiers are encoded before they are put into a Jira API path.</li><li>Text you type (reasons, notes, labels) is shown as text, never as HTML. CSV exports neutralise cells that a spreadsheet would run as a formula.</li><li>Restore plans are validated before they run (for workflows by Jira's own validation endpoint). A write whose outcome is unknown is never repeated blindly; the app re-reads and reports instead.</li><li>No credentials, API tokens or secrets are collected or stored. Authentication is Forge's own.</li><li>Forge logs contain event names, counts, error codes and a correlation reference. No account ids, names, email addresses, free text or configuration content are logged.</li><li>Dependencies are pinned with lockfiles. An automated dependency scan (npm audit) found no known vulnerabilities at the security review of the first release.</li><li>Every release is built once: an automated gate checks that the manifest has no web trigger, external egress or remote and exactly the six scopes above, then lint, type checks, all tests and the interface build must pass. That single tagged build is deployed unchanged to staging and then to production.</li></ul>
+<p>No compliance certification (such as SOC 2 or ISO 27001) is claimed for Config Undo or Matify.</p>
+<h2>Reporting a security issue</h2>
+<p>Email <strong>support@matifyapps.de</strong> with &quot;security&quot; in the subject, or use the login-free form with the type &quot;Security vulnerability&quot;. Please don't open a public issue. Matify follows Atlassian's Security Bug Fix Policy for Marketplace apps; see the <a href="https://matify25.github.io/matify-public/sla/" rel="noopener noreferrer">Matify SLA</a>.</p>
+<p>More detail: <a href="../../security-privacy/">Data security and privacy statement</a>.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Config Undo for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Troubleshooting — Config Undo for Jira — Matify</title>
+<meta name="description" content="Troubleshooting for Config Undo for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Config Undo for Jira</span></div></div></header>
+<nav class="site" aria-label="Config Undo for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/restore-guide/">Restore guide</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><span aria-current="page">Troubleshooting</span></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1>Troubleshooting</h1>
+<p>Every error Config Undo shows has a code (<code>CUJ-…</code>) and a reference (<code>ref</code>). Send both to support if a problem stays; the reference finds the matching log lines.</p>
+<h2>Error codes</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col">Code</th><th scope="col">What you see</th><th scope="col">What to do</th></tr></thead><tbody><tr><td>CUJ-NOT-ADMIN</td><td>&quot;You need Jira administrator permission to use Config Undo.&quot;</td><td>Only users with the Administer Jira global permission can use the app. The permission is re-checked at most every five minutes. In a restore result it means the approver lost Administer Jira before a background restore started; nothing was written — approve again with a current admin.</td></tr><tr><td>CUJ-INVALID-INPUT</td><td>&quot;The request was not valid. Reload the page and try again.&quot;</td><td>Reload. Also shown when a typed confirmation doesn't match exactly (object name in single-admin mode, <code>DELETE ALL CONFIG UNDO DATA</code>), when a reason is missing, or when a setting is out of range.</td></tr><tr><td>CUJ-READ-403</td><td>&quot;Jira didn't allow Config Undo to read …&quot;</td><td>In the first minute or two after installation this is normal; Jira is still activating the app's access, and the app retries. Later, check that the app is installed with all its permissions (Manage apps). If one object stays unreadable, its type shows <strong>Partly recorded</strong> in Coverage &amp; Health and the app retries it.</td></tr><tr><td>CUJ-READ-404</td><td>&quot;Jira couldn't find … It may have been deleted.&quot;</td><td>The object was deleted in Jira. The journal records the deletion. See the restore guide for which deleted objects can be recreated.</td></tr><tr><td>CUJ-RATE-429</td><td>&quot;Jira is rate-limiting apps right now …&quot;, &quot;Hourly budget for background work is used up …&quot; or &quot;Config Undo has used this hour's share of Jira's rate limit for comparisons and previews on this site. Try again after HH:MM UTC.&quot;</td><td>Background work resumes automatically (the status chip or the message shows the time). For comparisons, previews, restore points and the guided test, try again at the time shown: they share an hourly cap per site. Approved restores are never blocked by these budgets; a restore write that Jira rate-limits is retried automatically. See <a href="../../docs/large-sites/">Large sites</a>.</td></tr><tr><td>CUJ-JIRA-5XX</td><td>&quot;Jira returned a server error. Config Undo will retry.&quot;</td><td>Wait and retry. If it persists, check Atlassian's status page and contact support with the ref.</td></tr><tr><td>CUJ-WRITE-400</td><td>&quot;Jira rejected the request for …&quot;</td><td>A restore step was refused by Jira. The result page says which step and the HTTP status; nothing after it was written. Read the result notes, compare with live, and see the <a href="../../docs/restore-guide/">Restore guide</a> playbook.</td></tr><tr><td>CUJ-WRITE-409</td><td>&quot;Another configuration change is in progress in Jira. Try again in a moment.&quot;</td><td>Jira is busy with another workflow change. Wait a few minutes and preview again.</td></tr><tr><td>CUJ-DEPENDENCY-MISSING</td><td>&quot;The parent option … wasn't found, so its child options weren't recreated.&quot; (in a restore result)</td><td>A restore of cascading-select options couldn't find the parent option, so its child options weren't created again. Make sure the parent option exists in the field context, then use <strong>Retry remaining steps</strong> if the result offers it (within one hour), or preview again.</td></tr><tr><td>CUJ-VERIFY-MISMATCH</td><td>&quot;Restored with differences …&quot;</td><td>Verification found differences. Open the request: it lists what matches and what doesn't. Retry remaining steps within one hour, or follow the playbook.</td></tr><tr><td>CUJ-LOCKED</td><td>&quot;Another restore of this object is running …&quot;</td><td>Wait until it finishes (Restores → In progress), then try again.</td></tr><tr><td>CUJ-STALE-PREVIEW</td><td>&quot;The live … changed after your preview …&quot; / &quot;This preview is more than an hour old …&quot;</td><td>Someone changed the object since the preview, or the preview is too old. Preview again and submit a new request.</td></tr><tr><td>CUJ-LICENSE-INACTIVE</td><td>&quot;Restores are paused because the Config Undo licence isn't active.&quot; / &quot;Config Undo is read-only while its licence is inactive …&quot;</td><td>Renew the subscription in Manage apps. Your data stays readable and exportable meanwhile.</td></tr><tr><td>CUJ-RESTORE-DISABLED</td><td>&quot;Restore is off for this configuration type …&quot;</td><td>A Jira admin can turn it on in Settings → Restore.</td></tr><tr><td>CUJ-KILL-SWITCH</td><td>&quot;All restores are disabled on this site (kill switch) …&quot;</td><td>A Jira admin can turn off &quot;Disable all restores&quot; in Settings. The kill switch blocks every write, the guided safe test included. A restore that stopped for this reason before its first write changed nothing. One that had already written shows <strong>Restored with differences</strong>: what was written is verified, not rolled back, and you can retry the remaining steps within one hour after turning the kill switch off.</td></tr><tr><td>CUJ-SELF-APPROVAL</td><td>&quot;A second Jira admin must approve this restore (four-eyes approval).&quot;</td><td>Ask another Jira admin, or switch to single-admin mode if your site has only one.</td></tr><tr><td>CUJ-EXPIRED</td><td>&quot;The approval window passed.&quot;</td><td>Preview and request again. The window is set in Settings → Approval (1–72 hours).</td></tr><tr><td>CUJ-BLOCKED</td><td>Various: &quot;This restore can't run …&quot;, &quot;This request was already submitted.&quot;, &quot;Another admin is deciding on this request right now. Reload to see the result.&quot;, &quot;A retry of this request is already running.&quot;, &quot;The retry window (1 hour) has passed …&quot;, &quot;Only the guided safe test's own test scheme can be restored without a second approver.&quot;, &quot;The test scheme is now used by a project …&quot;, &quot;Confirm to …&quot;, &quot;An import of older history is already running.&quot;, &quot;Re-reading is offered for restore points with up to 500 objects …&quot;</td><td>The message says why. Reload when another admin is deciding. Blocked restores are explained in the <a href="../../docs/restore-guide/">Restore guide</a>.</td></tr><tr><td>CUJ-NOT-FOUND</td><td>&quot;That version no longer exists. It may have been removed by retention.&quot; / &quot;Config Undo hasn't captured this object (yet).&quot;</td><td>Retention removed it, or onboarding hasn't reached it yet (check Coverage &amp; Health). Pin restore points you want to keep.</td></tr><tr><td>CUJ-STORAGE</td><td>&quot;The stored version could not be read.&quot; / &quot;Creating the restore point took too long. Try fewer families.&quot;</td><td>Retry. For restore points, choose fewer configuration types. If it repeats, contact support with the ref.</td></tr><tr><td>CUJ-UNKNOWN</td><td>&quot;Something went wrong in Config Undo …&quot;</td><td>Retry. If it keeps happening, download diagnostics and contact support with the ref.</td></tr></tbody></table></div>
+<h2>Common situations</h2>
+<p><strong>The journal is empty right after installation.</strong> Onboarding starts about two minutes after installation and fills the last 30 days first, newest first. The status chip shows the progress. If nothing happens for more than 15 minutes, open Coverage &amp; Health and check whether onboarding is paused.</p>
+<p><strong>A change made soon after installation can't be undone.</strong> On busy sites the first hour's budget may run out before Config Undo has captured every object (see <a href="../../docs/getting-started/">Getting started</a>). A change to an object that wasn't captured yet appears in the journal from the audit log, but there is no complete earlier version to restore. Objects listed in Objects &amp; Compare can be captured at once with <strong>Compare with live</strong>.</p>
+<p><strong>A change I just made isn't in the journal.</strong> The audit log is polled every hour. Open the object in Objects &amp; Compare and choose <strong>Compare with live</strong> to capture it now. Field schemes are only detected by the reconcile.</p>
+<p><strong>A journal entry says &quot;author unknown&quot; or &quot;Not recorded by Jira&quot;.</strong> &quot;Detected by reconcile, author unknown&quot; means the change was found by the reconcile, not by the audit log, so Jira gave no author. <strong>Not recorded by Jira</strong> means Jira's audit record for the change names no author (for example a change Jira made itself).</p>
+<p><strong>Coverage &amp; Health says Jira didn't let Config Undo read the audit log.</strong> This happens on sites where apps can't read the audit log (for example Jira Free). Config Undo still records changes through Jira events and the daily reconcile, without the author, and can't import history from before the installation.</p>
+<p><strong>An entry from &quot;Backfill (audit log)&quot; can't be restored.</strong> Those entries show what the audit log recorded but contain no complete earlier version.</p>
+<p><strong>&quot;Restore this version&quot; is missing.</strong> Restore is off for that type (Settings), the type is field schemes, or the licence is inactive.</p>
+<p><strong>The approver doesn't see an Approve button.</strong> In four-eyes mode the requester can't approve. Pending requests are in Restores → Pending approval for every Jira admin.</p>
+<p><strong>Jira's audit log shows &quot;Config Undo&quot; as the author of a restore.</strong> The restore ran in the background, either because it was too long to run directly or because it couldn't finish within the approval request (the ledger then shows &quot;Continued in the background as the app&quot;). The ledger records who approved it. See <a href="../../docs/security/">Permissions and security</a>.</p>
+<p><strong>A restore stays &quot;In progress&quot; after the page closed.</strong> If the approval request ended before the restore finished, a background check finishes it about two minutes later, and an hourly check resumes approved restores that stopped making progress (for example when Jira briefly refused to start the background run; the approval then said the run starts automatically within about two hours). Reload Restores → In progress after a few minutes.</p>
+<p><strong>Ledger: &quot;Check still running&quot;.</strong> The ledger is too long to check within one request. The entries checked so far verify; the whole chain is checked again in the background and the result appears in Coverage &amp; Health.</p>
+<p><strong>Ledger integrity check failed.</strong> The page shows the first entry that doesn't verify. Don't delete app data; download diagnostics and contact support immediately (security severity).</p>
+<p><strong>Onboarding seems stuck.</strong> It continues within its hourly budget, and pauses for an hour when Jira's rate-limit pool is under pressure. The hourly poll also restarts onboarding that stopped unexpectedly. Coverage &amp; Health shows the current phase and percentage.</p>
+<p><strong>Coverage &amp; Health says &quot;Partly recorded&quot;.</strong> Jira refused to show one object of that type to the app (HTTP 403), for example a project behind a data security policy. It is skipped, the rest of the type is recorded, and the mark clears once a later read of that object succeeds.</p>
+<p><strong>The guided safe test says &quot;No change detected yet&quot;.</strong> Save your change in Jira, then click &quot;I changed it&quot; again.</p>
+<h2>What to send to support</h2>
+<ol><li><strong>Coverage &amp; Health → Download diagnostics</strong> (no account ids, names or configuration content).</li><li>The error code and ref.</li><li>For restores: the request id and ledger entry numbers.</li><li>What you did and what you expected.</li></ol>
+<p>Email support@matifyapps.de, or use the form or tracker on the <a href="../../support/">support page</a>. Never post account ids, email addresses or configuration content in the public tracker.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Config Undo for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+</div></footer>
+</body>
+</html>

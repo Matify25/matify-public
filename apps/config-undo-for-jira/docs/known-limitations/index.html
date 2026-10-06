@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Known limitations — Config Undo for Jira — Matify</title>
+<meta name="description" content="Known limitations for Config Undo for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Config Undo for Jira</span></div></div></header>
+<nav class="site" aria-label="Config Undo for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/restore-guide/">Restore guide</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><span aria-current="page">Known limitations</span></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1>Known limitations</h1>
+<p>What Config Undo does not do, or does only partly, and why. Most limits come from what Jira's public REST APIs allow an app to do. The restore preview shows the ones that apply before anything is written.</p>
+<h2>Not covered at all</h2>
+<ul><li><strong>Team-managed projects</strong> and their workflows and schemes. Only company-managed configuration is recorded and restored.</li><li><strong>Issue security schemes</strong>, <strong>boards</strong>, <strong>filters</strong>, <strong>dashboards</strong>, <strong>automation rules</strong>, <strong>screen schemes</strong>, <strong>issue type schemes</strong> and <strong>issue type screen schemes</strong> as objects. (The association of a project with an issue type scheme or issue type screen scheme <em>is</em> part of project settings and is restored.)</li><li><strong>Issue data</strong>: issues, comments, attachments, deleted issues. Config Undo is not a backup of issue data and doesn't revert bulk issue changes.</li><li><strong>Jira Service Management specifics</strong>: request types, queues, portal settings, SLAs.</li><li>Global settings, users, groups and licences. Apps can't create groups, so a grant to a deleted group is skipped.</li><li>Moving configuration between sites or from a sandbox to production.</li><li>Restoring deleted custom fields or projects: use Jira's own trash, then Config Undo can restore their settings or options.</li></ul>
+<h2>Field schemes</h2>
+<p>Field schemes are read through an <strong>experimental</strong> Jira API. Config Undo records and compares them, but <strong>can't restore them</strong> in this version. They are detected by the rolling reconcile only (no audit-based detection), so a change shows up within a week (four weeks on large sites). You can turn recording off in Settings.</p>
+<h2>Restores that create new IDs</h2>
+<ul><li>Options, components and versions deleted since the chosen version are <strong>recreated with new IDs</strong>. Issue values that pointed at the deleted ones are <strong>not</strong> restored.</li><li>Statuses deleted from the site are recreated with new IDs; issues that were in them are not moved back.</li><li>A deleted <strong>permission scheme</strong> or <strong>workflow</strong> is recreated as a <strong>new</strong> object with a new ID. It isn't associated with any project or workflow scheme; associate it again in Jira, or restore the projects' settings.</li><li>Removed permission grants are added again; Jira gives them new IDs (harmless).</li></ul>
+<h2>Nothing is deleted that might hold data</h2>
+<ul><li>Options added since the chosen version are <strong>disabled</strong>, not deleted.</li><li>Versions added since are <strong>archived</strong>, not deleted.</li><li>Components added since are <strong>listed for manual removal</strong> with their issue counts, never deleted.</li><li>Screen tabs added since are emptied and deleted, as the write plan lists.</li></ul>
+<h2>Workflows and workflow schemes</h2>
+<ul><li>A <strong>workflow scheme</strong> is restored only when Jira reports that no issue would need to move to another status. Anything that needs a status migration is <strong>blocked</strong> with an explanation; export the version and apply it in Jira's workflow scheme editor.</li><li>Removing a status from a workflow that projects use through an active workflow scheme is <strong>blocked</strong>.</li><li>Jira's workflow API can't <strong>rename</strong> workflows; a name difference is listed for manual action.</li><li><strong>Status definitions</strong> (name, category) are shared by all workflows; a site-wide rename or recategorisation is not undone.</li><li>Every workflow restore must pass Jira's own validation, including third-party rule configuration; a validation error blocks it.</li><li>Read-only system workflows can't be changed.</li><li>Deleted workflow schemes are not recreated in this version.</li></ul>
+<h2>Project settings</h2>
+<ul><li>Restored: name, description, lead, default assignee, category, permission / notification / issue type screen / issue type scheme associations, project role actors, components and versions.</li><li><strong>Journal and manual guidance only</strong>: project key, project type, workflow-scheme association (switching migrates issues; do it in Jira's project settings) and issue-security-scheme association.</li><li>Jira can't set a project back to &quot;no notification scheme&quot;; the current association is kept.</li><li>Archived projects must be unarchived first; deleted projects restored from Jira's trash first.</li><li>Changing an issue type scheme association fails if issues use issue types the target scheme removes; Jira then changes nothing and the result is FAILED.</li></ul>
+<h2>Other restore limits</h2>
+<ul><li>One object per request. A restore point is restored object by object; there is no batch restore.</li><li>The kill switch stops a running restore before its next write step; it does not roll back what was already written. The request ends as <strong>Restored with differences</strong>, and you can retry the remaining steps within one hour.</li><li>Deleted <strong>notification schemes</strong> and <strong>screens</strong> are not recreated in this version (Jira's create API for notification schemes is experimental). Download the version as JSON and recreate it in Jira.</li><li>Restoring a notification scheme's or screen's <strong>name and description</strong> uses an experimental Jira API.</li><li><strong>Custom field and context names</strong> are not restored; options of fields managed by a <strong>Connect app</strong> are history and compare only. Context <strong>default values</strong> are not restored.</li><li>For permission schemes, the list of affected projects is checked for the first 100 company-managed projects; the preview says so when there are more.</li><li>Versions that come from the <strong>audit-log backfill</strong> hold no complete previous state and can't be restored.</li></ul>
+<h2>Detection and history</h2>
+<ul><li>New changes are picked up by the <strong>hourly</strong> audit-log poll (or within minutes for project, version, component, field and field-context events). Use <strong>Compare with live</strong> to capture an object listed in Objects &amp; Compare immediately.</li><li><strong>First hour on busy sites:</strong> all background work shares 6,000 estimated points in the first hour after installation. On a site with thousands of audit records that may not cover the whole 30 days of audit history or the first versions of permission schemes, workflows and workflow schemes; they follow in the next hours. A change to an object made <strong>before Config Undo captured it</strong> can't be undone: its journal entry comes from the audit log and has no complete earlier version.</li><li>Changes Jira doesn't write to its audit log are found by the <strong>rolling reconcile</strong>: within a week on small and medium sites, within four weeks on large sites. Their author is unknown.</li><li>Jira sends no event for <strong>option edits</strong>; they are found through the audit log.</li><li><strong>History on day one</strong> reaches back as far as your site's <strong>audit log</strong> still goes (up to 180 days during onboarding) and <strong>60 days</strong> of workflow history. After onboarding, <strong>Import older history</strong> in Coverage &amp; Health imports older audit records as far as Jira still keeps them; imported entries older than your retention period are removed again by the next weekly maintenance run.</li><li>Audit-log retention depends on your Jira plan and settings. If Jira doesn't let the app read the audit log at all (for example on Jira Free), there is no history from before the installation, and recorded changes have no author.</li><li>When Jira's audit record names no author, the journal shows <strong>Not recorded by Jira</strong>.</li></ul>
+<h2>Retention</h2>
+<ul><li>Versions older than the retention period (13 months by default) are removed weekly. Each object keeps its latest version and the version that was live at the retention boundary, so a change to an object that stayed unchanged for longer than the retention period can still be undone.</li><li>Restore points older than the retention period are removed unless they are pinned, and so are finished restore requests with their preview and result. Pin a restore point if you need it longer.</li></ul>
+<h2>Large sites and rate limits</h2>
+<p>Jira limits how many API calls an app may make per hour, shared across all sites using the app. Config Undo's onboarding therefore takes hours on medium sites and several days on large sites; history for the most important types comes first. Comparisons with live Jira, previews, restore points and the guided test share an hourly cap per site; when it is used up, they are refused with the time when you can try again. Approved restores are never blocked by these budgets. See <a href="../../docs/large-sites/">Large sites</a>.</p>
+<h2>Audit-log attribution</h2>
+<p>Restores that run directly appear in Jira's audit log under the approving admin. Longer restores, and the rest of a restore that couldn't finish within the approval request, run in the background and appear under the Config Undo app; the app's ledger records who approved them and when a restore switched to the background.</p>
+<h2>Interface</h2>
+<p>English only. Dates and times are shown in your local format and time zone.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Config Undo for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Large sites — Config Undo for Jira — Matify</title>
+<meta name="description" content="Large sites for Config Undo for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Config Undo for Jira</span></div></div></header>
+<nav class="site" aria-label="Config Undo for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/restore-guide/">Restore guide</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><span aria-current="page">Large sites</span></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1>Large sites: onboarding time and rate limits</h1>
+<h2>Why onboarding takes time</h2>
+<p>Jira Cloud limits how many REST API calls an app may make. The limit is a pool of points per hour that is <strong>shared by every site that has the app installed</strong>, and objects that return many people, groups or roles cost more points. To stay inside it, Config Undo spends a fixed budget per hour on background work and spreads the first full capture of your configuration over several hours. Background jobs run one at a time per site in each of their lanes (recording, onboarding and history import, maintenance), so Jira never sees parallel bursts from one site.</p>
+<p><strong>Approved restores are never blocked by these budgets.</strong> Work you start by clicking (comparisons with live Jira, previews, restore points, the guided test) has its own hourly cap per site; see below.</p>
+<h2>Site size</h2>
+<p>Config Undo measures your site at the start of onboarding:</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Size</th><th scope="col">Rule (first match)</th></tr></thead><tbody><tr><td>Large</td><td>more than 500 projects or more than 600 workflows</td></tr><tr><td>Medium</td><td>more than 50 projects, more than 100 workflows or more than 150 schemes</td></tr><tr><td>Small</td><td>everything else</td></tr></tbody></table></div>
+<p>The size is shown in Coverage &amp; Health and in the diagnostics file.</p>
+<h2>Hourly budgets for background work (estimated points per site)</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col">Work</th><th scope="col">Budget per hour</th></tr></thead><tbody><tr><td>All background work in the first hour after installation (onboarding, re-reads, reconcile)</td><td>up to 6,000 in total, counted from the moment of installation; when it is used up, background work waits until that hour ends</td></tr><tr><td>Onboarding afterwards</td><td>6,000 (small), 8,000 (medium and large)</td></tr><tr><td>Re-reads of changed objects (after the hourly audit poll or a Jira event)</td><td>4,000, or the onboarding budget while onboarding runs</td></tr><tr><td>Rolling reconcile</td><td>2,000</td></tr></tbody></table></div>
+<p>Points are <strong>estimated</strong> from what Jira returns, following Atlassian's documented points model: one point per call, plus one per returned object and two per identity or permission object (users, groups, project roles, permission grants). Reading a permission scheme with about 90 grants therefore costs about 180 points. Jira does not report the remaining points on normal responses, so Config Undo counts conservatively. Coverage &amp; Health shows the estimated points per hour for the last 24 hours. When a budget is used up, the remaining work waits for the next hour by itself.</p>
+<p>If Jira signals that the shared pool is under pressure (or answers with a rate-limit error), Config Undo pauses onboarding, backfill and reconcile for an hour and shows <strong>Rate-limited, resuming HH:MM UTC</strong> in the status chip. Restores, compares and the re-reads after the hourly audit poll continue.</p>
+<h2>Interactive cap (comparisons, previews, restore points)</h2>
+<p>Work that reads Jira when you click shares a cap of <strong>5,000 estimated points per site and hour</strong>: <strong>Compare with live</strong>, restore previews, creating or re-reading a restore point, the guided test's steps and name lookups for project roles and groups in diffs. It keeps one site from using up the pool that every site shares. These actions are not held back by the background budgets above, but their points are added to the hour's count, so a lot of comparing leaves less of that hour's budget for onboarding. When the cap is reached, Config Undo refuses the action with &quot;Config Undo has used this hour's share of Jira's rate limit for comparisons and previews on this site&quot; and the time when you can try again (the start of the next hour, UTC).</p>
+<p>Approving a restore, and the restore's own reads and writes, don't count toward this cap and are never refused by it. If Jira answers a restore's write with a rate-limit error, the restore pauses and continues by itself about two minutes later.</p>
+<p>When Jira itself asks the app to wait, a page doesn't hang: Config Undo waits a few seconds at most, then shows the rate-limit message with the time it expects to resume.</p>
+<h2>What comes first</h2>
+<ol><li>The last 30 days of your audit log, as journal entries, newest first. Reading audit records costs about one point per record, plus an estimated 50 points for each lookup of a workflow, field or other object that an audit record names only by its name (repeated names are looked up once per run). The journal starts filling within minutes with the most recent changes; on busy sites the rest of the 30 days follows in the next hours.</li><li>Permission schemes, workflows and workflow schemes (the objects that break sites most often).</li><li>Up to 60 days of workflow history.</li><li>Everything else: notification schemes, screens, field options, project settings, field schemes.</li><li>The audit log from 30 to 180 days back.</li></ol>
+<p>The progress in the status chip is a stage marker (2 % size check, 5 % 30-day history, 20 % priority types, 45 % workflow history, 60 % everything else, 90 % older audit history), not a time estimate.</p>
+<p>You can work with whatever has been captured while onboarding continues. An object that isn't captured yet doesn't appear in Objects &amp; Compare and can't be restored yet.</p>
+<p><strong>The first hour on busy sites.</strong> In the first hour after installation all background work shares 6,000 estimated points. On a site with thousands of audit records this may not cover the whole 30 days of audit history, and not the first versions of permission schemes, workflows and workflow schemes (step 2); these follow in the next hours under the hourly onboarding budget. Until an object has been captured, a change to it appears in the journal from the audit log but can't be undone, because an audit-log entry holds no complete earlier version. As soon as an object is listed in Objects &amp; Compare, <strong>Compare with live</strong> stores its current state at once; it counts toward the interactive cap, not against the onboarding budget.</p>
+<p>Measured in our own test on a medium-size Jira Cloud site with 3,381 audit records in the last 30 days: ten minutes after installation 2,500 of them had been imported (newest first). Within the first hour Config Undo used 5,831 of its 6,000 estimated points and then waited for the hour to end; the first versions of permission schemes, workflows and workflow schemes followed in the next hours. Importing all 30 days, including the name lookups, needed about 11,100 estimated points.</p>
+<p>If onboarding stops making progress for more than about an hour (for example because a queued job was lost), the hourly poll notices and restarts it from where it stopped. After onboarding, <strong>Coverage &amp; Health → Import older history</strong> imports audit records from before the current history start as a separate background job; recording, the reconcile and the weekly restore point keep running meanwhile.</p>
+<h2>How long it takes (planning estimates)</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col">Size</th><th scope="col">Example</th><th scope="col">Full history</th></tr></thead><tbody><tr><td>Small</td><td>≈ 20 projects, 30 workflows, 40 schemes, 200 custom fields</td><td>about 2–4 hours</td></tr><tr><td>Medium</td><td>≈ 200 projects, 300 workflows, 300 schemes, 1,500 custom fields</td><td>about 12–20 hours</td></tr><tr><td>Large</td><td>≈ 1,500 projects, 2,000 workflows, 1,500 schemes, 4,000 custom fields</td><td>about 2–5 days</td></tr></tbody></table></div>
+<p>These are estimates from two cost models (the product plan and an independent review), not measurements on your site. The number of audit-log records on your site has the biggest effect. The journal starts filling with the most recent changes within minutes; on busy sites the rest of the 30 days and the priority types take the next hours, and they are still captured long before the full history.</p>
+<h2>After onboarding</h2>
+<ul><li><strong>Hourly audit poll</strong>: new changes are read every hour and only the affected objects are re-read.</li><li><strong>Rolling reconcile</strong> re-reads a share of every type each day to catch changes Jira didn't audit. <strong>Automatic</strong> cadence: the whole inventory once a week on small and medium sites, once every four weeks on large sites. You can set <strong>Weekly</strong> or <strong>Monthly</strong> in Settings.</li><li><strong>Product events</strong> for projects, versions, components, fields and field contexts cost no points.</li></ul>
+<h2>Controls</h2>
+<ul><li><strong>Coverage &amp; Health → Pause onboarding / Resume onboarding.</strong></li><li><strong>Settings → Exclusions</strong>: exclude projects or single objects you don't need recorded.</li><li><strong>Settings → Record field schemes</strong>: turn off if you don't use field schemes.</li></ul>
+<h2>Restore points on large sites</h2>
+<p>Creating a restore point lists the captured version of every object in the chosen types within one request. On very large sites this can take too long; Config Undo then says &quot;Creating the restore point took too long. Try fewer families.&quot; Create one restore point per group of configuration types instead. <strong>Re-read everything now</strong> is offered for restore points with up to 500 objects.</p>
+<h2>When an object can't be read</h2>
+<p>If Jira refuses to show one object to the app (HTTP 403), Config Undo skips just that object, marks the type <strong>Partly recorded</strong> in Coverage &amp; Health and tries again when the object changes or the reconcile reaches it. The diagnostics file lists the probe results.</p>
+<p>If Jira doesn't let the app read the audit log at all (for example on Jira Free), Coverage &amp; Health says so. Config Undo then records changes through Jira events and the daily reconcile only, without the author, and has no history from before the installation.</p>
+<h2>Several large sites at once</h2>
+<p>The pool is shared by all installations of the app. When it is under pressure, every installation pauses its background work as described above, so onboarding of a large site can take longer than the estimate.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Config Undo for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+</div></footer>
+</body>
+</html>

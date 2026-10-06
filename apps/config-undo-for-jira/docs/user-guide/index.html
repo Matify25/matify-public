@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>User guide — Config Undo for Jira — Matify</title>
+<meta name="description" content="User guide for Config Undo for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Config Undo for Jira</span></div></div></header>
+<nav class="site" aria-label="Config Undo for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><span aria-current="page">User guide</span></li><li><a href="../../docs/restore-guide/">Restore guide</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1>User guide</h1>
+<h2>Concepts</h2>
+<h3>Configuration types (&quot;families&quot;)</h3>
+<p>Config Undo works with eight types of Jira configuration. Each object has a stable key (for example <code>PS:10000</code> for permission scheme 10000), shown on its page in Objects &amp; Compare.</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Type</th><th scope="col">What a version contains</th><th scope="col">How changes are detected</th><th scope="col">Restore</th></tr></thead><tbody><tr><td>Permission scheme</td><td>name, description, every grant (permission + holder)</td><td>audit log</td><td>yes</td></tr><tr><td>Notification scheme</td><td>name, description, recipients per event</td><td>audit log</td><td>yes</td></tr><tr><td>Workflow</td><td>statuses, transitions, conditions, validators, post functions, description</td><td>audit log; workflow history during onboarding</td><td>yes</td></tr><tr><td>Workflow scheme</td><td>default workflow and issue type → workflow mappings</td><td>audit log</td><td>yes, if no issue would need a status migration</td></tr><tr><td>Screen</td><td>tabs, fields per tab, field order, name, description</td><td>audit log</td><td>yes</td></tr><tr><td>Field options</td><td>options of one custom field context: value, enabled/disabled, order (select, multi-select, radio, checkboxes, cascading select)</td><td>audit log (Jira sends no event for option edits)</td><td>yes</td></tr><tr><td>Project settings</td><td>name, description, lead, default assignee, category, scheme associations, role actors, components, versions</td><td>audit log and Jira project/version/component events</td><td>yes, with exceptions</td></tr><tr><td>Field scheme</td><td>field scheme parameters (experimental Jira API)</td><td>reconcile only</td><td>no, history and compare only</td></tr></tbody></table></div>
+<p>Coverage &amp; Health shows the detection mode per type.</p>
+<h3>Versions</h3>
+<p>A <strong>version</strong> is a complete, normalised copy of one object at one point in time. Config Undo stores a new version only when the content changed (the content is hashed; identical content is stored once). Each version has a <strong>source</strong>:</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Source</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td>Baseline</td><td>first capture during onboarding</td></tr><tr><td>Audit log</td><td>captured after the hourly audit-log poll saw a change</td></tr><tr><td>Jira event</td><td>captured after a Jira product event (projects, versions, components, fields, field contexts)</td></tr><tr><td>Reconcile</td><td>the rolling reconcile found a change that had no audit record or event; the author is unknown</td></tr><tr><td>Backfill (audit log)</td><td>history taken from the audit log during onboarding or by <strong>Import older history</strong>: shows what the audit log recorded, <strong>not a complete version, can't be restored</strong></td></tr><tr><td>Backfill (workflow history)</td><td>a complete earlier workflow version from Jira's workflow history (up to 60 days)</td></tr><tr><td>Restore</td><td>the state after a restore by Config Undo</td></tr><tr><td>Before restore</td><td>the live state saved right before a restore wrote anything (&quot;rollback of the rollback&quot;)</td></tr><tr><td>Restore point re-read</td><td>captured by &quot;Re-read everything now&quot; on a restore point</td></tr><tr><td>Manual re-read</td><td>captured by &quot;Compare with live&quot;, a preview or the guided test</td></tr></tbody></table></div>
+<h3>The change journal and its sources</h3>
+<p>The <strong>journal</strong> is one timeline of changes: who changed which object, when, and what changed. Changes come from:</p>
+<ul><li>the <strong>hourly audit-log poll</strong>: Config Undo reads new audit records, works out which objects they touch and re-reads exactly those objects;</li><li><strong>Jira product events</strong> for projects, versions, components, fields and field contexts, which arrive within minutes;</li><li>the <strong>rolling reconcile</strong>, which re-reads a share of every type each day (all of it once a week on small and medium sites, once every four weeks on large sites) to catch changes Jira did not audit;</li><li><strong>onboarding backfill</strong> from the audit log and workflow history;</li><li>Config Undo's <strong>own restores</strong> (marked as the app's own change).</li></ul>
+<p>Authors come from the audit log and are stored as Atlassian account ids; names are looked up when you view a page. When Jira's audit record names no author (for example automatic changes Jira makes itself), the author column shows <strong>Not recorded by Jira</strong>. Changes found by reconcile say &quot;detected by reconcile, author unknown&quot;. Some entries carry a <strong>High impact</strong> marker: a grant removed from Browse projects or Administer projects, a status removed from a workflow, or any change to an object used by more than ten projects.</p>
+<h3>Restore points</h3>
+<p>A <strong>restore point</strong> is a named list of &quot;the version of every object that was current at this moment&quot;, for all or some configuration types. When only a few changes are waiting since the last hourly poll (up to 15 objects), creating one captures them first; it then records the list and a freshness time per type. Restore points are created by hand or automatically once a week. Restore points older than the retention period are removed by the weekly maintenance run unless they are pinned; pinned restore points, and the versions they reference, are kept regardless of retention.</p>
+<h3>Restore requests</h3>
+<p>A <strong>restore request</strong> puts one object back to one version. It goes Preview → Request → Approve → Result, and every step is recorded. See the <a href="../../docs/restore-guide/">Restore guide</a>.</p>
+<h3>The ledger</h3>
+<p>The <strong>ledger</strong> is an append-only record of every restore request, approval, rejection, expiry, execution, verification result, settings change, data deletion and uninstall. Each entry carries a hash over its core fields (sequence number, time, type, request, object, before and after hash, verification result and the person's token) and the hash of the previous entry. Changing or removing an entry's core fields, or removing an entry, breaks the chain, and the integrity check finds it. People are referenced in the hashed part by a random token, not by their account id, so erasing a closed account keeps the chain verifiable. The entry's short text summary and the plain account id are stored next to the hashed part, so the check does not cover them.</p>
+<h2>Pages</h2>
+<h3>Journal</h3>
+<ul><li>Summary cards: changes in the last 7 days, unreviewed changes, protected objects.</li><li>Filters: date range (24 hours, 7, 30 or 180 days, all time, custom), configuration type, author, project, source, review status, change type and a text search on object name. Filters are kept in the URL, so a filtered view can be bookmarked.</li><li>Open an entry to see the diff, open the object, compare, or start a restore of the earlier version.</li><li><strong>Review</strong>: mark entries <strong>Reviewed</strong> or <strong>Flag with note</strong> (one at a time or several selected). The reviewer and time are recorded.</li><li><strong>Exports</strong>: Export CSV, Export JSON (the current filter) and <strong>Review report (CSV)</strong>.</li></ul>
+<h3>Objects &amp; Compare</h3>
+<ul><li>One tab per configuration type; search with <strong>Name contains</strong>, filter with <strong>Changed</strong> (last 7, 30, 90 or 180 days) or <strong>Used by project</strong>. Only objects Config Undo has already captured are listed; during onboarding the list grows as types are captured.</li><li>An object's page lists its versions (newest first) with source and time, the projects that use it, and a link to the object in Jira.</li><li><strong>Compare</strong> any two versions, or a version with <strong>Live Jira (reads it now)</strong>. Diffs are specific to the type: grants as permission × holder, recipients per event, workflow statuses and transitions with their rules, screen tabs with ordered fields, options with order and enabled state, project details, role actors, components and versions.</li><li><strong>Restore this version</strong> starts a restore preview (only when restore is enabled for that type).</li><li>Download any version as JSON, for example to re-create an object by hand.</li></ul>
+<h3>Restore points</h3>
+<ul><li><strong>Create restore point</strong>: label and configuration types.</li><li>Open a restore point to see its objects, each marked <strong>Changed since</strong>, <strong>Created since</strong>, <strong>Deleted since</strong> or <strong>Unchanged</strong>, with <strong>Compare</strong> and <strong>Restore</strong> buttons. The toggle <strong>Only objects changed since the restore point</strong> hides the rest.</li><li><strong>Pin</strong> keeps a restore point beyond retention.</li><li><strong>Re-read everything now</strong> (restore points with up to 500 objects) re-reads every object in it from Jira.</li><li>A weekly automatic restore point is created by the daily run on the chosen weekday (UTC), once onboarding has finished. The exact time can't be set, and a missed weekday is not made up the next day.</li></ul>
+<h3>Restores</h3>
+<p>Tabs: <strong>Pending approval</strong>, <strong>In progress</strong>, <strong>History</strong>. A request shows its preview and write plan, reason, requester, approver, a timeline with ledger entry numbers and the verification result. Actions depend on the state: approve, reject (with an optional note), cancel, retry remaining steps, preview again.</p>
+<h3>Ledger</h3>
+<p>Entries newest first, with sequence number, time, type, request, object, before and after hash, verification result, actor, entry hash and previous hash. <strong>Verify integrity</strong> recomputes the chain and reports the first entry that doesn't verify, if any. A long ledger can't be checked within one request: the page then says how many entries verified so far, and the whole chain is then checked again in a background job, with the result shown in Coverage &amp; Health. The chain head (latest entry number and hash) is shown so you can record it outside Jira. Export as CSV or JSON.</p>
+<h3>Coverage &amp; Health</h3>
+<ul><li>Per configuration type: detection mode, objects and versions captured, last capture and last reconcile, last error. A type with an object Jira refused to show is marked <strong>Partly recorded</strong>.</li><li>Onboarding progress with <strong>Pause onboarding / Resume onboarding</strong>.</li><li><strong>Import older history</strong> (after onboarding): imports audit-log records from before the current history start, as its own background job. Recording, the reconcile and weekly restore points keep running meanwhile.</li><li>A note when Jira doesn't let the app read the audit log (for example on Jira Free).</li><li>Audit-log poll status.</li><li>Rate-limit budget: estimated points per hour for the last 24 hours.</li><li>Ledger integrity status.</li><li><strong>Download diagnostics</strong> (JSON, no account ids, names or configuration content) for support.</li></ul>
+<h3>Settings</h3>
+<div class="tablewrap"><table><thead><tr><th scope="col">Setting</th><th scope="col">Default</th><th scope="col">Range / notes</th></tr></thead><tbody><tr><td>Disable all restores (kill switch)</td><td>off</td><td>Blocks every write to Jira: no restore can be submitted, approved or retried, and the guided safe test can't start, restore or clean up. A running restore stops before its next write step; what it already wrote is verified and the request ends as <strong>Restored with differences</strong> (it is not rolled back). Recording and compare keep working.</td></tr><tr><td>Allow restores of … (one switch per restorable type)</td><td>all off</td><td>Turning one on shows what may change and is recorded in the ledger</td></tr><tr><td>Approval mode</td><td>Four-eyes</td><td>Single admin: the requester approves by typing the object name</td></tr><tr><td>Approval expires after (hours)</td><td>24 hours</td><td>1–72 hours; unapproved requests expire and change nothing</td></tr><tr><td>Keep versions and journal entries for (months)</td><td>13 months</td><td>3–36 months; reducing it needs a confirmation and shows an approximate count of the stored versions older than the new period (some of them are kept anyway; see <a href="../../docs/privacy/">Privacy and data</a>)</td></tr><tr><td>Create an automatic restore point every week</td><td>on, Monday (UTC)</td><td>any weekday (<strong>Weekday (UTC)</strong>); created once onboarding has finished</td></tr><tr><td>Exclusions</td><td>none</td><td>objects (by key) or projects that are not recorded; existing history ages out with retention like any other, and each object's latest version is kept</td></tr><tr><td>Reconcile cadence</td><td>Automatic, based on site size</td><td>Weekly or Monthly</td></tr><tr><td>Record field schemes</td><td>on</td><td>experimental Jira API; history and compare only</td></tr><tr><td>Delete all app data</td><td>—</td><td>type <code>DELETE ALL CONFIG UNDO DATA</code></td></tr></tbody></table></div>
+<p>Every settings change is recorded in the ledger. While the licence is inactive, settings are read-only (exports and Delete all app data still work).</p>
+<h2>Exports</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col">Export</th><th scope="col">Where</th><th scope="col">Format</th><th scope="col">Contents</th></tr></thead><tbody><tr><td>Journal</td><td>Journal → Export CSV / Export JSON</td><td>CSV, JSON</td><td>the current filter: time (UTC), type, object, change, author, source, summary, review status, reviewer, note</td></tr><tr><td>Review report</td><td>Journal → Review report (CSV)</td><td>CSV</td><td>the journal rows of the current filter with review status, reviewer and note, as change evidence</td></tr><tr><td>Ledger</td><td>Ledger</td><td>CSV, JSON</td><td>every entry with sequence, type, request, object, actor token and account id, before/after hash, verification result, previous and entry hash; the export also records the chain head</td></tr><tr><td>One version</td><td>object page</td><td>JSON</td><td>the normalised object, for manual re-entry or an offline archive</td></tr></tbody></table></div>
+<p>CSV files are UTF-8 with a byte-order mark. Every cell that starts with <code>=</code>, <code>+</code>, <code>-</code>, <code>@</code>, a tab or a carriage return is prefixed with <code>'</code>, so spreadsheet programs don't run it as a formula. Display names are added to journal and review exports when you export; the ledger is exported exactly as stored.</p>
+<h2>Licensing</h2>
+<p>Trial and active licences: everything is available; during a trial a banner shows when it ends. Inactive licence: read-only. The journal, versions, compare (without recording new versions), existing restore points, the ledger, exports and Delete all app data stay available. Restores, previews, creating or re-reading restore points, journal reviews, settings changes, Import older history and the guided safe test are blocked, and background recording pauses. After the licence is active again, recording resumes by itself and the next hourly poll catches up on the audit log since the last poll.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Config Undo for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+</div></footer>
+</body>
+</html>

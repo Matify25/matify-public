@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Getting started — Config Undo for Jira — Matify</title>
+<meta name="description" content="Getting started for Config Undo for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Config Undo for Jira</span></div></div></header>
+<nav class="site" aria-label="Config Undo for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><span aria-current="page">Getting started</span></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/restore-guide/">Restore guide</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1>Getting started</h1>
+<p>This page takes you from installation to your first verified restore. Allow about 15 minutes, most of it reading.</p>
+<h2>1. Install</h2>
+<p>Install <strong>Config Undo for Jira</strong> from the Atlassian Marketplace (a Jira site administrator approves the app's permissions; see <a href="../../docs/security/">Permissions and security</a>). Then open <strong>Jira settings → Apps → Config Undo</strong>.</p>
+<p>Only people with the <strong>Administer Jira</strong> global permission can open the app. The app checks this on the server for every request, not only in the menu.</p>
+<h2>2. The first hour: recording starts by itself</h2>
+<p>You don't have to start anything. About two minutes after installation Config Undo begins its onboarding (Jira needs a short while before the app's access works). The status chip at the top of every page shows <strong>Onboarding N %</strong>; <strong>Coverage &amp; Health</strong> shows the details per configuration type.</p>
+<p>Onboarding runs in this order:</p>
+<ol><li>Access and size check of the site (small, medium or large; see <a href="../../docs/large-sites/">Large sites</a>).</li><li>Your <strong>audit log of the last 30 days</strong>, turned into journal entries, newest first. The journal starts filling within minutes with the most recent changes; on busy sites with thousands of audit records the rest of the 30 days follows in the next hours.</li><li>A first version of every <strong>permission scheme, workflow and workflow scheme</strong>.</li><li><strong>Workflow history</strong> of up to 60 days, which gives full previous versions of workflows.</li><li>A first version of everything else: notification schemes, screens, field options, project settings and field schemes.</li><li>The <strong>rest of the audit log</strong>, from 30 up to 180 days back (as far as your site's audit log retention goes).</li></ol>
+<p>The progress shown is a rough stage marker: 2 % after the size check, 5 % while the 30-day history is imported, 20 % for the first versions of the priority types, 45 % for workflow history, 60 % for everything else and 90 % for the older audit history.</p>
+<p>Onboarding spends only a fixed hourly budget of Jira's rate limit for apps; approved restores are never held back by these budgets. Our planning estimates for the full history are a few hours for a small site, about half a day to a day for a medium site and several days for a large site. You can use the app the whole time; see <a href="../../docs/large-sites/">Large sites</a>.</p>
+<p><strong>On busy sites the first hour doesn't cover everything.</strong> In the first hour after installation all background work shares a budget of 6,000 estimated points. On a site with thousands of audit records this may not be enough for the whole 30 days of audit history, and not for the first versions of permission schemes, workflows and workflow schemes; these follow in the next hours under the hourly onboarding budget. Until Config Undo has captured an object, a change to it shows up in the journal from the audit log, but it can't be undone: an audit-log entry holds no complete earlier version. Once an object is listed in <strong>Objects &amp; Compare</strong>, <strong>Compare with live</strong> stores its current state at once. Compare with live is not held back by the onboarding budget; it counts toward the hourly cap for comparisons and previews (<a href="../../docs/large-sites/">Large sites</a>).</p>
+<p>Onboarding looks after itself:</p>
+<ul><li>If Jira refuses to show the app one object (for example a project behind a data security policy), that object is skipped and its type is marked <strong>Partly recorded</strong> in Coverage &amp; Health; the rest continues.</li><li>If Jira doesn't let the app read the audit log at all (for example on Jira Free), steps 2 and 6 bring no history and Coverage &amp; Health says so. Changes are then recorded without their author.</li><li>If onboarding stops making progress, the hourly poll notices and restarts it.</li></ul>
+<p>After onboarding you can import audit history older than 180 days with <strong>Coverage &amp; Health → Import older history</strong>, as far as your audit log still has it. The import runs as its own background job.</p>
+<p>A welcome panel explains three things: what is recorded, that restore is off until you turn it on, and that your data stays in Atlassian. <strong>Got it</strong> only hides the panel.</p>
+<h2>3. Work through &quot;Get set up&quot;</h2>
+<p>The Journal shows a <strong>Get set up</strong> card with five steps.</p>
+<h3>Review the last 30 days of changes</h3>
+<p><strong>Show them</strong> filters the journal to the last 30 days. Each row shows time, configuration type, object, change and author. Open a row to see the diff (when both versions are captured) and to mark it <strong>Reviewed</strong> or <strong>Flag</strong> it with a note.</p>
+<p>Entries labelled <strong>Backfill (audit log)</strong> come from Jira's audit log. They show the values the audit log recorded, but they hold no complete earlier version, so they can't be restored. Entries from <strong>Backfill (workflow history)</strong> are complete workflow versions.</p>
+<h3>Run the guided safe test restore</h3>
+<p>In the <strong>Get set up</strong> card choose <strong>Start the test</strong> next to &quot;Run the guided safe test restore&quot;. It shows the whole cycle on an object nobody uses:</p>
+<ol><li><strong>Create test scheme</strong>: Config Undo creates a permission scheme named &quot;Config Undo test&quot; with today's date and time (UTC). No project uses it. If a test scheme from an earlier, finished or failed test is still there, Config Undo deletes it first.</li><li><strong>Change it in Jira</strong>: open the scheme in Jira (the test page has an <strong>Open &quot;Config Undo test …&quot; in Jira</strong> button), change something (for example remove a grant), save, come back and click <strong>I changed it</strong>. Config Undo re-reads the scheme right away and shows the diff.</li><li><strong>Restore and verify</strong>: choose <strong>Restore the test scheme</strong>. Because this is the app's own test object, you approve the restore yourself, even in four-eyes mode and with restore turned off for permission schemes. Config Undo writes the original back, re-reads it and shows <strong>Restored and verified</strong>.</li><li><strong>Clean up</strong>: choose <strong>Delete the test scheme</strong>. Config Undo deletes the test scheme from Jira. The test stays in the journal and in the ledger (type <code>TEST_RESTORE</code>) as evidence.</li></ol>
+<p>The self-approval in step 3 works only for the test scheme the current test created, and the server checks this on every step. Everything else still applies: the kill switch blocks the test (starting, restoring and cleaning up), the licence must be active, and if someone added the test scheme to a project in the meantime, the test refuses to restore it.</p>
+<p>In our own test on a Jira Cloud site the four steps took 20 seconds of app time.</p>
+<h3>Create your first restore point</h3>
+<p><strong>Restore points → Create restore point</strong>, give it a label (&quot;Before Q4 cleanup&quot;) and choose the configuration types (default: all). If only a few changes are waiting since the last hourly poll (up to 15 objects), Config Undo captures them first; otherwise the restore point records how fresh each type is. It then stores which version of every object was current. Later, the restore point shows what changed since, with links to compare or restore each object. Restore points older than the retention period (13 months by default) are removed unless you <strong>pin</strong> them. See <a href="../../docs/user-guide/">User guide</a>.</p>
+<h3>Enable restore for at least one family</h3>
+<p>A family is a configuration type. <strong>Settings → Restore → Allow restores of permission schemes</strong> (a good first choice). A dialog lists exactly what Config Undo may change for that type; confirm with <strong>Allow restores</strong>. The change is recorded in the ledger. Turning restore on changes nothing in Jira by itself.</p>
+<h3>Invite a second admin as approver</h3>
+<p>Four-eyes approval is the default: the admin who requests a restore can't approve it. Ask another Jira admin to open <strong>Config Undo → Restores</strong> and approve a request. If your site has only one Jira admin, switch <strong>Settings → Approval → Single admin</strong>: the requester then approves by typing the object's exact name.</p>
+<h2>4. Your first real restore</h2>
+<ol><li>Find the object: <strong>Objects &amp; Compare</strong>, or a journal entry.</li><li>Pick the version you want back and choose <strong>Restore this version</strong>.</li><li>Read the preview: what will change, which projects use the object, warnings, and the write plan. If something blocks the restore, the preview says why. Otherwise choose <strong>Continue</strong>.</li><li>Enter a reason and <strong>Submit request</strong>.</li><li>The approver opens the request in <strong>Restores → Pending approval</strong>, reviews it and chooses <strong>Approve and restore '&lt;object name&gt;'</strong>. Config Undo re-reads the live object first; if it changed since the preview, the request becomes stale and must be previewed again. Each request takes exactly one decision: if another admin rejects it (or the requester cancels it) while the approval is running, the rejection wins and nothing is written.</li><li>Config Undo writes the change, re-reads Jira and shows the result: <strong>Restored and verified</strong>, <strong>Restored and verified, with notes</strong>, <strong>Restored with differences</strong> or <strong>The restore failed</strong>.</li></ol>
+<p>Everything about this flow, including how to undo a restore, is in the <a href="../../docs/restore-guide/">Restore guide</a>.</p>
+<h2>5. A weekly routine that takes five minutes</h2>
+<ul><li>Journal → filter <strong>Last 7 days</strong> and <strong>Review status: Unreviewed</strong> → mark reviewed or flag with a note.</li><li>Before a planned change (cleanup, migration, workflow consolidation) create a restore point, and pin it if you need it longer than the retention period. A weekly automatic restore point is on by default (Monday, UTC, once onboarding has finished).</li><li>For audits: <strong>Review report (CSV)</strong> from the journal and the ledger export (CSV or JSON).</li></ul>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Config Undo for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+</div></footer>
+</body>
+</html>

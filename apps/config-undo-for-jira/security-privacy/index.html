@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data security and privacy statement — Config Undo for Jira — Matify</title>
+<meta name="description" content="How Config Undo for Jira by Matify processes, stores and protects data: Forge hosting, personal data, storage, residency, no external egress, scopes, read/write model, retention, deletion and logging.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Config Undo for Jira</span></div></div></header>
+<nav class="site" aria-label="Config Undo for Jira"><ul><li><a href="../">Overview</a></li><li><a href="../docs/">Documentation</a></li><li><a href="../security-privacy/" aria-current="page">Security & privacy</a></li><li><a href="../privacy/">Privacy policy</a></li><li><a href="../terms/">Terms</a></li><li><a href="../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<h1>Data security and privacy statement — Config Undo for Jira</h1>
+<p>Publisher: <strong>Matify</strong> · App: <strong>Config Undo for Jira</strong> (Jira Cloud) · Contact: <strong>support@matifyapps.de</strong> · Last updated: 7 October 2026</p>
+<h2>1. Overview</h2>
+<p>Config Undo for Jira records changes to Jira configuration and lets Jira administrators restore an earlier version of a configuration object after a preview and an approval. It is an Atlassian Forge app. This statement explains, technically and plainly, what the app processes, where it keeps it, and how it is protected. The formal policy is the <a href="../privacy/">privacy policy</a>.</p>
+<h2>2. Hosting and architecture</h2>
+<ul><li>Built on <strong>Atlassian Forge</strong> only: the app's functions run on Atlassian-hosted compute, and its data lives in <strong>Forge hosted storage</strong> (custom entities and the key-value store).</li><li>No Forge remote, no external backend, no web triggers. Matify operates no server, database or service the app depends on.</li><li>The admin interface is a Forge Custom UI page inside Jira's admin settings. All scripts, styles, fonts and icons come from the app's own bundle under Forge's default content security policy.</li><li>Long-running work (onboarding, re-reads, longer restores) runs in Forge queues; scheduled work runs on Forge scheduled triggers (hourly, daily, weekly).</li></ul>
+<h2>3. Data we process</h2>
+<ul><li><strong>Jira configuration</strong> of eight types: permission schemes, notification schemes, workflows, workflow schemes, screens, custom-field options, field schemes and project settings (details, scheme associations, role actors, components, versions).</li><li><strong>Jira audit-log records</strong> and <strong>workflow history</strong>, to know who changed what and when.</li><li><strong>Admin input</strong> in the app: restore reasons, review notes, restore point labels, settings, approvals.</li><li><strong>Display names</strong> of people, looked up from Jira when a page is shown, and kept only in the browser session.</li><li><strong>Names of project roles and groups</strong> (not personal data), looked up from Jira and cached by the app for readable diffs; stored configuration keeps the ids.</li></ul>
+<p>The app does not read or store issues, comments or attachments.</p>
+<h2>4. Personal data</h2>
+<p>The app stores <strong>Atlassian account ids</strong> for longer than 24 hours:</p>
+<ul><li>inside stored configuration: user grants, user notification recipients, project leads, component leads, project role actors, user ids inside workflow rules;</li><li>in its own records: audit-log authors and account ids inside change summaries (change journal), restore requesters and approvers, admins who reject, cancel or retry a request, reviewers, restore point creators, the admin who last changed the settings, ledger actors.</li></ul>
+<p>It also stores <strong>free text admins type</strong> (reasons, notes, labels) and, only where an admin configured one as a notification recipient, an <strong>email address</strong> that is part of the notification scheme. It stores <strong>no display names, avatars or other profile data</strong>.</p>
+<h2>5. Data storage</h2>
+<p>All stored data is in Forge hosted storage on Atlassian's infrastructure. Configuration versions are stored once per distinct content (content-hashed, compressed); metadata (journal, versions, restore points, requests, ledger) is in Forge custom entities.</p>
+<h2>6. Tenant isolation</h2>
+<p>Forge hosted storage is partitioned per installation by the platform. The app uses no global or shared storage across customers, keeps no state between invocations outside that storage, and its logs contain no identifiers of other installations.</p>
+<h2>7. Data residency</h2>
+<p>Forge hosted storage follows the Jira site's <strong>data residency</strong> and moves with the site. All stored data listed in sections 4 and 5 is in-scope end-user data held there. Forge application logs are operational data outside that scope and contain no personal data or configuration content.</p>
+<h2>8. External data egress</h2>
+<p><strong>None.</strong> The app declares no external domains, no remote backend and no web triggers. It calls only Jira's REST APIs and Forge platform services. Exports are generated in the admin's browser and saved locally.</p>
+<h2>9. External services and subprocessors</h2>
+<p>None besides <strong>Atlassian</strong> (hosting, storage, the Forge platform). No analytics, telemetry, error reporting, email or content delivery service is used.</p>
+<h2>10. Permissions and scopes</h2>
+<p>Six classic scopes: <code>read:jira-work</code>, <code>manage:jira-configuration</code>, <code>manage:jira-project</code>, <code>read:jira-user</code>, <code>storage:app</code>, <code>report:personal-data</code>. With the two <code>manage</code> scopes Jira grants the app user <strong>Jira-admin-equivalent permissions</strong> (verified: Administer Jira, Administer projects, Bulk change). Each scope is explained in <a href="../docs/security/">Permissions and security</a>.</p>
+<h2>11. Read/write model</h2>
+<ul><li><strong>Reads</strong>: configuration, the audit log and workflow history are read as the app; the administrator check and display names as the signed-in user.</li><li><strong>Writes to Jira</strong> happen only for an approved restore of a configuration type an administrator enabled (off by default), with the kill switch off and the licence active — plus the guided safe test's own &quot;Config Undo test&quot; permission scheme, which the app creates, restores and deletes. The guided test's self-approval is bound on the server to the test scheme the current test created and is refused if that scheme was added to a project; the kill switch and the licence apply to it too.</li><li>The kill switch blocks every write. A running restore stops before its next write step; what was already written is verified and recorded (not rolled back).</li><li>Every restore is previewed, approved (four-eyes by default), checked against the live object at approval and before the first write, verified afterwards and recorded in a hash-chained ledger. Approve, reject and cancel are mutually exclusive per request. The live state is saved before every restore.</li><li>Restores that fit into one request run as the approving administrator (Jira's audit log names that person); longer restores run in the background as the app after re-checking the approver's Administer Jira permission. A restore that can't finish within the approval request continues in the background as the app, and the ledger records the switch.</li><li>The app never deletes customer schemes, workflows, screens, fields or projects.</li></ul>
+<h2>12. Data retention</h2>
+<ul><li>Retention period: 13 months by default, configurable from 3 to 36 months; a weekly job applies it.</li><li>Versions and journal entries older than the retention period are deleted. Kept regardless: the latest version of every object, the version that was current at the retention boundary, versions in pinned restore points and versions of unfinished restore requests.</li><li>Restore points older than the retention period are deleted unless pinned. Finished restore requests older than the retention period are deleted with their preview and result; previews that were never submitted are deleted after 24 hours.</li><li>The ledger is kept for the life of the installation.</li></ul>
+<h2>13. Data deletion</h2>
+<ul><li><strong>Delete all app data</strong> (Settings → Danger zone, typed confirmation) deletes all stored versions, journal entries, restore points, restore requests, ledger entries and other app keys.</li><li>Data the app deletes is removed from its storage at once; Atlassian may keep a deleted copy for a limited time for recovery, under its own Forge data retention.</li><li>On <strong>uninstall</strong> the app writes a final <code>UNINSTALL</code> ledger entry; stored data then is retained and deleted per Atlassian's Forge data retention for uninstalled apps.</li><li>Excluded objects and projects stop being recorded; their history ages out with retention (each object's latest version is kept).</li></ul>
+<h2>14. Personal data requests</h2>
+<p>The app reports the account ids it stores to Atlassian every week through the Forge <strong>personal data reporting API</strong>. For a <strong>closed</strong> account it replaces the account id with a random <code>closed-account:</code> token in journal entries (authors, reviewers, change summaries), restore requests with their stored preview and result, restore points, stored configuration versions and the settings' last editor. It re-hashes the affected versions and deletes the old copies, removes the account id and token mapping from the ledger (the chain stays verifiable), deletes the cached administrator check for that account and records a count-only <code>TOMBSTONE</code> entry. Free text typed by administrators is not scanned. This runs even when the licence has lapsed. Other requests: support@matifyapps.de.</p>
+<h2>15. Logging</h2>
+<p>Forge logs contain event names, counts, durations, error codes and a random correlation reference. One warning event contains the numeric id of a configuration object Jira refused to show to the app. No account ids, names, email addresses, free text or configuration content are logged.</p>
+<h2>16. Transport and platform security</h2>
+<p>All traffic between the app, Jira and the browser runs inside Atlassian's platform (Forge functions call Jira through the Forge runtime; the Custom UI talks to the app's functions through the Forge bridge). Storage, transport encryption and infrastructure security are Atlassian's; see Atlassian's own Forge and cloud security documentation. Matify adds:</p>
+<ul><li>a server-side Administer Jira check on every request,</li><li>strict schema validation of every request payload, and encoding of identifiers in Jira API paths,</li><li>no collected credentials, tokens or secrets,</li><li>CSV exports safe against formula injection, and text rendered as text in the interface,</li><li>a release process that builds one tagged Forge build only after automated gates pass (the manifest has no egress, remote or web trigger and exactly the six scopes listed; lint; type checks; all tests; the interface build) and deploys that same build to staging and production,</li><li>pinned dependencies with lockfiles; npm audit at the security review of the initial release (2026-10-06) found no known vulnerabilities.</li></ul>
+<p>No compliance certification (such as SOC 2 or ISO 27001) is claimed for the app or for Matify.</p>
+<h2>17. Security contact</h2>
+<p><strong>support@matifyapps.de</strong> with &quot;security&quot; in the subject, or the login-free support form with the type &quot;Security vulnerability&quot;. Please don't report vulnerabilities in the public tracker. Matify follows Atlassian's Security Bug Fix Policy for Marketplace apps and notifies affected customers and Atlassian of a security incident affecting customer data.</p>
+<h2>18. Privacy policy</h2>
+<p><a href="../privacy/">Privacy policy for Config Undo for Jira</a></p>
+<h2>19. Documentation</h2>
+<p><a href="../docs/">Config Undo for Jira documentation</a> · <a href="../docs/known-limitations/">Known limitations</a> · <a href="../support/">Support</a></p>
+<h2>20. Last updated</h2>
+<p>7 October 2026.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Config Undo for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+</div></footer>
+</body>
+</html>

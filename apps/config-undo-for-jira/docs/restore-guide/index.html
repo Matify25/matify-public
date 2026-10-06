@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Restore guide — Config Undo for Jira — Matify</title>
+<meta name="description" content="Restore guide for Config Undo for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Config Undo for Jira</span></div></div></header>
+<nav class="site" aria-label="Config Undo for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><span aria-current="page">Restore guide</span></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1>Restore guide</h1>
+<p>A restore puts <strong>one object</strong> back to <strong>one captured version</strong>. It always runs in four steps: <strong>Preview → Request → Approve → Result</strong>. Nothing is written to Jira before the approval.</p>
+<h2>Before the first restore</h2>
+<ul><li>Restore is <strong>off</strong> for every configuration type until a Jira admin turns it on in <strong>Settings → Restore</strong>. The dialog lists what Config Undo may change for that type.</li><li><strong>Disable all restores</strong> (the kill switch) blocks every write to Jira: no request can be submitted, approved or retried, and the guided safe test can't start, restore or clean up. A restore that is already running stops before its next write step. What it already wrote is re-read and verified, it is <strong>not</strong> rolled back, and the request ends as <strong>Restored with differences</strong>; once the kill switch is off again you can retry the remaining steps within one hour. A restore stopped before its first write changes nothing. Recording and compare keep working.</li><li>The licence must be active (or in trial).</li><li>Field schemes can't be restored. Versions from <strong>Backfill (audit log)</strong> can't be restored, because the audit log holds no complete earlier state.</li></ul>
+<h2>1. Preview</h2>
+<p>Choose <strong>Restore this version</strong> on an object's version (Objects &amp; Compare, a journal entry or a restore point). Config Undo reads the live object from Jira and builds a preview. A preview only reads Jira; it writes nothing there (it stores the live state it read as a version). Previews count toward the hourly cap for interactive work per site (<a href="../../docs/large-sites/">Large sites</a>); a preview nobody submits is deleted after 24 hours.</p>
+<p>The preview shows:</p>
+<ul><li><strong>Before you continue</strong>: warnings that don't block the restore (listed below).</li><li><strong>What will change (live Jira → version)</strong>: the exact differences the restore will remove or add.</li><li><strong>Affected projects</strong>: every project that uses the object and how. A shared scheme or workflow changes for all of them.</li><li><strong>Missing referenced items</strong>: groups, roles, statuses, fields or options the version refers to that no longer exist.</li><li><strong>Write plan</strong>: every write in the order it will run.</li></ul>
+<p>If the restore can't run, the preview says <strong>This restore can't run</strong> and why (blocked cases below).</p>
+<h3>Warnings</h3>
+<div class="tablewrap"><table><thead><tr><th scope="col">Warning</th><th scope="col">What it means</th></tr></thead><tbody><tr><td>Used by N projects</td><td>The object is shared; the restore changes it for every listed project. For permission schemes, project usage is checked for the first 100 company-managed projects.</td></tr><tr><td>Deleted children will be recreated with new IDs</td><td>Options, components or versions deleted since that version are created again, with new IDs. Issue values that pointed at the deleted ones are not restored. Statuses deleted from the site are recreated with new IDs too.</td></tr><tr><td>Extras kept</td><td>Options added since that version are <strong>disabled</strong>, versions added since are <strong>archived</strong> — nothing is deleted, so issue values are kept. Screen tabs added since are emptied and deleted, as listed in the write plan.</td></tr><tr><td>Components to remove manually</td><td>Components added since that version are listed with their issue counts; Config Undo never deletes components.</td></tr><tr><td>Referenced items no longer exist</td><td>Those parts are skipped (for example a grant to a deleted group). Config Undo can't create groups.</td></tr><tr><td>Site-wide status definitions changed</td><td>A status was renamed or recategorised since the version. Statuses are shared by all workflows, so their current definition is kept.</td></tr><tr><td>Experimental Jira API</td><td>Restoring a notification scheme's or screen's name and description uses an experimental Jira API.</td></tr><tr><td>Manual action required</td><td>Differences Config Undo doesn't write, with guidance: project key, project type, workflow-scheme and issue-security-scheme association of a project, workflow name, custom field and context names.</td></tr><tr><td>No notification scheme in that version</td><td>Jira can't set a project back to &quot;no notification scheme&quot;; the current association is kept.</td></tr><tr><td>Recreated as a new object</td><td>A deleted permission scheme or workflow is recreated as a <strong>new</strong> object with a new ID, not associated with any project. Associate it again in Jira, or restore the affected projects' settings.</td></tr><tr><td>Runs in the background as the app</td><td>The restore is too long to run directly, so Jira's audit log will show the Config Undo app as the author. The ledger records who approved it. (A restore that starts directly but can't finish within the approval request also continues in the background as the app; see below.)</td></tr></tbody></table></div>
+<h3>Blocked cases</h3>
+<div class="tablewrap"><table><thead><tr><th scope="col">The preview says</th><th scope="col">Why</th></tr></thead><tbody><tr><td>Restoring this workflow scheme would require moving issues to other statuses</td><td>Config Undo doesn't migrate issue statuses. Export the version and apply it in Jira's workflow scheme editor.</td></tr><tr><td>The workflow is used through an active scheme and the restore would remove statuses</td><td>Same reason; removing statuses issues may be in is not done.</td></tr><tr><td>Jira's workflow validation rejected this version</td><td>Jira's own validation (including third-party rule configuration) failed; the messages are listed.</td></tr><tr><td>Referenced screens no longer exist and the workflow would be invalid</td><td>Recreate the screens first.</td></tr><tr><td>Team-managed workflow, scheme or project</td><td>Team-managed configuration isn't covered.</td></tr><tr><td>Read-only system workflow</td><td>Jira doesn't allow changing it.</td></tr><tr><td>Field options managed by a Connect app</td><td>Jira doesn't let other apps change them; history and compare only.</td></tr><tr><td>The project is archived / deleted</td><td>Unarchive it, or restore it from Jira's trash, then preview again.</td></tr><tr><td>The field or context no longer exists</td><td>Restore the field from Jira's trash or recreate the context, then preview again.</td></tr><tr><td>Deleted notification scheme, screen or workflow scheme</td><td>Not recreated in this version. Download the version as JSON and recreate it in Jira.</td></tr><tr><td>Another scheme or workflow with that name exists</td><td>A deleted permission scheme or workflow can only be recreated when its name is free. Rename the other one, then preview again.</td></tr><tr><td>This entry has no full previous version</td><td>It comes from the audit log backfill.</td></tr><tr><td>The live object already matches this version</td><td>Nothing to restore.</td></tr><tr><td>Field schemes</td><td>History and compare only.</td></tr></tbody></table></div>
+<h2>2. Request</h2>
+<p>Choose <strong>Continue</strong> under the preview, enter a <strong>reason</strong> (required, up to 1,000 characters) and <strong>Submit request</strong>. A preview older than one hour can't be submitted; preview again. Submitting writes a <code>REQUESTED</code> ledger entry.</p>
+<h2>3. Approve</h2>
+<h3>Four-eyes (default)</h3>
+<p>Another Jira admin opens <strong>Restores → Pending approval</strong>, reads the preview and reason, and chooses <strong>Approve and restore '&lt;object name&gt;'</strong> or <strong>Reject</strong> (with an optional note). The requester can't approve their own request.</p>
+<h3>Single admin</h3>
+<p>For sites with one Jira admin, <strong>Settings → Approval → Single admin</strong>. The requester approves their own request by typing the object's exact name. Switching to this mode needs a confirmation and is recorded in the ledger.</p>
+<h3>What happens at approval</h3>
+<ol><li>Config Undo re-checks that the approver is a Jira admin, that the licence is active, that restore is enabled for the type and that the kill switch is off.</li><li>It <strong>re-reads the live object</strong>. If it changed since the preview, the request becomes <strong>Stale</strong> and nothing is written; preview again.</li><li>It records the decision. Each request takes exactly one decision: approve, reject and cancel exclude each other. If another admin rejects the request (or the requester cancels it) while the approval is running, the rejection or cancellation wins and nothing is written. An admin who clicks while another decision is being recorded sees &quot;Another admin is deciding on this request right now&quot;.</li><li>It takes a lock on the object, so two restores of the same object can't run at once.</li><li>Requests that nobody approves <strong>expire</strong> after the approval window (24 hours by default, 1–72 hours in Settings) and change nothing.</li></ol>
+<p>The only request a requester can approve without a second admin in four-eyes mode is the <strong>guided safe test</strong>'s own restore. The server checks that the object is the test scheme the current test created and that its name still starts with &quot;Config Undo test&quot;, and the test refuses to restore the scheme if it has been added to a project.</p>
+<h2>4. Execution and result</h2>
+<p>Right before the first write, Config Undo re-reads the object once more (if it changed, nothing is written), and <strong>saves the live state as a version with the source &quot;Before restore&quot;</strong>. Then it runs the write plan step by step.</p>
+<p><strong>Who Jira's audit log shows as the author:</strong></p>
+<ul><li>Most single-object restores run directly, within the approval request, <strong>as the approving admin</strong>. Jira's own audit log then names that admin.</li><li>Restores estimated to take longer than about 18 seconds run in the background <strong>as the Config Undo app</strong>. Before the first write, Config Undo checks again through Jira's permissions API that the approver still holds Administer Jira. Jira's audit log shows the app; Config Undo's ledger and journal record who approved. The preview warns about this case.</li><li>If a restore that started directly can't finish within the approval request (it ran longer than estimated, or Jira asked it to slow down), the remaining steps continue in the background <strong>as the app</strong>. The ledger records the switch (&quot;Continued in the background as the app&quot;), and Jira's audit log shows the app for those writes.</li></ul>
+<p><strong>When something interrupts a restore:</strong></p>
+<ul><li>If Jira answers a write with a rate-limit response (HTTP 429), Jira hasn't processed it: Config Undo pauses and retries that step automatically about two minutes later, in the background.</li><li>If the approval request ends before the restore finished (for example a timeout), a background check picks the restore up about two minutes later and finishes it. An hourly check also resumes any approved restore that stopped making progress, for example when Jira briefly refused to start the background run (the approval then says the run starts automatically within about two hours).</li><li>A step whose outcome is unknown (the app stopped right after sending it) is never sent again blindly: Config Undo re-reads the object, verifies and reports <strong>Restored with differences</strong>.</li></ul>
+<p>After the last write Config Undo re-reads the object and compares it with the version (verification):</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Result</th><th scope="col">Shown as</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td>PASS</td><td><strong>Restored and verified</strong></td><td>The live object now matches the version.</td></tr><tr><td>PASS_WITH_NOTES</td><td><strong>Restored and verified, with notes</strong></td><td>It matches, except extras that were kept disabled, archived or listed instead of deleted, or recreated items with new IDs. The notes list them.</td></tr><tr><td>PARTIAL</td><td><strong>Restored with differences</strong></td><td>Some steps were written, others not, or the result differs. The page shows what matches and what's left.</td></tr><tr><td>FAILED</td><td><strong>The restore failed</strong></td><td>Nothing (or not enough) changed; the error code says why. A permission scheme is replaced in a single all-or-nothing write, so a rejected write leaves it unchanged.</td></tr></tbody></table></div>
+<p>A restore writes <code>EXECUTED</code> to the ledger right before its first write and <code>VERIFIED</code>, <code>FAILED</code> or <code>CANCELLED</code> when it ends, with the before and after hash of the object. The guided safe test writes <code>TEST_RESTORE</code> instead of <code>VERIFIED</code>. A restore that continues in the background writes a second <code>EXECUTED</code> entry for the switch. A request that stops before anything is written records <code>STALE</code>, <code>EXPIRED</code> or <code>FAILED</code> without an <code>EXECUTED</code> entry.</p>
+<h3>Retry remaining steps</h3>
+<p>After a <strong>PARTIAL</strong> result you can choose <strong>Retry remaining steps</strong> within <strong>one hour</strong>, without a new approval, as long as the object hasn't changed since, the kill switch is off and the licence is active. Config Undo plans again from the current state. Only one retry of a request can run at a time. After an hour, or if the object changed, start a new request.</p>
+<h3>Cancel</h3>
+<p>Pending requests can be cancelled. A running restore can be cancelled between steps: the current write finishes, the rest is skipped, what was written is verified, and the result is recorded as cancelled (nothing written) or partial.</p>
+<h2>Undo a restore (&quot;rollback of the rollback&quot;)</h2>
+<p>Every restore saves the state right before it wrote anything. To undo a restore:</p>
+<ol><li>Open the object in <strong>Objects &amp; Compare</strong>.</li><li>Find the version just before the restore (source <strong>Before restore</strong>, or the latest version captured before the restore if the live state was already stored).</li><li><strong>Restore this version</strong>: preview, request, approve as usual.</li></ol>
+<p>The undo is itself a restore, with its own preview, approval and ledger entries.</p>
+<h2>Restore from a restore point</h2>
+<p>Open the restore point, turn on <strong>Only objects changed since the restore point</strong>, and use <strong>Restore</strong> on each object you want back. Each object is its own request with its own preview and approval; there is no batch restore in this version. For deleted objects see the blocked cases above.</p>
+<h2>Restore incident playbook</h2>
+<p>Use this when a restore didn't do what you expected, or when someone asks what a restore changed.</p>
+<ol><li><strong>Stop further restores if needed.</strong> Settings → <strong>Disable all restores</strong>. New restores are blocked; a restore that is running stops before its next write step, and what it already wrote is verified (not rolled back). Recording continues.</li><li><strong>Open the request.</strong> Restores → History → the request. Note its result, error code (<code>CUJ-…</code>), the <code>ref</code> shown with any error, and the ledger entry numbers in its timeline.</li><li><strong>Read the ledger for that request.</strong> Ledger → find the entries with that request id. A normal restore reads:<ul><li><code>REQUESTED</code> (who requested, reason in the request)</li><li><code>APPROVED</code> (who approved; &quot;Approved by a second Jira admin&quot; or &quot;Approved in single-admin mode with typed confirmation&quot;)</li><li><code>EXECUTED</code> (&quot;Execution started as the approving admin / as the app: N write step(s)&quot;), with the <strong>before hash</strong>; a second <code>EXECUTED</code> (&quot;Continued in the background as the app …&quot;) if the restore switched to the background</li><li><code>VERIFIED</code> with the verification result and &quot;k of n items match&quot;, or <code>FAILED</code>/<code>CANCELLED</code>, with the <strong>after hash</strong></li></ul>
+<p><code>STALE</code>, <code>EXPIRED</code> and <code>REJECTED</code> entries mean nothing was written. A <code>FAILED</code> entry without an <code>EXECUTED</code> entry before it also means nothing was written.</p></li><li><strong>Check the chain.</strong> Ledger → <strong>Verify integrity</strong>. It should report no broken entry. Record the chain head if you keep evidence outside Jira.</li><li><strong>See what Jira looks like now.</strong> On the object, <strong>Compare</strong> the target version with <strong>Live Jira</strong>, and the <strong>Before restore</strong> version with live. That tells you exactly what changed.</li><li><strong>Decide:</strong><ul><li>PARTIAL within one hour and the object unchanged: <strong>Retry remaining steps</strong>.</li><li>Want the previous state back: restore the <strong>Before restore</strong> version (above).</li><li>The difference is a documented limitation (new IDs, extras disabled or archived, manual items): follow the guidance in the result notes and <a href="../../docs/known-limitations/">Known limitations</a>.</li></ul></li><li><strong>Check Jira's own audit log</strong> for the object if you need the native record: inline restores appear under the approving admin, background restores (and the background part of a restore that switched) under the app.</li><li><strong>Contact support</strong> if anything is unexplained: download diagnostics (Coverage &amp; Health), and send the request id, the ledger entry numbers, the error code and ref to support@matifyapps.de or through the <a href="../../support/">support page</a>. Write &quot;restore incident&quot; in the summary and choose the severity from the <a href="https://matify25.github.io/matify-public/sla/" rel="noopener noreferrer">SLA</a>. Don't post account ids or configuration content in the public tracker.</li><li><strong>Turn restores back on</strong> (Settings) when you are done.</li></ol>
+<h2>Ledger entry types</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col">Type</th><th scope="col">Written when</th></tr></thead><tbody><tr><td>REQUESTED</td><td>a restore request is submitted</td></tr><tr><td>APPROVED</td><td>a request is approved (also for a retry of remaining steps)</td></tr><tr><td>REJECTED</td><td>a pending request is rejected</td></tr><tr><td>EXPIRED</td><td>the approval window passed, or the licence was inactive before a queued restore started; nothing written</td></tr><tr><td>STALE</td><td>the live object changed after the preview, or between approval and the first write; nothing written</td></tr><tr><td>EXECUTED</td><td>the first write is about to run; again when a restore continues in the background as the app</td></tr><tr><td>VERIFIED</td><td>verification finished (PASS, PASS_WITH_NOTES or PARTIAL)</td></tr><tr><td>FAILED</td><td>the restore stopped (a rejected write, the kill switch, a cancel or an unknown step outcome after something was written; or, before any write, the kill switch or an approver who no longer holds Administer Jira) or verification failed</td></tr><tr><td>CANCELLED</td><td>a request was cancelled, or a running restore was stopped before it wrote anything</td></tr><tr><td>TEST_RESTORE</td><td>the guided safe test restore finished</td></tr><tr><td>SETTINGS_CHANGED</td><td>a setting changed</td></tr><tr><td>RESTORE_ENABLED / RESTORE_DISABLED</td><td>restore was turned on or off for a type</td></tr><tr><td>DATA_DELETED</td><td>Delete all app data was requested</td></tr><tr><td>TOMBSTONE</td><td>a closed Atlassian account was erased (counts only)</td></tr><tr><td>UNINSTALL</td><td>the app was uninstalled</td></tr></tbody></table></div>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Config Undo for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner.</p>
+</div></footer>
+</body>
+</html>
