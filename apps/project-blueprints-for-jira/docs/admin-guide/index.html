@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin guide — Project Blueprints for Jira — Matify</title>
+<meta name="description" content="Admin guide for Project Blueprints for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Project Blueprints for Jira</span></div></div></header>
+<nav class="site" aria-label="Project Blueprints for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><span aria-current="page">Admin guide</span></li><li><a href="../../docs/requester-and-owner-guide/">Requester and owner guide</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1>Admin guide</h1>
+<p>This guide is for Jira administrators who run Project Blueprints. Every admin page and action needs the <strong>Administer Jira</strong> global permission, checked on the server. Concepts and page descriptions are in the <a href="../../docs/user-guide/">User guide</a>.</p>
+<h2>Blueprints</h2>
+<h3>Company-managed blueprints: Capture from project</h3>
+<p><strong>Blueprints → Capture from project</strong>. Pick a company-managed <strong>software</strong> or <strong>business</strong> reference project. Team-managed, archived and service projects are rejected with an explanation. You can give the blueprint a name; it defaults to the project name followed by &quot;blueprint&quot;, and requesters see it in the gallery.</p>
+<p>The capture only reads. It records:</p>
+<ul><li>project type, category and default assignee (the project URL is recorded but not applied);</li><li>the seven scheme associations: permission, notification, issue security, work type, work type screen, workflow, and field scheme (or the legacy field configuration scheme on sites not yet migrated to field schemes);</li><li>project roles with their users and groups;</li><li>components (name, description, lead, default assignee);</li><li>versions (name and description; new projects get them unreleased, without dates);</li><li>the project property keys of the reference project (you choose which to copy);</li><li>project-scoped custom-field contexts.</li></ul>
+<p><strong>Not copied</strong>: the Jira-managed role <code>atlassian-addons-project-access</code> and app accounts (Jira manages them), properties you don't select, locked fields (Jira-managed fields such as the &quot;Category&quot; field of business projects) and global contexts.</p>
+<p><strong>Field contexts</strong> are found by a background scan of <strong>all custom fields</strong>: for each field the app reads which contexts apply to which projects. The blueprint shows <strong>Scanning field contexts</strong> while this runs. You can edit General, Requesters &amp; approvals and Naming &amp; metadata meanwhile; the content tabs fill in, and the blueprint can be activated, once the capture is <strong>Ready</strong>. A field with more than one non-global context for the reference project is captured but marked &quot;Not applied (multi-context field: …)&quot;, because Jira's assign API accepts one context per field and project.</p>
+<p>If the capture fails, nothing in Jira was changed. Fix the cause (shown on the blueprint and under Health → Capture errors) and re-capture.</p>
+<h3>Team-managed blueprints</h3>
+<p><strong>Blueprints → New team-managed blueprint</strong>. Choose a name and Jira's built-in template: <strong>Kanban (team-managed)</strong> or <strong>Scrum (team-managed)</strong>. There is no reference project and no configuration copy, because Jira has no API for team-managed configuration. The blueprint applies:</p>
+<ul><li>the project lead, who becomes the project's Administrator;</li><li>the app's governance and provenance properties.</li></ul>
+<p>Exact role mode, additional role members, components and versions are not available for team-managed blueprints. The team configures everything else in the project itself.</p>
+<h3>Configuring a blueprint</h3>
+<div class="tablewrap"><table><thead><tr><th scope="col">Tab</th><th scope="col">Setting</th><th scope="col">Notes</th></tr></thead><tbody><tr><td>General</td><td>Name, description (for admins), gallery text (for requesters)</td><td></td></tr><tr><td>General</td><td>Project description template</td><td>Optional; metadata field IDs in braces (e.g. <code>{client}</code>), <code>{key}</code> and <code>{name}</code> are filled in from the request</td></tr><tr><td>General</td><td>Review interval (days)</td><td>30–1,095; the owner confirms the project is still needed after this many days</td></tr><tr><td>Requesters &amp; approvals</td><td>Allowed requester groups</td><td>Empty = everyone who holds <strong>Request projects (Project Blueprints)</strong></td></tr><tr><td>Requesters &amp; approvals</td><td>Approvals required</td><td>One Jira admin, or two different Jira admins</td></tr><tr><td>Requesters &amp; approvals</td><td>Project lead</td><td>The requester; the requester chooses any user; or a fixed user</td></tr><tr><td>Requesters &amp; approvals</td><td>Owner</td><td>The requester; the project lead; or the requester chooses an owner (required)</td></tr><tr><td>Naming &amp; metadata</td><td>Naming &amp; key policy, required metadata form</td><td>Managed on the Policies page</td></tr><tr><td>Naming &amp; metadata</td><td>Project category</td><td>No category; always the same category (the reference project's category is used); or the requester chooses from a list</td></tr><tr><td>Roles</td><td>Role mode</td><td>Additive (default) or exact (company-managed only)</td></tr><tr><td>Roles</td><td>Additional role members</td><td>Add the requester, the owner, the project lead, a specific user or a specific group to a role</td></tr><tr><td>Components &amp; versions</td><td>Create the captured components / versions</td><td>On by default; versions are created unreleased</td></tr><tr><td>Fields &amp; properties</td><td>Project properties to copy</td><td>None pre-selected; keys added by Jira or other apps are marked &quot;usually not needed&quot; and their values aren't captured, so they can't be selected for copying</td></tr><tr><td>Fidelity report</td><td>Will apply / Won't apply, capture warnings, schemes</td><td>Read-only</td></tr></tbody></table></div>
+<p><strong>Role modes</strong></p>
+<ul><li><strong>Additive</strong> (recommended): the blueprint's members are added; Jira's default role members on the new project stay. Verification notes the kept defaults.</li><li><strong>Exact</strong>: on the <strong>new project only</strong>, default role members that aren't in the blueprint are removed (the project lead stays). The preview shows this as one step with a warning; which members Jira adds by default is only known once the project exists, so the step list reports how many were removed. Existing projects are never touched.</li></ul>
+<p>The project lead becomes project administrator. When the lead isn't the requester, the approving admin must confirm it.</p>
+<h3>Lifecycle, versions and archiving</h3>
+<ul><li><strong>Activate</strong> makes a blueprint requestable. It needs a capture that is <strong>Ready</strong> and saved changes.</li><li>Saving changes to an active blueprint applies them to requests submitted from then on. Pending requests keep their lead, owner and number of approvals, but their plan is built again at approval with the saved role, component, version, property, description and review settings; the approver sees the updated plan.</li><li><strong>Re-capture</strong> reads the reference project again and creates a new version if anything changed. Pending requests stay pinned to the captured version they were submitted against; the request page shows that version next to the blueprint name. If that version is no longer available, the approver sees <code>PBJ-BLUEPRINT-CHANGED</code> and the requester must submit again.</li><li><strong>Re-validate</strong> checks that the referenced schemes, the role members (users), the category and the field contexts still exist and are unchanged.</li><li><strong>Archive</strong> hides the blueprint from the gallery. Pending requests from it stay open; projects already created keep their link. An archived blueprint can't be changed or reactivated; capture the reference project again as a new blueprint (<strong>Capture from project</strong>) or create a new one.</li><li><strong>Delete</strong> (draft or archived blueprints that no request uses) removes the blueprint from the app; its captured snapshot is cleaned up by the weekly maintenance. A blueprint that requests reference is kept as evidence; archive it instead. Projects created from it are not changed; the ledger keeps its history.</li></ul>
+<h2>Naming &amp; key policies</h2>
+<p><strong>Policies → New naming policy</strong>:</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Field</th><th scope="col">Purpose</th></tr></thead><tbody><tr><td>Key pattern (regex)</td><td>Always combined with Jira's rule: a capital letter, then capital letters or digits, 2–10 characters</td></tr><tr><td>Key template</td><td>Suggests a key from metadata tokens, e.g. <code>{CLIENT}</code></td></tr><tr><td>Name template</td><td>e.g. <code>{Client} – {Initiative}</code>; shown to requesters as the expected format</td></tr><tr><td>Name pattern (regex)</td><td>Optional rule for names</td></tr><tr><td>Reserved keys and words</td><td>Comma-separated; these can't be used</td></tr><tr><td>Minimum / maximum key length</td><td>2–10</td></tr><tr><td>Active</td><td>Inactive policies are not applied to new requests</td></tr></tbody></table></div>
+<p>Patterns are limited to 200 characters. When you save, the app works out how much backtracking a pattern can cause on a 255-character value and refuses patterns that could be slow: a repeated group that contains alternatives or its own repetition (like <code>(a|b)*</code> or <code>(a+)+</code>), backreferences, lookahead or lookbehind, more than two open-ended repetitions on one path, and syntax the check doesn't support. The message says how to rewrite the pattern. A stored pattern that fails the check (for example after an app update made it stricter) is never run: nothing passes it until you update the policy. Values checked against a metadata field's pattern can be at most 255 characters.</p>
+<p><strong>Try a key and name</strong> tests the unsaved policy live and shows the messages requesters would see, plus suggested keys and names.</p>
+<p>In the request form, key and name are checked as the requester types against the policy and against Jira's own key and name availability. When a key is taken, Jira suggests an alternative.</p>
+<p>Deleting a policy: a policy that a blueprint uses can't be deleted (&quot;This policy is used by a blueprint. Remove it from the blueprint first.&quot;). Submitted requests keep the result they were checked with.</p>
+<h2>Metadata forms</h2>
+<p><strong>Policies → New metadata form</strong> builds the extra fields a requester fills in. Field types: <strong>Text</strong>, <strong>Number</strong>, <strong>Date</strong>, <strong>Single select</strong>, <strong>User</strong>. Each field has a label, an ID, an optional template token (used by key and name templates), help text, options (single select), an optional pattern (regex, text fields only) and a <strong>Required</strong> flag.</p>
+<p>Values are stored on the request and written into the new project's property <code>com.matify.pbj.governance</code>. Project properties can be read through Jira's REST API by people and apps with access to the project, so don't ask for sensitive personal data in metadata fields.</p>
+<h2>Approvals</h2>
+<p>Pending requests are in <strong>Approvals → Pending</strong> (and <strong>Waiting for 2nd approval</strong>). Open a request to see the exact plan.</p>
+<ul><li><strong>Approve and create {KEY}</strong> is the only approval button. It names the key that will be created.</li><li><strong>Four-eyes</strong>: you can't approve your own request: &quot;You can't approve your own request. Ask another Jira admin to approve it.&quot;</li><li><strong>Second approver</strong>: if the blueprint needs two approvals, the first approval moves the request to <strong>Waiting for 2nd approval</strong>. The first approver sees &quot;You gave the first approval. A different Jira admin must give the second approval.&quot;</li><li><strong>Lead confirmation</strong>: if the lead isn't the requester, tick &quot;I confirm {lead} becomes project lead (project administrator)&quot;.</li><li><strong>Reject…</strong> needs a reason of at least 10 characters. Templates are offered (existing project covers this, naming, wrong blueprint, more detail needed, duplicate). The requester sees the reason under My requests; the tracking work item, if enabled, gets a comment that the request was rejected (without the reason). The key is released and nothing is created.</li><li><strong>Cancel request</strong> closes a pending request without a decision and releases the key.</li><li><strong>Expiry</strong>: pending requests expire after 14 days by default (Settings → Approvals, 1–60 days) and release their key.</li><li><strong>Self-approval setting</strong>: off by default. Turning it on needs typing <code>ALLOW SELF-APPROVAL</code>. When it is on, a Jira admin who is also the requester approves by typing the project key, and the ledger records a self-approval. Use it only on sites with a single Jira admin.</li><li><strong>Stale previews</strong>: the plan is built again when you approve. If it changed since you opened the request (for example the blueprint, a group or a user changed), the approval is refused, the page shows &quot;The preview changed&quot; with the updated plan, and you give every confirmation again. If a referenced scheme was deleted or the key or name is now used by another project, the request becomes <strong>Blocked</strong> instead.</li><li><strong>Decision lock</strong>: two decisions on the same request never overwrite each other. If another admin changes the request at the same moment, you see &quot;This request is being changed right now. Reload in a moment.&quot; or &quot;The request changed while you were approving it. Reload and check it again.&quot;</li><li>Approvals are blocked while the kill switch is on or the licence is inactive.</li></ul>
+<p>Your Administer Jira permission is checked fresh when you approve. Before the first write, the provisioning job checks again that every approver still holds it.</p>
+<h2>Tracking work items and reminder work items</h2>
+<p>Project Blueprints sends no e-mail. To let people get Jira notifications, turn on <strong>Settings → Requests → Create a tracking work item for every request</strong> and choose a <strong>tracking project</strong>, a <strong>work type</strong> and optionally a <strong>default assignee</strong>.</p>
+<ul><li>One work item is created per request (not for the guided test) in that one project, with the requester as reporter (if Jira refuses the work item, for example because of the reporter, it is created again without reporter, default assignee and details). It contains the blueprint, key, purpose, metadata and request ID, and has the label <code>pbj-request</code>.</li><li>Approval, rejection and completion are added as comments, so Jira's notification scheme of the tracking project reaches the people involved.</li><li>The app never edits existing work items.</li><li>If Jira refuses the work item (for example because a data security policy blocks app access to work items, or the tracking project's settings don't allow it), the request continues without it and the failure is recorded for Health. Requests are never blocked by tracking.</li></ul>
+<p><strong>Review reminder work items</strong> (needs tracking on, off by default): once a week (Mondays, UTC), one work item per owner whose projects are due or overdue for review, assigned to the owner, label <code>pbj-review</code>. The number per run is capped.</p>
+<h2>Catalog: adopting projects and bulk actions</h2>
+<p>Select projects in the <strong>Catalog</strong> and choose a bulk action:</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Action</th><th scope="col">Effect</th></tr></thead><tbody><tr><td>Assign owner</td><td>Records a new owner</td></tr><tr><td>Set review date</td><td>Sets the next review date</td></tr><tr><td>Mark reviewed</td><td>Records a review with you as reviewer; the next review date becomes today plus the review interval of the project's blueprint (or the default review interval if it has none)</td></tr><tr><td>Set blueprint reference</td><td>Links the project to a blueprint (reference only; nothing is applied)</td></tr></tbody></table></div>
+<p>Each bulk action shows a confirmation with the count. It writes <strong>only</strong> the app's own project property <code>com.matify.pbj.governance</code> and the catalog row, in chunks. No configuration, permission or membership is changed. A pre-existing project becomes <strong>Adopted</strong>; a project created outside the gate keeps that origin, so it stays visible as outside the gate.</p>
+<p>The catalog panel of a project also offers <strong>Re-read from Jira</strong>, links to the project and its settings, and, when archiving is recommended (inactive project or an owner's recommendation), a link to archive it in Jira yourself.</p>
+<h2>Owner transfers</h2>
+<p>Owners propose a new owner from <strong>My projects → Transfer ownership…</strong>; project administrators can do the same from <strong>Project settings → Apps → Governance → Request owner change</strong>. The request appears in Overview → Needs attention and in the project's catalog panel under Reviews. Choose <strong>Confirm new owner</strong>. Until then the current owner stays.</p>
+<p>The catalog is the authority for owner, review date and last review. The app reads them from <code>com.matify.pbj.governance</code> only when it first sees a project (for example after a reinstall). Project properties can be read by everyone with Browse Projects on the project and changed by its project admins through Jira's REST API; if someone changes these values in the property directly, the catalog keeps its values and the app rewrites the property the next time it reads the project (scan, project event or <strong>Re-read from Jira</strong>).</p>
+<h2>Kill switch</h2>
+<p><strong>Settings → Safety → Pause all approvals and provisioning (kill switch)</strong>, off by default. While it is on:</p>
+<ul><li>no request can be approved;</li><li>approved requests that haven't started wait and stay <strong>Approved</strong>. When you turn the kill switch off, they start at once. If the approval is older than 24 hours by then, the request becomes <strong>Blocked</strong> and the requester submits again;</li><li>a running provisioning stops after its current step; nothing is undone. The request becomes <strong>Partial</strong> and can be retried after you turn the kill switch off (within 7 days of the approval). If the project hadn't been created yet, it becomes <strong>Failed</strong> instead, nothing is created and the key is released;</li><li>requests stay readable, and requesters see &quot;New project requests are paused&quot;.</li></ul>
+<p>An inactive licence pauses provisioning the same way. Approved requests that haven't started are picked up by the daily job once the licence is active again (the same 24-hour limit applies).</p>
+<h2>Redacting free text</h2>
+<p>If a requester put personal or confidential data into the purpose or a text metadata field, open the request (Approvals → any tab) and choose <strong>Redact free text…</strong>. After confirmation, the purpose, the reject reason and the values of text metadata fields are replaced with <code>[redacted]</code> in the request, in the app's stored plan and in the project's <code>com.matify.pbj.governance</code> property; stored name and key suggestions are removed. Select, number, date and user values are kept. The ledger records who redacted how many fields. Jira's project description (if the blueprint's description template used metadata) and a tracking work item are not changed (the app never edits existing work items); edit them in Jira. Redaction isn't offered while a request is approved and waiting to start or being provisioned; redact it once provisioning has finished.</p>
+<h2>Data: retention and deletion</h2>
+<ul><li><strong>Keep finished requests</strong>: 24 months by default (6–60). Pruned requests leave their ledger entries.</li><li><strong>Keep reviews</strong>: 36 months by default.</li><li>Shortening either needs typing <code>REDUCE RETENTION</code>; older records are deleted at the next weekly run.</li><li><strong>Delete all app data</strong> (Settings → Data): type <code>DELETE PROJECT BLUEPRINTS DATA</code>. It cancels queued jobs and deletes every blueprint, policy, request, catalog row, review and ledger entry. It doesn't touch Jira: projects, properties and work items remain. Export the ledger and evidence report first if you need them. The button stays available when the licence is inactive, so you can always remove the app's data.</li></ul>
+<p>Details: <a href="../../docs/privacy/">Privacy and data</a>.</p>
+<h2>Partial provisioning runbook</h2>
+<p>Use this when a request ends as <strong>Partial</strong>, <strong>Failed</strong> or <strong>Blocked</strong>, or provisioning seems stuck.</p>
+<h3>1. Read the request</h3>
+<p>Open <strong>Approvals → In progress</strong> or <strong>History</strong> (or Overview → Needs attention) and open the request.</p>
+<ul><li>The message at the top says what happened, with an error code. &quot;Nothing was deleted. The step list shows exactly what exists.&quot;</li><li>The <strong>step list</strong> shows every step that has started, with status (Done, Skipped, Failed, Pending), attempts and a detail line with the error code. Steps marked Done exist in Jira; Pending and Failed steps, and steps not listed yet, were not completed.</li><li>The <strong>verification table</strong> (if verification ran) compares each item with the plan.</li><li><strong>Ledger entries for this request</strong> shows the full history with sequence numbers (types such as Step failed, Provision partial, Provision failed, Blocked, Resumed).</li></ul>
+<h3>2. Which status do you have?</h3>
+<div class="tablewrap"><table><thead><tr><th scope="col">Status</th><th scope="col">Does the project exist?</th><th scope="col">What it means</th></tr></thead><tbody><tr><td>Failed</td><td>No</td><td>Jira refused to create the project (<code>PBJ-CREATE-400</code>, <code>PBJ-JIRA-403</code>), the key was taken while the project was being created (<code>PBJ-KEY-TAKEN</code>), or provisioning stopped before the project was created. Nothing was created</td></tr><tr><td>Blocked</td><td>No</td><td>A pre-check stopped provisioning before the first write. Nothing was created</td></tr><tr><td>Partial</td><td>Yes</td><td>The project exists, but some steps didn't finish, or verification found differences</td></tr></tbody></table></div>
+<h3>3. Decide what to do with a Partial request</h3>
+<ol><li><strong>Retry remaining steps</strong>: choose <strong>Retry remaining {n} steps for {KEY}</strong>. Only a Jira admin can do this, only within <strong>7 days</strong> of the approval, and not while the kill switch is on or the licence is inactive. No new approval is needed: the remaining steps of the approved plan run. Fix the cause first (for example a group or field context that Jira rejected), otherwise the same step fails again. After 7 days you see &quot;The approval is older than 7 days. Leave the project as is, or create a new request.&quot;</li><li><strong>Leave as is and close</strong>: the remaining steps are not run, the project keeps what was created, the request becomes <strong>Done with notes</strong> and the project is catalogued as governed. Use this when the missing items don't matter or you add them by hand in Jira.</li><li><strong>Clean up manually in Jira</strong>: if you don't want the project, first close the request with <strong>Leave as is and close</strong> (this releases the key reservation), then move the project to trash yourself in Jira (<strong>Project settings → Move to trash</strong>). The catalog marks the project as trashed when it reads the project again after Jira's trash event.</li></ol>
+<p>A running provisioning can be stopped with <strong>Stop after current step</strong>. The stop takes effect at the next step boundary after it is recorded, so the step that is running finishes (steps take about a second each, so one or two more may complete). The request ends as <strong>Partial</strong>; if the project hadn't been created yet, it ends as <strong>Failed</strong>, nothing is created and the key is released.</p>
+<p>If a provisioning makes no progress (for example after a platform outage), the next daily run starts it again once it has made no progress for at least an hour. After 24 hours without progress it stops: as <strong>Partial</strong> if the project exists (retry or leave as is), otherwise as <strong>Blocked</strong>.</p>
+<h3>4. Blocked cases</h3>
+<div class="tablewrap"><table><thead><tr><th scope="col">Cause</th><th scope="col">What you see</th><th scope="col">Remedy</th></tr></thead><tbody><tr><td>An approver lost Administer Jira before the first write</td><td><code>PBJ-PERM-ADMIN</code>, &quot;An approver no longer has the Jira administrator permission.&quot;</td><td>Re-approval needed: the requester submits again (<strong>Request similar</strong>) and a current Jira admin approves the new request</td></tr><tr><td>A scheme the blueprint references was deleted, the project lead is no longer an active user, or the key or name is now used by another project</td><td><code>PBJ-SCHEME-MISSING</code>, with a message naming the problem (for example &quot;The key … is already used by another project&quot;)</td><td>Fix the cause (for a deleted scheme: re-capture the blueprint), then the requester submits again (with another key if the key is taken)</td></tr><tr><td>Something changed since the approval (blueprint, schemes or members)</td><td><code>PBJ-STALE-PREVIEW</code></td><td>The requester submits again; approve the new preview</td></tr><tr><td>The approval is older than 24 hours and the project wasn't created yet (for example the kill switch or an inactive licence held it that long)</td><td><code>PBJ-STALE-PREVIEW</code>, &quot;The approval is older than 24 hours.&quot;</td><td>The requester submits again</td></tr><tr><td>Provisioning made no progress for 24 hours before the project was created</td><td><code>PBJ-STEP-FAILED</code>, &quot;Provisioning stopped unexpectedly before the project was created.&quot;</td><td>The requester submits again</td></tr><tr><td>The blueprint version is gone</td><td><code>PBJ-BLUEPRINT-CHANGED</code></td><td>The requester submits again</td></tr><tr><td>The key was taken by someone else while the project was being created</td><td><code>PBJ-KEY-TAKEN</code> or <code>PBJ-CREATE-400</code> (the request is Failed, not Blocked)</td><td>Submit again with another key</td></tr></tbody></table></div>
+<p>A blocked request can't be resumed or re-approved; the remedy is always a new request. A blocked request still reserves its key. Cancel it with <strong>Cancel request</strong> where the request page offers it, which releases the key at once; otherwise the reservation lapses on its own about a day after the request's original expiry date. Until then the new request needs a different key. In the background, provisioning never falls back to a user's permissions. If the app can't confirm an approver's permission (for example because Jira's permission-check API fails), nothing is created: the job retries, and if the permission still can't be confirmed when the approval is 24 hours old, the request becomes Blocked.</p>
+<h3>5. What the app never does</h3>
+<ul><li>It never deletes, trashes, archives or renames a project, also not a partially provisioned one.</li><li>It never rolls back steps that succeeded.</li><li>It never blindly repeats a write whose outcome is unknown; it reads Jira first.</li><li>It never takes over a project it didn't create, even if the key matches.</li><li>It never changes a scheme.</li></ul>
+<h3>6. What to send to support</h3>
+<ol><li><strong>Health → Download diagnostics</strong> (no names, e-mail addresses or project content).</li><li>The error code and its <strong>ref</strong> from the message.</li><li>The <strong>request ID</strong> (in the Request column of <strong>Ledger entries for this request</strong>, and in the requester's My requests details).</li><li>The <strong>ledger sequence numbers</strong> of the relevant entries (Ledger → filter by request ID).</li><li>What you did and what you expected.</li></ol>
+<p>Email support@matifyapps.de or use the <a href="../../support/">support page</a>. Don't post account IDs or project content in the public tracker.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Project Blueprints for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

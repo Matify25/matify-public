@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FAQ — Project Blueprints for Jira — Matify</title>
+<meta name="description" content="FAQ for Project Blueprints for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Project Blueprints for Jira</span></div></div></header>
+<nav class="site" aria-label="Project Blueprints for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/admin-guide/">Admin guide</a></li><li><a href="../../docs/requester-and-owner-guide/">Requester and owner guide</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><span aria-current="page">FAQ</span></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1>FAQ</h1>
+<p><strong>What does Project Blueprints do?</strong> It lets the right people request new Jira projects (spaces) from blueprints a Jira admin approved. Naming and key rules are checked live, a Jira admin approves an exact preview, and the app creates, sets up and verifies the project. Every project gets an owner and a review date, and a hash-chained ledger records who requested and who approved it.</p>
+<p><strong>Can it stop admins from creating projects directly in Jira?</strong> No. Jira offers apps no hook that runs before a project is created, so the app can't block or change projects created natively. It <strong>detects</strong> them: they appear in the catalog as &quot;Outside the gate&quot;, with their creator from Jira's audit log where available, in Overview and in the evidence report.</p>
+<p><strong>Does it copy boards, filters, dashboards, issues or automation rules?</strong> No. Board and board configuration, filters, dashboards, automation rules, issues, attachments, comments and the priority scheme are not created or copied. The blueprint's fidelity report and the requester's gallery card list what won't apply. See <a href="../../docs/known-limitations/">Known limitations</a>.</p>
+<p><strong>Does it change our schemes?</strong> No. New projects share the blueprint's schemes, like Jira's &quot;share settings&quot; option. The app never copies, edits or deletes a scheme. A later change you make to a shared scheme affects every project using it, as usual in Jira.</p>
+<p><strong>Why does the app need Jira-admin-level scopes?</strong> Creating a company-managed project requires the Administer Jira permission, and Jira has no narrower scope for it. With <code>manage:jira-configuration</code> and <code>manage:jira-project</code>, Jira gives the app user admin-equivalent rights. The app limits their use: requests are off by default, the request permission is granted to nobody, only admin-activated blueprints can be used, a current Jira admin approves an exact preview, and there is a kill switch, a ledger and a write-path contract. See <a href="../../docs/security/">Permissions and security</a>.</p>
+<p><strong>Can a requester become a Jira admin through it?</strong> No. The app never grants global permissions or changes group membership. A request can make someone project lead and, through the blueprint's roles, a member of the new project's roles (for example its Administrators role). That is project-level only, the preview shows it, and when the lead isn't the requester, the approving Jira admin must confirm it.</p>
+<p><strong>Do requesters need Administer Jira?</strong> No. That is the point of the app. They need the <strong>Request projects (Project Blueprints)</strong> global permission, which you grant to groups.</p>
+<p><strong>Can two admins approve?</strong> Yes. Set <strong>Approvals required</strong> to &quot;Two different Jira admins&quot; on a blueprint (or as the default for new blueprints in Settings). The second approval must come from a different Jira admin than the first, and the requester can't approve their own request unless self-approval is turned on (see the next question).</p>
+<p><strong>We have only one Jira admin. Can we still use it?</strong> Yes. Turn on <strong>Allow Jira admins to approve their own requests</strong> (Settings → Approvals) by typing <code>ALLOW SELF-APPROVAL</code>. Each self-approval needs the project key typed and is recorded in the ledger as a self-approval.</p>
+<p><strong>Who sees the catalog?</strong> Only Jira admins. Owners see the projects they own under My projects; project administrators see one project's details on its Governance page. Non-admins never see the full catalog.</p>
+<p><strong>Who gets notified about requests?</strong> Project Blueprints sends no e-mail. If you turn on tracking work items, the app creates a work item per request in one project you choose and comments on approval, rejection and completion, so Jira's own notifications reach the people involved. Requesters can always follow their requests under My requests.</p>
+<p><strong>What happens if provisioning stops halfway?</strong> The request becomes <strong>Partial</strong> with the exact list of what exists and what is missing. A Jira admin can retry the remaining steps (<strong>Retry remaining … steps for KEY</strong>) within 7 days of the approval, or <strong>Leave as is and close</strong>. The app never deletes a partially provisioned project; you can move it to trash in Jira yourself. See the <a href="../../docs/admin-guide/">Admin guide</a>.</p>
+<p><strong>Does it work with service projects?</strong> Service projects (Jira Service Management) appear in the catalog, but they can't be blueprints and can't be provisioned. Portal settings and request types aren't covered. The same applies to Jira Product Discovery and customer service projects.</p>
+<p><strong>Does it work with team-managed projects?</strong> Partly. A team-managed blueprint starts from Jira's built-in Kanban or Scrum template and applies the lead (who becomes the project's administrator) and the app's governance properties. It can't copy a team-managed project's configuration, because Jira has no API for that. Team-managed projects can't be captured as blueprints.</p>
+<p><strong>We're on Jira Enterprise and have Jira's own project templates. Why use this?</strong> Project Blueprints works on any Jira Cloud plan. On Enterprise, the added value is the governance around project creation: requests from people without admin rights, live naming and key rules, approval of an exact preview by one or two admins, a catalog of every project with owners and review dates, detection of projects created outside the gate, and a hash-chained ledger and evidence report for audits.</p>
+<p><strong>Does any data leave Atlassian?</strong> No. Project Blueprints runs entirely on Atlassian's Forge platform. It has no external domains, no remote back end, no web triggers and no analytics or telemetry service. Exports are built in your browser. See <a href="../../docs/privacy/">Privacy and data</a>.</p>
+<p><strong>What does Jira's audit log show?</strong> Jira's audit log names the app as the creator of projects made through it, because the app creates them in the background. The ledger, the project's provenance property and the Governance page record who requested and who approved.</p>
+<p><strong>Is there a free tier?</strong> Sites with up to 10 users don't pay for the app. Every other site gets a 30-day free trial and then pays through Atlassian. While the licence is inactive the app is read-only.</p>
+<p><strong>What happens on uninstall?</strong> Projects and everything the app wrote into Jira stay. The app writes a final <code>UNINSTALL</code> ledger entry and asks Forge to cancel the job of each provisioning that is running; such a provisioning can stop part-way. The request permission disappears from Jira. Stored data is retained and deleted under Atlassian's Forge data lifecycle for uninstalled apps. Export the ledger and evidence report first. See <a href="../../docs/">README</a>.</p>
+<p><strong>How long does provisioning take?</strong> It depends on the size of the blueprint and on Jira's rate limits. The request page shows each step as it runs. Approved provisioning has priority over the app's background work.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Project Blueprints for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

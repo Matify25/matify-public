@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Requester and owner guide — Project Blueprints for Jira — Matify</title>
+<meta name="description" content="Requester and owner guide for Project Blueprints for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Project Blueprints for Jira</span></div></div></header>
+<nav class="site" aria-label="Project Blueprints for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/admin-guide/">Admin guide</a></li><li><span aria-current="page">Requester and owner guide</span></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1>Requester and owner guide</h1>
+<p>This guide is for people who request new Jira projects (spaces), for project owners, and for project administrators. You find Project Blueprints in Jira's top navigation under <strong>Apps → Project Blueprints</strong>, with three pages: <strong>Request a project</strong>, <strong>My requests</strong> and <strong>My projects</strong>.</p>
+<h2>Requesting a project</h2>
+<h3>Who can request</h3>
+<p>You can request a project when all of these hold:</p>
+<ul><li>your Jira admin has opened requests on the site;</li><li>you hold the global permission <strong>Request projects (Project Blueprints)</strong> (Jira admins grant it to groups);</li><li>at least one active blueprint is available to you (a blueprint can be limited to certain groups).</li></ul>
+<p>Otherwise the page tells you why, for example &quot;Project requests aren't open on this site yet&quot; or &quot;You don't have the 'Request projects' permission&quot;. Your own requests and the projects you own stay visible under My requests and My projects in every case.</p>
+<p>You don't need the Administer Jira permission, and you won't normally see Atlassian's &quot;Allow access&quot; screen.</p>
+<h3>The three steps</h3>
+<p><strong>1. Blueprint.</strong> Pick a blueprint from the gallery. Each card shows the project type and style, a short description, <strong>You'll get</strong> (what the new project receives), <strong>Won't apply</strong> (what isn't set up, for example boards or automation rules) and how many Jira admins must approve. Choose <strong>Use this blueprint</strong>.</p>
+<p><strong>2. Details.</strong></p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Field</th><th scope="col">Notes</th></tr></thead><tbody><tr><td>Project name (required)</td><td>Checked against your site's naming policy and against existing project names. The expected format and an example are shown under the field</td></tr><tr><td>Key (required)</td><td>Capital letters and digits, starting with a letter, 2 to 10 characters (your naming policy may narrow this range). A suggested key may be filled in from the policy</td></tr><tr><td>Project lead</td><td>Depending on the blueprint: you, a fixed person, or a person you choose. A lead you choose becomes project lead and project administrator; the approving admin confirms this</td></tr><tr><td>Owner</td><td>Depending on the blueprint: you, the project lead, or a person you choose. The owner confirms periodic reviews</td></tr><tr><td>Category</td><td>Only if the blueprint lets you choose</td></tr><tr><td>Extra fields</td><td>Fields your admin added (for example client or cost centre). Required fields are marked</td></tr><tr><td>Purpose</td><td>What the project is for, up to 2,000 characters. Helps the admin decide. Don't put personal data here</td></tr></tbody></table></div>
+<p>Name and key are checked as you type, against your site's policy and against Jira. Typical messages:</p>
+<ul><li>&quot;Checking the key with your policy and Jira…&quot;</li><li>&quot;ACME is available.&quot; or &quot;ACME matches the key policy.&quot;</li><li>&quot;The key ACME is already used by another project. Try ACME2 (suggested by Jira).&quot; Choose <strong>Use ACME2</strong> to take the suggestion.</li><li>A message that the key or name doesn't match the naming policy (for the name, with the expected format if the policy defines one).</li><li>&quot;A project with this name already exists.&quot;</li></ul>
+<p><strong>Continue to review</strong> becomes available when everything is valid. Otherwise the page lists what is still needed.</p>
+<p><strong>3. Review.</strong> Check the summary and read <strong>What happens next</strong>. Choose <strong>Submit request</strong>. You get a request ID and, if your admin turned tracking work items on, a link to a tracking work item. If another open request already uses the same key, the request isn't submitted and the page shows &quot;Another open request already reserves the key ACME. Choose another key.&quot;</p>
+<h3>What happens next</h3>
+<ol><li>A Jira admin reviews your request and the exact plan. Nothing is created before they approve. Some blueprints need two different Jira admins.</li><li>After approval, Project Blueprints creates the project from the blueprint and checks the result against it.</li><li>Follow the status under <strong>My requests</strong>. The project link appears there when it is ready.</li></ol>
+<p>Requests that nobody approves expire after a while (14 days by default) and release the key.</p>
+<h3>Statuses you may see</h3>
+<div class="tablewrap"><table><thead><tr><th scope="col">Status</th><th scope="col">Meaning for you</th></tr></thead><tbody><tr><td>Pending approval</td><td>Waiting for a Jira admin. You can withdraw it</td></tr><tr><td>Waiting for 2nd approval</td><td>One admin approved; a second, different admin must approve too</td></tr><tr><td>Approved</td><td>Approved; creation starts shortly</td></tr><tr><td>Provisioning</td><td>The project is being created and set up. The progress shows &quot;n of m steps done&quot;</td></tr><tr><td>Done</td><td>Your project is ready. Choose <strong>Open project</strong></td></tr><tr><td>Done with notes</td><td>Your project is ready; some details differ from the blueprint (see the notes)</td></tr><tr><td>Partial</td><td>The project exists, but not everything was set up yet. A Jira admin is handling it</td></tr><tr><td>Failed</td><td>The project wasn't created. Nothing was created. Contact your Jira admin</td></tr><tr><td>Blocked</td><td>Creation didn't start (for example an approver lost their admin rights). Nothing was created. Your Jira admin will tell you whether to submit again</td></tr><tr><td>Rejected</td><td>Not approved. The reason is shown</td></tr><tr><td>Withdrawn</td><td>You withdrew it</td></tr><tr><td>Expired</td><td>Nobody decided in time</td></tr><tr><td>Cancelled</td><td>A Jira admin closed it without a decision</td></tr></tbody></table></div>
+<h3>Notifications</h3>
+<p>Project Blueprints sends no e-mail. If your admin turned on tracking work items, a work item is created for each request in a project your admin chose, normally with you as reporter. Approval, rejection and completion are added there as comments, so you get Jira's usual notifications. Otherwise check <strong>My requests</strong>.</p>
+<h3>My requests</h3>
+<p>The table lists your requests with blueprint, key, name, status, progress, a link to the result and the tracking work item. Select a key to open the request: facts, the provisioning steps, the verification result and the timeline.</p>
+<ul><li><strong>Withdraw</strong>: while the request is pending. &quot;The request for ACME is closed and its key is released. Nothing has been created in Jira yet.&quot;</li><li><strong>Request similar</strong>: starts a new request with the same blueprint, name, lead, owner, extra fields and purpose. Choose a new key; every project needs its own.</li></ul>
+<h2>For project owners</h2>
+<p>The owner is the person who confirms, from time to time, that a project is still needed. Every project created through Project Blueprints gets an owner and a review date. A Jira admin can also make you the owner of an existing project.</p>
+<h3>My projects</h3>
+<p><strong>My projects</strong> lists the projects you own with their review date and review status (Up to date, Review due, Review overdue, No review date), when they were last reviewed, last activity, origin and flags. A review is &quot;due&quot; when its date is within the next 30 days.</p>
+<p>For each active project you can choose:</p>
+<ul><li><strong>Still needed</strong>: records your review. The next review date becomes today plus the blueprint's review interval (or the site's default interval).</li><li><strong>Recommend archive</strong>: Jira admins see your recommendation. Project Blueprints never archives or deletes projects; an admin decides in Jira.</li><li><strong>Transfer ownership…</strong>: propose a new owner. A Jira admin confirms the change; until then you stay the owner, and the row shows &quot;Transfer pending&quot;.</li></ul>
+<p>You can add an optional note to each. Notes are visible to Jira admins in the catalog and in the reviews export. Don't put personal data in them.</p>
+<h3>Reminder work items</h3>
+<p>If your admin turned on review reminders, you get one work item per week (on Mondays, UTC) in the tracking project, assigned to you, listing your projects that are due or overdue for review. Jira notifies you as usual. Confirm the reviews under <strong>My projects</strong>.</p>
+<h2>For project administrators: the Governance page</h2>
+<p>Project administrators (the <strong>Administer projects</strong> permission on a project) find <strong>Project settings → Governance</strong>. It shows:</p>
+<ul><li><strong>Provenance</strong>: requested by, approved by, blueprint, approval and creation date, request ID; or, for projects not created through the app, whether the project was created directly in Jira, adopted, or existed before the installation;</li><li><strong>Ownership and review</strong>: owner, review date, review status, last review and flags.</li></ul>
+<p><strong>Request owner change</strong> proposes a new owner with an optional note. A Jira admin confirms it in Project Blueprints; until then the current owner stays, and the page shows &quot;Owner change pending&quot;.</p>
+<p>If the page says the project isn't in the catalog yet, check again later; a new project is normally added within a few minutes.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Project Blueprints for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

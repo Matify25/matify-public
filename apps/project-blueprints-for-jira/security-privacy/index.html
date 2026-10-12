@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data security and privacy statement — Project Blueprints for Jira — Matify</title>
+<meta name="description" content="How Project Blueprints for Jira by Matify processes, stores and protects data: Forge hosting, personal data, storage, residency, no external egress, scopes, read/write model, retention, deletion and logging.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Project Blueprints for Jira</span></div></div></header>
+<nav class="site" aria-label="Project Blueprints for Jira"><ul><li><a href="../">Overview</a></li><li><a href="../docs/">Documentation</a></li><li><a href="../security-privacy/" aria-current="page">Security & privacy</a></li><li><a href="../privacy/">Privacy policy</a></li><li><a href="../terms/">Terms</a></li><li><a href="../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<h1>Data security and privacy statement — Project Blueprints for Jira</h1>
+<p>Publisher: <strong>Matify</strong> · App: <strong>Project Blueprints for Jira</strong> (Jira Cloud) · Contact: <strong>support@matifyapps.de</strong> · Last updated: 12 October 2026</p>
+<h2>1. Overview</h2>
+<p>Project Blueprints for Jira lets the right people request new Jira projects (spaces) from blueprints that Jira administrators approved. A Jira administrator approves an exact preview of each project; the app then creates the project, sets it up, verifies it and records who requested and who approved it. It also keeps a catalog of all projects on the site with owners and review dates. It is an Atlassian Forge app. This statement explains, technically and plainly, what the app processes, where it keeps it and how it is protected. The formal policy is the <a href="../privacy/">privacy policy</a>.</p>
+<h2>2. Hosting and architecture</h2>
+<ul><li>Built on <strong>Atlassian Forge</strong> only: the app's functions run on Atlassian-hosted compute, and its data lives in <strong>Forge hosted storage</strong> (custom entities and the key-value store).</li><li>No Forge remote, no external backend, no web triggers. Matify operates no server, database or service the app depends on.</li><li>Three Forge Custom UI pages inside Jira: Apps → Project Blueprints (request a project, my requests, my projects), Jira settings → Apps → Project Blueprints (administration) and Project settings → Governance. All scripts, styles, fonts and icons come from the app's own bundle under Forge's default content security policy; the pages talk to the app only through the Forge bridge.</li><li>Long-running work (blueprint capture, the catalog scan, provisioning, data deletion) runs in Forge queues; provisioning runs one request at a time per site. Scheduled work runs on Forge daily and weekly triggers; project events from Jira keep the catalog current.</li></ul>
+<h2>3. Data we process</h2>
+<ul><li><strong>Project and configuration data</strong> read from Jira: project key, name, type, category, lead, description, status; the scheme associations, project roles and members, components, versions, selected project properties and project-scoped field contexts of a reference project; for projects created outside the app, the creator shown in Jira's audit log.</li><li><strong>Input in the app</strong>: blueprints, naming and key policies, metadata forms, requests (name, key, lead, owner, category, metadata, purpose), approvals and rejections, project reviews, settings.</li><li><strong>Display names</strong> of people, looked up from Jira when a page is shown and kept only in the browser session.</li><li><strong>Group membership</strong> of the person requesting a project, checked with Jira at the moment of the request and not stored.</li></ul>
+<p>The app does not read or store issue content, comments or attachments.</p>
+<h2>4. Personal data</h2>
+<p>The app stores <strong>Atlassian account IDs</strong> for longer than 24 hours: requesters, project leads and owners, approvers and other administrators acting in the app, members of project roles and component leads captured in blueprints, creators of projects found outside the app, reviewers, the assignee of optional tracking work items, and the person behind each ledger entry.</p>
+<p>It also stores <strong>free text people type</strong>: request purpose (up to 2,000 characters), metadata values, rejection reasons and review notes. Please don't enter personal data in these fields beyond what your organisation needs. It stores <strong>no display names, avatars or e-mail addresses</strong>.</p>
+<h2>5. Data storage</h2>
+<p>All stored data is in Forge hosted storage on Atlassian's infrastructure: seven custom entities (blueprints, policies, requests, provisioning steps, catalog, reviews, ledger) and the key-value store (settings, locks, cursors, counters, and compressed blueprint snapshots and previews). No other storage is used.</p>
+<h2>6. Tenant isolation</h2>
+<p>Forge hosted storage is partitioned per installation by the platform. The app uses no global or shared storage across customers, keeps no customer data between invocations outside that storage, and its logs contain no identifiers of other installations.</p>
+<h2>7. Data residency</h2>
+<p>Forge hosted storage follows the Jira site's <strong>data residency</strong> and moves with the site. All stored data in sections 4 and 5 is in-scope end-user data held there. Projects, properties and work items the app writes into Jira are Jira data under your site's own residency. Forge application logs are operational data outside that scope and contain no personal data by design.</p>
+<h2>8. External data egress</h2>
+<p><strong>None.</strong> The app runs entirely on Atlassian's Forge platform; no data leaves Atlassian. It declares no external domains, no remote backend and no web triggers. It calls only Jira's REST API of your site and Forge platform services (storage, queues, the personal data reporting API, the licence API). Exports are created in the administrator's browser and saved locally.</p>
+<h2>9. External services and subprocessors</h2>
+<p>None besides <strong>Atlassian</strong> (hosting, storage, the Forge platform). No analytics, telemetry, error-reporting, e-mail or content delivery service is used.</p>
+<h2>10. Permissions and scopes</h2>
+<p>Seven classic scopes: <code>read:jira-work</code>, <code>manage:jira-configuration</code>, <code>manage:jira-project</code>, <code>read:jira-user</code>, <code>storage:app</code>, <code>report:personal-data</code>, <code>write:jira-work</code>. Creating company-managed projects requires the Administer Jira permission, so with the two <code>manage</code> scopes Jira gives the app user <strong>Jira-admin-equivalent permissions</strong> (verified: Administer Jira, Administer projects, Bulk change). Jira's global permission settings cannot narrow the app user's own power; the app's own controls (section 11) decide what it does. <code>write:jira-work</code> is used only for optional tracking work items and comments in one project your administrators choose. No board scopes and no webhook scope are requested. Each scope is explained in <a href="../docs/security/">Permissions and security</a>.</p>
+<h2>11. Read/write model</h2>
+<ul><li><strong>Who may do what</strong> is checked on the server for the signed-in person, by asking Jira as the app: administration needs <strong>Administer Jira</strong>; requests need the Jira permission <strong>&quot;Request projects (Project Blueprints)&quot;</strong>, which is granted to nobody when the app is installed; the Governance page needs <strong>Administer projects</strong> on that project; owners can act only on projects they own. An unanswered check means &quot;not permitted&quot;. If Jira's permission check is unavailable, the app checks as the signed-in person instead, which can show Atlassian's one-time &quot;Allow access&quot; screen.</li><li><strong>Requests are closed by default.</strong> Only blueprints an administrator activated can be requested.</li><li><strong>Every project needs approval</strong> by a current Jira administrator, checked at the moment of approval (optionally a second, different administrator). The requester cannot approve their own request unless an administrator explicitly allows self-approval. The approver sees an exact preview; if anything changed, the approval is refused and a new preview is shown. A lead other than the requester must be confirmed. Two administrators cannot decide on the same request at once.</li><li><strong>Before the first write</strong>, the app re-checks that every approver is still a Jira administrator and that the approval is no older than 24 hours; otherwise it stops and asks for a new approval.</li><li><strong>Writes to Jira</strong> happen only on a project created under an approved request (the project, role members, components, versions, field contexts, selected properties and the app's own <code>com.matify.pbj.provenance</code> and <code>com.matify.pbj.governance</code> properties), on the app's own governance property of existing projects when owners, review dates or reviews are recorded (or restored after the property was changed outside the app), on the app's own properties when a closed account is scrubbed or an administrator redacts a request's free text, and — if enabled — as work items and comments in the one tracking project. All write calls live in one part of the code and need a ticket created from an approved request or one of these narrow actions; an automated test enforces this.</li><li>The app <strong>never deletes, trashes, archives or renames</strong> a project, scheme or work item and never edits existing work items. The only removal it makes is of default role members on a project it has just created, when a blueprint uses exact role mode (the preview shows this removal step). A partly set-up project stays as it is; an administrator can retry the remaining steps or move it to Jira's trash.</li><li>The <strong>kill switch</strong> pauses all approvals and provisioning: approved requests wait, and a running provisioning stops after its current step and can be retried later. Nothing is undone.</li><li>Jira's own audit log names the app as the creator of a project; the app's <strong>hash-chained ledger</strong> and the provenance property record the people who requested and approved it. The ledger has a &quot;Verify integrity&quot; function.</li><li>If the licence is inactive, the app is read-only: nothing new is requested, approved, created or scanned. Open requests can still be withdrawn or cancelled, a running provisioning can be stopped, a request's free text can still be redacted, and all app data can still be deleted.</li></ul>
+<h2>12. Data retention</h2>
+<ul><li>Requests: 24 months after the request reached a final status by default (6 to 60 months); their stored preview is deleted with them.</li><li>Step journal of a request: 90 days after its final status.</li><li>Catalog entries of projects deleted in Jira: 24 months.</li><li>Project reviews: 36 months by default.</li><li>Blueprint snapshots nothing refers to any more: deleted weekly.</li><li>Ledger: for the life of the installation.</li></ul>
+<p>Shortening retention requires a typed confirmation; older records are deleted at the next weekly run.</p>
+<h2>13. Data deletion</h2>
+<ul><li><strong>Delete all app data</strong> (Settings → Data, typed confirmation) cancels queued jobs and deletes every stored blueprint, policy, request, catalog entry, review, ledger entry and other app record. It does not change Jira. Export the evidence you need first.</li><li>Data the app deletes is removed from its storage at once; Atlassian may keep a deleted copy for a limited time for recovery, under its own Forge data lifecycle.</li><li>On <strong>uninstall</strong> the app writes a final ledger entry and stops any provisioning in progress (a project may then be partly set up). Stored data is then retained and deleted according to Atlassian's Forge data lifecycle for uninstalled apps. A reinstall starts with empty app storage; Atlassian can re-link the old data only on a request made with your consent within 21 days of the uninstall.</li><li>Projects and everything the app wrote into Jira are your Jira data and stay after uninstall or deletion.</li></ul>
+<h2>14. Personal data requests</h2>
+<p>The app reports the account IDs it stores to Atlassian every week through the Forge <strong>personal data reporting API</strong>; this continues when the licence has lapsed. For a <strong>closed</strong> account it replaces the account ID with a random <code>closed-account:</code> placeholder everywhere in its storage, removes the person from stored blueprint role members and component leads, clears them as project owner (the project is flagged as having no owner), updates its own two project properties on affected projects, removes the account ID from the ledger while keeping the ledger verifiable, and records a count-only entry. Free text that people typed is not searched; it is deleted with its record under the retention rules, and a Jira administrator can redact a request's free text (purpose, rejection reason and text details) on the request page. Other requests: the organisation that administers the Jira site, or support@matifyapps.de.</p>
+<h2>15. Logging</h2>
+<p>Forge logs contain event names, request and job IDs, numeric project IDs, counts, error codes, HTTP status codes and a random reference for support. They contain no account IDs, names, purpose or metadata text, and no error texts from Jira: a failed call is logged with its error code and HTTP status only. Once a week the app logs anonymous counts. The diagnostics file an administrator can download contains no personal data and no project names or keys.</p>
+<h2>16. Transport and platform security</h2>
+<p>All traffic between the app, Jira and the browser runs inside Atlassian's platform: the app's functions call Jira through the Forge runtime, and the pages talk to the functions through the Forge bridge. Hosting, storage, transport encryption and infrastructure security are provided by Atlassian's Forge platform; Matify adds no encryption of its own. What Matify adds:</p>
+<ul><li>server-side permission checks on every request that fail closed,</li><li>strict validation of every request payload, and safe building of Jira API paths,</li><li>length limits and a bounded-backtracking check for administrator-defined patterns (a stored pattern that fails the check is never run),</li><li>no collected credentials, tokens or secrets,</li><li>text rendered as text in the interface, and CSV exports protected against formula injection,</li><li>a release process that deploys one tagged build only after automated checks pass (no external egress, remote or web trigger, exactly the seven scopes listed, the request permission granted to nobody by default, tests and builds).</li></ul>
+<p>No compliance certification (such as SOC 2 or ISO 27001) is claimed for the app or for Matify.</p>
+<h2>17. Security contact</h2>
+<p><strong>support@matifyapps.de</strong> with &quot;security&quot; in the subject, or the <a href="../support/">support page</a>. Please don't report vulnerabilities in a public tracker. Matify follows Atlassian's security requirements for Marketplace apps and notifies affected customers and Atlassian of a security incident affecting customer data.</p>
+<h2>18. Privacy policy</h2>
+<p><a href="../privacy/">Privacy policy for Project Blueprints for Jira</a></p>
+<h2>19. Documentation</h2>
+<p><a href="../docs/">Project Blueprints for Jira documentation</a> · <a href="../docs/known-limitations/">Known limitations</a> · <a href="../docs/privacy/">Privacy and data</a> · <a href="../support/">Support</a></p>
+<h2>20. Last updated</h2>
+<p>12 October 2026.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Project Blueprints for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

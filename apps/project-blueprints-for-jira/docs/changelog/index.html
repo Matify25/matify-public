@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Changelog — Project Blueprints for Jira — Matify</title>
+<meta name="description" content="Changelog for Project Blueprints for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Project Blueprints for Jira</span></div></div></header>
+<nav class="site" aria-label="Project Blueprints for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/admin-guide/">Admin guide</a></li><li><a href="../../docs/requester-and-owner-guide/">Requester and owner guide</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><span aria-current="page">Changelog</span></li></ul><h1>Changelog</h1>
+<h2>2.0.0 — Initial release</h2>
+<p>First public release of Project Blueprints for Jira. The Marketplace shows it as version 2.0.0 (the Forge version). Inside the app, the diagnostics file and the provenance property of each created project use the product version 1.0.0; both refer to this release.</p>
+<ul><li><strong>Company-managed blueprints</strong> captured from a software or business reference project: scheme associations (permission, notification, issue security, work type, work type screen, workflow, field scheme or legacy field configuration scheme), roles and members, components, versions, selected project properties and project-scoped field contexts found by a background scan of all custom fields. Fidelity report (&quot;Will apply&quot; / &quot;Won't apply&quot;) before activation.</li><li><strong>Team-managed blueprints</strong> from Jira's built-in Kanban or Scrum template, with the lead (who becomes the project's administrator) and governance properties.</li><li><strong>Blueprint settings</strong>: allowed requester groups, lead and owner rules, additive or exact role mode, additional role members, components and versions, category, one or two approvals, review interval, description template. Versions on re-capture; pending requests stay pinned to their version.</li><li><strong>Naming &amp; key policies</strong> (key pattern combined with Jira's key rule, key and name templates, name pattern, reserved keys, key length) with a live tester, and <strong>metadata forms</strong> (text, number, date, single select, user).</li><li><strong>Request a project</strong> in three steps for holders of the new <strong>Request projects (Project Blueprints)</strong> global permission, with live key and name validation, Jira's key suggestions and key reservation. <strong>My requests</strong> with progress, withdraw and request similar.</li><li><strong>Approvals</strong> of an exact dry-run preview by a Jira admin, optionally a second, different admin; lead confirmation; reject with reason; expiry (14 days by default); stale-preview protection; decision lock; self-approval setting (off by default).</li><li><strong>Provisioning and verification</strong> in the background: journaled, idempotent steps with automatic retries, verification against the plan (Verified, Verified with notes, Partial, Failed), <strong>Retry remaining steps</strong> within 7 days of the approval, <strong>Leave as is and close</strong>, <strong>Stop after current step</strong>.</li><li><strong>Catalog</strong> of every project on the site with origin (Governed, Outside the gate, Pre-existing, Adopted), owner, review date, activity and flags; detection of projects created outside the gate with their creator from Jira's audit log; bulk actions that write only the app's own project property.</li><li><strong>Owners and reviews</strong>: My projects with Still needed, Recommend archive and Transfer ownership; the project settings <strong>Governance</strong> page with Request owner change.</li><li><strong>Optional tracking work items</strong> and <strong>review reminder work items</strong> in one admin-chosen project (off by default).</li><li><strong>Ledger</strong>: append-only, hash-chained record with integrity check.</li><li><strong>Exports</strong>: evidence report, catalog, requests, reviews (CSV) and ledger (CSV and JSON), built in the browser and safe against formula injection.</li><li><strong>Health</strong>: catalog scan, rate-limit points, queues, failed steps, capture errors, permission-check mode, probes, diagnostics download.</li><li><strong>Guided first run</strong>: Get started checklist and a one-time guided test request.</li><li><strong>Safeguards</strong>: requests off and the request permission granted to nobody on install, kill switch, permission checks as the app with a fail-closed fallback, write-path contract.</li><li><strong>Privacy</strong>: people stored as account IDs only (no names, avatars or e-mail addresses), retention settings, weekly personal-data reporting, erasure of closed accounts, free-text redaction, Delete all app data.</li><li>Runs entirely on Atlassian's Forge platform; no data leaves Atlassian.</li></ul>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Project Blueprints for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

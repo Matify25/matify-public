@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Documentation — Project Blueprints for Jira — Matify</title>
+<meta name="description" content="Documentation for Project Blueprints for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Project Blueprints for Jira</span></div></div></header>
+<nav class="site" aria-label="Project Blueprints for Jira"><ul><li><a href="../">Overview</a></li><li><a href="../docs/" aria-current="page">Documentation</a></li><li><a href="../security-privacy/">Security & privacy</a></li><li><a href="../privacy/">Privacy policy</a></li><li><a href="../terms/">Terms</a></li><li><a href="../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><span aria-current="page">Overview</span></li><li><a href="../docs/getting-started/">Getting started</a></li><li><a href="../docs/user-guide/">User guide</a></li><li><a href="../docs/admin-guide/">Admin guide</a></li><li><a href="../docs/requester-and-owner-guide/">Requester and owner guide</a></li><li><a href="../docs/security/">Permissions and security</a></li><li><a href="../docs/privacy/">Privacy and data</a></li><li><a href="../docs/large-sites/">Large sites</a></li><li><a href="../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../docs/faq/">FAQ</a></li><li><a href="../docs/known-limitations/">Known limitations</a></li><li><a href="../docs/changelog/">Changelog</a></li></ul><h1>Project Blueprints for Jira — Documentation</h1>
+<p>Project Blueprints for Jira lets the right people request new Jira projects (spaces) from blueprints that a Jira administrator has approved. Naming and key rules are checked while the requester types. A Jira administrator approves an exact preview, and the app then creates the project, sets it up and verifies the result. Every project it creates gets an owner and a review date, and a hash-chained ledger records who requested it and who approved it. It is published by Matify and runs entirely on Atlassian's Forge platform inside your Jira Cloud site; no data leaves Atlassian.</p>
+<p>The main benefit: project managers and team leads no longer need the <strong>Administer Jira</strong> permission to get a new project, and Jira admins no longer set up projects by hand.</p>
+<p>Jira is renaming &quot;projects&quot; to &quot;spaces&quot; in parts of its interface. This documentation says &quot;project&quot;; it means the same thing.</p>
+<h2>What it does</h2>
+<ul><li><strong>Blueprints</strong>: capture a company-managed software or business project as a blueprint (scheme set, roles and members, components, versions, selected project properties, project-scoped field contexts), or create a team-managed blueprint from Jira's built-in Kanban or Scrum template.</li><li><strong>Requests</strong>: people who hold the <strong>Request projects (Project Blueprints)</strong> global permission request a project in three steps, with live checks against your naming and key policy and Jira's own key and name rules.</li><li><strong>Approval</strong>: a Jira admin approves an exact preview of what will be created (optionally a second, different Jira admin). Requesters can't approve their own requests, unless you allow Jira admins to approve their own requests (off by default).</li><li><strong>Provisioning and verification</strong>: the app creates the project, adds role members, components, versions, field contexts and properties, then re-reads the project and compares it with the plan.</li><li><strong>Catalog</strong>: every project on the site, how it was created (through the app or outside it), its owner, review date, activity and flags.</li><li><strong>Owners and reviews</strong>: owners confirm that their projects are still needed, recommend archiving, or hand ownership over.</li><li><strong>Ledger and exports</strong>: an append-only, hash-chained record of every request, approval and provisioning run, plus CSV and JSON exports for audits.</li></ul>
+<h2>What it doesn't do</h2>
+<ul><li>It doesn't block projects created directly in Jira. Jira has no hook for that. The app <strong>detects</strong> them and marks their origin as &quot;Outside the gate&quot;.</li><li>It doesn't create or copy boards, filters, dashboards, automation rules, issues or the priority scheme.</li><li>It doesn't copy, edit or delete schemes. New projects share the blueprint's schemes.</li><li>It never deletes, trashes, archives or renames projects or other Jira content. The only thing it removes: in exact role mode, Jira's default role members on a project the app has just created.</li><li>It doesn't provision service projects (Jira Service Management), Jira Product Discovery or customer service projects. They appear in the catalog only.</li><li>It sends no e-mail. Optional tracking work items let Jira's own notifications inform people.</li></ul>
+<p>Details: <a href="../docs/known-limitations/">Known limitations</a>.</p>
+<h2>Pages in this documentation</h2>
+<ul><li><a href="../docs/getting-started/">Getting started</a>: installation, the first minutes, the &quot;Get started&quot; checklist, the guided test request, your first real request</li><li><a href="../docs/user-guide/">User guide</a>: concepts and every page of the app, exports, Health and the settings table</li><li><a href="../docs/admin-guide/">Admin guide</a>: blueprints, policies, approvals, tracking work items, the catalog, the kill switch, data, and the partial provisioning runbook</li><li><a href="../docs/requester-and-owner-guide/">Requester and owner guide</a>: requesting a project, following a request, owner reviews, the project Governance page</li><li><a href="../docs/security/">Permissions and security</a>: the seven scopes in plain words, what the app user can do, how the app limits that power</li><li><a href="../docs/privacy/">Privacy and data</a>: what is stored, where, for how long, and how to delete it</li><li><a href="../docs/large-sites/">Large sites</a>: catalog scan, rate limits and what comes first</li><li><a href="../docs/troubleshooting/">Troubleshooting</a>: every error code and common situations</li><li><a href="../docs/faq/">FAQ</a></li><li><a href="../docs/known-limitations/">Known limitations</a></li><li><a href="../docs/changelog/">Changelog</a></li></ul>
+<h2>Requirements</h2>
+<ul><li>Jira Cloud. Project Blueprints is installed into Jira.</li><li>Installing needs a Jira site administrator.</li></ul>
+<div class="tablewrap"><table><thead><tr><th scope="col">Who</th><th scope="col">Where</th><th scope="col">What they can do</th></tr></thead><tbody><tr><td>Jira administrators (<strong>Administer Jira</strong>)</td><td>Jira settings → Apps → Project Blueprints</td><td>Everything: blueprints, policies, approvals, catalog, ledger, Health, settings</td></tr><tr><td>Holders of <strong>Request projects (Project Blueprints)</strong></td><td>Apps → Project Blueprints → Request a project</td><td>Request projects from the blueprints available to them (once requests are open)</td></tr><tr><td>Every Jira user</td><td>Apps → Project Blueprints → My requests, My projects</td><td>See their own requests and the projects they own; confirm reviews</td></tr><tr><td>Project administrators (<strong>Administer projects</strong> on a project)</td><td>Project settings → Governance</td><td>See how the project was created, its owner and review date; request an owner change</td></tr></tbody></table></div>
+<p>The app checks these permissions on the server for every call, not only in the menu. Non-admins never see the full catalog.</p>
+<h2>Installation</h2>
+<ol><li>Open the <strong>Project Blueprints for Jira</strong> listing on the Atlassian Marketplace (or search for it in Jira under <strong>Settings → Apps</strong>) and start the free trial.</li><li>Review the permissions Jira asks you to approve. They are explained in <a href="../docs/security/">Permissions and security</a>.</li><li>Open <strong>Jira settings → Apps → Project Blueprints</strong>. The admin pages appear in Jira's admin sidebar: Overview, Approvals, Blueprints, Policies, Catalog, Ledger, Health, Settings.</li></ol>
+<p>After installation nothing is requested or created. Requests are off, and the <strong>Request projects (Project Blueprints)</strong> permission is granted to nobody. The catalog scan starts by itself shortly after installation. Continue with <a href="../docs/getting-started/">Getting started</a>.</p>
+<h2>Licensing and trial</h2>
+<ul><li>Paid through Atlassian, with a 30-day free trial. Sites with up to 10 users are free.</li><li>While the licence is active or in trial, everything works.</li><li>While the licence is inactive, Project Blueprints is <strong>read-only</strong>: no new requests, approvals, provisioning or scans, and no changes to blueprints, policies or settings. Requesters can still withdraw open requests, and admins can still cancel them or close a partial one as it is. A provisioning that is already running stops before its next step; if the project already exists, the request becomes <strong>Partial</strong> and can be resumed once the licence is active again (within 7 days of the approval), otherwise it becomes <strong>Failed</strong> and nothing was created. The catalog, requests, ledger and exports stay readable, and a banner explains the state.</li><li>The weekly maintenance run continues even without an active licence, so that personal-data reporting and the erasure of closed accounts go on.</li></ul>
+<h2>Uninstalling</h2>
+<p>Before uninstalling, export what you want to keep (Ledger page → Exports, Catalog CSV). On uninstall, Project Blueprints writes an <code>UNINSTALL</code> entry to its ledger and asks Forge to cancel the job of each provisioning that is running. Such a provisioning can stop part-way, so that project may be partially set up.</p>
+<ul><li>Projects, and everything the app wrote into Jira (role members, components, versions, field-context assignments, the app's project properties, tracking work items), <strong>stay</strong> in Jira.</li><li>The <strong>Request projects (Project Blueprints)</strong> global permission disappears from Jira.</li><li>The app's stored data stays in Atlassian's Forge hosted storage and is retained and deleted under Atlassian's Forge data lifecycle for uninstalled apps. A reinstall starts with empty app storage; the old data can be re-linked only on a request made within 21 days of the uninstall.</li><li>To remove the stored data first, use <strong>Settings → Data → Delete all app data</strong> (also available when the licence is inactive). Details: <a href="../docs/privacy/">Privacy and data</a>.</li></ul>
+<h2>Support</h2>
+<p>Email <strong>support@matifyapps.de</strong>, or use the login-free form or the public tracker linked from the <a href="../support/">support page</a>. Include the diagnostics file from <strong>Health → Download diagnostics</strong> (it contains no names, e-mail addresses or project content), the error code and its reference (&quot;ref&quot;). Response times are in the <a href="https://matify25.github.io/matify-public/sla/" rel="noopener noreferrer">Matify service level agreement</a>.</p>
+<p>Security issues: never in a public ticket. Email support@matifyapps.de with &quot;security&quot; in the subject.</p>
+<p>More: <a href="../security-privacy/">Data security and privacy statement</a> · <a href="../privacy/">Privacy policy</a> · <a href="../terms/">Terms</a></p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Project Blueprints for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

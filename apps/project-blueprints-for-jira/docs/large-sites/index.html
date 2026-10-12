@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Large sites — Project Blueprints for Jira — Matify</title>
+<meta name="description" content="Large sites for Project Blueprints for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Project Blueprints for Jira</span></div></div></header>
+<nav class="site" aria-label="Project Blueprints for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/admin-guide/">Admin guide</a></li><li><a href="../../docs/requester-and-owner-guide/">Requester and owner guide</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><span aria-current="page">Large sites</span></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1>Large sites: catalog scan and rate limits</h1>
+<p>Project Blueprints works on sites of every size. On large sites some background work takes longer, because Jira limits how much every app may call its APIs. This page explains how the app shares that limit and what comes first. It gives no fixed durations: they depend on your site's size and on how busy Jira's shared limits are.</p>
+<h2>Jira's rate limit and &quot;points&quot;</h2>
+<p>Jira gives each app a shared hourly allowance of API calls, counted in points. Every read or write costs points, and larger answers cost more. The allowance is shared by all sites that use the app, so Project Blueprints makes sure one site's background work can't use it up.</p>
+<p>The app estimates the points of every call and keeps <strong>hourly budgets per site</strong> for different kinds of work:</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Kind of work</th><th scope="col">Budget</th></tr></thead><tbody><tr><td>Approval previews, approvals and provisioning of approved requests (including verification)</td><td>Not held back by the budgets; they have priority</td></tr><tr><td>Interactive checks (live key and name checks, blueprint re-validation)</td><td>Its own hourly cap per site</td></tr><tr><td>Re-reads after Jira project events</td><td>Its own hourly budget</td></tr><tr><td>Scans (first catalog scan, reconcile, field-context scans)</td><td>An hourly budget: largest in the first hour after installation, smaller for the rest of the first catalog scan, and smallest after that (field-context scans always use the smallest)</td></tr></tbody></table></div>
+<p>When Jira signals that apps are being rate-limited, Project Blueprints pauses scan work for an hour and shows <strong>Rate limit pressure</strong> on the Health page with the time it resumes. Provisioning and interactive work continue. If Jira rate-limits a single call, the app waits and retries it; a page that can't wait that long shows when to try again.</p>
+<p><strong>Health → Jira API points, last 24 hours</strong> shows the app's estimated points per hour.</p>
+<h2>The first catalog scan</h2>
+<p>The scan starts at least 90 seconds after installation, because Jira needs about a minute before a new app's access works everywhere. It reads every project on the site, including service, product discovery and customer service projects (they are catalogued, not provisioned), with key, name, type, lead, category, issue count and last activity.</p>
+<ul><li>The scan spends only its hourly scan budget. On large sites the <strong>first full catalog can take hours</strong>.</li><li>Projects appear in the catalog as they are read. Overview shows &quot;Reading your projects&quot; and Catalog shows &quot;Scan in progress&quot;, each with a progress bar; <strong>Health → Catalog scan</strong> shows the phase and how many projects were read.</li><li>You can capture blueprints, set up policies and approve requests while the scan runs.</li><li>If the scan is interrupted, it continues from where it stopped.</li></ul>
+<h2>Provisioning comes first</h2>
+<p>Approved requests are never held back by the scan budgets. Provisioning runs one request at a time per site, step by step. If Jira rate-limits a step, the step waits and retries; the request page shows the step as pending with its attempts. After 5 attempts the request stops as Partial (or as Failed if the project doesn't exist yet), and a Jira admin can retry the remaining steps of a Partial request.</p>
+<h2>Field-context scan on sites with many custom fields</h2>
+<p>To find the project-scoped field contexts of a reference project, the capture reads the context-to-project mapping of <strong>every custom field</strong> on the site (Jira-locked fields are skipped). This runs in the background in the scan budget, so on sites with many custom fields it takes longer.</p>
+<ul><li>The blueprint shows <strong>Scanning field contexts</strong> with a progress count.</li><li>You can edit the blueprint's general, requester and naming settings meanwhile, and activate it once the capture is <strong>Ready</strong>.</li><li>Re-capturing scans again.</li><li>Verification of a new project reads only the fields of its blueprint.</li></ul>
+<h2>Keeping the catalog current</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col">Source</th><th scope="col">When</th></tr></thead><tbody><tr><td>Jira project events (created, updated, archived, restored, moved to trash, deleted)</td><td>About a minute after the event (the app groups events for 60 seconds); Atlassian may deliver them a few minutes late</td></tr><tr><td>Daily update</td><td>Once a day (review states, flags and counters; up to 500 projects not read for 7 days are read again)</td></tr><tr><td>Weekly reconcile</td><td>Once a week, on Sunday (UTC) by default; set the day in <strong>Settings → Catalog</strong></td></tr><tr><td>Run reconcile now</td><td><strong>Health → Catalog scan</strong>; at most once an hour</td></tr></tbody></table></div>
+<p>Projects created outside the app are flagged <strong>Outside the gate</strong>. Their creator is looked up in Jira's audit log and shows as unknown if the audit log doesn't name one.</p>
+<h2>Working with a large catalog</h2>
+<ul><li>The <strong>Catalog</strong> page loads 100 projects at a time and holds up to 10,000 in your browser. Use the filters (origin, flags, owner, review, inactivity, blueprint) to narrow the list.</li><li><strong>Export CSV (current filter)</strong> exports what the filter shows.</li><li>Bulk actions run in chunks in the background and show their progress.</li></ul>
+<h2>Health indicators to watch</h2>
+<ul><li><strong>Catalog scan</strong>: phase (Waiting to start, Scanning, Complete), projects read, last reconcile and the weekly reconcile day.</li><li><strong>Queues</strong>: provisioning steps and background jobs waiting.</li><li><strong>Rate limit pressure</strong>: shown while Jira is rate-limiting apps.</li><li><strong>Failed provisioning steps</strong> and <strong>Capture errors</strong>.</li><li><strong>Permission checks</strong>: whether the fallback is in use.</li></ul>
+<p>If the scan makes no progress or a queue doesn't shrink for a long time, download the diagnostics from Health and contact support. See <a href="../../docs/troubleshooting/">Troubleshooting</a>.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Project Blueprints for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

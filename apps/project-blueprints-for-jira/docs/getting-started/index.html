@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Getting started — Project Blueprints for Jira — Matify</title>
+<meta name="description" content="Getting started for Project Blueprints for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Project Blueprints for Jira</span></div></div></header>
+<nav class="site" aria-label="Project Blueprints for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><span aria-current="page">Getting started</span></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/admin-guide/">Admin guide</a></li><li><a href="../../docs/requester-and-owner-guide/">Requester and owner guide</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1>Getting started</h1>
+<p>This page takes you from installation to the first real project (space) created through Project Blueprints. You can do it in one session. How long each step takes depends on the size of your site and on Jira's rate limits, so this page gives no fixed durations.</p>
+<h2>1. Install</h2>
+<p>Install <strong>Project Blueprints for Jira</strong> from the Atlassian Marketplace. A Jira site administrator approves the app's permissions; they are explained in <a href="../../docs/security/">Permissions and security</a>. Then open <strong>Jira settings → Apps → Project Blueprints</strong>.</p>
+<p>The admin pages are only for users with the <strong>Administer Jira</strong> global permission. Everyone else sees &quot;You need Jira administrator permission to use this page&quot;. The app checks this on the server for every call, not only in the menu.</p>
+<p>Right after installation the app changes nothing in Jira:</p>
+<ul><li><strong>Requests are off</strong> (&quot;Open requests&quot; is off in Settings).</li><li>The global permission <strong>Request projects (Project Blueprints)</strong> is granted to <strong>nobody</strong>.</li><li>There are no blueprints yet, so nothing can be requested.</li></ul>
+<h2>2. The first minutes: the catalog scan</h2>
+<p>You don't have to start anything. The catalog scan begins by itself at least 90 seconds after installation (Jira needs about a minute before a newly installed app's access works everywhere). It reads every project on the site and fills the <strong>Catalog</strong>.</p>
+<ul><li><strong>Overview</strong> shows &quot;Reading your projects&quot; with a progress bar while the scan runs.</li><li><strong>Health → Catalog scan</strong> shows the phase (Waiting to start, Scanning, Complete, Paused) and how many projects have been read.</li><li>On small sites the first projects appear quickly. On large sites the first full catalog can take hours, because the scan spends only a limited budget of Jira's rate limit per hour. You can use the app meanwhile. See <a href="../../docs/large-sites/">Large sites</a>.</li></ul>
+<p>New projects are added as they are created, through Jira's project events. A weekly reconcile (Sunday, UTC, by default) and a daily update keep the catalog complete.</p>
+<p>A <strong>Welcome to Project Blueprints</strong> panel states three facts: requests are off until you open them, the app never deletes or archives projects, and no data leaves Atlassian. <strong>Dismiss</strong> only hides the panel.</p>
+<h2>3. Work through &quot;Get started&quot;</h2>
+<p>The Overview shows a <strong>Get started</strong> checklist with five steps. It disappears when all five are done.</p>
+<h3>Step 1: Review your project catalog</h3>
+<p>Choose <strong>Open the catalog</strong>. Each row shows key, name, type, owner, review date, last activity, origin and flags. Projects that existed before the installation have the origin <strong>Pre-existing</strong>. Projects created directly in Jira from now on get the origin <strong>Outside the gate</strong>. Details: <a href="../../docs/user-guide/">User guide</a>.</p>
+<h3>Step 2: Capture your first blueprint</h3>
+<p>Choose <strong>Capture from project</strong> and pick a company-managed <strong>software</strong> or <strong>business</strong> project you consider a good standard. Team-managed and archived projects can't be picked (the list says why); a service project is refused with an explanation when you start the capture.</p>
+<p>The capture only reads. It records the project's scheme set, roles and members, components, versions, category, project properties and project-scoped field contexts. The reference project is not changed.</p>
+<ol><li>The core read runs first (status <strong>Capturing</strong>).</li><li>Field contexts are then found by a <strong>background scan of all custom fields</strong> (status <strong>Scanning field contexts</strong>). On sites with many custom fields this takes longer.</li><li>While the scan runs you can already edit the General, Requesters &amp; approvals and Naming &amp; metadata tabs. The Roles, Components &amp; versions, Fields &amp; properties and Fidelity report tabs fill in when the capture is <strong>Ready</strong>.</li><li>Open the <strong>Fidelity report</strong> tab. It lists what <strong>will apply</strong> to new projects and what <strong>won't apply</strong> (for example board configuration, filters, dashboards, automation rules, work items, priority scheme, multi-context fields).</li><li>Under <strong>Fields &amp; properties</strong>, select the project properties you want to copy. None are pre-selected.</li><li>Choose <strong>Save changes</strong>, then <strong>Activate</strong>. Activation is possible once the capture is <strong>Ready</strong>.</li></ol>
+<p>Before activating, look at <strong>Requesters &amp; approvals</strong>: who may request from this blueprint (empty = everyone with the request permission), how many approvals it needs (one or two Jira admins), and who becomes the project lead and the owner. All options are in the <a href="../../docs/admin-guide/">Admin guide</a>.</p>
+<h3>Step 3: Run a guided test request</h3>
+<p>Choose <strong>Start guided test</strong>. It needs one active blueprint whose capture is Ready.</p>
+<ol><li>Pick the blueprint. The key is pre-filled with <strong>PBJTEST</strong> and the name with &quot;Project Blueprints test&quot;; change them if you like. The key is checked again before approval.</li><li><strong>Create test request</strong> creates one request as if a requester had submitted it, and opens it in Approvals.</li><li>Read the preview: project, schemes, roles and members, components, versions, field contexts, properties, warnings and skipped items.</li><li>Tick <strong>This is a test project</strong> and choose <strong>Approve and create PBJTEST</strong>. This is the one time you may approve a request yourself without the self-approval setting. The ledger records it as a <strong>Test self approved</strong> entry.</li><li>Watch the steps run. At the end you see <strong>Project PBJTEST created and verified</strong> (or <strong>created</strong>, with notes in the verification table).</li><li>Remove the test project yourself: open <strong>Project settings</strong> from the success message and move the project to trash in Jira. The app never deletes projects.</li></ol>
+<p>The guided test can be used once per site.</p>
+<h3>Step 4: Set your naming and key policy</h3>
+<p>Choose <strong>Open policies</strong>, then <strong>New naming policy</strong>. You can set a key pattern, a key template, a name template or pattern, reserved keys and words, and the minimum and maximum key length. Every rule is always combined with Jira's own key rule (a capital letter first, then capital letters or digits, 2–10 characters). Use <strong>Try a key and name</strong> to see what requesters will see before you save. Then reference the policy from your blueprint (<strong>Naming &amp; metadata</strong> tab).</p>
+<p>If you want requesters to fill in extra details (for example cost centre or client), create a <strong>New metadata form</strong> and reference it from the blueprint too. See the <a href="../../docs/admin-guide/">Admin guide</a>.</p>
+<h3>Step 5: Open requests and grant the permission to a group</h3>
+<ol><li>Choose <strong>Open Global permissions in Jira</strong>. Grant <strong>Request projects (Project Blueprints)</strong> to the groups that may request projects (Jira settings → System → Global permissions).</li><li>In <strong>Settings → Requests</strong>, turn on <strong>Open requests</strong> and confirm. Everyone who holds the permission can then request projects from the blueprints their groups may use. Every request still needs a Jira admin's approval.</li></ol>
+<p>Requesters don't see Atlassian's &quot;Allow access&quot; consent screen in the normal flow; the app checks their permission itself. See <a href="../../docs/security/">Permissions and security</a>.</p>
+<h2>4. Your first real request, end to end</h2>
+<ol><li><strong>The requester</strong> opens <strong>Apps → Project Blueprints → Request a project</strong> (in Jira's top navigation), picks a blueprint, fills in name, key and the other details, reviews and chooses <strong>Submit request</strong>. See the <a href="../../docs/requester-and-owner-guide/">Requester and owner guide</a>.</li><li><strong>A Jira admin</strong> opens <strong>Approvals → Pending</strong>, opens the request and reads the preview. The key is checked against Jira again when the preview is built and again at approval.</li><li>If the project lead isn't the requester, the admin ticks &quot;I confirm … becomes project lead (project administrator)&quot;.</li><li>The admin chooses <strong>Approve and create {KEY}</strong>, or <strong>Reject…</strong> with a reason of at least 10 characters. If the blueprint needs two approvals, a different Jira admin gives the second one.</li><li>Project Blueprints creates and sets up the project in the background, then verifies it. Progress appears on the request page for the admin and under <strong>My requests</strong> for the requester.</li><li>The result is <strong>Done</strong>, <strong>Done with notes</strong>, <strong>Partial</strong>, <strong>Failed</strong> or <strong>Blocked</strong>. When the request is Done or Done with notes, the new project appears in the catalog with origin <strong>Governed</strong>, its owner and its first review date.</li></ol>
+<p>If the plan changed between the preview and the approval (for example the blueprint, a group or a user), the approval is refused as stale and the new preview is shown. If a referenced scheme was deleted or the key or name was taken meanwhile, the request is blocked instead. If provisioning stops halfway, follow the <a href="../../docs/admin-guide/">Partial provisioning runbook</a>.</p>
+<h2>5. A short routine</h2>
+<ul><li><strong>Overview → Needs attention</strong>: pending approvals, failed or partial requests, projects created outside the gate, overdue reviews and owner changes waiting for confirmation.</li><li><strong>Catalog</strong>: filter by origin <strong>Outside the gate</strong> to see projects created directly in Jira, or by flag <strong>No owner</strong> to assign owners in bulk.</li><li><strong>Ledger → Exports</strong>: the evidence report for audits (every project in a date range that was created through the app or detected as created outside the gate).</li></ul>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Project Blueprints for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

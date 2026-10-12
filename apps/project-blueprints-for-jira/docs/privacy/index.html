@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy and data — Project Blueprints for Jira — Matify</title>
+<meta name="description" content="Privacy and data for Project Blueprints for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Project Blueprints for Jira</span></div></div></header>
+<nav class="site" aria-label="Project Blueprints for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/admin-guide/">Admin guide</a></li><li><a href="../../docs/requester-and-owner-guide/">Requester and owner guide</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><span aria-current="page">Privacy and data</span></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1>Privacy and data</h1>
+<h2>What Project Blueprints stores</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col">Data</th><th scope="col">Contains personal data?</th></tr></thead><tbody><tr><td>Blueprints and their captured snapshots (schemes, roles and members, components, versions, field contexts, selected project properties)</td><td>Yes: Atlassian <strong>account IDs</strong> of role members and component leads in the reference project (and any inside copied property values), the fixed lead and fixed role members set in the blueprint, and the admins who captured and last changed it</td></tr><tr><td>Naming &amp; key policies and metadata forms</td><td>Only the account ID of the admin who last changed them</td></tr><tr><td>Requests and their previews</td><td>Yes: <strong>requester, approver, lead and owner account IDs</strong>, the admin who cancelled a request, the people the preview adds to roles or as component leads, and the free text people typed: <strong>purpose</strong>, <strong>metadata values</strong> and <strong>reject reasons</strong></td></tr><tr><td>Provisioning steps and verification results</td><td>Not by design: they keep Jira object IDs, statuses and error codes; a failed step also keeps a shortened Jira error message</td></tr><tr><td>Catalog rows (one per project)</td><td>Yes: <strong>lead, owner and last reviewer account IDs</strong>, and for projects created outside the gate the <strong>creator's account ID</strong> if Jira's audit log names one</td></tr><tr><td>Reviews (attestations)</td><td>Yes: the <strong>reviewer's account ID</strong> (usually the owner), a proposed new owner, the confirming admin and the optional <strong>note</strong></td></tr><tr><td>Ledger</td><td>Yes: actor account IDs per entry</td></tr><tr><td>Settings</td><td>The tracking work items' default assignee, if set (who changed settings is recorded in the ledger)</td></tr><tr><td>Locks, cursors, counters, scan and queue state</td><td>Mostly no. Some keys carry an account ID: short-lived permission caches, duplicate-submit guards, validation counters and bulk-action jobs, the ledger's actor mapping, and the list of account IDs reported to Atlassian</td></tr></tbody></table></div>
+<p><strong>Not stored:</strong> display names, avatars, e-mail addresses, issue content, comments, attachments, credentials and tokens. The names you see in the app are looked up from Jira when a page is shown.</p>
+<h2>Personal data</h2>
+<p>The personal data Project Blueprints stores is limited to Atlassian <strong>account IDs</strong> (of requesters, approvers, leads, owners, people chosen in user fields, role members and component leads in blueprint snapshots, fixed users, creators of projects made outside the gate, reviewers, the tracking work items' default assignee, ledger actors and admins who captured or changed blueprints and policies) and the <strong>free text</strong> people type (purpose, metadata values, reject reasons, review notes).</p>
+<p><strong>Don't put personal data in free text.</strong> The purpose, metadata values, reject reasons and review notes are stored as typed and are not scanned for personal data. Metadata values are also written into the new project's property <code>com.matify.pbj.governance</code>, and the purpose and metadata appear on the tracking work item if tracking is on. If it happens anyway, a Jira admin can open the request and choose <strong>Redact free text…</strong> (not offered while an approved request waits for or runs provisioning): the purpose, reject reason and text metadata values are replaced with <code>[redacted]</code> in the request, in the app's stored plan and in the governance property, and the ledger records the redaction. Jira's project description and a tracking work item are not changed; edit them in Jira.</p>
+<h2>Where it is stored</h2>
+<p>Only in <strong>Forge hosted storage</strong> on Atlassian's infrastructure: seven custom entities (blueprints, policies, requests, steps, catalog rows, attestations, ledger) and the key-value store (settings, locks, cursors, counters, and compressed copies of blueprint snapshots and previews). Storage is separate for each installation. Project Blueprints uses no Forge SQL, no Object Store and no remote storage.</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Category</th><th scope="col">Where</th><th scope="col">Notes</th></tr></thead><tbody><tr><td>In-scope End-User Data</td><td>Forge hosted storage</td><td>Everything in the table above. Follows your Jira site's data residency and moves with it</td></tr><tr><td>Data written into Jira</td><td>Your Jira site</td><td>Jira data, not app storage (see below). It stays in Jira under your Jira site's own terms and residency</td></tr><tr><td>Out-of-scope stores</td><td>None</td><td>The app has no other data store</td></tr></tbody></table></div>
+<ul><li><strong>No egress:</strong> nothing is sent outside Atlassian. There are no external services, analytics, telemetry or sub-processors besides Atlassian.</li><li><strong>Encryption</strong> is provided by Atlassian's Forge platform.</li></ul>
+<h2>Data written into Jira</h2>
+<p>These are your Jira data. They stay in Jira after an uninstall and after Delete all app data:</p>
+<ul><li>projects created through the app, with their role members, components, versions and field-context assignments;</li><li>project properties copied from the blueprint;</li><li><code>com.matify.pbj.provenance</code>: request ID, blueprint ID, snapshot hash, requested by, approved by, approval and provisioning time, app version;</li><li><code>com.matify.pbj.governance</code>: owner account ID, review date, metadata values, blueprint ID, last review;</li><li>tracking work items, their comments and review reminder work items (if turned on).</li></ul>
+<p>Like all Jira project properties, the two <code>com.matify.pbj.*</code> properties can be read through Jira's REST API by everyone with Browse Projects on the project, and changed by its project admins.</p>
+<h2>How long it is kept</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col">Data</th><th scope="col">Kept for</th></tr></thead><tbody><tr><td>Provisioning step records</td><td>90 days after the request reached a final status</td></tr><tr><td>Requests (with purpose, metadata, reject reason)</td><td>24 months after the request reached a final status by default (6–60 months), then pruned; their ledger entries remain</td></tr><tr><td>Previews</td><td>Deleted together with their request</td></tr><tr><td>Catalog rows of deleted projects</td><td>24 months</td></tr><tr><td>Reviews (attestations)</td><td>36 months by default</td></tr><tr><td>Ledger</td><td>For the life of the installation; removed only by Delete all app data or Atlassian's data lifecycle after uninstall</td></tr><tr><td>Blueprint snapshots no longer referenced</td><td>Removed by the weekly clean-up</td></tr></tbody></table></div>
+<p>Shortening a retention period needs typing <code>REDUCE RETENTION</code>. Older records are deleted at the next weekly run.</p>
+<h2>Deleting data</h2>
+<p><strong>Settings → Data → Delete all app data</strong>, then type <code>DELETE PROJECT BLUEPRINTS DATA</code>. Project Blueprints cancels its known queued jobs (other queued jobs do nothing while the deletion runs) and deletes all blueprints, policies, requests, steps, catalog rows, reviews, ledger entries and stored keys. It does <strong>not</strong> touch Jira: projects, properties and work items remain. Export the ledger and the evidence report first if you need them. This works whatever the licence state, so you can remove the data after a subscription ends.</p>
+<p>Data the app deletes is gone from its storage. Atlassian may keep deleted copies for a limited time for recovery, as described in Atlassian's Forge documentation.</p>
+<h2>Personal-data reporting and closed accounts</h2>
+<p>Project Blueprints reports the account IDs it stores to Atlassian every week through the Forge personal data reporting API. This run continues even when the licence is inactive. Account IDs inside project-property values copied from a reference project are included when they use Atlassian's current ID format; older 24-character IDs inside such values can't be told apart from other IDs and aren't detected.</p>
+<p>When Atlassian reports an account as closed, Project Blueprints:</p>
+<ol><li>replaces that account ID everywhere in its storage with <code>closed-account:</code> followed by a random token generated for that erasure (not derived from the account ID);</li><li>removes it from role members and component leads in blueprint snapshots and recalculates the hashes of affected snapshots;</li><li>clears the owner on affected catalog rows (they get the <strong>No owner</strong> flag);</li><li>scrubs the account ID from its own properties <code>com.matify.pbj.governance</code> and <code>com.matify.pbj.provenance</code> on affected projects;</li><li>deletes the account ID from the affected ledger entries in a way that keeps the hash chain verifiable;</li><li>writes a <code>TOMBSTONE</code> ledger entry with counts only.</li></ol>
+<p>Free text is not scanned for account IDs or names. When a new project is provisioned, deactivated or closed accounts in the blueprint are skipped with a note.</p>
+<h2>Logs</h2>
+<p>Forge logs contain event names, IDs (for example of requests, jobs and projects), counts, error codes, HTTP status codes and correlation references. They contain <strong>no</strong> account IDs, names, project names, purposes or metadata values. Anonymous weekly demand counters (counts only) are logged. Matify sees Forge logs only as far as Atlassian makes them available to app developers; site admins can turn log sharing off.</p>
+<p>The diagnostics file (Health → Download diagnostics) contains no personal data and no project names.</p>
+<h2>Uninstalling</h2>
+<p>Before the uninstall completes, Project Blueprints writes an <code>UNINSTALL</code> ledger entry and asks Forge to cancel the job of each provisioning that is running. A provisioning in progress can stop part-way, so that project may be partially set up. The stored data is retained and deleted under Atlassian's Forge data lifecycle for uninstalled apps. A reinstall starts with empty storage; Atlassian can re-link the old data only on a request made within 21 days of the uninstall. Nothing is exported or sent anywhere on uninstall, so <strong>export first</strong> what you need as evidence. Everything the app wrote into Jira stays.</p>
+<h2>Exports</h2>
+<p>Exports are built in your browser and saved on your computer. They contain account IDs, not display names, and the free text stored with requests and reviews. Handle them like any other admin data.</p>
+<h2>Contacts and policies</h2>
+<ul><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../security-privacy/">Data security and privacy statement</a></li><li>Privacy questions: support@matifyapps.de</li></ul>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Project Blueprints for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

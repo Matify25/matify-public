@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>User guide — Project Blueprints for Jira — Matify</title>
+<meta name="description" content="User guide for Project Blueprints for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Project Blueprints for Jira</span></div></div></header>
+<nav class="site" aria-label="Project Blueprints for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><span aria-current="page">User guide</span></li><li><a href="../../docs/admin-guide/">Admin guide</a></li><li><a href="../../docs/requester-and-owner-guide/">Requester and owner guide</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1>User guide</h1>
+<p>This guide explains the concepts behind Project Blueprints and every page of the app. Step-by-step admin tasks are in the <a href="../../docs/admin-guide/">Admin guide</a>; the requester's and owner's view is in the <a href="../../docs/requester-and-owner-guide/">Requester and owner guide</a>.</p>
+<h2>Concepts</h2>
+<h3>Blueprints</h3>
+<p>A blueprint describes how a new project (space) is set up.</p>
+<ul><li>A <strong>company-managed blueprint</strong> is captured from a company-managed software or business reference project. It records the project type, category and default assignee; the seven scheme associations (permission, notification, issue security, work type, work type screen, workflow and field scheme — or the field configuration scheme on sites not yet migrated to field schemes); project roles with their users and groups; components; versions; the project properties you select; and project-scoped custom-field contexts.</li><li>A <strong>team-managed blueprint</strong> starts from Jira's built-in Kanban or Scrum template. It applies only the project lead (who becomes the project's Administrator) and the app's own governance properties. Jira has no API to copy a team-managed project's configuration.</li></ul>
+<p><strong>New projects share the blueprint's schemes</strong>, like Jira's &quot;share settings&quot; option. The app never copies, edits or deletes a scheme. A change to a shared scheme affects every project that uses it, as it always does in Jira.</p>
+<p>A blueprint has a status: <strong>Draft → Active → Archived</strong>. Only active blueprints can be requested. <strong>Re-capture</strong> reads the reference project again and creates a new blueprint version if the configuration changed. Requests that were already submitted stay pinned to the version they were submitted against.</p>
+<h3>Requests and their statuses</h3>
+<div class="tablewrap"><table><thead><tr><th scope="col">Status</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td>Pending approval</td><td>Submitted; waiting for a Jira admin</td></tr><tr><td>Waiting for 2nd approval</td><td>The blueprint needs two approvals; one is given</td></tr><tr><td>Approved</td><td>All approvals given; provisioning is queued</td></tr><tr><td>Provisioning</td><td>The app is creating and setting up the project</td></tr><tr><td>Done</td><td>Created and verified; everything matches the plan</td></tr><tr><td>Done with notes</td><td>Created; verification passed with notes (for example a deactivated account was skipped), or an admin closed a partial request as it is</td></tr><tr><td>Partial</td><td>The project exists, but not every step finished or verification found differences. An admin can retry the remaining steps (within 7 days of the approval) or leave it as is</td></tr><tr><td>Failed</td><td>The project wasn't created (for example Jira refused it, or provisioning stopped before the create step). Nothing was created</td></tr><tr><td>Blocked</td><td>Provisioning didn't start because a pre-check failed (for example an approver lost Administer Jira). Nothing was created</td></tr><tr><td>Rejected</td><td>A Jira admin rejected the request with a reason</td></tr><tr><td>Withdrawn</td><td>The requester withdrew it while it was pending</td></tr><tr><td>Expired</td><td>Nobody decided within the expiry period (14 days by default)</td></tr><tr><td>Cancelled</td><td>A Jira admin closed it without a decision</td></tr></tbody></table></div>
+<p>An open request <strong>reserves its key</strong>: two open requests can't use the same key. Rejected, withdrawn, expired and cancelled requests release the key.</p>
+<h3>Approvals</h3>
+<p>Only users with <strong>Administer Jira</strong> can approve. Their permission is checked fresh at the moment of approval.</p>
+<ul><li><strong>Four-eyes</strong>: a requester can't approve their own request. Exceptions: the self-approval setting (off by default) and the one-time guided test.</li><li><strong>Second approval</strong>: a blueprint can require two approvals; the second must come from a different Jira admin.</li><li><strong>Lead confirmation</strong>: if the project lead isn't the requester, the approver confirms that this person becomes project lead (project administrator).</li><li><strong>Exact preview</strong>: the approver sees exactly what will be created. If anything changed since the preview, the approval is refused as stale and a new preview is shown.</li><li><strong>One decision at a time</strong>: two admins can't decide on the same request at once.</li></ul>
+<h3>Provisioning steps</h3>
+<p>After approval, the app works through a fixed sequence of steps in the background, one request at a time per site:</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Step</th><th scope="col">What it does</th></tr></thead><tbody><tr><td>Pre-check</td><td>Licence, kill switch, approvals complete, every approver still holds Administer Jira, plan unchanged</td></tr><tr><td>Create project</td><td>Creates the project with every scheme association, lead and category in one call</td></tr><tr><td>Record provenance</td><td>Writes the project property <code>com.matify.pbj.provenance</code> (request, blueprint, requester, approvers)</td></tr><tr><td>Add role members</td><td>Adds the blueprint's users and groups to the project roles</td></tr><tr><td>Remove default role members (exact mode)</td><td>Only in exact role mode, only on the new project</td></tr><tr><td>Create component / Create version</td><td>One step per component and version</td></tr><tr><td>Assign field context</td><td>Assigns project-scoped field contexts</td></tr><tr><td>Write project property</td><td>Copies the properties selected in the blueprint</td></tr><tr><td>Write owner and review date</td><td>Writes <code>com.matify.pbj.governance</code></td></tr><tr><td>Update tracking work item</td><td>Only if tracking work items are on</td></tr><tr><td>Verify against blueprint</td><td>Re-reads the project and compares it with the plan</td></tr><tr><td>Add to catalog</td><td>Adds the project to the catalog with origin Governed</td></tr></tbody></table></div>
+<p>Every step is recorded. Steps are retried automatically when Jira rate-limits or returns a server error. Before it repeats a create or add whose outcome is unknown, the app reads Jira first. If creating the project times out, the app looks the key up and continues only when its own records (and the project's name, lead and schemes) show that the app created that project; otherwise the request fails and that project isn't touched.</p>
+<h3>Verification results</h3>
+<div class="tablewrap"><table><thead><tr><th scope="col">Result</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td>Verified (PASS)</td><td>Everything matches the plan</td></tr><tr><td>Verified with notes (PASS_WITH_NOTES)</td><td>Matches, with notes, for example deactivated accounts skipped or Jira's default role members kept in additive mode</td></tr><tr><td>Partial (PARTIAL)</td><td>Some items are missing or differ</td></tr><tr><td>Failed (FAIL)</td><td>The project couldn't be found when it was verified</td></tr></tbody></table></div>
+<p>The verification table lists every item with expected value, actual value and Match, Note or Mismatch.</p>
+<h3>Catalog origins and flags</h3>
+<div class="tablewrap"><table><thead><tr><th scope="col">Origin</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td>Governed</td><td>Created through Project Blueprints</td></tr><tr><td>Outside the gate</td><td>Created directly in Jira after the installation. The creator comes from Jira's audit log, or shows as unknown</td></tr><tr><td>Pre-existing</td><td>Existed before the installation</td></tr><tr><td>Adopted</td><td>A pre-existing project that a Jira admin brought under governance with a bulk action. Projects created outside the gate keep that origin</td></tr></tbody></table></div>
+<div class="tablewrap"><table><thead><tr><th scope="col">Flag</th><th scope="col">Shown when</th></tr></thead><tbody><tr><td>Naming</td><td>Key or name doesn't match the site's default naming policy</td></tr><tr><td>No owner</td><td>No owner recorded</td></tr><tr><td>Owner inactive</td><td>The owner's Atlassian account is inactive</td></tr><tr><td>Lead inactive</td><td>The project lead's account is inactive</td></tr><tr><td>Review due</td><td>The review date is within the next 30 days</td></tr><tr><td>Review overdue</td><td>The review date has passed</td></tr><tr><td>Inactive</td><td>No work item updated for longer than the inactivity threshold (180 days by default)</td></tr><tr><td>Team-managed</td><td>A team-managed project that wasn't created through the app (outside the gate or pre-existing), while the Team-managed projects setting flags them</td></tr><tr><td>No category</td><td>No project category, when a category is required in Settings</td></tr></tbody></table></div>
+<h3>Owners and reviews</h3>
+<p>Every governed project gets an <strong>owner</strong> and a <strong>review date</strong> (today plus the blueprint's review interval). When a review comes up, the owner confirms under <strong>My projects</strong> that the project is still needed, recommends archiving, or proposes a new owner. The app never archives or deletes a project; admins decide in Jira.</p>
+<h3>The ledger</h3>
+<p>The ledger is an append-only, hash-chained record. Each entry's hash covers the previous entry's hash and the entry's sequence number, time, type, request, project and blueprint IDs, its details and a pseudonymous reference to the actor, so changing or removing any of these breaks the chain (<strong>Verify integrity</strong> checks it). The readable summary, the project key and the actor's account ID are shown with the entry but are not part of the hash; the account ID is removed when Atlassian reports the account as closed, without breaking the chain. It records requests, approvals (each approver), rejections, expiries, the start of provisioning, the project creation, failed steps and the result, verification, cancellations, resumes, changes to blueprints, policies and settings, the kill switch, owner changes, reviews, projects detected outside the gate, free-text redactions, tombstones for closed accounts and the uninstall. Each provisioning step is listed on the request page.</p>
+<p>Jira's own audit log names only the app as the creator of a project, because the app creates projects in the background. The ledger and the project's provenance property record the people who requested and approved it.</p>
+<h2>Requester pages (Apps → Project Blueprints)</h2>
+<p>These pages are in Jira's top navigation under <strong>Apps → Project Blueprints</strong>. Every Jira user can open them; what they can do depends on their permissions.</p>
+<h3>Request a project</h3>
+<p>Three input steps: <strong>Blueprint → Details → Review</strong>, then <strong>Submitted</strong>. The blueprint gallery shows only active blueprints the requester may use (a blueprint can be limited to certain groups), with &quot;You'll get&quot;, &quot;Won't apply&quot; and how many approvals are needed. If requests aren't open, the requester lacks the permission, the licence is inactive or the kill switch is on, the page explains that instead.</p>
+<h3>My requests</h3>
+<p>The requester's own requests with status, progress, a link to the new project and the tracking work item (if enabled). Opening a request shows its timeline, provisioning steps and the verification table. <strong>Withdraw</strong> works while the request is pending. <strong>Request similar</strong> starts a new request pre-filled from this one (except the key and category).</p>
+<h3>My projects</h3>
+<p>Projects the user owns, with review date, review status, last review, last activity, origin and flags, and the actions <strong>Still needed</strong>, <strong>Recommend archive</strong> and <strong>Transfer ownership…</strong>.</p>
+<h2>Admin pages (Jira settings → Apps → Project Blueprints)</h2>
+<h3>Overview</h3>
+<p>The <strong>Get started</strong> checklist (until done), key figures (pending approvals, provisioned this month, created outside the gate in the last 30 days, reviews overdue, projects without owner), <strong>Needs attention</strong> (up to 10 items with one action each), projects created outside the gate in the last 30 and 90 days, projects provisioned per month, and recent activity.</p>
+<h3>Approvals</h3>
+<p>Tabs <strong>Pending</strong>, <strong>Waiting for 2nd approval</strong>, <strong>In progress</strong> and <strong>History</strong>, with a filter by key, name or blueprint. A request page shows the requester's details and the policy result at submission, the grouped <strong>plan</strong> (Project, Schemes, Roles &amp; members, Components, Versions, Field contexts, Properties, warnings, skipped items and all steps in order), the timeline and the decision panel: <strong>Approve and create {KEY}</strong>, <strong>Reject…</strong> and <strong>Cancel request</strong>. After approval it shows live progress, the step list, the verification table and, where they apply, <strong>Stop after current step</strong>, <strong>Retry remaining {n} steps for {KEY}</strong> and <strong>Leave as is and close</strong>.</p>
+<h3>Blueprints</h3>
+<p>The list of blueprints with reference project, type, status, capture state, version, approvals, request and provisioning counts and warnings. <strong>Capture from project</strong> and <strong>New team-managed blueprint</strong> create new ones. The editor has the tabs <strong>General</strong>, <strong>Requesters &amp; approvals</strong>, <strong>Naming &amp; metadata</strong>, <strong>Roles</strong>, <strong>Components &amp; versions</strong>, <strong>Fields &amp; properties</strong> and <strong>Fidelity report</strong>, and the actions <strong>Activate</strong>, <strong>Archive</strong>, <strong>Re-validate</strong> (checks that the referenced schemes, role members, category and field contexts still exist), <strong>Re-capture</strong> (company-managed blueprints), <strong>Export JSON</strong> and <strong>Delete</strong> (only draft or archived blueprints that no request uses).</p>
+<h3>Policies</h3>
+<p>Naming &amp; key policies and metadata forms, each with a live tester (<strong>Try a key and name</strong>). A blueprint references at most one of each.</p>
+<h3>Catalog</h3>
+<p>Every project on the site, with filters (key or name, origin, flags, type, style, category, owner, review, inactivity, blueprint; sort by key, name, last activity or review date). The catalog loads 100 rows at a time, up to 10,000 in the browser. Select rows for the bulk actions <strong>Assign owner</strong>, <strong>Set review date</strong>, <strong>Mark reviewed</strong> and <strong>Set blueprint reference</strong>. A row opens a panel with the project's details, provenance, reviews (with <strong>Confirm new owner</strong> for pending transfers), timeline, links to Jira and <strong>Re-read from Jira</strong>. <strong>Export CSV (current filter)</strong> exports what the filter shows.</p>
+<h3>Ledger</h3>
+<p>The ledger, newest first, filterable by type, request ID, project ID and actor. <strong>Verify integrity</strong> re-checks the whole chain. The <strong>Exports</strong> section holds the ledger, request, review and evidence exports.</p>
+<h3>Health</h3>
+<p>See the Health section below.</p>
+<h3>Settings</h3>
+<p>See the Settings section below.</p>
+<h2>Project settings → Governance</h2>
+<p>For project administrators (<strong>Administer projects</strong> on that project) and Jira admins. It shows the project's provenance (requested by, approved by, blueprint, approval and creation date, request ID), or its origin if it wasn't created through the app; its owner, review date, review status, last review and flags; and <strong>Request owner change</strong>, which a Jira admin then confirms in the app.</p>
+<h2>Exports</h2>
+<p>All exports are built in your browser and saved on your computer. CSV files are UTF-8 with a byte-order mark, and cells that a spreadsheet would run as a formula are neutralised.</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Export</th><th scope="col">Where</th><th scope="col">Contents</th></tr></thead><tbody><tr><td>Evidence report CSV</td><td>Ledger → Exports (date range)</td><td>Every project created on the site in the range: governed (requester, approvers, blueprint, verification result, ledger sequence) or outside the gate (creator if known)</td></tr><tr><td>Catalog CSV</td><td>Catalog (current filter)</td><td>The catalog rows the filter shows</td></tr><tr><td>Requests CSV</td><td>Ledger → Exports</td><td>Requests with status and decisions</td></tr><tr><td>Reviews CSV</td><td>Ledger → Exports</td><td>Owner reviews (attestations)</td></tr><tr><td>Ledger CSV / JSON</td><td>Ledger → Exports</td><td>Ledger entries; the JSON includes the chain head</td></tr><tr><td>Blueprint JSON</td><td>Blueprint editor → Export JSON</td><td>One blueprint and its captured configuration</td></tr><tr><td>Diagnostics JSON</td><td>Health → Download diagnostics</td><td>Versions, settings, counts, scan and queue state for support; no personal data, no project names</td></tr></tbody></table></div>
+<p>Exports contain Atlassian account IDs (no display names). Handle them like other admin data.</p>
+<h2>Health</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col">Indicator</th><th scope="col">What it shows</th></tr></thead><tbody><tr><td>Catalog scan</td><td>Phase (first scan or reconcile), projects read, start and finish, last reconcile, weekly reconcile day, <strong>Run reconcile now</strong></td></tr><tr><td>Queues</td><td>Provisioning steps and background jobs waiting, kill switch, licence state, installation date</td></tr><tr><td>Permission checks</td><td>Mode, whether the permission-check fallback is in use, last error, field mode (field schemes or legacy field configuration schemes), ledger integrity and when it was last checked</td></tr><tr><td>Jira API points, last 24 hours</td><td>Estimated rate-limit points the app used per hour</td></tr><tr><td>Probes</td><td>Whether the app's own permissions and reads work as expected</td></tr><tr><td>Failed provisioning steps</td><td>Each failed step with a link to its request</td></tr><tr><td>Capture errors</td><td>Blueprints whose capture failed</td></tr><tr><td>Rate limit pressure</td><td>Shown when Jira is rate-limiting apps, with the time background work resumes</td></tr><tr><td>Diagnostics</td><td><strong>Download diagnostics</strong></td></tr></tbody></table></div>
+<h2>Settings</h2>
+<p>Every settings change is recorded in the ledger.</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Section</th><th scope="col">Setting</th><th scope="col">Default</th><th scope="col">Range / options</th></tr></thead><tbody><tr><td>Requests</td><td>Open requests</td><td>Off</td><td>On / off (confirmation)</td></tr><tr><td>Requests</td><td>Who can request</td><td>Nobody (the permission is granted to nobody)</td><td>Managed in Jira's Global permissions (<strong>Open Global permissions in Jira</strong>)</td></tr><tr><td>Requests</td><td>Create a tracking work item for every request</td><td>Off</td><td>Tracking project, work type, optional default assignee</td></tr><tr><td>Requests</td><td>Review reminder work items</td><td>Off</td><td>Needs tracking work items on</td></tr><tr><td>Approvals</td><td>Pending requests expire after (days)</td><td>14</td><td>1–60</td></tr><tr><td>Approvals</td><td>Allow Jira admins to approve their own requests</td><td>Off</td><td>Enable by typing <code>ALLOW SELF-APPROVAL</code></td></tr><tr><td>Approvals</td><td>Approvals required for new blueprints</td><td>One Jira admin</td><td>One / two different Jira admins</td></tr><tr><td>Catalog</td><td>Inactive after (days without work item updates)</td><td>180</td><td>30–730</td></tr><tr><td>Catalog</td><td>Default review interval (days)</td><td>365</td><td>30–1,095</td></tr><tr><td>Catalog</td><td>Require a project category</td><td>Off</td><td>On / off</td></tr><tr><td>Catalog</td><td>Team-managed projects</td><td>Flag team-managed projects created outside the gate</td><td>Allowed / flag only (the app can't block native creation)</td></tr><tr><td>Catalog</td><td>Weekly reconcile day (UTC)</td><td>Sunday</td><td>Any weekday</td></tr><tr><td>Data</td><td>Keep finished requests (months)</td><td>24</td><td>6–60</td></tr><tr><td>Data</td><td>Keep reviews (months)</td><td>36</td><td>12–120</td></tr><tr><td>Data</td><td>Delete all app data</td><td>—</td><td>Type <code>DELETE PROJECT BLUEPRINTS DATA</code></td></tr><tr><td>Safety</td><td>Pause all approvals and provisioning (kill switch)</td><td>Off</td><td>On / off (confirmation)</td></tr></tbody></table></div>
+<p>Shortening a retention period requires typing <code>REDUCE RETENTION</code>; older records are deleted at the next weekly run.</p>
+<h2>Licensing</h2>
+<p>While the licence is inactive, the app is read-only: no new requests, approvals, provisioning or scans, and no changes to blueprints, policies or settings (open requests can still be withdrawn or cancelled); catalog, requests, ledger and exports stay readable. See <a href="../../docs/">README</a>.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Project Blueprints for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

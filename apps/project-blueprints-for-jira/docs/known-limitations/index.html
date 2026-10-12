@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Known limitations — Project Blueprints for Jira — Matify</title>
+<meta name="description" content="Known limitations for Project Blueprints for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Project Blueprints for Jira</span></div></div></header>
+<nav class="site" aria-label="Project Blueprints for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/admin-guide/">Admin guide</a></li><li><a href="../../docs/requester-and-owner-guide/">Requester and owner guide</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><span aria-current="page">Known limitations</span></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1>Known limitations</h1>
+<p>What Project Blueprints doesn't do, or does only partly, and why. Most limits come from what Jira's public REST APIs let an app do. The blueprint's fidelity report, the requester's gallery card and the approval preview show the ones that apply before anything is created.</p>
+<h2>Not created or copied</h2>
+<ul><li><strong>Board and board configuration</strong> (columns, swimlanes, quick filters) and <strong>filters</strong> are not created or copied. Reason: the app doesn't request Jira's board scopes. Workaround: set up the board in Jira after the project is created.</li><li><strong>Dashboards</strong> and <strong>automation rules</strong> are not copied. Reason: no suitable API for copying them per project. Workaround: set them up in Jira, or use automation rules scoped to several projects.</li><li><strong>Issues, attachments and comments</strong> are not copied. Project Blueprints sets up empty projects.</li><li><strong>Priority scheme</strong> is not applied. Reason: Jira's priority-scheme API is experimental. The fidelity report lists it under &quot;Won't apply&quot;. Workaround: associate it in Jira.</li><li><strong>Team-managed configuration</strong> (work types, fields, workflow, board of a team-managed project) is not copied. Reason: Jira has no API for it. Workaround: a team-managed blueprint creates the project from Jira's built-in Kanban or Scrum template with lead, Administrator role members and governance properties; the team configures the rest.</li><li><strong>Version dates</strong> are not copied. Versions are created unreleased, with name and description.</li></ul>
+<h2>Not applied or skipped</h2>
+<ul><li><strong>Multi-context fields</strong>: a custom field with more than one non-global context for the reference project is captured but not applied. Reason: Jira's assign API accepts one context per field and project. Workaround: assign the context in Jira.</li><li><strong>Locked fields</strong> (Jira-managed fields such as the &quot;Category&quot; field of business projects) and <strong>global contexts</strong> are skipped. Global contexts already apply to every project.</li><li>The Jira-managed role <strong><code>atlassian-addons-project-access</code></strong> and <strong>app accounts</strong> are not copied. Reason: Jira manages them itself.</li><li><strong>Deactivated or closed accounts</strong> in a blueprint are skipped with a note in the preview and in verification.</li><li><strong>Project properties</strong> are copied only if an admin selected them. Keys that Jira or other apps add are not pre-selected.</li></ul>
+<h2>Not supported</h2>
+<ul><li><strong>Service projects</strong> (Jira Service Management) can't be blueprints and can't be provisioned; portal settings and request types aren't covered. They are catalogued only.</li><li><strong>Jira Product Discovery</strong> and <strong>customer service</strong> projects are catalogued only, not provisioned.</li><li><strong>Team-managed projects</strong> can't be captured as blueprints (see above).</li><li><strong>Archived projects</strong> can't be captured as blueprints.</li></ul>
+<h2>Behaviour to be aware of</h2>
+<ul><li><strong>Detect, don't block.</strong> Jira has no pre-create hook, so the app can't prevent projects created directly in Jira. It detects them and flags them as &quot;Outside the gate&quot;. Detection can lag by a few minutes, because the app re-reads a project about a minute after its event and Atlassian may deliver project events late, and the creator shows as unknown when Jira's audit log doesn't name one.</li><li><strong>Jira's audit log shows the app</strong> as the creator of projects made through it. The ledger, the project's provenance property and the Governance page show the people who requested and approved.</li><li><strong>Shared schemes.</strong> New projects share the blueprint's schemes; changes to a shared scheme affect all projects using it.</li><li><strong>The app user is admin-equivalent.</strong> Creating company-managed projects requires Administer Jira, so Jira gives the app user Administer Jira, Administer projects and Bulk change. Jira's global permission settings can't narrow that; the app's own gate does (see <a href="../../docs/security/">Permissions and security</a>).</li><li><strong>No e-mail.</strong> The app sends no e-mail. Notifications go through optional tracking work items in one project you choose.</li><li><strong>Tracking work items can be blocked.</strong> Jira data security policies can block app access to work items. Tracking is then skipped and the failure is recorded; the request isn't blocked.</li><li><strong>Retry window.</strong> Remaining steps of a partial request can be retried within 7 days of the approval. After that, leave the project as is or submit a new request.</li><li><strong>Blocked requests</strong> can't be resumed or re-approved. The requester submits a new request.</li><li><strong>Free text</strong> (purpose, metadata values, reject reasons, review notes) isn't scanned for personal data. A Jira admin can redact a request's free text afterwards (see the Admin guide).</li><li><strong>Project properties are visible.</strong> The app's properties <code>com.matify.pbj.provenance</code> and <code>com.matify.pbj.governance</code> can be read by everyone with Browse Projects on the project and changed by its project admins, like any Jira project property. The app keeps its own records as the authority.</li><li><strong>Permission changes reach read views within 5 minutes.</strong> Admin read views and the request form cache permission checks for up to 5 minutes; actions that change requests, blueprints, policies, settings or the catalog check at once.</li><li><strong>Key check timing.</strong> In the request form, the key and name check answers about 1 to 1.5 seconds after you stop typing (it waits 0.4 seconds, then asks Jira through Atlassian's platform).</li><li><strong>Catalog filter on very large sites.</strong> With about 10,000 projects loaded, the text filter shows its results in about 1 to 1.2 seconds.</li></ul>
+<h2>Platform</h2>
+<ul><li><strong>Field schemes</strong>: Jira's field-scheme APIs are experimental. On sites not yet migrated to field schemes, the legacy field configuration scheme is used instead. Once a blueprint has been captured, Health shows which mode your site uses.</li><li><strong>Multiple contexts per project</strong>: Jira's newer support for several contexts of one field per project hasn't been tested live with Project Blueprints.</li><li><strong>Rate limits</strong>: on large sites the first catalog scan is throttled to an hourly budget and can take hours; provisioning has priority. See <a href="../../docs/large-sites/">Large sites</a>.</li><li><strong>Catalog page size</strong>: the Catalog page holds up to 10,000 projects in the browser at once; use filters on larger sites.</li><li><strong>Accessibility</strong>: the interface is built with Atlassian Design System components. No accessibility conformance is claimed.</li></ul>
+<h2>Uninstall</h2>
+<p>On uninstall, a provisioning in progress stops, so that project may be partially set up. Stored data is retained and deleted under Atlassian's Forge data lifecycle for uninstalled apps; a reinstall starts with empty app storage, and the old data can be re-linked only on a request made within 21 days of the uninstall. Export evidence first. Projects and everything the app wrote into Jira stay.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Project Blueprints for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

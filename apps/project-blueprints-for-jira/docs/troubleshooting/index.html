@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Troubleshooting — Project Blueprints for Jira — Matify</title>
+<meta name="description" content="Troubleshooting for Project Blueprints for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Project Blueprints for Jira</span></div></div></header>
+<nav class="site" aria-label="Project Blueprints for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/admin-guide/">Admin guide</a></li><li><a href="../../docs/requester-and-owner-guide/">Requester and owner guide</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><span aria-current="page">Troubleshooting</span></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1>Troubleshooting</h1>
+<p>Error messages show a code (<code>PBJ-…</code>) and a reference (&quot;ref&quot;); a Failed, Partial or Blocked request shows its code on the request page. Send the code and the ref to support if a problem stays; the reference finds the matching log lines.</p>
+<h2>Error codes</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col">Code</th><th scope="col">What you see</th><th scope="col">What to do</th></tr></thead><tbody><tr><td>PBJ-POLICY-NAME</td><td>&quot;This name doesn't match the naming policy '…'&quot; (with the expected format when the policy has a name template), or &quot;A project with this name already exists.&quot;</td><td>Change the name. Admins can test the policy under Policies → Try a key and name</td></tr><tr><td>PBJ-POLICY-KEY</td><td>The key breaks Jira's key rules or the naming policy (pattern, reserved keys or length); the message says which rule</td><td>Choose another key, or use the suggested key (<strong>Use …</strong>)</td></tr><tr><td>PBJ-KEY-TAKEN</td><td>&quot;The key ACME is already used by another project. Try ACME2 (suggested by Jira).&quot; / &quot;Another open request already reserves the key ACME. Choose another key.&quot;</td><td>Choose another key or use the suggestion. A key reserved by an open request is released when that request is rejected, withdrawn, expired or cancelled. If a request is <strong>Failed</strong> with this code, the key was taken after approval; nothing was created; submit again with another key</td></tr><tr><td>PBJ-PERM-REQUEST</td><td>&quot;You don't have the 'Request projects (Project Blueprints)' permission. Your Jira admin can grant it in Global permissions.&quot; / &quot;You don't have permission to browse users on this site.&quot;</td><td>Ask your Jira admin to grant <strong>Request projects (Project Blueprints)</strong> to one of your groups (Jira settings → System → Global permissions). For the user-picker message, the admin grants Jira's Browse users and groups permission</td></tr><tr><td>PBJ-PERM-ADMIN</td><td>&quot;You need the Jira administrator permission (Administer Jira) for this part of Project Blueprints.&quot; / &quot;Project Blueprints couldn't confirm your Jira permissions. Reload the page; if Jira asks you to allow access, accept it.&quot; / &quot;An approver no longer has the Jira administrator permission. …&quot; (the request is <strong>Blocked</strong>)</td><td>Admin pages need Administer Jira. If the app couldn't confirm your permission, reload; if Atlassian's &quot;Allow access&quot; screen appears, accept it (see Common situations). If a request is <strong>Blocked</strong> because an approver lost Administer Jira, nothing was created; the requester submits again and a current admin approves</td></tr><tr><td>PBJ-PERM-PROJECT-ADMIN</td><td>&quot;You need to be an administrator of this project to request an owner change.&quot; (the Governance page itself says &quot;You need project administrator permission to see this page&quot;)</td><td>The Governance page is for people with Administer projects on that project, and for Jira admins</td></tr><tr><td>PBJ-PERM-OWNER</td><td>&quot;Only the project's owner can review it. Ask your Jira admin to change the owner if this should be you.&quot;</td><td>Ask the owner, or ask a Jira admin to assign you as owner (Catalog → Assign owner) or to confirm a transfer</td></tr><tr><td>PBJ-REQUESTS-CLOSED</td><td>&quot;Project requests aren't open on this site yet. Ask your Jira admin.&quot;</td><td>A Jira admin turns on <strong>Settings → Requests → Open requests</strong></td></tr><tr><td>PBJ-FOUR-EYES</td><td>&quot;You can't approve your own request. Ask another Jira admin to approve it.&quot; / &quot;The second approval must come from a different Jira admin.&quot;</td><td>Ask another Jira admin. Sites with a single Jira admin can enable self-approval (Settings → Approvals, type <code>ALLOW SELF-APPROVAL</code>)</td></tr><tr><td>PBJ-STALE-PREVIEW</td><td>&quot;The approval is older than 24 hours. Cancel this request and ask the requester to submit a new one.&quot; / &quot;Something changed since this request was approved (blueprint, schemes or members). …&quot; / &quot;The approval is older than 7 days. Leave the project as is, or create a new request.&quot; / &quot;The number of remaining steps changed (now 3). Reload and confirm again.&quot; / at approval: a problem that blocks the request (see PBJ-SCHEME-MISSING)</td><td>The first two stop an approved request before its project is created: it is <strong>Blocked</strong> and nothing was created; cancel it and have the requester submit again. For a partial project older than 7 days after approval, choose <strong>Leave as is and close</strong>, or have a new request submitted. If the remaining steps changed, reload and retry. A preview that changed before approval is not an error: the page shows &quot;The preview changed&quot;; review it and approve again</td></tr><tr><td>PBJ-BLUEPRINT-CHANGED</td><td>&quot;The blueprint version this request was submitted against is no longer available. Ask the requester to submit again.&quot; / &quot;The blueprint version this request was approved against is no longer available.&quot; (the request is <strong>Blocked</strong>)</td><td>The requester submits again (<strong>Request similar</strong>)</td></tr><tr><td>PBJ-BLUEPRINT-NOT-ACTIVE</td><td>&quot;This blueprint isn't available for requests anymore.&quot; / &quot;This blueprint has no finished capture.&quot;</td><td>Choose another blueprint. Admins: activate the blueprint once its capture is Ready, or re-capture</td></tr><tr><td>PBJ-BLUEPRINT-NOT-ALLOWED</td><td>&quot;You can't request projects from this blueprint. Ask your Jira admin to add one of your groups.&quot;</td><td>A Jira admin adds one of your groups under Blueprints → Requesters &amp; approvals → Allowed requester groups</td></tr><tr><td>PBJ-SCHEME-MISSING</td><td>A request is <strong>Blocked</strong> at approval or before provisioning starts: &quot;… no longer exists. Re-capture the blueprint.&quot; (a scheme the blueprint uses was deleted), the key or name is now used by another project, or &quot;The project lead isn't an active Jira user. …&quot;</td><td>For a missing scheme, admins <strong>Re-validate</strong> the blueprint to see what is missing, then <strong>Re-capture</strong> it. Nothing was created; the requester submits again (with another key, name or lead if needed)</td></tr><tr><td>PBJ-LEAD-INVALID</td><td>&quot;The lead must be an active Jira user. Choose another lead.&quot; (or owner)</td><td>Choose an active user</td></tr><tr><td>PBJ-LEAD-NOT-CONFIRMED</td><td>&quot;Confirm that the chosen lead becomes project lead (project administrator).&quot;</td><td>Tick the lead confirmation before approving</td></tr><tr><td>PBJ-METADATA-INVALID</td><td>A required extra field is missing or doesn't match its format, or &quot;The details are too long in total. Shorten the longest values.&quot;</td><td>Fill in the field as its help text says</td></tr><tr><td>PBJ-CREATE-400</td><td>&quot;Jira didn't create the project: …&quot; (for example the lead has no Jira access, or a scheme doesn't fit the project type)</td><td>Nothing was created; the request is <strong>Failed</strong>. Fix the cause (lead's product access, blueprint schemes), then the requester submits again</td></tr><tr><td>PBJ-JIRA-403</td><td>&quot;Jira didn't allow Project Blueprints to read …&quot; / &quot;Jira didn't allow the app to create the project. Check that the app is installed with its permissions.&quot;</td><td>In the first minute or two after installation this can happen while Jira finishes setting up the app's access: the catalog scan retries by itself; in a page, reload and try again. Later, check that the app is installed with all its permissions (Manage apps) and whether a Jira data security policy blocks app access to that project</td></tr><tr><td>PBJ-JIRA-404</td><td>&quot;Jira couldn't find … It may have been deleted.&quot;</td><td>The object was deleted or moved to trash in Jira. For blueprints, re-validate and re-capture</td></tr><tr><td>PBJ-JIRA-5XX</td><td>&quot;Jira returned a server error. Project Blueprints will retry.&quot; / &quot;The approval is recorded, but the provisioning job couldn't be queued. It will be retried automatically; you can also reload and retry.&quot; / &quot;The request was redacted, but the project's governance property couldn't be updated. Try again.&quot;</td><td>Wait and try again. Background work and provisioning steps retry by themselves; an approved request whose job couldn't be queued is queued again by the next daily run. If it persists, check Atlassian's status page and contact support with the ref</td></tr><tr><td>PBJ-RATE-429</td><td>&quot;Jira is rate-limiting apps right now. Project Blueprints will resume automatically.&quot; / &quot;Project Blueprints has used this hour's share of Jira's rate limit for previews and checks on this site. Try again after 14:00 UTC.&quot;</td><td>Background work and the catalog scan resume by themselves. In a page, the message says when to try again; see <a href="../../docs/large-sites/">Large sites</a></td></tr><tr><td>PBJ-STEP-FAILED</td><td>On the request page: &quot;ACME was created, but not every step finished&quot; with the reason, for example &quot;Field 'Customer': …&quot;, &quot;Step '…' kept failing (…)&quot; or &quot;Stopped by a Jira admin after the current step.&quot; Elsewhere: &quot;Jira rejected the request for …&quot;</td><td>The request is <strong>Partial</strong>: follow the <a href="../../docs/admin-guide/">Partial provisioning runbook</a>. If provisioning stopped before the project was created, the request is <strong>Failed</strong> or <strong>Blocked</strong>, nothing was created, and the requester submits again</td></tr><tr><td>PBJ-VERIFY-MISMATCH</td><td>Verification found differences</td><td>Open the request: the verification table lists every item. Done with notes needs nothing; for Partial follow the runbook</td></tr><tr><td>PBJ-LOCKED</td><td>&quot;This request is being changed right now. Reload in a moment.&quot; / &quot;The request changed while you were approving it. Reload and check it again.&quot; / &quot;A capture is already running for this blueprint.&quot; / &quot;Another configuration change is in progress in Jira. Try again in a moment.&quot;</td><td>Wait a moment, reload and check the request again</td></tr><tr><td>PBJ-KILL-SWITCH</td><td>&quot;Approvals and provisioning are paused by your Jira admin (kill switch).&quot;</td><td>A Jira admin turns the kill switch off in Settings → Safety. Approved requests that hadn't started then start by themselves (if their approval is less than 24 hours old); Partial requests can be retried</td></tr><tr><td>PBJ-LICENSE-INACTIVE</td><td>&quot;Project Blueprints' licence isn't active, so new requests and provisioning are paused. Your data stays readable.&quot;</td><td>Renew the subscription in Manage apps. Approved requests that hadn't started are picked up by the daily job once the licence is active (if their approval is less than 24 hours old); Partial requests can be retried</td></tr><tr><td>PBJ-INVALID-STATE</td><td>The action doesn't fit the request's or blueprint's current state, for example &quot;Only pending requests can be withdrawn.&quot;, &quot;Archived blueprints can't be reactivated. Re-capture or create a new blueprint.&quot;, &quot;Wait until the capture has finished before activating this blueprint.&quot;, &quot;The guided test has already been used on this site.&quot;, &quot;This request has expired.&quot;, &quot;Only partially provisioned requests can be resumed.&quot;</td><td>Reload to see the current state; the message says what is possible</td></tr><tr><td>PBJ-INVALID-INPUT</td><td>&quot;The request was not valid. Reload the page and try again.&quot; Also: a typed confirmation doesn't match, a reject reason is shorter than 10 characters, a setting is out of range, &quot;Team-managed projects can't be blueprints …&quot;, &quot;Only software and business projects can be blueprints in this version …&quot;</td><td>Reload, or correct the input as the message says. Team-managed: create a team-managed blueprint from a built-in template instead</td></tr><tr><td>PBJ-NOT-FOUND</td><td>The request, blueprint or policy no longer exists, or &quot;isn't yours&quot;; when capturing: &quot;Jira couldn't find that project.&quot;</td><td>It was deleted, pruned by retention, or belongs to someone else. Reload the list</td></tr><tr><td>PBJ-STORAGE</td><td>&quot;The approved plan is missing, so nothing was created. Ask the requester to submit a new request.&quot; (or, if the project exists, &quot;… so the remaining steps can't run. Leave the project as it is.&quot;) / &quot;The capture data expired; capture again.&quot;</td><td>Follow the message. If it repeats, contact support with the ref</td></tr><tr><td>PBJ-UNKNOWN</td><td>An unexpected error</td><td>Retry. If it keeps happening, download diagnostics (Health) and contact support with the ref</td></tr><tr><td>PBJ-UI-BRIDGE</td><td>&quot;Project Blueprints could not reach its backend. Reload the page and try again.&quot;</td><td>Reload. If it persists, check your connection and Atlassian's status page, then contact support</td></tr></tbody></table></div>
+<h2>Common situations</h2>
+<p><strong>The catalog is empty right after installation.</strong> The scan starts at least 90 seconds after installation and fills the catalog project by project. Overview shows &quot;Reading your projects&quot;. On large sites the first full catalog can take hours. If nothing happens for a long time, check <strong>Health → Catalog scan</strong> for the phase and errors.</p>
+<p><strong>A project created outside the app isn't shown yet.</strong> The app re-reads a project about a minute after Jira's project event, and Atlassian sometimes delivers events a few minutes late. The weekly reconcile catches anything missed; <strong>Health → Run reconcile now</strong> starts one at once (at most once an hour).</p>
+<p><strong>The creator of an &quot;Outside the gate&quot; project is unknown.</strong> The app looks up the creator in Jira's audit log. If the audit log has no matching entry, or the app can't read it (Health → Probes), the creator shows as unknown.</p>
+<p><strong>A requester sees no blueprints.</strong> No active blueprint allows one of their groups. Check the blueprint's <strong>Allowed requester groups</strong> (empty means everyone with the request permission) and that the blueprint is <strong>Active</strong>.</p>
+<p><strong>The request form says requests aren't open.</strong> Turn on <strong>Settings → Requests → Open requests</strong>, and grant <strong>Request projects (Project Blueprints)</strong> to the requester's group.</p>
+<p><strong>Atlassian's &quot;Allow access&quot; screen appeared.</strong> Normally the app checks permissions itself and no consent is needed. If Jira's permission-check API fails, the app falls back to checking as the user, which can show this screen once. Accepting it is safe. <strong>Health → Permission checks</strong> shows &quot;Fallback in use&quot;; if it stays on, contact support.</p>
+<p><strong>The approve button is missing or greyed out.</strong> It is missing when you are the requester (four-eyes), you gave the first of two approvals, the request isn't pending any more, the kill switch is on or the licence is inactive; the decision panel says which. It is greyed out while the preview is out of date (choose <strong>Build a fresh preview</strong>) or a confirmation is still missing (lead confirmation, typed key); the panel says what is needed.</p>
+<p><strong>The preview says it is stale or out of date.</strong> The blueprint or a referenced scheme, role, group or user changed since the preview was built. Choose <strong>Build a fresh preview</strong>, review it and approve again.</p>
+<p><strong>Provisioning seems stuck or paused.</strong> Open the request: the step list shows which step waits. Common causes: Jira is rate-limiting apps (the step waits and retries by itself; after 5 attempts the request stops as Partial, or as Failed if the project doesn't exist yet; Health shows rate limit pressure), the kill switch is on, or the licence is inactive. Approved requests whose job didn't start are re-queued automatically once a day, and at once when the kill switch is turned off. The next daily run restarts a provisioning that has made no progress for at least an hour; after 24 hours without progress it stops as Partial (project exists) or Blocked (no project yet), so a request never stays in Provisioning for good.</p>
+<p><strong>Someone's admin rights changed, but the pages haven't caught up.</strong> Admin read views cache the Administer Jira check for up to 5 minutes, and the request form caches the request permission for up to 5 minutes. Actions that change requests, blueprints, policies, settings or the catalog check again at once, so a person who lost the permission can't approve, change settings or submit.</p>
+<p><strong>The tracking work item wasn't created.</strong> Check <strong>Settings → Requests</strong> (tracking project and work type), that the work type exists in the tracking project and that the project accepts new work items. Jira data security policies can block app access to work items. The request continues without a tracking work item in every case.</p>
+<p><strong>Field contexts show &quot;not applied&quot;.</strong> A field with more than one non-global context for the reference project can't be assigned (Jira's API accepts one context per field and project). Locked fields and global contexts are never applied. Assign them in Jira if needed. See <a href="../../docs/known-limitations/">Known limitations</a>.</p>
+<p><strong>No board was created.</strong> Project Blueprints doesn't create or copy boards, filters or board configuration. Set boards up in Jira after the project is created.</p>
+<p><strong>Ledger: &quot;Integrity check failed&quot;.</strong> The page shows the first entry that doesn't verify. Treat this as a <strong>security issue</strong>: don't delete app data, download diagnostics and email support@matifyapps.de with &quot;security&quot; in the subject.</p>
+<p><strong>Ledger: &quot;Integrity check incomplete&quot;.</strong> The check on the Ledger page didn't finish within one page request; each run starts again from the first entry. The weekly background check goes through the whole ledger in parts; <strong>Health → Permission checks</strong> shows its result (Ledger, Ledger last checked).</p>
+<h2>What to send to support</h2>
+<ol><li><strong>Health → Download diagnostics</strong> (no names, e-mail addresses or project content).</li><li>The error code and ref.</li><li>For requests: the request ID and the ledger sequence numbers.</li><li>What you did and what you expected.</li></ol>
+<p>Email support@matifyapps.de, or use the form or tracker on the <a href="../../support/">support page</a>. Never post account IDs or project content in the public tracker.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Project Blueprints for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>
