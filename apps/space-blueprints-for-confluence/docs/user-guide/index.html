@@ -127,7 +127,7 @@ footer.site p{margin:0 0 .3rem}
 <h1>User Guide</h1>
 <p>Every screen in the app, what it does, and the decisions behind it.</p>
 <p>The app has three surfaces:</p>
-<div class="table-wrap"><table><thead><tr><th>Surface</th><th>Who</th><th>Where</th></tr></thead><tbody><tr><td>Requester</td><td>any eligible user</td><td>Confluence <strong>Apps</strong> menu → <strong>Space Blueprints</strong></td></tr><tr><td>Admin console</td><td>Confluence product administrators</td><td><strong>Settings</strong> → <strong>Apps</strong> → <strong>Space Blueprints</strong></td></tr><tr><td>Space panel</td><td>administrators, per space</td><td>a space's <strong>Space settings</strong> → <strong>Space Blueprints</strong></td></tr></tbody></table></div>
+<div class="table-wrap"><table><thead><tr><th>Surface</th><th>Who</th><th>Where</th></tr></thead><tbody><tr><td>Requester</td><td>any eligible user</td><td>Confluence <strong>Apps</strong> menu → <strong>Space Blueprints</strong></td></tr><tr><td>Admin console</td><td>Confluence product administrators</td><td><strong>Settings</strong> → <strong>Apps</strong> → <strong>Space Blueprints</strong></td></tr><tr><td>Space panel</td><td>administrators of that space</td><td>a space's <strong>Space settings</strong> → <strong>Space Blueprints</strong></td></tr></tbody></table></div>
 <hr>
 <h1>For requesters</h1>
 <h2>Request a space</h2>
@@ -138,7 +138,8 @@ footer.site p{margin:0 0 .3rem}
 <p><strong>Purpose.</strong> A sentence for whoever approves. It is stored with the request and shown in the audit trail.</p>
 <p>Submit. If an auto-approval rule covers you and this blueprint, provisioning starts immediately; otherwise the request joins the approval queue.</p>
 <h2>Blueprint gallery</h2>
-<p>Every active blueprint, shown to anyone eligible to request a space. Each card carries the blueprint's name and description and the name of the space it was captured from — and a requester sees that name even if they cannot open the source space itself. Administrators should name blueprints, and choose source spaces, with that in mind.</p>
+<p>Every active blueprint whose source space you can view. The app asks Confluence, as you, which source spaces you can see, so a blueprint captured from a space you have no access to is not shown to you, and cannot be requested. Each card carries the blueprint's name and description and the name of the space it was captured from.</p>
+<p>The first time you open the app, Confluence may ask you to <strong>allow access</strong>. That lets the app check your own permissions in Confluence; it does not let the app change anything as you.</p>
 <p>Each card shows what the blueprint contains and — prominently, not in a footnote — <strong>what will not be copied</strong>: whiteboards, databases, folders, blog posts, page history and space themes. Confluence's copy task does not carry these, and the app says so before you ask for a space rather than after.</p>
 <h2>My requests</h2>
 <p>Your own requests, newest first, with a status:</p>
@@ -183,6 +184,7 @@ footer.site p{margin:0 0 .3rem}
 <hr>
 <h1>Space panel</h1>
 <p>Inside any space: <strong>Space settings → Space Blueprints</strong>. Shows the blueprint the space came from, its owner, its review date, its drift status and what drifted. <strong>Re-check now</strong> refreshes it immediately rather than waiting for the weekly sweep.</p>
+<p>The panel covers only the space it is opened in, and only for people Confluence confirms as administrators of that space. It gives no access to the admin console: blueprints, approvals, settings, the inventory and the audit log need a Confluence administrator.</p>
 <hr>
 <h1>How provisioning actually works</h1>
 <p>Worth knowing, because it explains what the app can and cannot recover from.</p>

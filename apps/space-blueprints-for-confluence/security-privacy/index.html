@@ -125,7 +125,7 @@ footer.site p{margin:0 0 .3rem}
 <nav class="tabs"><div class="wrap"><a href="../">Overview</a><a href="../docs/">Documentation</a><span class="nav-current" aria-current="page">Security & privacy</span><a href="../privacy/">Privacy policy</a><a href="../terms/">Terms</a><a href="../support/">Support</a></div></nav>
 <main class="wrap">
 <h1>Data Security and Privacy Statement</h1>
-<p><strong>Space Blueprints for Confluence</strong>, published by <strong>Matify</strong>. Last updated: 6 October 2026.</p>
+<p><strong>Space Blueprints for Confluence</strong>, published by <strong>Matify</strong>. Last updated: 18 October 2026.</p>
 <h2>Overview</h2>
 <p>Space Blueprints lets a Confluence administrator turn an existing space into a blueprint, lets any licensed user request a new space through a form, and provisions that space once an administrator approves it. This statement describes exactly what the app reads, what it writes, what it keeps and where that data lives.</p>
 <p>The short version: the app runs entirely on Atlassian's own platform, stores only metadata and Atlassian account ids, and sends nothing anywhere else.</p>
@@ -151,31 +151,53 @@ footer.site p{margin:0 0 .3rem}
 <h2>Data residency</h2>
 <p>The app uses only Atlassian-hosted storage and therefore follows the data residency of the Confluence site it is installed on.</p>
 <h2>Permissions the app requests, and why</h2>
-<div class="table-wrap"><table><thead><tr><th>Scope</th><th>What it is for</th></tr></thead><tbody><tr><td><code>read:space:confluence</code></td><td>Read the space inventory, space labels and space properties.</td></tr><tr><td><code>write:space:confluence</code></td><td>Create the requested space and write the blueprint reference and review date onto it.</td></tr><tr><td><code>read:space.permission:confluence</code></td><td>Read the space role catalogue and a space's role assignments, for drift detection.</td></tr><tr><td><code>write:space.permission:confluence</code></td><td>Assign the owner their role on the newly created space.</td></tr><tr><td><code>read:page:confluence</code></td><td>Page counts, last-activity dates and blog-post detection for blueprint fidelity and the inventory. Page bodies are never read.</td></tr><tr><td><code>read:configuration:confluence</code></td><td>Read whether the site uses role-based space access, to choose the correct create path.</td></tr><tr><td><code>write:confluence-content</code></td><td>Start Confluence's own page-hierarchy copy task.</td></tr><tr><td><code>write:confluence-space</code></td><td>Apply space labels, create a space on sites without role-based access, and receive the permissions-updated and deleted space events, which require it. Never used to delete.</td></tr><tr><td><code>read:confluence-space.summary</code></td><td>Poll the status of the copy task, and receive space events.</td></tr><tr><td><code>read:confluence-content.summary</code></td><td>Granted at install, but currently unused: no endpoint the app calls and no product event it subscribes to requires it.</td></tr><tr><td><code>storage:app</code></td><td>The app's own storage.</td></tr><tr><td><code>report:personal-data</code></td><td>Report stored account ids to Atlassian and honour erasure requests.</td></tr></tbody></table></div>
-<p>The app does <strong>not</strong> request permission to read users, read attachments, or change site configuration.</p>
+<div class="table-wrap"><table><thead><tr><th>Scope</th><th>What it is for</th></tr></thead><tbody><tr><td><code>read:space:confluence</code></td><td>Read the space inventory, space labels and space properties.</td></tr><tr><td><code>write:space:confluence</code></td><td>Create the requested space and write the blueprint reference and review date onto it.</td></tr><tr><td><code>read:space.permission:confluence</code></td><td>Read the space role catalogue and a space's role assignments, for drift detection.</td></tr><tr><td><code>write:space.permission:confluence</code></td><td>Assign the owner their role on the newly created space.</td></tr><tr><td><code>read:page:confluence</code></td><td>Page counts, last-activity dates and blog-post detection for blueprint fidelity and the inventory. Page bodies are never read.</td></tr><tr><td><code>read:configuration:confluence</code></td><td>Read whether the site uses role-based space access, to choose the correct create path.</td></tr><tr><td><code>write:confluence-content</code></td><td>Start Confluence's own page-hierarchy copy task.</td></tr><tr><td><code>write:confluence-space</code></td><td>Apply space labels, create a space on sites without role-based access, and receive the permissions-updated and deleted space events, which require it. Never used to delete.</td></tr><tr><td><code>read:confluence-space.summary</code></td><td>Poll the status of the copy task, and receive space events.</td></tr><tr><td><code>read:confluence-user</code></td><td>One call, made as the signed-in person, that confirms they are a Confluence administrator before an administrative action runs. Never used to look up anyone else.</td></tr><tr><td><code>storage:app</code></td><td>The app's own storage.</td></tr><tr><td><code>report:personal-data</code></td><td>Report stored account ids to Atlassian and honour erasure requests.</td></tr></tbody></table></div>
+<p>The app does <strong>not</strong> request permission to read attachments, read email addresses, or change site configuration. Version 4.0.0 removed <code>read:confluence-content.summary</code>, which earlier versions requested without using.</p>
 <h2>What the app deliberately does not do</h2>
 <ul><li>It never deletes or archives a space or a page, including when provisioning fails part-way. A failed</li></ul>
 <p>run is reported with a retry, and any cleanup is left to an administrator.</p>
 <ul><li>It never copies page-level restrictions from a blueprint. Copying them would create access rules in a</li></ul>
 <p>new space that nobody reviewed, so <code>copyPermissions</code> is off and stays off.</p>
-<ul><li>It never acts as one of your users. The app performs its work under its own app identity, and records</li></ul>
-<p>in the audit trail which person requested and which person approved.</p>
+<ul><li>It never makes a change as one of your users. The app performs its work under its own app identity,</li></ul>
+<p>and records in the audit trail which person requested and which person approved. It uses a person's own authority only to ask Confluence what that person may do (see <em>Access control</em> below).</p>
 <h2>Logging</h2>
 <p>The app writes structured operational logs to Forge: request ids, space ids, step names, durations and error codes. Logs contain account ids where an action needs attribution. They never contain page content, space descriptions, request purpose text, display names or email addresses.</p>
-<h2>Security practices</h2>
-<ul><li>Least privilege: every scope above except <code>read:confluence-content.summary</code> maps to an endpoint the app</li></ul>
-<p>actually calls, checked against Atlassian's published API specifications. That one is unused, and is named as such rather than given a reason it does not have.</p>
-<ul><li>All input from the user interface is validated on the server before use. Administrator-supplied naming</li></ul>
-<p>patterns are length-bounded and screened for patterns that could hang the evaluator.</p>
-<ul><li>All Confluence traffic uses Atlassian's authenticated product API over TLS. The app holds no</li></ul>
-<p>credentials, no API tokens and no secrets of its own.</p>
-<ul><li>Every policy-changing operation is checked against Confluence product administration in the backend,</li></ul>
-<p>not only in the interface.</p>
-<ul><li>The audit trail is append-only.</li></ul>
+<h2>Access control</h2>
+<p>Every permission decision is made in the app's backend and answered by Confluence itself, through Confluence's REST API, as the signed-in person (<code>asUser()</code>):</p>
+<ul><li><strong>Administrative actions</strong> (blueprints, approvals, settings, inventory, audit log, data deletion)</li></ul>
+<p>run only when the call comes from the app's page in Confluence administration <strong>and</strong> <code>GET /wiki/rest/api/user/current?expand=operations</code> confirms the person is a Confluence administrator.</p>
+<ul><li><strong>A space's own Space Blueprints page</strong> reads and re-checks only that space, and only when</li></ul>
+<p><code>GET /wiki/api/v2/spaces/{id}/operations</code> confirms the person administers it.</p>
+<ul><li><strong>The blueprint gallery and new requests</strong> offer a blueprint only when Confluence confirms the</li></ul>
+<p>requester can view its source space.</p>
+<p>Every check fails closed: if Confluence cannot confirm a permission, the action is refused. The app's own identity (<code>asApp()</code>) is used only for provisioning steps that need it, after an administrator's approval, and for the scheduled inventory sweep.</p>
+<h2>Encryption</h2>
+<ul><li><strong>In transit:</strong> every call between the app, Confluence and Forge storage uses Atlassian's</li></ul>
+<p>authenticated APIs over TLS 1.2 or higher. The app makes no other network calls.</p>
+<ul><li><strong>At rest:</strong> all data the app stores is held in Forge hosted storage, which Atlassian encrypts at</li></ul>
+<p>rest with AES-256.</p>
+<ul><li>The app holds no credentials, API tokens or secrets of its own, so there are no keys for it to manage.</li></ul>
+<h2>Vulnerability management</h2>
+<ul><li><strong>Dependencies:</strong> a small set of pinned packages, checked with <code>npm audit</code> before every release. A</li></ul>
+<p>release does not ship with a known high or critical advisory in a production dependency. The 4.0.0 release was checked on 18 October 2026: 0 known vulnerabilities.</p>
+<ul><li><strong>Testing:</strong> an automated suite of more than 260 tests runs before every release, including tests</li></ul>
+<p>that try to reach every administrative function as a non-administrator, as a space administrator and with a forged payload.</p>
+<ul><li><strong>Input validation:</strong> all input from the interface is validated on the server before use.</li></ul>
+<p>Administrator-supplied naming patterns are length-bounded and screened for patterns that could hang the evaluator.</p>
+<ul><li><strong>Least privilege:</strong> every scope maps to an endpoint the app calls, checked against Atlassian's</li></ul>
+<p>published API specifications. No scope can delete anything.</p>
+<ul><li><strong>Reporting and fixing:</strong> vulnerabilities can be reported privately (see <em>Contact</em>). Reports are</li></ul>
+<p>acknowledged within one business day and fixed within the periods set by Atlassian's Security Bug Fix Policy for Marketplace apps, for example within 10 days for a critical vulnerability. Our disclosure policy: https://github.com/Matify25/matify-support/blob/main/SECURITY.md</p>
+<ul><li><strong>Incidents:</strong> if a vulnerability or incident affects customer data, Matify notifies the affected</li></ul>
+<p>customers and Atlassian without undue delay.</p>
+<h2>Certifications</h2>
+<p>Matify does not hold its own SOC 2 report or ISO 27001 certificate. The app runs entirely on Atlassian's Forge platform, which is SOC 2 attested and ISO 27001 certified, and stores data only inside that platform boundary, so hosting, storage, encryption at rest and backups are covered by Atlassian's controls. The app is eligible for Atlassian's <em>Runs on Atlassian</em> programme.</p>
+<h2>Other practices</h2>
+<ul><li>The audit trail is append-only.</li><li>Operational logs never contain page content, display names or email addresses.</li></ul>
 <h2>Subprocessors</h2>
 <p>None. The app uses no third-party service.</p>
 <h2>Contact</h2>
-<p>Security or privacy questions, including vulnerability reports: <strong>mira.maty@web.de</strong>. Please report suspected vulnerabilities privately to that address rather than in a public issue.</p>
+<p>Security or privacy questions, including vulnerability reports: <strong>mira.maty@web.de</strong>, with <em>security</em> in the subject line. Please report suspected vulnerabilities privately rather than in a public issue. GitHub's private vulnerability reporting is also enabled on https://github.com/Matify25/matify-support.</p>
 <h2>Related documents</h2>
 <ul><li>Privacy policy: https://matify25.github.io/matify-public/apps/space-blueprints-for-confluence/privacy/</li><li>Documentation: https://matify25.github.io/matify-public/apps/space-blueprints-for-confluence/docs/</li><li>Support: https://matify25.github.io/matify-public/apps/space-blueprints-for-confluence/support/</li></ul>
 </main>
