@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>User guide — Document Generator for Jira — Matify</title>
+<meta name="description" content="User guide for Document Generator for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+h3[id],h2[id]{scroll-margin-top:1rem}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Document Generator for Jira</span></div></div></header>
+<nav class="site" aria-label="Document Generator for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><span aria-current="page">User guide</span></li><li><a href="../../docs/admin-guide/">Admin guide</a></li><li><a href="../../docs/template-cookbook/">Template cookbook</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1 id="user-guide">User guide</h1>
+<p>This guide is for everyone who creates documents. Template management and settings are in the <a href="../../docs/admin-guide/">admin guide</a>.</p>
+<h2 id="who-can-generate-documents">Who can generate documents</h2>
+<p>Anyone with <strong>Browse projects</strong> permission on the work items, unless your Jira admin has limited document generation to members of selected groups. In that case people outside those groups see: &quot;Your Jira admin has limited document generation to selected groups. Ask them for access.&quot;</p>
+<p>The first time you use the app, Jira asks you to allow Document Generator to access Jira on your behalf. This is Atlassian's standard consent for apps that read data as the signed-in person.</p>
+<h2 id="your-permissions-decide-what-is-in-a-document">Your permissions decide what is in a document</h2>
+<p>Every Jira read for your document runs <strong>as you</strong> — never with more rights than you have:</p>
+<ul><li>Work items you can't see (no Browse permission, issue security, a deleted or moved work item) are left out. Selected or single work items you can't see are listed in the result as &quot;not found or you can't see it&quot;; a search simply doesn't return them, so they can't be listed.</li><li>Comments with restricted visibility appear only if you can see them.</li><li>Images are fetched by your browser with your own permissions.</li><li>If your organisation uses Atlassian data security policies that block apps from certain work items, Jira hides those work items from the app. A selected or single work item is listed as &quot;blocked by your organization's data security policy&quot; only when Jira says so for it — otherwise it appears as &quot;not found or you can't see it&quot;. Work items that a search doesn't return can't be listed at all, because Jira doesn't report them to apps.</li><li>A template published only for certain projects is used only for work items of those projects; work items of other projects are left out and listed.</li></ul>
+<p>Background documents read Jira as you too, also after you close the window — see <a href="#background-documents">Background documents</a>.</p>
+<h2 id="generate-from-a-work-item">Generate from a work item</h2>
+<p>Open the work item and choose <strong>••• → Generate document</strong>.</p>
+<p>The dialog has one screen, from top to bottom:</p>
+<ol><li><strong>Template</strong> — curated packs and your organisation's templates in two groups. The description and the available formats are shown under the selection. Templates that can't be used here are shown with the reason, for example &quot;Not available for this project&quot; or &quot;Works only for lists of work items&quot;.</li><li><strong>Format</strong> — DOCX (Word), PDF or XLSX (Excel), as allowed by the template and by your Jira admin.</li><li><strong>Scope</strong> — &quot;This work item&quot;, &quot;This work item + sub-tasks&quot;, or for a work item with children &quot;Epic + children + sub-tasks&quot;.</li><li><strong>Options</strong> — &quot;Include comments&quot; (only when the template shows comments and your admin allows it; the dialog shows how many recent comments per work item), the document title (used where the template shows <code>{{doc.title}}</code>), and a preview of the file name.</li><li><strong>Summary</strong> — how many work items the document will contain, the limits that apply, whether comments are included, an estimated time and the share of the site's hourly API budget it uses.</li></ol>
+<p>Click <strong>Generate</strong>. The progress view shows the steps <em>Collecting data</em>, <em>Fetching images</em>, <em>Rendering</em> and <em>Ready</em>. <strong>Cancel</strong> stops at any time; no file is created.</p>
+<h2 id="generate-from-a-search">Generate from a search</h2>
+<p>In the issue navigator, run a search and choose <strong>Apps → Generate document…</strong>.</p>
+<ul><li>The action uses your <strong>current search (JQL)</strong>: the document contains the whole search, in the order of your JQL. If your JQL has no ORDER BY, the app sorts by key.</li><li>Selecting rows in the issue navigator does not limit the document. Jira passes the search, not the selection, to apps. To narrow the document, refine the JQL — for example <code>key in (ABC-1, ABC-4)</code> or an extra condition. The dialog says so under the context line.</li><li>If Jira does pass selected work items to the app (this may change on Atlassian's side), the dialog also offers the scope &quot;Selected work items (n)&quot;: the document then contains exactly those, in the order you selected them.</li></ul>
+<p>The dialog is the same as above, with the scope &quot;Whole search (~n)&quot;. The count is Jira's approximate count.</p>
+<p>A search must have at least one condition — Jira doesn't allow apps to run unbounded searches. A JQL such as <code>ORDER BY created</code> alone is refused with: &quot;This search has no filter, and Jira can't run unbounded searches for apps. Add a condition such as a project, then try again.&quot;</p>
+<h2 id="the-documents-page">The Documents page</h2>
+<p>Apps → <strong>Document Generator</strong> has three pages.</p>
+<h3 id="new-document">New document</h3>
+<p>Create a document from a <strong>JQL search</strong> (with <strong>Validate JQL</strong>) or from one of your <strong>saved filters</strong>, then continue with the same template, format and options as in the dialog. Use this page when the issue navigator's menu item is not available on your site — the issue navigator integration uses an Atlassian module that is still in preview.</p>
+<h3 id="my-documents">My documents</h3>
+<p>Your background documents: when they were created, template, scope, formats, number of work items, state, progress and when they expire. Filter by All, Active, Ready, Finished or Failed. Actions: <strong>Render &amp; download</strong>, <strong>Attach</strong>, <strong>Cancel</strong>, <strong>Delete now</strong> and <strong>Retry from checkpoint</strong>. If the app's licence has ended, the page shows a notice and only <strong>Cancel</strong> and <strong>Delete now</strong> remain; New document is unavailable.</p>
+<h3 id="templates">Templates</h3>
+<p>The templates available to you, with a description, the scope they work for, their formats and — for curated packs — sample files with fictitious data.</p>
+<h2 id="limits">Limits</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col"></th><th scope="col">Default</th></tr></thead><tbody><tr><td>Work items in a document generated now</td><td>200 (50 when comments are included)</td></tr><tr><td>Work items in a background document</td><td>1,000</td></tr><tr><td>Comments</td><td>For up to 500 work items per document, the 10 most recent per work item</td></tr><tr><td>Images</td><td>10 per work item, 200 per document; PNG and JPEG up to 5 MB each; 100 MB per document</td></tr></tbody></table></div>
+<p>Your Jira admin may have set lower limits. The summary always shows the limits that apply before you start.</p>
+<p>When Jira's shared API limit for apps is nearly used up, the app protects it: documents generated now are limited to 50 work items, then to single work items, and background documents wait for the next full hour. The summary tells you when this applies. See <a href="../../docs/large-sites/">Large sites</a>.</p>
+<p>If a scope is larger than the background limit, the dialog explains it: &quot;This search has about {n} work items. Documents can include up to {cap} ({format}). Narrow the search, or split it by project or version.&quot;</p>
+<h2 id="nothing-is-left-out-silently">Nothing is left out silently</h2>
+<ul><li>Work items that could not be included are listed in the result (&quot;2 work items were not accessible&quot;), with the reason. A background document lists the first 200 of them; the result and the document notes give the full number (&quot;80 more work items were left out; only the first 200 are listed.&quot;).</li><li>If more than 10 % of the work items can't be included, the app asks before it builds the document: &quot;37 of 400 work items could not be included. Generate anyway?&quot;</li><li>If none can be included, no document is created.</li><li>Comment caps, image caps and images shown as placeholders are listed as notes with the result.</li><li>Templates can print the same list into the document with <code>{{doc.notes}}</code>.</li></ul>
+<h2 id="download">Download</h2>
+<p>Click <strong>Download</strong> in the result. Your browser saves the file; the app does not keep a copy. Downloads only start from a click on the button — if your browser blocks downloads for the site, allow them, or attach the document to a work item instead.</p>
+<p>Downloads were verified in Chrome on a Jira site, and in Edge and Firefox in a test setup that uses the same browser sandbox as Jira. Safari has not been verified yet; see <a href="../../docs/known-limitations/">Known limitations</a>.</p>
+<h2 id="attach-to-a-work-item">Attach to a work item</h2>
+<p>Click <strong>Attach to ABC-123</strong> to add the document to a work item as a normal Jira attachment. For a document made from a search, you choose the target work item; it defaults to the first work item in the document. For a document from a work item or an epic, it defaults to that work item or epic.</p>
+<ul><li>You need the <strong>Create attachments</strong> permission on the target work item. Without it the button is disabled and explains why.</li><li>Your Jira admin can switch attaching off for the whole site.</li><li>If a file with the same name was attached to that work item in the last 10 minutes, the app asks before attaching another copy.</li><li>Documents larger than 10 MB ask for confirmation. A document larger than your site's attachment limit can't be attached; download it instead.</li><li>Attaching never replaces or deletes existing attachments. It is the only change Document Generator ever makes in Jira, and it happens only when you click.</li></ul>
+<p>Attached documents are Jira data: they stay in Jira, also when the app is uninstalled.</p>
+<h2 id="background-documents">Background documents</h2>
+<p>Searches above the direct limit (200 work items by default) run in the background:</p>
+<ol><li>Click <strong>Run in background</strong> and confirm. The app shows the estimated time and that it may wait for API budget.</li><li>You can close the window. The app collects the work items in the background, reading Jira as you. Jira applies your current permissions to every batch, so if your access is removed, later batches no longer include those work items.</li><li>Follow the progress in <strong>My documents</strong>:</li></ol>
+<div class="tablewrap"><table><thead><tr><th scope="col">State</th><th scope="col">Meaning</th></tr></thead><tbody><tr><td>Queued</td><td>Waiting for another document on this site (one background document collects at a time per site). If the app couldn't hand the next step to Jira's queue, it shows <strong>Retry</strong>, which continues where it stopped; a daily check also resumes such documents.</td></tr><tr><td>Waiting for budget</td><td>Paused until the next full hour to stay within Jira's API limits — resumes automatically.</td></tr><tr><td>Collecting</td><td>n of N work items collected.</td></tr><tr><td>Ready</td><td>The data is collected. Render it within 24 hours.</td></tr><tr><td>Downloaded / Attached</td><td>You rendered and downloaded or attached it. You can render it again until it expires.</td></tr><tr><td>Failed</td><td>Stopped after several attempts. <strong>Retry from checkpoint</strong> continues where it stopped; it is available for 24 hours, and the data collected so far is kept for this time. After that, generate the document again.</td></tr><tr><td>Cancelled</td><td>You or a Jira admin cancelled it, or the app's licence ended (then the collected data, also of a ready document, is deleted).</td></tr><tr><td>Expired</td><td>24 hours after it was ready, the collected data is deleted. Generate it again.</td></tr></tbody></table></div>
+<ol start="4"><li>When it is <strong>Ready</strong>, choose <strong>Render &amp; download</strong>: your browser builds the document from the collected data, fetches images with your permissions and saves the file. You can also attach it.</li></ol>
+<p>Good to know:</p>
+<ul><li>You can have up to 3 background documents in progress at a time, and a site up to 10.</li><li>When your site has used this hour's API budget, the app says so at the top of the page with the time when new documents can start again. My documents, Cancel and Delete keep working.</li><li>A single work item that is too large for a background document (very long text or many long comments) is left out and listed as &quot;too large&quot;.</li><li>Clicking Generate twice by accident does not start a second document — the app shows the existing one.</li><li>A background document keeps the template version it started with, even if an admin uploads a new version meanwhile.</li><li><strong>Delete now</strong> removes the collected data immediately. <strong>Cancel</strong> stops collecting and deletes what was collected.</li><li>Only you can render your background documents. Jira admins can cancel or delete them (Usage → <strong>Background documents</strong> in the app's settings) but cannot read their content. If an admin deletes your background document, it disappears from My documents and can no longer be rendered or downloaded.</li><li>Rendering in the browser needs a current version of Chrome, Edge or Firefox.</li></ul>
+<h2 id="tips-for-large-documents">Tips for large documents</h2>
+<ul><li>DOCX and XLSX are faster and lighter than PDF.</li><li>If your browser runs out of memory, try fewer work items, DOCX instead of PDF, or a background document.</li><li>For flat lists of many thousands of work items, Jira's own CSV export may fit better; see <a href="../../docs/large-sites/">Large sites</a>.</li></ul>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Document Generator for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Microsoft Word and Excel are trademarks of Microsoft Corporation and are named only to describe file formats. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

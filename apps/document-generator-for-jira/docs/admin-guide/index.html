@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin guide — Document Generator for Jira — Matify</title>
+<meta name="description" content="Admin guide for Document Generator for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+h3[id],h2[id]{scroll-margin-top:1rem}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Document Generator for Jira</span></div></div></header>
+<nav class="site" aria-label="Document Generator for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><span aria-current="page">Admin guide</span></li><li><a href="../../docs/template-cookbook/">Template cookbook</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1 id="admin-guide">Admin guide</h1>
+<p>Administration lives in Jira settings → Apps → <strong>Document Generator</strong>, with the pages Overview, Templates, Packs, Settings and Usage. Only Jira administrators (global permission <strong>Administer Jira</strong>) can use them. The app checks this permission on the server for every admin action, with your own Jira permissions, so hiding the menu is not the only protection.</p>
+<h2 id="overview">Overview</h2>
+<p>The Overview page shows:</p>
+<ul><li><strong>Status:</strong> licence, who may generate documents, how much of this site's API budget was used this hour, and the state of Jira's shared API limit for apps.</li><li><strong>Numbers:</strong> documents this month, background documents running or queued, failures in the last 30 days.</li><li><strong>Needs attention:</strong> invalid templates and failed background documents.</li><li>A summary of the current settings, and the Get started checklist (which you can dismiss).</li></ul>
+<h2 id="templates">Templates</h2>
+<h3 id="lifecycle">Lifecycle</h3>
+<div class="tablewrap"><table><thead><tr><th scope="col">Step</th><th scope="col">What happens</th></tr></thead><tbody><tr><td><strong>Upload</strong></td><td>Templates → <strong>Upload Word template</strong>. A .docx file up to 5 MB. Legacy .doc files and other formats are refused.</td></tr><tr><td><strong>Validate</strong></td><td>The validator runs in your browser. It loads your site's field list (read with your permissions, cached for one hour) and checks safety, syntax, fields and PDF compatibility. The result is stored with the version.</td></tr><tr><td><strong>Save</strong></td><td>The file is uploaded in parts and saved as a new version. Uploading a file identical to the current version creates no new version.</td></tr><tr><td><strong>Details</strong></td><td>Name, description, scope (single work item, lists of work items, or both), allowed formats, projects (all projects or selected ones) and, optionally, a PDF paper size for this template.</td></tr><tr><td><strong>Preview</strong></td><td>Run the real pipeline on sample work items before publishing (see <a href="#preview-with-sample">Preview with sample</a>).</td></tr><tr><td><strong>Publish</strong></td><td>Only <em>Valid</em> and <em>Valid with warnings</em> templates can be published. Publishing a template with warnings asks you to confirm, because users will get PDFs without the parts listed in the warnings.</td></tr><tr><td><strong>Unpublish</strong></td><td>Users no longer see the template.</td></tr><tr><td><strong>New version</strong></td><td>Upload a corrected file to the same template. If the new version is <em>Invalid</em>, the template is unpublished until you upload a valid one. Archived templates must be restored first.</td></tr><tr><td><strong>Archive / Restore</strong></td><td>Archiving hides a template; restoring brings it back as a draft.</td></tr><tr><td><strong>Download</strong></td><td>Download any kept version — also when the app is not licensed.</td></tr><tr><td><strong>Delete</strong></td><td>Deletes the template with all its versions after confirmation. A template that a background document still uses can't be deleted until that document is deleted or expires: 24 hours after it was ready, or — for a document that stopped (Failed) — 24 hours after it stopped, when its Retry ends.</td></tr></tbody></table></div>
+<h3 id="versions">Versions</h3>
+<p>Document Generator keeps the <strong>current and the previous version</strong> of every template, plus any version a background document still uses (a background document keeps the version it started with). Older versions are removed when you upload a new one. You can delete a version that is neither current nor in use.</p>
+<h3 id="what-users-see">What users see</h3>
+<p>Users only see <strong>published</strong> templates and <strong>enabled</strong> packs that fit what they are doing:</p>
+<ul><li><strong>Scope:</strong> single-item templates are offered for a work item, list templates for searches; templates for both are offered everywhere.</li><li><strong>Projects:</strong> a template assigned to selected projects is offered in the work item dialog only on work items of those projects. For searches, the app checks every collected work item on the server: work items of projects the template is not assigned to are left out and listed.</li><li><strong>Formats:</strong> only formats allowed by both the template and the site settings.</li></ul>
+<h3 id="validator">Validator</h3>
+<p>The validator report lists <strong>errors</strong> (the template is <em>Invalid</em> and can't be published), <strong>warnings</strong> (<em>Valid with warnings</em>) and <strong>information</strong>. Each finding shows the code, the location (body, header or footer, the paragraph and an excerpt), an explanation and a link to the <a href="../../docs/template-cookbook/">Template cookbook</a>. Every report also shows the PDF fidelity statement.</p>
+<p>The validator also blocks unsafe files: macros, encryption and password protection, links to external content, field codes that load external content (INCLUDEPICTURE, INCLUDETEXT, LINK, DDE, DDEAUTO, IMPORT, DATABASE), imported chunks, OLE and ActiveX objects, sub-documents, frames and attached templates — see <a href="../../docs/template-cookbook/#E-007">E-007</a>. The same check runs again on every filled Word document before a user can download or attach it.</p>
+<p>If the field list could not be loaded, field names are not checked (information line <a href="../../docs/template-cookbook/#I-002">I-002</a>); upload again later before you publish.</p>
+<h3 id="preview-with-sample">Preview with sample</h3>
+<p>On a template's <strong>Preview</strong> tab, run the template against <strong>one work item key</strong> or a <strong>JQL</strong> (the first 20 work items). The preview reads Jira with your permissions and works on drafts too. It shows:</p>
+<ul><li>every placeholder with the value it resolves to (an excerpt of up to 200 characters, shown as plain text) and notes;</li><li>fidelity notes from rich text (for example an app macro that was left out);</li><li>the images found and whether each will be embedded or shown as a placeholder, with the reason;</li><li>time taken and API points used;</li><li><strong>Download sample</strong> buttons for DOCX, PDF and XLSX.</li></ul>
+<p>Nothing from the preview is stored.</p>
+<h2 id="packs">Packs</h2>
+<p>Four curated packs ship with the app: <strong>Release notes</strong>, <strong>Status report</strong>, <strong>Work item record</strong> and <strong>Test evidence</strong>. They are validated with no warnings, designed to work in PDF, and come with their own Excel column set. Descriptions and sample PDFs are on the <a href="../../docs/#curated-packs">documentation start page</a>.</p>
+<p>On the <strong>Packs</strong> page you can:</p>
+<ul><li>switch each pack on or off for your site (all four are on after installation);</li><li><strong>Download to customise</strong> — save the pack's .docx, edit it in Word, and upload it as your own template;</li><li>download samples made with fictitious data.</li></ul>
+<h2 id="settings">Settings</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col">Setting</th><th scope="col">Default</th><th scope="col">Options</th></tr></thead><tbody><tr><td>Who may generate documents</td><td>Everyone with Browse permission on the work items</td><td>Or only members of selected groups (at least one). Membership is checked with each user's own Jira permissions and cached for 5 minutes.</td></tr><tr><td>Allowed formats</td><td>DOCX, PDF and XLSX</td><td>At least one must stay on.</td></tr><tr><td>Allow attaching documents to work items</td><td>On</td><td>Off hides attaching for everyone. Users always need Create attachments on the target work item.</td></tr><tr><td>Allow comments in documents</td><td>On</td><td>Users still opt in per document; only templates that show comments offer it.</td></tr><tr><td>History in documents</td><td>—</td><td>Not available in this version.</td></tr><tr><td>Work items per document generated now</td><td>200</td><td>1–200 (always at most 50 when comments are included)</td></tr><tr><td>Work items per background document (DOCX/XLSX)</td><td>1,000</td><td>1–1,000</td></tr><tr><td>Work items per background document (PDF)</td><td>1,000</td><td>1–1,000</td></tr><tr><td>Work items with comments per document</td><td>500</td><td>1–500</td></tr><tr><td>Comments per work item</td><td>10</td><td>1–20 (the most recent ones)</td></tr><tr><td>Images per work item</td><td>10</td><td>1–10</td></tr><tr><td>Images per document</td><td>200</td><td>1–200</td></tr><tr><td>API budget (points per hour)</td><td>6,000</td><td>100–6,000. It can only be lowered here; see <a href="../../docs/large-sites/">Large sites</a>.</td></tr><tr><td>Default paper size (PDF)</td><td>A4</td><td>A4 or Letter; a template can override it.</td></tr><tr><td>Default date format</td><td>Each user's Jira language</td><td>yyyy-MM-dd, dd.MM.yyyy, MM/dd/yyyy, d MMM yyyy. See the note below.</td></tr><tr><td>File-name pattern</td><td><code>{template}-{scope}-{date}</code></td><td>Plain text plus <code>{template}</code>, <code>{scope}</code>, <code>{date}</code>, <code>{key}</code>, <code>{format}</code>; up to 80 characters; no <code>/ \ : * ? &quot; &lt; &gt; |</code>.</td></tr><tr><td>Producer in document properties</td><td>On</td><td>Writes &quot;Document Generator for Jira&quot; as the producer in the document properties.</td></tr></tbody></table></div>
+<p><strong>Limits can only be lowered below their maximum.</strong> The maximum of each limit is the upper end of its range above; values above it are refused when you save, and a stored value can never raise a limit beyond it. All defaults equal the maximum, except comments per work item: it starts at 10 and can be set up to 20.</p>
+<p><strong>Note on the default date format:</strong> it applies to every date shown without a pattern of its own — date fields such as <code>{{duedate}}</code>, <code>{{doc.date}}</code> and fields with <code>|date</code> — in documents generated after you save it. Date-time fields without a format (<code>{{created}}</code>, <code>{{updated}}</code>) and <code>|datetime</code> keep each user's Jira language style with the time. A pattern in the placeholder, for example <code>{{created|date:dd.MM.yyyy}}</code>, always wins (<a href="../../docs/template-cookbook/#formats">formats</a>).</p>
+<h2 id="usage">Usage</h2>
+<p>The <strong>Usage</strong> page counts documents per month, format, entry point (work item, search, Documents page) and template kind (the pack, or &quot;custom template&quot;): documents, work items, attach-backs, background documents, failures and cancellations. It contains no personal data — no names, account IDs or work item content — and covers up to 24 months. Filter by month range.</p>
+<h2 id="background-documents-of-all-users">Background documents of all users</h2>
+<p>The <strong>Usage</strong> page also lists the <strong>Background documents</strong> of everyone on the site, newest first: state, template, format(s), work items staged of the total, created and updated time, and &quot;Started by&quot; — <em>You</em> or <em>Another user</em>. Filter by state: All, Active (queued, waiting for budget, collecting), Ready (ready, downloaded, attached) or Finished (failed, cancelled, expired). &quot;All&quot; shows the 100 most recently updated; choose a state to page through all of them with <strong>Load more</strong>.</p>
+<ul><li><strong>Cancel</strong> (active documents only, after confirmation) stops collecting and deletes the data collected so far. The person who started it sees it as Cancelled.</li><li><strong>Delete</strong> (after confirmation) removes the background document and its staged data now; an active document is cancelled first. The person who started it can no longer render or download it, and it disappears from their My documents list. Files already downloaded or attached to work items are not affected.</li></ul>
+<p>Use this, for example, for a document that blocks the queue. Jira admins cannot read a background document's content, its scope text or who started it: there is no open, render or download action for other people's documents, and collected data can only be rendered by the person who started the document.</p>
+<h2 id="licence">Licence</h2>
+<p>Without an active licence or trial, nobody can generate new documents or start background documents. Data portability and deletion outlive the subscription:</p>
+<ul><li><strong>Admin pages are read-only.</strong> Overview, Templates (details, validation reports, versions), Packs, Settings and Usage stay readable, and a banner explains the licence state. Saving settings, uploading templates or new versions, editing template details, publishing, restoring archived templates, switching packs on or off and the sample preview are disabled.</li><li><strong>Still available:</strong> <strong>Download</strong> of every kept template version, <strong>Unpublish</strong>, <strong>Archive</strong>, <strong>Delete</strong> of templates and versions, <strong>Cancel</strong> and <strong>Delete</strong> of background documents, and <strong>Delete all app data</strong> — so you can always take your templates with you and remove your data.</li><li><strong>Background documents:</strong> queued and running ones are cancelled at their next step, and the collected data of documents that were ready is deleted by the next daily cleanup (they show as Cancelled). Nobody can render, download or attach them any more, and <strong>Retry</strong> is unavailable. Each person can still see, cancel and delete their own background documents under Apps → Document Generator → My documents. Files that were already downloaded or attached to work items are not affected.</li></ul>
+<p>After a renewal or a new trial everything is available again; cancelled background documents have to be generated again.</p>
+<h2 id="delete-all-app-data">Delete all app data</h2>
+<p>Settings → <strong>Delete all app data…</strong>. After you type DELETE to confirm, the app removes all templates and their versions, all background documents and their collected data, the usage counters and the settings (they return to the defaults), as well as its caches and API budget records. The deletion runs in the background and shows its progress; while it runs, the rest of the app is unavailable (&quot;Document Generator is deleting all app data&quot;) and nothing new is stored. A final check runs over all of the app's storage before the deletion reports that it has finished; then nothing the app stored is left. When someone opens the app again afterwards, it creates only its small operational records again (installation time, storage version, permission check cache, the current hour's API budget counter) — never templates, documents or settings.</p>
+<p>Documents attached to work items are Jira attachments and stay in Jira. Download the template versions you want to keep first.</p>
+<h2 id="uninstalling">Uninstalling</h2>
+<p>When the app is uninstalled, it first cancels open background documents and deletes their collected data (best effort; this never blocks the uninstall). Everything else the app stored — templates, settings, usage counters, job records — then follows Atlassian's data lifecycle for Forge apps: Atlassian keeps app data for a limited period after an uninstall (28 days at the time of writing) and then deletes it.</p>
+<p>Reinstalling creates a new installation. Do not rely on getting your templates back after a reinstall: <strong>download every template version you want to keep before uninstalling</strong>. Attachments that users created stay in Jira.</p>
+<p>To remove the app's data right away, use <a href="#delete-all-app-data">Delete all app data</a> before uninstalling.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Document Generator for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Microsoft Word and Excel are trademarks of Microsoft Corporation and are named only to describe file formats. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

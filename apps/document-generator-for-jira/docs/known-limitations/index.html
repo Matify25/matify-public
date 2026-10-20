@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Known limitations — Document Generator for Jira — Matify</title>
+<meta name="description" content="Known limitations for Document Generator for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+h3[id],h2[id]{scroll-margin-top:1rem}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Document Generator for Jira</span></div></div></header>
+<nav class="site" aria-label="Document Generator for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/admin-guide/">Admin guide</a></li><li><a href="../../docs/template-cookbook/">Template cookbook</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><span aria-current="page">Known limitations</span></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1 id="known-limitations">Known limitations</h1>
+<p>Version 1.0.0. We list what Document Generator does not do, or does only partly, so that nobody finds out in front of a stakeholder.</p>
+<h2 id="browsers">Browsers</h2>
+<ul><li><strong>Safari has not been verified.</strong> Downloads were verified in Chrome on a real Jira site, and in Edge and Firefox in a test setup that uses the same browser sandbox as Jira. If a download does not start in Safari, use <strong>Attach to …</strong> and open the document from the work item, or use Chrome, Edge or Firefox.</li><li>Background documents are rendered in the browser and need a current Chrome, Edge or Firefox.</li><li>Documents are built on the browser's main thread. While the Word document is filled and while PDF pages are laid out, the page can pause briefly (about half a second per 1,000 work items in our tests).</li></ul>
+<h2 id="pdf-output">PDF output</h2>
+<p>PDF is made by Matify's own converter from the filled Word document and reproduces a documented subset of Word — see the <a href="../../docs/template-cookbook/#pdf-output">PDF fidelity statement</a>. DOCX is the format for the exact layout. In particular:</p>
+<ul><li><strong>A heading can end alone at the bottom of a page</strong> — there is no &quot;keep with next&quot;.</li><li><strong>JPEG orientation (EXIF) is ignored</strong>, so a photo taken in portrait mode can appear rotated.</li><li><strong>Fonts:</strong> PDF text is set in Noto Sans and Noto Sans Mono, which cover Latin (with Latin Extended), Greek and Cyrillic. <strong>Chinese, Japanese, Korean, Arabic, Hebrew, Thai and Devanagari cannot be shown, and right-to-left layout is not supported.</strong> Some symbols are missing from the bundled font, for example &quot;→&quot;. Missing characters are listed with the result. Use DOCX in these cases.</li><li>Template fonts (Calibri, Aptos, Arial …) are replaced, so line breaks and page counts can differ from Word.</li><li>Not reproduced: text boxes, floating pictures and shapes, SmartArt, charts, multiple columns, different first-page or odd/even headers, fields other than page numbers, tracked changes, Word comments, footnotes and endnotes, embedded fonts, equations, legacy shapes and watermarks, pictures that are not PNG or JPEG. The validator warns about each.</li><li>Word table styles are approximated (grid borders, bold header row); &quot;Table Grid&quot; and borders set directly are exact.</li><li>Row heights and vertical alignment in table cells are ignored; only the default header and footer are used; with several sections only the last section's page setup is used.</li><li>Numbered lists: PDF counts each Word list on its own. Word can continue numbering across separate lists that share a list definition; the PDF then restarts.</li><li>PDF output is not tagged for accessibility (not PDF/UA) and not PDF/A.</li></ul>
+<h2 id="template-language">Template language</h2>
+<ul><li>Only the placeholders in the <a href="../../docs/template-cookbook/">Template cookbook</a> are supported. No expressions, scripting, arithmetic, else-if or and/or.</li><li>Not in this version: <code>is:FIELD=VALUE</code> conditions; grouping and <code>count:FIELD=VALUE</code> on fields other than work type, status, status category, fix versions and components; <code>percent:</code> on fields other than status category; <strong>change history</strong> in documents.</li><li>Word templates only: no Excel or PowerPoint templates, no PowerPoint output.</li><li>Work item tags outside <code>{{#issues}}</code> only show a value in single-item documents.</li><li>Status category names follow each user's Jira language; use the keys <code>new</code>, <code>indeterminate</code> and <code>done</code> in <code>count:</code> and <code>percent:</code> to be safe.</li><li>Month names in <code>date:d MMM yyyy</code> follow the browser's language data.</li><li>At most 500 placeholders per template, 5 MB per template file.</li><li>The <strong>Default date format</strong> setting applies to dates without a pattern of their own (<code>{{duedate}}</code>, <code>{{doc.date}}</code>, <code>|date</code>). Date-time placeholders without a format (<code>{{created}}</code>) and <code>|datetime</code> keep each user's Jira language style with the time; use a date pattern in the placeholder for a fixed format there.</li><li>Field codes built from other fields are not allowed in templates: a field whose code contains another field (for example <code>{ IF { MERGEFIELD … } … }</code> or <code>{ = { PAGE } - 1 }</code>), and QUOTE and SET fields (<a href="../../docs/template-cookbook/#E-007">E-007</a>).</li></ul>
+<h2 id="rich-text-and-images">Rich text and images</h2>
+<ul><li>Rich-text images are embedded only when they are attachments of the same work item. External images, and images that can't be matched to an attachment, appear as &quot;[image: …]&quot;.</li><li>Only PNG and JPEG are embedded; up to 5 MB each, 10 per work item, 200 and 100 MB per document. Other images appear as &quot;[image: filename]&quot;.</li><li>Lists nested deeper than 3 levels are flattened to level 3.</li><li>Other apps' macros in rich text are left out or reduced to their text.</li><li>Only http, https and mailto links are kept as links.</li></ul>
+<h2 id="excel-output">Excel output</h2>
+<ul><li>One sheet, one row per work item. Curated packs have fixed column sets; for your own templates the columns are derived from the template's work item placeholders. Columns can't be configured separately.</li><li>Rich text is exported as plain text; a cell holds at most 32,767 characters.</li></ul>
+<h2 id="scale">Scale</h2>
+<ul><li>Up to 200 work items directly in the browser (50 with comments) and up to <strong>1,000 work items in a background document</strong>, in every format. A higher limit for DOCX and XLSX is not available yet.</li><li>Comments: the most recent 10 per work item by default (up to 20), for at most 500 work items per document.</li><li>One background document collects at a time per site; up to 3 in progress per person and 10 per site.</li><li>Collected data of a background document: up to 50 MB, kept 24 hours after it is ready (or 24 hours after it failed, so it can be retried).</li><li>One work item whose content alone is larger than about 200 KB compressed (very long text or many long comments) can't be included in a background document: it is left out and listed as &quot;too large&quot; (<a href="../../docs/troubleshooting/#DGJ-LIMIT-ITEM-SIZE">DGJ-LIMIT-ITEM-SIZE</a>). Generate it on its own or without comments.</li><li>When Jira's shared API limit for apps runs low, documents are limited or wait until the next full hour (<a href="../../docs/large-sites/">Large sites</a>).</li><li>Searches must have at least one condition (Jira does not allow apps to run unbounded searches).</li></ul>
+<h2 id="product-scope">Product scope</h2>
+<ul><li><strong>The issue navigator action uses an Atlassian module in preview.</strong> If it is unavailable on your site, Apps → Document Generator → New document offers the same flow with a JQL or saved filter.</li><li><strong>Selecting rows in the issue navigator does not limit the document; Jira passes the search, not the selection, to apps. Refine the JQL instead.</strong> (Observed on a Jira Cloud site in October 2026: the bulk-selection bar offers no app actions, and Apps → Generate document… receives the search only.) If Jira passes a selection in the future, the app uses it.</li><li>Generated documents are not archived by the app. Download them or attach them to a work item.</li><li>No scheduled documents, e-mail delivery or Jira Automation actions.</li><li>No output to Confluence, SharePoint, Google Drive or other storage.</li><li>No customer-portal (Jira Service Management portal) entry point. In Jira Service Management, agents generate documents from the agent view (••• → Generate document on a request).</li><li><strong>Data security policies:</strong> Jira hides work items that an Atlassian data security policy blocks for apps the same way as work items you can't see, and does not tell the app about work items a search leaves out for this reason. The app lists a work item as blocked by the policy only when Jira says so for that work item.</li><li>No e-signatures; sign-off lines in templates are plain text.</li><li>Template versions: the current and the previous version are kept (plus versions in use by background documents).</li><li>Not in this version: usage CSV export, a diagnostics download, bulk actions on templates, exporting all templates as one ZIP.</li><li>The app's pages are in English.</li><li><strong>When the licence or trial ends,</strong> background documents that were ready can no longer be downloaded: their collected data is deleted and they have to be generated again after a renewal. Admin configuration is read-only until then; templates can still be downloaded (<a href="../../docs/admin-guide/#licence">Admin guide</a>).</li><li>Usage counters can rarely count one document too few when many documents complete at the same moment.</li><li>Jira Server and Data Center are not supported.</li></ul>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Document Generator for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Microsoft Word and Excel are trademarks of Microsoft Corporation and are named only to describe file formats. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

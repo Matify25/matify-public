@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Permissions and security — Document Generator for Jira — Matify</title>
+<meta name="description" content="Permissions and security for Document Generator for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+h3[id],h2[id]{scroll-margin-top:1rem}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Document Generator for Jira</span></div></div></header>
+<nav class="site" aria-label="Document Generator for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/admin-guide/">Admin guide</a></li><li><a href="../../docs/template-cookbook/">Template cookbook</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><span aria-current="page">Permissions and security</span></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1 id="permissions-and-security">Permissions and security</h1>
+<p>Document Generator is an Atlassian Forge app. Its code runs on Atlassian's infrastructure, its data lives in Forge hosted storage, and it sends nothing outside Atlassian.</p>
+<h2 id="scopes">Scopes</h2>
+<p>The app requests five scopes — the classic Jira scopes it needs and two Forge platform scopes. No admin-level (<code>manage:*</code>) scopes, no Confluence or Service Management scopes.</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Scope</th><th scope="col">Why</th></tr></thead><tbody><tr><td><code>read:jira-work</code></td><td>Every Jira read: searches, work items, comments, attachments and their content, fields, permissions, saved filters, projects, JQL checks and counts. It is the only scope that allows offline user impersonation, used only for background documents (see below).</td></tr><tr><td><code>read:jira-user</code></td><td>The generating person's language, time zone and groups (<code>/myself</code>), and the group picker in the admin settings.</td></tr><tr><td><code>write:jira-work</code></td><td>Exactly one action: attaching a generated document to a work item, when a user clicks <strong>Attach</strong>. The app never edits fields, comments or transitions and never deletes anything in Jira.</td></tr><tr><td><code>storage:app</code></td><td>Forge hosted storage for templates, settings, background documents and counters.</td></tr><tr><td><code>report:personal-data</code></td><td>Atlassian's personal data reporting for the account IDs the app stores (see <a href="../../docs/privacy/">Privacy and data</a>).</td></tr></tbody></table></div>
+<h2 id="every-read-runs-as-a-person">Every read runs as a person</h2>
+<ul><li><strong>Documents generated now:</strong> the app's backend reads Jira <strong>as the signed-in user</strong>. Images and attach-back go through Atlassian's browser bridge, which always acts as the signed-in user.</li><li><strong>Background documents:</strong> the background job reads Jira <strong>as the person who started the document</strong>, through Atlassian's offline user impersonation. The app never reads as anyone else.</li><li><strong>No reads as the app itself.</strong> The app makes no Jira calls with its own app identity. It uses its app identity only for its own storage, the licence check and personal data reporting.</li></ul>
+<p>As a result, a document never contains work items, comments or images that the generating person can't see in Jira.</p>
+<h3 id="safeguards-around-background-documents">Safeguards around background documents</h3>
+<p>Offline impersonation is powerful, so it is fenced in:</p>
+<ul><li>The person a background document reads as is taken from the Jira session that started it. It is never accepted from a request, and it cannot be changed afterwards; every stored job record is signed, and a record whose owner does not match its signature is refused.</li><li>Impersonation happens in exactly one place in the code, only in the background job, and only for a job that is currently collecting or waiting for budget. Resolvers, the daily cleanup and the uninstall handler never impersonate.</li><li>Impersonation is limited to <code>read:jira-work</code>. It cannot write to Jira or read user profiles.</li><li>Jira applies the person's current permissions to every read. If their access changes, the next batch reflects it.</li><li>Only the person who started a background document can read its collected data. Jira admins can cancel or delete it, but not read it.</li></ul>
+<p>These rules are covered by automated contract tests.</p>
+<h2 id="app-level-controls-for-admins">App-level controls for admins</h2>
+<p>On top of Jira's permissions, Jira administrators decide:</p>
+<ul><li>who may generate documents (everyone with Browse permission, or members of selected groups);</li><li>which formats are allowed;</li><li>whether documents may be attached to work items, and whether comments may be included;</li><li>which templates exist, which projects each template is published to, and which packs are on;</li><li>lower limits and a lower API budget.</li></ul>
+<p>Admin functions require the Jira global permission <strong>Administer Jira</strong>. The app checks it on the server, as the user, for every admin action — hiding the admin pages from non-admins is only a convenience.</p>
+<h2 id="template-safety">Template safety</h2>
+<p>Word files can contain active or remote content. The validator rejects templates with:</p>
+<ul><li>macros (VBA, macro-enabled files, ribbon or keyboard customisations);</li><li>encryption, password protection, write protection or enforced editing restrictions;</li><li>relationships to external content other than ordinary hyperlinks (for example linked pictures);</li><li>hyperlinks to files, network shares or programs (only <code>http:</code>, <code>https:</code>, <code>mailto:</code> and in-document links are allowed), and a hyperlink base that points to a file share;</li><li>mail-merge settings (a data source or SQL query Word would offer to run);</li><li>the field codes INCLUDEPICTURE, INCLUDETEXT, INCLUDE, LINK, DDE, DDEAUTO, IMPORT and DATABASE — also when the name is quoted or split within the field code;</li><li>field codes built from other fields: any field whose code contains another field, and QUOTE and SET fields in any form (plain REF, PAGEREF, PAGE, NUMPAGES and DATE fields stay allowed);</li><li>imported content chunks (altChunk), OLE objects and embedded packages (wherever they are stored in the file), ActiveX controls, sub-documents, frames and framesets, attached templates and XML document type declarations;</li><li>files that are too large, unpack too large or look like zip bombs — checked at upload and again each time a document is generated from the stored template.</li></ul>
+<p>The check reads every XML part of the file, whatever its name or location, the same way Word finds them. Details per item: <a href="../../docs/template-cookbook/#E-007">E-007</a>.</p>
+<p><strong>Output scan:</strong> the same check runs on every Word document the app fills — before it is downloaded or attached, and also on the Word document a PDF is made from. A document that fails is blocked. So a generated document cannot load remote content or prompt for DDE when it is opened.</p>
+<p>Template content is never executed. The placeholder language has no expressions or scripting, and the engine contains no code evaluation (<code>eval</code> or similar) — this is checked automatically in every build.</p>
+<h2 id="rich-text-and-spreadsheets">Rich text and spreadsheets</h2>
+<ul><li>Rich text is read from Jira's document format and mapped element by element to Word; it is never inserted into a web page and never executed. Values in the app's pages are displayed as text.</li><li>Only http, https and mailto links are kept as links.</li><li>Excel output: values that start with <code>=</code>, <code>+</code>, <code>-</code> or <code>@</code> are written as text, so Excel never evaluates them as formulas.</li><li>File names are cleaned of path separators and control characters and limited to 120 characters.</li></ul>
+<h2 id="no-external-connections">No external connections</h2>
+<ul><li>The app declares no external domains, no remote backend and no web triggers.</li><li>Its pages load scripts, styles, fonts and icons only from the app's own bundle, under Forge's default content security policy; the app requests no CSP relaxations (no <code>unsafe-eval</code>, no <code>unsafe-inline</code> scripts).</li><li>Fonts for PDF output are bundled with the app.</li><li>Links to this documentation are opened by you, as normal browser navigations; the app does not fetch them.</li></ul>
+<h2 id="data-isolation">Data isolation</h2>
+<p>Forge hosted storage is separate for every installation. The backend keeps no customer data in memory between invocations, and an installation cannot read another installation's data (covered by tests).</p>
+<h2 id="engineering-practices">Engineering practices</h2>
+<ul><li>Every backend call checks its input against a strict schema with size limits and returns errors without technical details; unexpected errors show a reference for support.</li><li>Library versions are pinned; dependencies are audited for known vulnerabilities before each release.</li><li>Security issues are handled according to Atlassian's Security Bug Fix Policy for Marketplace apps.</li></ul>
+<h2 id="reporting-a-security-issue">Reporting a security issue</h2>
+<p>Email support@matifyapps.de with &quot;security&quot; in the subject. Please do not post security issues in the public tracker.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Document Generator for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Microsoft Word and Excel are trademarks of Microsoft Corporation and are named only to describe file formats. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

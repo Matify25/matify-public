@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Getting started — Document Generator for Jira — Matify</title>
+<meta name="description" content="Getting started for Document Generator for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+h3[id],h2[id]{scroll-margin-top:1rem}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Document Generator for Jira</span></div></div></header>
+<nav class="site" aria-label="Document Generator for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><span aria-current="page">Getting started</span></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/admin-guide/">Admin guide</a></li><li><a href="../../docs/template-cookbook/">Template cookbook</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1 id="getting-started">Getting started</h1>
+<p>This page has two parts: the first five minutes for the <strong>Jira administrator</strong> who installed the app, and the <strong>first document</strong> for everyone else.</p>
+<p>Out of the box, every Jira user with Browse permission on a work item can generate documents from the four curated packs, in DOCX, PDF and XLSX, and attach them back to work items. Jira administrators can change all of this in Settings.</p>
+<h2 id="for-jira-administrators-the-first-five-minutes">For Jira administrators: the first five minutes</h2>
+<h3 id="1-open-get-started">1. Open Get started</h3>
+<p>After installing, open the app's <strong>Get started</strong> page from Jira's app management (Manage apps → Document Generator). The same checklist is shown on Jira settings → Apps → Document Generator → <strong>Overview</strong>, where you can dismiss it.</p>
+<p>The page states how the app handles data and shows the current settings: who may generate (everyone with Browse permission), which formats (DOCX, PDF, XLSX) and whether documents can be attached to work items (on).</p>
+<p>If the page says &quot;Document Generator is finishing installation…&quot;, wait a minute: right after an installation Jira can refuse the app's first requests for a short time, and the app retries on its own.</p>
+<h3 id="2-try-a-curated-pack-on-a-work-item">2. Try a curated pack on a work item</h3>
+<ol><li>Open any work item.</li><li>Choose <strong>••• → Generate document</strong>.</li><li>Pick the <strong>Work item record</strong> pack, choose <strong>PDF</strong>, and click <strong>Generate</strong>.</li><li>Click <strong>Download</strong>. Then do the same with <strong>DOCX</strong> and compare.</li></ol>
+<p>The first time each person uses the app, Jira asks them to allow Document Generator to access Jira on their behalf. The app reads work items as that person, so documents never include items they can't see.</p>
+<h3 id="3-look-at-a-template-in-word">3. Look at a template in Word</h3>
+<p>Go to Jira settings → Apps → Document Generator → <strong>Packs</strong> and choose <strong>Download to customise</strong> on the <strong>Status report</strong> pack. Open the file in Word: the <code>{{placeholders}}</code> you see are the whole template language. The <a href="../../docs/template-cookbook/">Template cookbook</a> explains every one of them.</p>
+<h3 id="4-upload-your-own-template">4. Upload your own template</h3>
+<ol><li>Edit the downloaded file a little — for example add your logo and change a heading — and save it as .docx.</li><li>Go to <strong>Templates → Upload Word template</strong> and choose the file.</li><li>The validator checks the file in your browser and shows a report: errors (the template cannot be published), warnings (mostly about what PDF output cannot reproduce) and information lines. Every finding names the place in the Word file and links to the cookbook.</li><li>Open <strong>Preview with sample</strong>, enter the key of a real work item (or a JQL for up to 20 work items) and run it. You see what each placeholder resolves to and can download sample files.</li><li>Set the name, description, scope (single work item, lists, or both), allowed formats and projects, then <strong>Publish</strong>.</li></ol>
+<h3 id="5-check-the-settings">5. Check the settings</h3>
+<p>Open <strong>Settings</strong> and decide:</p>
+<ul><li>who may generate documents (everyone with Browse permission, or only members of selected groups);</li><li>which formats are allowed;</li><li>whether documents may be attached to work items and whether comments may be included;</li><li>lower limits, a lower API budget, the PDF paper size and the file-name pattern.</li></ul>
+<p>Details are in the <a href="../../docs/admin-guide/">admin guide</a>.</p>
+<h2 id="for-everyone-your-first-document">For everyone: your first document</h2>
+<h3 id="from-a-work-item">From a work item</h3>
+<ol><li>Open the work item and choose <strong>••• → Generate document</strong>.</li><li>Pick a template. Curated packs and your organisation's templates are listed separately; templates that don't fit this work item are shown with the reason.</li><li>Choose a format: DOCX, PDF or XLSX.</li><li>Choose the scope: this work item, the work item with its sub-tasks, or — for an epic or another work item with children — the epic with its children and their sub-tasks.</li><li>Read the summary: it shows how many work items the document will contain, the limits that apply and an estimated time.</li><li>Click <strong>Generate</strong>, then <strong>Download</strong> — or <strong>Attach to</strong> the work item if you have permission to add attachments there.</li></ol>
+<h3 id="from-a-search">From a search</h3>
+<ol><li>In the issue navigator, run a JQL search that returns the work items you want.</li><li>Choose <strong>Apps → Generate document…</strong>. The action uses your current search (JQL). Selecting rows does not limit the document — Jira passes the search, not the selection, to apps — so refine the search to narrow it.</li><li>Continue as above. If the search is larger than the direct limit (200 work items by default), choose <strong>Run in background</strong>: you can close the window, and the document appears in Apps → Document Generator → <strong>My documents</strong>.</li></ol>
+<p>If the navigator menu item is not available on your site, use Apps → Document Generator → <strong>New document</strong>, paste the JQL or pick a saved filter, and continue the same way.</p>
+<p>Next: the <a href="../../docs/user-guide/">User guide</a>.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Document Generator for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Microsoft Word and Excel are trademarks of Microsoft Corporation and are named only to describe file formats. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

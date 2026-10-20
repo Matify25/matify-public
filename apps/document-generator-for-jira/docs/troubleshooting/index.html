@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Troubleshooting — Document Generator for Jira — Matify</title>
+<meta name="description" content="Troubleshooting for Document Generator for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+h3[id],h2[id]{scroll-margin-top:1rem}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Document Generator for Jira</span></div></div></header>
+<nav class="site" aria-label="Document Generator for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/admin-guide/">Admin guide</a></li><li><a href="../../docs/template-cookbook/">Template cookbook</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><span aria-current="page">Troubleshooting</span></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1 id="troubleshooting">Troubleshooting</h1>
+<p>Every error in Document Generator shows a <strong>code</strong> (for example <code>DGJ-SCOPE-OVERCAP</code>), a message that says what to do, and a <strong>reference</strong>. If you contact support, send both the code and the reference.</p>
+<p>Template problems (<code>E-…</code>, <code>W-…</code>, <code>I-…</code> and <code>DGJ-TPL-…</code>) are explained in the <a href="../../docs/template-cookbook/#validator-codes">Template cookbook</a>.</p>
+<h2 id="common-situations">Common situations</h2>
+<p><strong>&quot;Generate document&quot; is missing from the work item's ••• menu.</strong> The app may not be installed or licensed on the site, or your Jira admin limited generation to selected groups (then the dialog opens with <a href="#DGJ-PERM-NOACCESS">DGJ-PERM-NOACCESS</a>).</p>
+<p><strong>&quot;Generate document…&quot; is missing from the issue navigator.</strong> Use Apps → Document Generator → <strong>New document</strong> with the same JQL or a saved filter. The navigator integration uses an Atlassian module that is still in preview; the Documents page offers the same flow.</p>
+<p><strong>No templates in the list.</strong> Your Jira admin hasn't published a template for this project yet and the curated packs are switched off. Ask your Jira admin.</p>
+<p><strong>The download doesn't start.</strong> Downloads only start from a click on <strong>Download</strong>. Allow downloads for your Jira site in the browser (some browsers ask once per site), check that no extension blocks them, or use <strong>Attach to …</strong> instead. Downloads are verified in Chrome, Edge and Firefox; Safari is not verified yet (<a href="../../docs/known-limitations/">Known limitations</a>).</p>
+<p><strong>Jira asks me to &quot;Allow access&quot;.</strong> This is Atlassian's one-time consent: Document Generator reads work items as you, so documents never include items you can't see. Accept it to continue. If a background document stopped with <a href="#DGJ-JOB-CONSENT">DGJ-JOB-CONSENT</a>, open Document Generator once, allow access, then use Retry.</p>
+<p><strong>Work items are missing from my document.</strong> The result lists the selected or single work items that couldn't be read (you can't see them, or Jira marked them as blocked by your organisation's data security policy), work items over a limit, work items that were too large for a background document, and work items of projects the template isn't published for. Work items that a search simply doesn't return — because you can't see them or a data security policy hides them from apps — can't be listed: Jira doesn't report them to apps. Templates can print the notes with <code>{{doc.notes}}</code>.</p>
+<p><strong>Characters are missing in the PDF.</strong> The PDF fonts cover Latin, Greek and Cyrillic, and some symbols (for example &quot;→&quot;) are missing. Use DOCX (<a href="#DGJ-RENDER-FONT">DGJ-RENDER-FONT</a>).</p>
+<p><strong>A photo is rotated in the PDF.</strong> PDF output ignores the camera's orientation data in JPEG files. Rotate the image before attaching it to the work item, or use DOCX.</p>
+<h2 id="access-and-permissions">Access and permissions</h2>
+<h3 id="DGJ-PERM-NOACCESS">DGJ-PERM-NOACCESS</h3>
+<p>&quot;Your Jira admin has limited document generation to selected groups. Ask them for access.&quot; <strong>Cause:</strong> you are not in one of the groups selected in Settings → Who may generate documents. The same code appears with &quot;couldn't confirm your group membership&quot; if Jira didn't answer; reload the page. <strong>Fix:</strong> ask your Jira admin to add you to one of the groups.</p>
+<h3 id="DGJ-PERM-ADMIN">DGJ-PERM-ADMIN</h3>
+<p><strong>Cause:</strong> the action needs the Jira global permission Administer Jira, or the app could not confirm your permissions. <strong>Fix:</strong> ask a Jira administrator; if you are one, reload the page and accept Jira's access prompt if it appears.</p>
+<h3 id="DGJ-PERM-ATTACH">DGJ-PERM-ATTACH</h3>
+<p>&quot;You can't attach files to {key}. Download the document instead, or ask a project admin for the 'Create attachments' permission.&quot; <strong>Fix:</strong> download the document, or get the Create attachments permission on that project.</p>
+<h3 id="DGJ-PERM-POLICY">DGJ-PERM-POLICY</h3>
+<p>&quot;Your organization's data security policy blocks Document Generator from {n} work items. They were left out of the document.&quot; <strong>Cause:</strong> Jira reported that an Atlassian data security policy of your organisation blocks the app from a work item, or from the JQL check or count itself (then this code appears instead of &quot;invalid JQL&quot;). Jira does not report work items a policy hides from a search, so those can't be counted here. <strong>Fix:</strong> nothing in the app; your organisation's admin decides the policy.</p>
+<h3 id="DGJ-PERM-INSTALLING">DGJ-PERM-INSTALLING</h3>
+<p>&quot;Document Generator is finishing installation… Try again in a minute.&quot; <strong>Cause:</strong> right after an installation Jira refuses the app's requests for a short time. <strong>Fix:</strong> wait a minute and try again.</p>
+<h3 id="DGJ-PERM-TEMPLATE">DGJ-PERM-TEMPLATE</h3>
+<p><strong>Cause:</strong> the template is not published, the pack was switched off by your Jira admin, or the template can't be used for this kind of scope (for example a single-item template for a search). <strong>Fix:</strong> pick another template.</p>
+<h3 id="DGJ-PERM-JIRA">DGJ-PERM-JIRA</h3>
+<p>&quot;Jira didn't allow Document Generator to read the … for you.&quot; <strong>Cause:</strong> Jira refused a read with your permissions. <strong>Fix:</strong> check that you can open the work item, filter or project in Jira; reload the page.</p>
+<h3 id="DGJ-PERM-ANON">DGJ-PERM-ANON</h3>
+<p>&quot;Sign in to Jira to use Document Generator.&quot; <strong>Fix:</strong> sign in and reload the page.</p>
+<h3 id="DGJ-PERM-JOB">DGJ-PERM-JOB</h3>
+<p>Reserved in the error catalogue; the current version does not show it. If you see it, contact support with the reference.</p>
+<h2 id="scope">Scope</h2>
+<h3 id="DGJ-SCOPE-UNBOUNDED">DGJ-SCOPE-UNBOUNDED</h3>
+<p>&quot;This search has no filter, and Jira can't run unbounded searches for apps. Add a condition such as a project, then try again.&quot; <strong>Fix:</strong> add a condition, for example <code>project = ABC</code>.</p>
+<h3 id="DGJ-SCOPE-INVALID">DGJ-SCOPE-INVALID</h3>
+<p><strong>Cause:</strong> Jira rejected the JQL (the message lists Jira's explanation), or the JQL is longer than 4,000 characters. <strong>Fix:</strong> correct the JQL; use <strong>Validate JQL</strong> on the New document page.</p>
+<h3 id="DGJ-SCOPE-OVERCAP">DGJ-SCOPE-OVERCAP</h3>
+<p>&quot;This search has about {n} work items. Documents can include up to {cap} ({format}). Narrow the search, or split it by project or version.&quot; Also shown when Jira passes more than 1,000 selected work items to the app. <strong>Fix:</strong> narrow the search or split the document. Limits: <a href="../../docs/large-sites/">Large sites</a>.</p>
+<h3 id="DGJ-SCOPE-EMPTY">DGJ-SCOPE-EMPTY</h3>
+<p><strong>Cause:</strong> the search returns no work items you can see. <strong>Fix:</strong> check the JQL in the issue navigator.</p>
+<h3 id="DGJ-SCOPE-FORMAT">DGJ-SCOPE-FORMAT</h3>
+<p>&quot;This format isn't available for this template.&quot; <strong>Cause:</strong> the format is switched off for the site or not allowed by the template. <strong>Fix:</strong> choose another format.</p>
+<h3 id="DGJ-SCOPE-NOTFOUND">DGJ-SCOPE-NOTFOUND</h3>
+<p><strong>Cause:</strong> Jira couldn't find the work item, filter or project, or you don't have access to it — for example a saved filter that isn't shared with you (&quot;This saved filter isn't available to you. Use the JQL instead.&quot;). <strong>Fix:</strong> use a JQL, or check the item in Jira.</p>
+<h2 id="limits">Limits</h2>
+<h3 id="DGJ-LIMIT-POOL">DGJ-LIMIT-POOL</h3>
+<p>&quot;Jira's API limit for apps is used up for this hour. Background documents resume automatically at {time}. You can run this one in the background now.&quot; A short variant, &quot;Jira is busy right now. Try again in a moment.&quot;, appears when Jira briefly throttles requests. <strong>Fix:</strong> choose <strong>Run in background</strong>, or try again after the time shown. See <a href="../../docs/large-sites/">Large sites</a>.</p>
+<h3 id="DGJ-LIMIT-SITE">DGJ-LIMIT-SITE</h3>
+<p>&quot;Document Generator has used this hour's API budget on this site. Try again after {time} UTC, or run it in the background.&quot; <strong>Fix:</strong> run it in the background (it continues at the next full hour), or try again later. Jira admins can see the budget on the Overview page. The app's pages, My documents, Cancel and Delete keep working meanwhile: the identity and permission checks they need use a small separate allowance (300 points per hour).</p>
+<h3 id="DGJ-LIMIT-QUEUE">DGJ-LIMIT-QUEUE</h3>
+<p><strong>Cause:</strong> you already have 3 background documents in progress, or 10 are waiting on the site. <strong>Fix:</strong> wait until one is ready, or cancel one you no longer need in My documents.</p>
+<h3 id="DGJ-LIMIT-STAGED">DGJ-LIMIT-STAGED</h3>
+<p>&quot;Too much content — use fewer items or fields only.&quot; <strong>Cause:</strong> the collected data of a background document exceeded 50 MB. <strong>Fix:</strong> fewer work items, no comments, or a template that uses fewer rich-text fields. Retry is not offered: it would stop again.</p>
+<h3 id="DGJ-LIMIT-ITEM-SIZE">DGJ-LIMIT-ITEM-SIZE</h3>
+<p>&quot;{n} work items were too large to include in a background document (very long text or comments) and were left out. Generate them on their own, or without comments.&quot; <strong>Cause:</strong> the content of one work item alone is larger than about 200 KB compressed. Such work items are listed as &quot;too large&quot; and the document is built without them. If it is the work item the document is about (a single work item or an epic), the background document stops with &quot;This work item is too large for a background document … Generate it directly, or without comments.&quot; <strong>Fix:</strong> generate that work item directly (not in the background), without comments, or with fewer comments per work item.</p>
+<h3 id="DGJ-LIMIT-ATTACHSIZE">DGJ-LIMIT-ATTACHSIZE</h3>
+<p>&quot;The document ({size}) is larger than your site's attachment limit ({limit}). Download it instead.&quot;</p>
+<h3 id="DGJ-LIMIT-RESPONSE">DGJ-LIMIT-RESPONSE</h3>
+<p>&quot;The response was too large. Try fewer work items per batch.&quot; <strong>Cause:</strong> unusually large work items (very long rich text). <strong>Fix:</strong> try again with fewer work items or a background document; contact support if it repeats.</p>
+<h2 id="building-the-document-in-the-browser">Building the document in the browser</h2>
+<h3 id="DGJ-RENDER-MEMORY">DGJ-RENDER-MEMORY</h3>
+<p>&quot;Your browser ran out of memory while building the document. Try fewer work items, DOCX instead of PDF, or run it in the background and render it later.&quot; The app also stops before building when it estimates more than 300 MB of memory.</p>
+<h3 id="DGJ-RENDER-FONT">DGJ-RENDER-FONT</h3>
+<p>&quot;Some characters (for example Chinese or Arabic) can't be shown in PDF output. Use DOCX for this document.&quot; The PDF is still created; the missing characters are listed with the result.</p>
+<h3 id="DGJ-RENDER-FAILED">DGJ-RENDER-FAILED</h3>
+<p><strong>Cause:</strong> the document couldn't be built in your browser. <strong>Fix:</strong> try again; if it repeats, try DOCX or fewer work items and contact support with the reference.</p>
+<h3 id="DGJ-RENDER-INPUT">DGJ-RENDER-INPUT</h3>
+<p><strong>Cause:</strong> something the engine needs was missing (template file, PDF fonts). <strong>Fix:</strong> reload the page and try again; contact support if it repeats.</p>
+<h3 id="DGJ-RENDER-IMAGE">DGJ-RENDER-IMAGE</h3>
+<p>&quot;Some images could not be embedded and are shown as placeholders.&quot; The result lists each image with the reason (type, size, count or damaged file).</p>
+<h3 id="DGJ-RENDER-CANCELLED">DGJ-RENDER-CANCELLED</h3>
+<p>You cancelled the document. No file was created.</p>
+<h2 id="background-documents">Background documents</h2>
+<h3 id="DGJ-JOB-EXPIRED">DGJ-JOB-EXPIRED</h3>
+<p>&quot;This background document expired after 24 hours. Generate it again.&quot;</p>
+<h3 id="DGJ-JOB-FAILED">DGJ-JOB-FAILED</h3>
+<p>&quot;The background document stopped after several attempts ({reason}). Retry from where it stopped, or contact support with code {code}.&quot; <strong>Fix:</strong> <strong>Retry from checkpoint</strong> in My documents — available for 24 hours after the document stopped. After that it shows &quot;This background document stopped more than 24 hours ago, so it can't be retried. Generate it again.&quot;</p>
+<h3 id="DGJ-JOB-QUEUE">DGJ-JOB-QUEUE</h3>
+<p>&quot;Document Generator couldn't start the background document. Use Retry in a moment.&quot; — or, for a document that had already started, &quot;Document Generator couldn't continue the background document. Use Retry to continue from where it stopped.&quot; <strong>Cause:</strong> the background queue didn't accept the next step after three attempts (this can happen right after an app update). The document keeps what it collected. <strong>Fix:</strong> use Retry. The daily check also resumes it; a document that can't be handed to the queue for 24 hours is stopped and its collected data deleted.</p>
+<h3 id="DGJ-JOB-STUCK">DGJ-JOB-STUCK</h3>
+<p><strong>Cause:</strong> a background document made no progress for 2 hours, needed too many steps, or couldn't be handed to the queue for 24 hours, and was stopped by the daily check (documents whose next step was merely lost are resumed instead). <strong>Fix:</strong> <strong>Retry from checkpoint</strong> (within 24 hours); contact support if it stops again.</p>
+<h3 id="DGJ-JOB-CONSENT">DGJ-JOB-CONSENT</h3>
+<p>&quot;Document Generator can't read Jira for you in the background yet: you haven't allowed it access. Open Document Generator once (for example from a work item's Apps menu), choose Allow access, then use Retry.&quot; <strong>Cause:</strong> background documents read Jira as the person who started them; Atlassian requires that person's one-time consent. <strong>Fix:</strong> as the message says.</p>
+<h3 id="DGJ-JOB-SCHEMA">DGJ-JOB-SCHEMA</h3>
+<p><strong>Cause:</strong> the background document was started before an app update that changed how background documents are stored. <strong>Fix:</strong> generate it again.</p>
+<h3 id="DGJ-JOB-OWNER">DGJ-JOB-OWNER</h3>
+<p><strong>Cause:</strong> the background document's record failed its integrity check, so the app refused to read Jira for it. <strong>Fix:</strong> generate it again and contact support with the reference.</p>
+<h3 id="DGJ-JOB-NOTFOUND">DGJ-JOB-NOTFOUND</h3>
+<p>&quot;This background document wasn't found. It may have been deleted.&quot; Background documents are only visible to the person who started them.</p>
+<h3 id="DGJ-JOB-STATE">DGJ-JOB-STATE</h3>
+<p><strong>Cause:</strong> the action doesn't fit the document's state — for example rendering one that isn't ready yet, or retrying one that didn't stop. <strong>Fix:</strong> reload My documents.</p>
+<h3 id="DGJ-JOB-CANCELLED">DGJ-JOB-CANCELLED</h3>
+<p>Reserved in the error catalogue; the current version shows cancelled documents with the state <em>Cancelled</em> instead.</p>
+<h2 id="licence-jira-and-general">Licence, Jira and general</h2>
+<h3 id="DGJ-LIC-INACTIVE">DGJ-LIC-INACTIVE</h3>
+<p>&quot;Document Generator isn't licensed on this site. A Jira admin can renew or start a trial on the Marketplace.&quot; Generating documents, starting, rendering or retrying background documents, and changing the app's configuration need an active licence or trial. Templates, settings and usage stay readable to Jira admins; template download, unpublish, archive and delete, Delete all app data, and cancelling or deleting background documents (My documents) keep working. See the <a href="../../docs/admin-guide/#licence">admin guide</a>.</p>
+<h3 id="DGJ-JIRA-5XX">DGJ-JIRA-5XX</h3>
+<p>&quot;Jira didn't respond correctly. Try again in a moment.&quot; The app already retried three times.</p>
+<h3 id="DGJ-JIRA-ERROR">DGJ-JIRA-ERROR</h3>
+<p><strong>Cause:</strong> Jira returned an unexpected answer. <strong>Fix:</strong> try again; contact support with the reference if it repeats.</p>
+<h3 id="DGJ-BUSY">DGJ-BUSY</h3>
+<p><strong>Cause:</strong> all app data is being deleted (then the app's other functions are unavailable until it has finished), or another upload of the same template is in progress. <strong>Fix:</strong> wait until it has finished.</p>
+<h3 id="DGJ-INPUT">DGJ-INPUT</h3>
+<p><strong>Cause:</strong> a request or setting was not valid — for example a limit outside its range (&quot;The limit … must be a whole number between 1 and …&quot;) or an invalid file-name pattern. <strong>Fix:</strong> correct the value; for other cases reload the page.</p>
+<h3 id="DGJ-UNKNOWN">DGJ-UNKNOWN</h3>
+<p>&quot;Something went wrong in Document Generator. Try again; if it keeps happening, contact support with this reference.&quot;</p>
+<h2 id="messages-from-the-apps-pages">Messages from the app's pages</h2>
+<h3 id="DGJ-UI-CONSENT">DGJ-UI-CONSENT</h3>
+<p>&quot;Jira needs your permission before Document Generator can read work items for you. Choose Allow access when Jira asks, then try again.&quot; <strong>Cause:</strong> you haven't given the app Atlassian's one-time consent yet; Jira shows its &quot;Allow access&quot; prompt. <strong>Fix:</strong> allow access; the app reloads.</p>
+<h3 id="DGJ-UI-BRIDGE">DGJ-UI-BRIDGE</h3>
+<p>&quot;Document Generator couldn't reach its backend. Reload the page and try again.&quot;</p>
+<h3 id="DGJ-UI-RESPONSE">DGJ-UI-RESPONSE</h3>
+<p>&quot;Document Generator received an unexpected response. Reload the page and try again.&quot;</p>
+<h3 id="DGJ-UI-TEMPLATE-FETCH">DGJ-UI-TEMPLATE-FETCH</h3>
+<p>&quot;The template couldn't be loaded. Reload the page and try again.&quot;</p>
+<h3 id="DGJ-UI-DECOMPRESS">DGJ-UI-DECOMPRESS</h3>
+<p>&quot;The staged data of this background document couldn't be read in this browser. Try a current version of Chrome, Edge or Firefox.&quot;</p>
+<h3 id="DGJ-UI-ATTACH">DGJ-UI-ATTACH</h3>
+<p>&quot;The document couldn't be attached to {key} ({status}). Download it instead, or try again.&quot; If the connection was lost, check the work item before trying again — the app warns you if the same file was attached in the last 10 minutes.</p>
+<h3 id="DGJ-UI-DOWNLOAD">DGJ-UI-DOWNLOAD</h3>
+<p>&quot;Your browser didn't start the download. Allow downloads for this site, or attach the document to a work item instead.&quot;</p>
+<h3 id="DGJ-UI-CANCELLED">DGJ-UI-CANCELLED</h3>
+<p>You cancelled the document. No file was created.</p>
+<h3 id="DGJ-UI-UNKNOWN">DGJ-UI-UNKNOWN</h3>
+<p>An unexpected error in the page. Reload the page; contact support with the reference if it repeats.</p>
+<h2 id="contact-support">Contact support</h2>
+<p>Email support@matifyapps.de or use the <a href="../../support/">support page</a>. Include the error code, the reference, what you did, and — if you are comfortable sharing it — the template file. Never post confidential content in the public tracker.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Document Generator for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Microsoft Word and Excel are trademarks of Microsoft Corporation and are named only to describe file formats. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FAQ — Document Generator for Jira — Matify</title>
+<meta name="description" content="FAQ for Document Generator for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+h3[id],h2[id]{scroll-margin-top:1rem}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Document Generator for Jira</span></div></div></header>
+<nav class="site" aria-label="Document Generator for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/admin-guide/">Admin guide</a></li><li><a href="../../docs/template-cookbook/">Template cookbook</a></li><li><a href="../../docs/large-sites/">Large sites</a></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><span aria-current="page">FAQ</span></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1 id="faq">FAQ</h1>
+<h2 id="does-any-of-our-data-leave-atlassian">Does any of our data leave Atlassian?</h2>
+<p>No. Document Generator runs on Atlassian's Forge platform, stores its data in Forge hosted storage and declares no external connections. Documents are built in your browser. Matify sees only anonymous usage counts in Forge logs, and only if your admin allows app log access. Details: <a href="../../docs/privacy/">Privacy and data</a>.</p>
+<h2 id="does-the-app-keep-a-copy-of-our-documents">Does the app keep a copy of our documents?</h2>
+<p>No. Generated documents are saved by your browser. If you attach one to a work item, Jira stores it as a normal attachment. For background documents, the app keeps the collected Jira data — not the document — for 24 hours after it is ready (or 24 hours after it failed, so it can be retried).</p>
+<h2 id="can-a-document-contain-work-items-i-cant-see">Can a document contain work items I can't see?</h2>
+<p>No. Every read runs with the permissions of the person who generates the document — background documents too. Work items you can't see are left out. Selected or single work items that can't be read are listed in the result; work items that a search doesn't return can't be listed, because Jira doesn't report them to apps.</p>
+<h2 id="can-we-use-our-own-word-template">Can we use our own Word template?</h2>
+<p>Yes — that's the point. Add <code>{{placeholders}}</code> to your Word file and upload it; the validator checks it and the preview shows real values before anyone uses it. Start with the <a href="../../docs/template-cookbook/">Template cookbook</a> or download a curated pack to customise.</p>
+<h2 id="can-we-use-excel-or-powerpoint-templates">Can we use Excel or PowerPoint templates?</h2>
+<p>No. Templates are Word files. Excel output is a table of work items with typed columns; there is no PowerPoint output.</p>
+<h2 id="why-does-the-pdf-look-slightly-different-from-the-word-document">Why does the PDF look slightly different from the Word document?</h2>
+<p>PDF is made by Matify's own converter, which reproduces a documented subset of Word with bundled fonts. Line breaks and page counts can differ, and some Word features (text boxes, charts, SmartArt …) are not reproduced. The validator tells you which ones affect your template. Use DOCX for the exact layout — Word's own &quot;Save as PDF&quot; remains available for the DOCX.</p>
+<h2 id="does-it-support-chinese-japanese-arabic-or-hebrew">Does it support Chinese, Japanese, Arabic or Hebrew?</h2>
+<p>In DOCX and XLSX the text is kept as it is in Jira. PDF output cannot show these scripts; use DOCX.</p>
+<h2 id="how-many-work-items-can-a-document-have">How many work items can a document have?</h2>
+<p>Up to 200 directly (50 with comments) and up to 1,000 in a background document. See <a href="../../docs/large-sites/">Large sites</a>.</p>
+<h2 id="can-i-make-a-document-from-the-rows-i-selected-in-the-issue-navigator">Can I make a document from the rows I selected in the issue navigator?</h2>
+<p>Not at the moment. Selecting rows in the issue navigator does not limit the document; Jira passes the search, not the selection, to apps. <strong>Apps → Generate document…</strong> uses your current search (JQL), so refine the JQL instead — for example <code>key in (ABC-1, ABC-4, ABC-7)</code>. If Jira passes a selection in the future, the dialog offers &quot;Selected work items (n)&quot; automatically.</p>
+<h2 id="can-a-jira-admin-stop-someone-elses-background-document">Can a Jira admin stop someone else's background document?</h2>
+<p>Yes. Jira settings → Apps → Document Generator → <strong>Usage</strong> → <strong>Background documents</strong> lists everyone's background documents. Admins can cancel or delete them after a confirmation, but can't open, render or download another person's document, and the list shows &quot;Another user&quot; instead of a name.</p>
+<h2 id="can-we-restrict-who-exports-data">Can we restrict who exports data?</h2>
+<p>Yes. Jira admins can limit document generation to selected groups, switch formats off, switch attaching off, decide which templates are published to which projects, and lower every limit.</p>
+<h2 id="does-document-generator-change-anything-in-jira">Does Document Generator change anything in Jira?</h2>
+<p>Only when someone clicks <strong>Attach</strong>: it adds the document as an attachment to the chosen work item. It never edits fields, comments or statuses and never deletes anything in Jira.</p>
+<h2 id="does-it-work-with-jira-service-management">Does it work with Jira Service Management?</h2>
+<p>Yes, in the agent view. An agent opens a request in a Jira Service Management service project and chooses ••• → <strong>Generate document</strong>; it works as for any other work item (checked on a Jira Cloud site in October 2026). There is no customer-portal entry point, so customers on the portal don't see the app.</p>
+<h2 id="can-documents-be-created-on-a-schedule-sent-by-e-mail-or-by-automation">Can documents be created on a schedule, sent by e-mail or by Automation?</h2>
+<p>Not in this version.</p>
+<h2 id="can-we-create-confluence-pages">Can we create Confluence pages?</h2>
+<p>No. Download the document or attach it to a work item.</p>
+<h2 id="can-people-sign-documents">Can people sign documents?</h2>
+<p>Templates can contain plain sign-off lines. The app does not collect electronic signatures.</p>
+<h2 id="which-browsers-are-supported">Which browsers are supported?</h2>
+<p>Chrome, Edge and Firefox (current versions). Safari has not been verified yet — see <a href="../../docs/known-limitations/">Known limitations</a>.</p>
+<h2 id="why-does-jira-ask-me-to-allow-access-the-first-time">Why does Jira ask me to &quot;Allow access&quot; the first time?</h2>
+<p>Because the app reads work items as you. This is Atlassian's standard consent; accept it once.</p>
+<h2 id="is-our-data-kept-in-our-data-residency-location">Is our data kept in our data residency location?</h2>
+<p>Yes. Forge hosted storage follows your Jira site's data residency, and all app data is stored there.</p>
+<h2 id="what-happens-when-our-licence-ends">What happens when our licence ends?</h2>
+<p>Nobody can generate new documents. Queued background documents are cancelled, and the collected data of background documents that were ready is deleted, so they can no longer be downloaded. The admin pages stay readable but configuration is read-only; Jira admins can still download, unpublish, archive and delete templates, cancel or delete background documents, and delete all app data. Users can still see, cancel and delete their own background documents in My documents. See the <a href="../../docs/admin-guide/#licence">admin guide</a>.</p>
+<h2 id="what-happens-to-our-templates-when-we-uninstall">What happens to our templates when we uninstall?</h2>
+<p>The app's data follows Atlassian's lifecycle for uninstalled Forge apps. Do not rely on a reinstallation to restore — or to remove — earlier data. Download the template versions you want to keep before you uninstall. See the <a href="../../docs/admin-guide/#uninstalling">admin guide</a>.</p>
+<h2 id="does-the-app-use-ai">Does the app use AI?</h2>
+<p>No.</p>
+<h2 id="is-there-a-server-or-data-center-version">Is there a Server or Data Center version?</h2>
+<p>No. Document Generator is for Jira Cloud.</p>
+<h2 id="where-do-i-get-help">Where do I get help?</h2>
+<p>support@matifyapps.de or the <a href="../../support/">support page</a>. Error codes are explained in <a href="../../docs/troubleshooting/">Troubleshooting</a>.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Document Generator for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Microsoft Word and Excel are trademarks of Microsoft Corporation and are named only to describe file formats. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

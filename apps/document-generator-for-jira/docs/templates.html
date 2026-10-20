@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Template cookbook — Document Generator for Jira — Matify</title>
+<meta name="description" content="Template cookbook for Document Generator for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://matify25.github.io/matify-public/apps/document-generator-for-jira/docs/template-cookbook/">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+h3[id],h2[id]{scroll-margin-top:1rem}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Document Generator for Jira</span></div></div></header>
+<nav class="site" aria-label="Document Generator for Jira"><ul><li><a href="../">Overview</a></li><li><a href="../docs/" aria-current="page">Documentation</a></li><li><a href="../security-privacy/">Security & privacy</a></li><li><a href="../privacy/">Privacy policy</a></li><li><a href="../terms/">Terms</a></li><li><a href="../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../docs/">Overview</a></li><li><a href="../docs/getting-started/">Getting started</a></li><li><a href="../docs/user-guide/">User guide</a></li><li><a href="../docs/admin-guide/">Admin guide</a></li><li><span aria-current="page">Template cookbook</span></li><li><a href="../docs/large-sites/">Large sites</a></li><li><a href="../docs/security/">Permissions and security</a></li><li><a href="../docs/privacy/">Privacy and data</a></li><li><a href="../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../docs/faq/">FAQ</a></li><li><a href="../docs/known-limitations/">Known limitations</a></li><li><a href="../docs/changelog/">Changelog</a></li></ul><h1 id="template-cookbook">Template cookbook</h1>
+<p>Document Generator fills <strong>your own Word template</strong> (.docx) with Jira data. You put placeholders such as <code>{{summary}}</code> into the Word file, upload it, and the validator tells you — before anyone uses the template — what will render, what is wrong and what PDF output can and cannot reproduce.</p>
+<p>The placeholder language is called <strong>TL1</strong>. It is deliberately small: values, rich text, sections (loops), groups, simple conditions, counts and images. There are no expressions, no scripting and no arithmetic. Anything that is not described on this page is not supported, and the validator rejects it.</p>
+<p>Every validator finding links to its own section on this page (for example <a href="#E-007">E-007</a>).</p>
+<h2 id="a-first-template-in-two-minutes">A first template in two minutes</h2>
+<ol><li>Open Word and type:<pre><code>{{key}} – {{summary}}
+Status: {{status}} · Assignee: {{assignee|ifempty:Unassigned}}
+Due: {{duedate|date:dd.MM.yyyy|ifempty:–}}
+
+{{@rich:description}}</code></pre></li><li>Save it as a Word Document (.docx).</li><li>In Jira settings → Apps → Document Generator → <strong>Templates</strong>, upload it. The validator checks it and shows a report.</li><li>Use <strong>Preview with sample</strong> with a real work item key to see what each placeholder resolves to, then publish the template to your projects.</li></ol>
+<p>The easiest way to learn TL1 is to download one of the four curated packs (Jira settings → Apps → Document Generator → Packs → &quot;Download to customise&quot;) and look at its placeholders in Word.</p>
+<h2 id="basics">Basics</h2>
+<ul><li>Placeholders start with <code>{{</code> and end with <code>}}</code>.</li><li>Tags are <strong>case-sensitive</strong>: <code>{{summary}}</code> works, <code>{{Summary}}</code> does not.</li><li>Spaces inside the braces are ignored: <code>{{ summary }}</code> is the same as <code>{{summary}}</code>.</li><li>Type each placeholder <strong>in one go, in one paragraph</strong>. Word sometimes splits text that was edited in pieces; a placeholder split across paragraphs or text boxes is reported as <a href="#E-001">E-001</a>. Retyping the placeholder fixes it.</li><li>A stray <code>{{</code> or <code>}}</code> is an error (<a href="#E-001">E-001</a>).</li><li>A template may contain at most <strong>500 placeholders</strong> (<a href="#E-006">E-006</a>).</li><li>Placeholders work in the body, in headers and footers, and as plain value tags (such as <code>{{doc.title}}</code>) in the document properties (title, subject …). Sections and other tag kinds are not allowed in document properties (<a href="#E-001">E-001</a>).</li></ul>
+<h2 id="value-tags">Value tags</h2>
+<p>A value tag shows one value as text, formatted with the style of the paragraph it sits in.</p>
+<h3 id="work-item-fields">Work item fields</h3>
+<div class="tablewrap"><table><thead><tr><th scope="col">Tag</th><th scope="col">Shows</th></tr></thead><tbody><tr><td><code>{{key}}</code></td><td>Work item key, e.g. ABC-123</td></tr><tr><td><code>{{id}}</code></td><td>Work item id</td></tr><tr><td><code>{{summary}}</code></td><td>Summary</td></tr><tr><td><code>{{issuetype}}</code></td><td>Work type name</td></tr><tr><td><code>{{status}}</code></td><td>Status name</td></tr><tr><td><code>{{statusCategory}}</code></td><td>Status category name (To Do, In Progress, Done — in the user's Jira language)</td></tr><tr><td><code>{{priority}}</code></td><td>Priority</td></tr><tr><td><code>{{resolution}}</code></td><td>Resolution</td></tr><tr><td><code>{{assignee}}</code>, <code>{{reporter}}</code>, <code>{{creator}}</code></td><td>Display name</td></tr><tr><td><code>{{created}}</code>, <code>{{updated}}</code>, <code>{{resolutiondate}}</code></td><td>Date and time</td></tr><tr><td><code>{{duedate}}</code></td><td>Date</td></tr><tr><td><code>{{labels}}</code>, <code>{{components}}</code>, <code>{{fixVersions}}</code>, <code>{{versions}}</code></td><td>Values, comma-separated</td></tr><tr><td><code>{{environment}}</code>, <code>{{description}}</code></td><td>Plain text (use <code>{{@rich:…}}</code> for formatting)</td></tr><tr><td><code>{{timeoriginalestimate}}</code>, <code>{{timespent}}</code></td><td>Hours, one decimal</td></tr><tr><td><code>{{parent}}</code></td><td>Key of the parent work item</td></tr><tr><td><code>{{parentSummary}}</code></td><td>Summary of the parent work item</td></tr><tr><td><code>{{project}}</code></td><td>Project name</td></tr><tr><td><code>{{projectKey}}</code></td><td>Project key</td></tr><tr><td><code>{{url}}</code></td><td>Link to the work item on your Jira site (as text)</td></tr><tr><td><code>{{overdue}}</code></td><td>The word &quot;Overdue&quot; when the due date is before today (in the generating user's time zone) and the status category is not Done; otherwise empty</td></tr></tbody></table></div>
+<p>Dates without a format follow the site's <strong>Default date format</strong> (Jira settings → Apps → Document Generator → Settings): it applies to date fields such as <code>{{duedate}}</code> and date custom fields, to <code>{{doc.date}}</code> and to any field with <code>|date</code> (for example <code>{{created|date}}</code>). With the default setting (&quot;Each user's Jira language&quot;) these dates use the medium date format of the generating user's Jira language. Date-time fields without a format (<code>{{created}}</code>, <code>{{updated}}</code>, <code>{{resolutiondate}}</code>) and <code>|datetime</code> always show the user's Jira language style with the time, in their time zone. A pattern in the placeholder (<code>|date:dd.MM.yyyy</code>) always wins. Date-only fields such as the due date never shift across time zones.</p>
+<h3 id="custom-fields">Custom fields</h3>
+<p>Use either the field id or the exact field name:</p>
+<ul><li><code>{{customfield_10016}}</code> — by id. Ids are stable; this is the safest form.</li><li><code>{{cf:Story Points}}</code> — by exact name. The validator looks the name up in your site's field list. If two custom fields have the same name, it reports <a href="#E-003">E-003</a> and lists the ids to use instead.</li></ul>
+<p>How custom field values appear:</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Field type</th><th scope="col">Shown as</th></tr></thead><tbody><tr><td>Text, URL, number, date, date and time</td><td>The value (dates in the user's language and time zone)</td></tr><tr><td>Select list, radio buttons</td><td>The selected option</td></tr><tr><td>Multi-select, checkboxes, labels</td><td>Options, comma-separated</td></tr><tr><td>Cascading select</td><td>Parent › Child</td></tr><tr><td>User picker, multi-user picker</td><td>Display names</td></tr><tr><td>Version pickers, group pickers</td><td>Names</td></tr><tr><td>Sprint</td><td>Sprint names</td></tr><tr><td>Other types</td><td>The first of value / name / display name — otherwise empty. The validator warns with <a href="#W-201">W-201</a>.</td></tr></tbody></table></div>
+<h3 id="formats">Formats</h3>
+<p>Add formats after a vertical bar. You can chain up to <strong>four</strong> formats: <code>{{duedate|date:dd.MM.yyyy|ifempty:–}}</code>.</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Format</th><th scope="col">Effect</th></tr></thead><tbody><tr><td><code>date</code></td><td>Date in the user's Jira language and time zone</td></tr><tr><td><code>datetime</code></td><td>Date and time in the user's Jira language and time zone</td></tr><tr><td><code>date:yyyy-MM-dd</code></td><td>2026-10-19</td></tr><tr><td><code>date:dd.MM.yyyy</code></td><td>19.10.2026</td></tr><tr><td><code>date:MM/dd/yyyy</code></td><td>10/19/2026</td></tr><tr><td><code>date:d MMM yyyy</code></td><td>19 Oct 2026 (month name in the user's language)</td></tr><tr><td><code>number:0</code>, <code>number:1</code>, <code>number:2</code></td><td>Number with 0, 1 or 2 decimals, in the user's number format</td></tr><tr><td><code>upper</code>, <code>lower</code></td><td>Upper or lower case</td></tr><tr><td><code>ifempty:TEXT</code></td><td>Shows TEXT (at most 40 characters) when the value is empty</td></tr></tbody></table></div>
+<p>Only these date patterns exist. Any other pattern, <code>number:3</code> or an unknown format is reported as <a href="#E-001">E-001</a>. A date format on a text field, or a number format on a non-number field, has no effect (<a href="#W-203">W-203</a>).</p>
+<h3 id="document-tags">Document tags</h3>
+<div class="tablewrap"><table><thead><tr><th scope="col">Tag</th><th scope="col">Shows</th></tr></thead><tbody><tr><td><code>{{doc.title}}</code></td><td>The document title entered when generating</td></tr><tr><td><code>{{doc.date}}</code>, <code>{{doc.datetime}}</code></td><td>When the document was generated</td></tr><tr><td><code>{{doc.generatedBy}}</code></td><td>Display name of the person who generated it. This puts a person's name into the document.</td></tr><tr><td><code>{{doc.jql}}</code></td><td>The JQL the document was generated from (when there is one)</td></tr><tr><td><code>{{doc.count}}</code></td><td>Number of work items in the document</td></tr><tr><td><code>{{doc.template}}</code></td><td>Template name and version</td></tr><tr><td><code>{{doc.site}}</code></td><td>Your Jira site address</td></tr><tr><td><code>{{doc.scope}}</code></td><td>A description of the scope, e.g. &quot;Epic ABC-1 with 14 children&quot;</td></tr><tr><td><code>{{doc.notes}}</code></td><td>Plain-text list of everything that was capped or left out (skipped work items, image caps, comment caps). Empty when nothing was capped.</td></tr></tbody></table></div>
+<p>Formats work on document tags too, e.g. <code>{{doc.date|date:yyyy-MM-dd}}</code>.</p>
+<h2 id="rich-text">Rich text</h2>
+<p><code>{{@rich:description}}</code> inserts the field with its formatting. It works with <code>description</code>, <code>environment</code> and multi-line (paragraph) custom fields, e.g. <code>{{@rich:customfield_10050}}</code>. Inside <code>{{#comments}}</code>, <code>{{@rich:body}}</code> inserts the comment text with formatting.</p>
+<p>A rich-text tag must be <strong>the only content of its paragraph</strong> — no other text, no spaces (<a href="#E-004">E-004</a>). Using it on a single-line field is reported as <a href="#E-002">E-002</a>.</p>
+<p>Document Generator reads rich text in Atlassian Document Format (the format Jira stores) and maps it to Word:</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">In Jira</th><th scope="col">In the document</th></tr></thead><tbody><tr><td>Paragraphs, line breaks</td><td>Paragraphs, line breaks</td></tr><tr><td>Headings 1, 2, 3</td><td>Your template's Heading 1, Heading 2, Heading 3 styles; headings 4–6 use Heading 3</td></tr><tr><td>Bold, italic, underline, strikethrough, superscript, subscript, inline code, text colour</td><td>The same character formatting (inline code in a monospace font)</td></tr><tr><td>Links</td><td>Hyperlinks (only http, https and mailto addresses; other links are kept as plain text)</td></tr><tr><td>Bullet and numbered lists</td><td>Word lists, up to 3 levels; deeper levels are flattened to level 3 and noted</td></tr><tr><td>Task and decision lists</td><td>List items marked <code>[x]</code> or <code>[ ]</code></td></tr><tr><td>Tables, header cells, merged cells</td><td>Word tables with header shading and merged cells</td></tr><tr><td>Info, note, warning, success and error panels</td><td>A shaded one-cell table that starts with the label &quot;Info:&quot;, &quot;Note:&quot;, &quot;Warning:&quot;, &quot;Success:&quot; or &quot;Error:&quot;</td></tr><tr><td>Code blocks</td><td>Monospace paragraph on a light background, whitespace kept</td></tr><tr><td>Quotes</td><td>Paragraphs in the template's Quote style</td></tr><tr><td>Dividers</td><td>A horizontal line</td></tr><tr><td>Expand sections</td><td>The title in bold, followed by the content</td></tr><tr><td>Images attached to the same work item</td><td>Embedded (see <a href="#images">Images</a>)</td></tr><tr><td>Mentions, status lozenges, dates, emoji</td><td>Plain text (status in capitals)</td></tr><tr><td>Smart links</td><td>The link address</td></tr><tr><td>Other apps' macros</td><td>Left out or reduced to their text, with a note</td></tr></tbody></table></div>
+<p>Anything that cannot be mapped is rendered as text or left out, and the preview lists it as a fidelity note.</p>
+<h2 id="sections">Sections</h2>
+<p>A section repeats or shows a part of the template. It starts with <code>{{#NAME}}</code> and ends with <code>{{/NAME}}</code>. Close sections in the reverse order you opened them.</p>
+<h3 id="the-work-items-of-the-document-issues">The work items of the document: issues</h3>
+<pre><code>{{#issues}}
+{{key}} {{summary}} ({{status}})
+{{/issues}}</code></pre>
+<p><code>{{#issues}}</code> repeats its content once per work item, in document order: the order of your JQL (when the JQL has no ORDER BY, Document Generator sorts by key), or the selection order when Jira passes selected work items to the app (from the issue navigator Jira currently passes the search only). A single-item document has exactly one item.</p>
+<h3 id="per-work-item-collections">Per work item collections</h3>
+<p>Inside <code>{{#issues}}</code> (or in a single-item template) you can loop over a work item's related data:</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Section</th><th scope="col">Repeats over</th><th scope="col">Available inside</th></tr></thead><tbody><tr><td><code>{{#subtasks}}</code></td><td>Sub-tasks (filled when &quot;+ sub-tasks&quot; is chosen when generating)</td><td>All work item fields of the sub-task</td></tr><tr><td><code>{{#children}}</code></td><td>Child work items (filled when &quot;Epic + children + sub-tasks&quot; is chosen)</td><td>All work item fields of the child</td></tr><tr><td><code>{{#links}}</code></td><td>Linked work items</td><td><code>{{linkType}}</code>, <code>{{direction}}</code>, <code>{{key}}</code>, <code>{{summary}}</code>, <code>{{status}}</code>, <code>{{url}}</code></td></tr><tr><td><code>{{#attachments}}</code></td><td>Attachments</td><td><code>{{filename}}</code>, <code>{{size}}</code>, <code>{{created}}</code>, <code>{{author}}</code>, <code>{{mimeType}}</code>, <code>{{%image}}</code></td></tr><tr><td><code>{{#comments}}</code></td><td>Comments (only when &quot;Include comments&quot; is chosen when generating)</td><td><code>{{author}}</code>, <code>{{created}}</code>, <code>{{@rich:body}}</code></td></tr></tbody></table></div>
+<p><code>{{size}}</code> shows a readable size such as &quot;12 KB&quot; or &quot;1.2 MB&quot;; <code>{{size|number:0}}</code> shows the raw number of bytes. <code>{{direction}}</code> reads from the work item's point of view, e.g. &quot;blocks&quot; or &quot;is blocked by&quot;. Comments are the most recent ones, newest first, up to the limits your Jira admin set (10 per work item by default).</p>
+<p>Inside a collection, tags that are not members of that collection fall back to the enclosing work item, and then to the document. A sub-task answers every work item field itself — it never shows its parent's assignee.</p>
+<h3 id="inverted-sections">Inverted sections</h3>
+<p><code>{{^NAME}}…{{/NAME}}</code> shows its content only when the collection is empty:</p>
+<pre><code>{{#attachments}}{{filename}} ({{size}}){{/attachments}}
+{{^attachments}}No attachments.{{/attachments}}</code></pre>
+<h3 id="nesting">Nesting</h3>
+<p>Sections may be nested at most two levels below the document: document → <code>{{#issues}}</code> → one per-item collection. <code>{{#issues}}</code> itself must be at document level or directly inside <code>{{#group:…}}</code>. Collections cannot be placed inside attachments, comments or links. Breaking these rules is reported as <a href="#E-005">E-005</a>.</p>
+<h3 id="tables-that-repeat-rows">Tables that repeat rows</h3>
+<p>Put the section tags in a table row and the <strong>row</strong> repeats:</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Key</th><th scope="col">Summary</th><th scope="col">Status</th></tr></thead><tbody><tr><td><code>{{#issues}}{{key}}</code></td><td><code>{{summary}}</code></td><td><code>{{status}}{{/issues}}</code></td></tr></tbody></table></div>
+<p>The first cell starts the section, the last cell ends it. Mark the table's first row as a header row in Word (&quot;Repeat as header row at the top of each page&quot;) and it repeats on every page in DOCX and PDF. A section that starts in a table row must end in the same row, or wrap whole rows (<a href="#E-001">E-001</a>).</p>
+<h3 id="one-page-per-work-item">One page per work item</h3>
+<p>Put a Word page break (Ctrl+Enter) at the end of the <code>{{#issues}}</code> body, just before <code>{{/issues}}</code>. Every work item then starts on a new page. There is no page-break placeholder; page breaks you place in Word are kept.</p>
+<h2 id="grouping">Grouping</h2>
+<p><code>{{#group:FIELD}}…{{/group:FIELD}}</code> splits the document's work items into groups. Inside a group, <code>{{groupName}}</code> and <code>{{groupCount}}</code> describe the group and <code>{{#issues}}</code> repeats over the group's work items.</p>
+<p>You can group by <code>issuetype</code>, <code>status</code>, <code>statusCategory</code>, <code>fixVersions</code> or <code>components</code>.</p>
+<pre><code>{{#group:issuetype}}
+{{groupName}} ({{groupCount}})
+{{#issues}}{{key}} {{summary}}{{/issues}}
+{{/group:issuetype}}</code></pre>
+<ul><li>Group order: status categories To Do → In Progress → Done; statuses by category, then by first appearance; all other fields by first appearance.</li><li>Work items without a value go to a group named &quot;(none)&quot;, which comes last.</li><li>Multi-value fields (fix versions, components) put a work item into every group it belongs to.</li><li>Groups must be at document level and cannot be nested (<a href="#E-005">E-005</a>). <code>{{groupName}}</code> outside a group is <a href="#E-001">E-001</a>.</li></ul>
+<p>Grouping by any other field (priority, assignee, parent, project, resolution, labels …) is not supported in this version (<a href="#E-001">E-001</a>).</p>
+<h2 id="conditions">Conditions</h2>
+<p><code>{{#has:FIELD}}…{{/has:FIELD}}</code> shows its content only when the field has a value; <code>{{^has:FIELD}}…{{/has:FIELD}}</code> only when it is empty.</p>
+<pre><code>{{#has:duedate}}Due {{duedate|date}}{{/has:duedate}}
+{{^has:assignee}}This work item is not assigned.{{/has:assignee}}</code></pre>
+<p>FIELD can be any work item field, custom field (<code>customfield_10016</code> or <code>cf:Name</code>), collection name (<code>has:attachments</code>), collection member, or document tag (<code>has:doc.notes</code>). There is no else-if, no and/or and no comparison. Conditions of the form <code>is:FIELD=VALUE</code> are not supported in this version (<a href="#E-001">E-001</a>).</p>
+<h2 id="counts-and-percentages">Counts and percentages</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col">Tag</th><th scope="col">Where</th><th scope="col">Shows</th></tr></thead><tbody><tr><td><code>{{count:subtasks}}</code>, <code>{{count:children}}</code>, <code>{{count:comments}}</code>, <code>{{count:attachments}}</code>, <code>{{count:links}}</code></td><td>Per work item</td><td>How many the work item has (as included in the document)</td></tr><tr><td><code>{{count:FIELD=VALUE}}</code></td><td>Document or group level</td><td>How many work items have that value. FIELD is one of <code>issuetype</code>, <code>status</code>, <code>statusCategory</code>, <code>fixVersions</code>, <code>components</code>.</td></tr><tr><td><code>{{percent:statusCategory=VALUE}}</code></td><td>Document or group level</td><td>Share of the work items in that status category, in percent without decimals</td></tr><tr><td><code>{{count:overdue}}</code></td><td>Document or group level</td><td>How many work items are overdue (see <code>{{overdue}}</code>)</td></tr></tbody></table></div>
+<p>Values are compared without regard to upper or lower case. Because status category names are translated into each user's Jira language, <code>statusCategory</code> also accepts the category keys <code>new</code>, <code>indeterminate</code> and <code>done</code>, which work in every language:</p>
+<pre><code>Done: {{count:statusCategory=done}} ({{percent:statusCategory=done}} %)
+In progress: {{count:statusCategory=indeterminate}}
+Overdue: {{count:overdue}}</code></pre>
+<p>Document-level counts placed inside <code>{{#issues}}</code> are reported as <a href="#E-001">E-001</a>. <code>percent:</code> on other fields is not supported in this version.</p>
+<h2 id="images">Images</h2>
+<ul><li><code>{{%image}}</code> inside <code>{{#attachments}}</code> inserts that attachment if it is an image.</li><li><code>{{%image:first}}</code> at work item level inserts the work item's first image attachment.</li><li>Images inside rich text (for example a screenshot pasted into the description) are embedded when they are attachments of the same work item.</li></ul>
+<pre><code>{{#attachments}}
+{{filename}}
+{{%image}}
+{{/attachments}}</code></pre>
+<p>Rules:</p>
+<ul><li>PNG and JPEG are embedded (checked by file type and content). Other image types (GIF, SVG, WebP, HEIC …) and images that cannot be loaded appear as &quot;[image: filename]&quot;. A <code>{{%image}}</code> on an attachment that is not an image (for example a PDF) renders nothing; its name is still listed by <code>{{filename}}</code>.</li><li>Each image may be up to 5 MB. Per document: up to 10 images per work item, 200 images and 100 MB of image data (your Jira admin can lower the counts).</li><li>Images are scaled to the text width (or the table cell width) and to at most 60 % of the page height, keeping their proportions.</li><li>Every image that is not embedded is listed in the result and in <code>{{doc.notes}}</code>.</li><li>Images are fetched by your browser, with your permissions, when the document is built. They are never stored by the app.</li></ul>
+<h2 id="single-item-and-list-templates">Single-item and list templates</h2>
+<p>A template's scope is set when it is published: single work item, lists of work items, or both.</p>
+<ul><li><strong>List templates</strong> put work item tags inside <code>{{#issues}}</code>.</li><li><strong>Single-item templates</strong> may use work item tags directly in the body, without <code>{{#issues}}</code>. Such tags only show a value when the document contains exactly one work item; in a list document they stay empty. The validator warns about them with <a href="#W-202">W-202</a>.</li></ul>
+<h2 id="recipes">Recipes</h2>
+<h3 id="release-notes-grouped-by-work-type">Release notes grouped by work type</h3>
+<pre><code>Release notes – {{doc.title}}
+{{doc.count}} work items · generated {{doc.date}}
+
+{{#group:issuetype}}
+{{groupName}} ({{groupCount}})
+{{#issues}}{{key}}  {{summary}}  [{{status}}]{{/issues}}
+{{/group:issuetype}}</code></pre>
+<p>Generate it from the issue navigator with a JQL such as <code>project = ABC AND fixVersion = &quot;2.4&quot;</code>.</p>
+<h3 id="status-report">Status report</h3>
+<pre><code>{{doc.title}} – {{doc.scope}}
+Done {{count:statusCategory=done}} ({{percent:statusCategory=done}} %) · In progress {{count:statusCategory=indeterminate}} · To do {{count:statusCategory=new}} · Overdue {{count:overdue}}</code></pre>
+<p>Followed by a table whose row loops over <code>{{#issues}}</code> with <code>{{key}}</code>, <code>{{summary}}</code>, <code>{{status}}</code>, <code>{{assignee|ifempty:–}}</code> and <code>{{duedate|date|ifempty:–}}</code>.</p>
+<h3 id="change-record-for-one-work-item">Change record for one work item</h3>
+<pre><code>{{key}} – {{summary}}
+{{@rich:description}}
+Linked work items ({{count:links}})
+{{#links}}{{direction}} {{key}} {{summary}}{{/links}}
+{{^links}}None.{{/links}}
+{{#comments}}
+{{author}}, {{created}}
+{{@rich:body}}
+{{/comments}}
+Approved by: ______________________   Date: __________</code></pre>
+<p>The sign-off lines are plain text; Document Generator does not collect signatures.</p>
+<h2 id="pdf-output">PDF output</h2>
+<p>PDF fidelity statement:</p>
+<blockquote>PDF is produced by Matify's built-in converter from your filled Word document. It reproduces a documented subset: paragraphs and character formatting applied directly or through paragraph styles, headings, bullet/numbered lists up to 3 levels, tables with borders and shading set on the table or cells, merged cells and repeated header rows, images, page breaks, margins and page size, and simple headers/footers with page numbers. Word table styles are approximated (grid borders, bold header row). PDF text is set in the bundled Noto Sans fonts, so line breaks and page count can differ from Word. Use DOCX for the exact layout.</blockquote>
+<p>The same statement appears as an info line (<a href="#I-001">I-001</a>) in every validator report.</p>
+<p><strong>Not reproduced in PDF</strong> (DOCX is unaffected; the validator warns about each one): text boxes, floating (anchored) pictures and shapes, SmartArt, charts, multiple text columns, different first-page or odd/even headers, Word fields other than page numbers (they show their last saved result), content controls (reduced to their text), tracked changes, Word comments, footnotes and endnotes, embedded fonts, equations, legacy (VML) shapes and watermarks, and pictures that are not PNG or JPEG. With several sections, only the page size and margins of the last section are used.</p>
+<p>Further PDF limits:</p>
+<ul><li>A heading can end up alone at the bottom of a page (there is no &quot;keep with next&quot;).</li><li>Row heights and vertical alignment in table cells are ignored; only the default header and footer are used.</li><li>JPEG orientation stored in the camera's EXIF data is ignored, so a photo can appear rotated.</li><li>Fonts cover Latin (including Latin Extended), Greek and Cyrillic. Chinese, Japanese, Korean, Arabic, Hebrew, Thai and Devanagari text cannot be shown in PDF, and some symbols (for example &quot;→&quot;) are missing from the bundled font. Missing characters are listed with the result; use DOCX for such documents.</li><li>Your template's fonts (Calibri, Aptos, Arial …) are replaced by Noto Sans; code is set in Noto Sans Mono.</li><li>The PDF paper size is A4 or Letter, as your Jira admin set it for the site or for the template. Orientation and margins come from your Word template.</li><li>PDF output is not tagged for accessibility. Word's own &quot;Save as PDF&quot; remains available for the DOCX.</li></ul>
+<h2 id="excel-xlsx-output">Excel (XLSX) output</h2>
+<p>XLSX output is a table, not a filled Word template:</p>
+<ul><li>One sheet named &quot;Work items&quot;, one row per work item in document order, a frozen header row, an autofilter and set column widths.</li><li><strong>Curated packs</strong> bring their own column set.</li><li><strong>Your own templates</strong> get one column per work item value tag used in the template, in template order, starting with Key.</li><li>Dates are real Excel dates and numbers are real numbers. Rich text is exported as plain text.</li><li>A cell holds at most 32,767 characters; longer text is cut with &quot;…&quot; and listed in the notes.</li><li>Values that start with <code>=</code>, <code>+</code>, <code>-</code> or <code>@</code> are written as text, so Excel never runs them as formulas.</li></ul>
+<h2 id="file-names">File names</h2>
+<p>Your Jira admin sets a file-name pattern (default <code>{template}-{scope}-{date}</code>) built from <code>{template}</code>, <code>{scope}</code>, <code>{date}</code>, <code>{key}</code> and <code>{format}</code> plus plain text. File names are cleaned of characters that are not allowed in file names and are at most 120 characters long.</p>
+<h2 id="validator-codes">Validator codes</h2>
+<p>Every finding shows its code, where it is (body, header or footer, and the paragraph with an excerpt) and an explanation. Errors (E) make a template <strong>Invalid</strong>: it cannot be published. Warnings (W) make it <strong>Valid with warnings</strong>: it can be published, and users get the output described in the warning. Info lines (I) need no action.</p>
+<h3 id="E-001">E-001 — Template syntax error</h3>
+<p>The placeholder text cannot be read. The message names the reason, for example:</p>
+<ul><li><code>{{</code> without <code>}}</code>, or <code>}}</code> without <code>{{</code>;</li><li>a placeholder split across paragraphs or text boxes;</li><li>a section that is never closed, closed without being opened, or closed in the wrong order;</li><li>an unknown tag kind, format, date pattern or document tag;</li><li><code>{{%image}}</code> outside <code>{{#attachments}}</code>, <code>{{@rich:body}}</code> outside <code>{{#comments}}</code>, <code>{{groupName}}</code> outside a group, a document-level count inside <code>{{#issues}}</code>;</li><li>a section that starts inside a table and ends outside it;</li><li>section or other non-value tags in the document properties;</li><li>features that are not supported in this version: <code>is:</code> conditions, grouping or <code>count:</code> on fields other than issuetype, status, statusCategory, fixVersions and components, <code>percent:</code> on fields other than statusCategory, and change history (<code>history</code> / <code>history:FIELDS</code>).</li></ul>
+<p><strong>Fix:</strong> go to the paragraph shown in the report, retype the placeholder in one go, and check the spelling against this page.</p>
+<h3 id="E-002">E-002 — Unknown field</h3>
+<p>&quot;'{tag}' doesn't match a field on this site. Check the spelling or use the field id (for example customfield_10016).&quot; The report suggests similar field names where it finds them. E-002 is also reported when <code>{{@rich:…}}</code> is used on a field that is not multi-line text.</p>
+<p><strong>Fix:</strong> use the exact field id or the exact custom field name with <code>cf:</code>. The message lists similar fields as &quot;Name (id)&quot; when it finds any. For a single-line field, use a value tag (<code>{{field}}</code>) instead of <code>{{@rich:field}}</code>.</p>
+<h3 id="E-003">E-003 — Ambiguous custom field name</h3>
+<p>Two or more custom fields on your site have the name used after <code>cf:</code>. The message lists their ids.</p>
+<p><strong>Fix:</strong> replace <code>{{cf:Name}}</code> by the field id, e.g. <code>{{customfield_10016}}</code>.</p>
+<h3 id="E-004">E-004 — Rich-text tag is not alone in its paragraph</h3>
+<p><code>{{@rich:…}}</code> must be the only content of its paragraph, without other text or spaces, and must not be inside an inline section.</p>
+<p><strong>Fix:</strong> put the rich-text tag on its own line (its own paragraph).</p>
+<h3 id="E-005">E-005 — Sections nested too deeply or in an invalid place</h3>
+<p>Sections may be nested at most two levels below the document (document → issues → one per-item collection). <code>{{#issues}}</code> must be at document level or directly inside a group; collections cannot be inside attachments, comments or links; groups cannot be nested or placed inside another section.</p>
+<p><strong>Fix:</strong> move the section so that the nesting rules in <a href="#nesting">Nesting</a> hold.</p>
+<h3 id="E-006">E-006 — Too many tags</h3>
+<p>The template contains more than 500 placeholders.</p>
+<p><strong>Fix:</strong> remove placeholders, or split the template into two.</p>
+<h3 id="E-007">E-007 — Unsafe content</h3>
+<p>The file contains content that can run code, load external content or hide data. Document Generator rejects:</p>
+<ul><li>macros (VBA projects, macro-enabled files .docm/.dotm, ribbon or keyboard customisations);</li><li>encrypted or password-protected files, write protection and enforced &quot;Restrict Editing&quot;;</li><li>links to external content other than ordinary hyperlinks (for example linked pictures);</li><li>hyperlinks that are not web or e-mail addresses: only <code>http:</code>, <code>https:</code>, <code>mailto:</code> and links within the document (<code>#bookmark</code>) are allowed. Links to files or network shares (<code>file:</code>, UNC paths such as <code>\\server\share</code>), <code>javascript:</code>, <code>data:</code> and links that start programs (for example <code>ms-msdt:</code>) are rejected;</li><li>a hyperlink base (File → Info → Properties → Hyperlink base) that points to a file location or network share instead of an <code>https://</code> address;</li><li>mail-merge settings (a data source or SQL query that Word would offer to run when the document opens) — restore the document with Mailings → Start Mail Merge → Normal Word Document;</li><li>the field codes INCLUDEPICTURE, INCLUDETEXT, the older INCLUDE, LINK, DDE, DDEAUTO, IMPORT and DATABASE, also when the field name is in quotes (<code>&quot;INCLUDEPICTURE&quot; …</code>) or split across several pieces of text in the same field code;</li><li>field codes that are built from other fields: <strong>any field whose code contains another field</strong> (for example <code>{ IF { MERGEFIELD … } … }</code>, <code>{ = { PAGE } - 1 }</code> or <code>{ {QUOTE …} … }</code>), and <strong>QUOTE and SET fields</strong> in any form — Word can assemble a forbidden field code from them without its name appearing in the file. Fields inside another field's <em>result</em> (for example the page numbers of a table of contents) are fine, and plain REF, PAGEREF, PAGE, NUMPAGES and DATE fields without fields inside them stay allowed;</li><li>imported content chunks (altChunk), embedded OLE objects and packages (also a package stored outside the usual <code>word/embeddings</code> folder), ActiveX controls, sub-documents (master documents), frames and framesets, attached templates, and XML document type declarations.</li></ul>
+<p>The check reads <strong>every</strong> XML part of the file — not only the parts with the usual names — so moving content to an unusual part name or location does not hide it. Charts are allowed (their data workbook is not active content); they are only a PDF warning (<a href="#W-105">W-105</a>). Pictures, including SVG logos, are not affected.</p>
+<p><strong>Stricter checks (October 2026):</strong> a template that an earlier build of the app accepted can now be rejected — at upload, and by the output check below when documents are generated from it — if it contains one of the newer items above (for example a <code>file:</code> link, a hyperlink base on a file share or mail-merge settings). The validator message names the element; fix it and upload the template again.</p>
+<p>The same check runs on every <strong>filled</strong> Word document before it is downloaded or attached, including the Word document a PDF is converted from. If a filled document fails the check, it is blocked and not downloaded (customer message: &quot;The finished document contained content that Document Generator blocks for safety …&quot;).</p>
+<p><strong>Fix:</strong> remove the element named in the message (Alt+F9 in Word shows field codes; Developer → Document Template shows an attached template), save as a Word Document (.docx) and upload again.</p>
+<h3 id="E-008">E-008 — File, size or compression check failed</h3>
+<p>The file is not a usable .docx: not a Word document, a legacy Word 97–2003 (.doc) file, damaged, missing required parts, larger than 5 MB, larger than 50 MB when unpacked, more than 2,000 parts, suspicious compression (zip-bomb guard), invalid part names, unsupported compression or unreadable XML.</p>
+<p>The compression check (zip-bomb guard) runs at upload <strong>and</strong> again in the browser each time a document is generated from the stored template, before the file is unpacked. A stored template that fails it cannot be used for documents (customer message for code <code>DGJ-TPL-E-008</code>).</p>
+<p><strong>Fix:</strong> open the file in Word, save it as Word Document (.docx), remove large embedded media, and upload again.</p>
+<h3 id="W-101">W-101 — PDF: Word table style is approximated</h3>
+<p>A Word table style (other than &quot;Table Grid&quot;) is shown in PDF with grid borders and a bold header row. <strong>Fix (optional):</strong> set borders and shading directly on the table for an exact PDF.</p>
+<h3 id="W-102">W-102 — PDF: text box is not reproduced</h3>
+<p>Text boxes are missing from PDF output. <strong>Fix (optional):</strong> move the content into normal paragraphs or a table.</p>
+<h3 id="W-103">W-103 — PDF: floating drawing is not reproduced</h3>
+<p>Floating (anchored) pictures and shapes are missing from PDF. <strong>Fix (optional):</strong> set pictures to &quot;In line with text&quot;.</p>
+<h3 id="W-104">W-104 — PDF: SmartArt is not reproduced</h3>
+<p><strong>Fix (optional):</strong> replace SmartArt with a picture or a table.</p>
+<h3 id="W-105">W-105 — PDF: chart is not reproduced</h3>
+<p><strong>Fix (optional):</strong> paste the chart as a picture, or use DOCX output.</p>
+<h3 id="W-106">W-106 — PDF: multiple columns are not reproduced</h3>
+<p>The PDF uses one column. <strong>Fix (optional):</strong> use a table for side-by-side content.</p>
+<h3 id="W-107">W-107 — PDF: different first-page or odd/even headers are not reproduced</h3>
+<p>The default header and footer are used on every PDF page.</p>
+<h3 id="W-108">W-108 — PDF: Word field shows its last result only</h3>
+<p>Word fields such as DATE or TOC show the result Word saved last; only page numbers (PAGE, NUMPAGES) are computed. <strong>Fix (optional):</strong> use <code>{{doc.date}}</code> instead of a DATE field.</p>
+<h3 id="W-109">W-109 — PDF: content control is reduced to its text</h3>
+<h3 id="W-110">W-110 — PDF: tracked changes are not reproduced</h3>
+<p><strong>Fix:</strong> accept or reject all changes before uploading.</p>
+<h3 id="W-111">W-111 — PDF: comments are not reproduced</h3>
+<p>Word comments in the template are not shown in PDF. <strong>Fix:</strong> delete them before uploading.</p>
+<h3 id="W-112">W-112 — PDF: footnotes and endnotes are not reproduced</h3>
+<h3 id="W-113">W-113 — PDF: embedded fonts are not used</h3>
+<p>PDF text is set in Noto Sans.</p>
+<h3 id="W-114">W-114 — PDF: script not covered by the PDF fonts</h3>
+<p>The template contains Chinese/Japanese/Korean, Arabic, Hebrew, Thai or Devanagari text. PDF fonts cover Latin, Greek and Cyrillic only. <strong>Fix:</strong> use DOCX for this template.</p>
+<h3 id="W-115">W-115 — PDF: only the last section page setup is used</h3>
+<p>The document has several sections; PDF uses the page size and margins of the last one.</p>
+<h3 id="W-116">W-116 — PDF: equations are not reproduced</h3>
+<h3 id="W-117">W-117 — PDF: image format is not reproduced</h3>
+<p>A picture in the template is not PNG or JPEG and is left out of the PDF. <strong>Fix (optional):</strong> insert it as PNG or JPEG.</p>
+<h3 id="W-118">W-118 — PDF: legacy shape or object is not reproduced</h3>
+<p>Legacy shapes, watermarks and objects (VML) are missing from PDF.</p>
+<h3 id="W-201">W-201 — Field type is not fully supported</h3>
+<p>The field's type is not one of the types in <a href="#custom-fields">Custom fields</a>. It shows the first of value / name / display name, or stays empty. <strong>Fix:</strong> check the preview; use a different field if the value is not useful.</p>
+<h3 id="W-202">W-202 — Work-item tag outside {{#issues}}</h3>
+<p>A work item tag stands outside <code>{{#issues}}</code>. It shows a value only when the document contains exactly one work item. <strong>Fix:</strong> fine for single-item templates; for list templates, move the tag inside <code>{{#issues}}</code>.</p>
+<h3 id="W-203">W-203 — Format has no effect on this field</h3>
+<p>A date format on a field that is not a date, or a number format on a field that is not a number. <strong>Fix:</strong> remove the format or use it on a matching field.</p>
+<h3 id="I-001">I-001 — PDF fidelity</h3>
+<p>Every report shows the PDF fidelity statement (see <a href="#pdf-output">PDF output</a>). No action needed.</p>
+<h3 id="I-002">I-002 — Field resolution skipped</h3>
+<p>The site's field list could not be loaded, so field names were not checked. <strong>Fix:</strong> upload the template again later so that fields are checked before you publish.</p>
+<h3 id="I-003">I-003 — Uses an opt-in collection</h3>
+<p>The template shows comments or child work items. They are included only when &quot;Include comments&quot; or the epic hierarchy is chosen when generating. No action needed.</p>
+<h2 id="template-management-messages">Template management messages</h2>
+<p>These codes appear in the admin pages or when a document is built. They link here from the app.</p>
+<h3 id="DGJ-TPL-E-001">DGJ-TPL-E-001</h3>
+<p>A template syntax error was found while a document was built. The template should have been validated; ask your Jira admin to open it, check the validation report (<a href="#E-001">E-001</a>) and upload a corrected version.</p>
+<h3 id="DGJ-TPL-E-004">DGJ-TPL-E-004</h3>
+<p>A rich-text tag is not alone in its paragraph (<a href="#E-004">E-004</a>), found while a document was built. Ask your Jira admin to fix the template.</p>
+<h3 id="DGJ-TPL-E-006">DGJ-TPL-E-006</h3>
+<p>&quot;This template has too many placeholders to store. Split it into smaller templates (see E-006).&quot; Shown during upload when the template's placeholder list is too large to save. See <a href="#E-006">E-006</a>.</p>
+<h3 id="DGJ-TPL-E-007">DGJ-TPL-E-007</h3>
+<p>The finished document contained content that Document Generator blocks for safety (for example a remote link or a macro); it was not downloaded or attached. See <a href="#E-007">E-007</a>; ask your Jira admin to check the template.</p>
+<h3 id="DGJ-TPL-E-008">DGJ-TPL-E-008</h3>
+<p>&quot;Word templates can be up to 5 MB.&quot; See <a href="#E-008">E-008</a>.</p>
+<h3 id="DGJ-TPL-NOTFOUND">DGJ-TPL-NOTFOUND</h3>
+<p>The template or template version was not found — it may have been deleted, or the version is no longer the current or previous one. A background document whose template was deleted cannot finish. <strong>Fix:</strong> pick another template, or ask your Jira admin.</p>
+<h3 id="DGJ-TPL-INVALID">DGJ-TPL-INVALID</h3>
+<p>&quot;Only valid templates can be published. Fix the errors in the validator report and upload a new version.&quot;</p>
+<h3 id="DGJ-TPL-HASH">DGJ-TPL-HASH</h3>
+<p>&quot;The uploaded file didn't arrive completely. Upload it again.&quot;</p>
+<h3 id="DGJ-TPL-UPLOAD">DGJ-TPL-UPLOAD</h3>
+<p>The upload expired (uploads are kept open for 30 minutes) or a part of it was not valid. <strong>Fix:</strong> upload the template again.</p>
+<h3 id="DGJ-TPL-STATE">DGJ-TPL-STATE</h3>
+<p>The action does not fit the template's state, for example: an archived template must be restored before a new version is uploaded; a template needs an uploaded version before it can be published; the current version cannot be deleted.</p>
+<h3 id="DGJ-TPL-PINNED">DGJ-TPL-PINNED</h3>
+<p>&quot;A background document still uses this template (or version). Delete it or wait until it expires (24 h).&quot; Background documents keep the template version they started with until they expire.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Document Generator for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Microsoft Word and Excel are trademarks of Microsoft Corporation and are named only to describe file formats. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>

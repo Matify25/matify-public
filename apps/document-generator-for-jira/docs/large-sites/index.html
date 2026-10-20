@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Large sites — Document Generator for Jira — Matify</title>
+<meta name="description" content="Large sites for Document Generator for Jira, published by Matify.">
+<meta name="robots" content="index,follow">
+<style>:root{
+  --graphite-900:#14171a;
+  --graphite-800:#1a1e22;
+  --graphite-700:#22272c;
+  --graphite-600:#2c333a;
+  --line:#333b43;
+  --fg:#e6e9ec;
+  --fg-dim:#a8b1ba;
+  --fg-faint:#7d868f;
+  --gold:#c8a45c;
+  --gold-dim:#8d7440;
+  --max:56rem;
+  --sans:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"Cascadia Mono",Menlo,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--graphite-900);color:var(--fg);
+  font-family:var(--sans);font-size:16px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 1.5rem}
+
+header.site{border-bottom:1px solid var(--line);background:var(--graphite-800)}
+header.site .wrap{padding-top:1.5rem;padding-bottom:1.5rem}
+.brand{display:flex;align-items:baseline;gap:.7rem;flex-wrap:wrap}
+.brand .name{font-size:1.05rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+.brand .sep{color:var(--fg-faint)}
+.brand .product{font-size:1.05rem;font-weight:600;color:var(--fg)}
+
+nav.site{background:var(--graphite-800);border-bottom:1px solid var(--line)}
+nav.site ul{margin:0 auto;max-width:var(--max);padding:0 1.5rem;list-style:none;
+  display:flex;flex-wrap:wrap;gap:1.4rem}
+nav.site a{display:inline-block;padding:.65rem 0;color:var(--fg-dim);
+  text-decoration:none;font-size:.9rem;border-bottom:2px solid transparent}
+nav.site a:hover,nav.site a:focus-visible{color:var(--fg)}
+nav.site a[aria-current="page"]{color:var(--fg);border-bottom-color:var(--gold)}
+
+main{padding:2.6rem 0 4rem}
+main .wrap>:first-child{margin-top:0}
+
+h1{font-size:clamp(1.65rem,4vw,2.15rem);line-height:1.18;letter-spacing:-.015em;
+  font-weight:700;margin:0 0 .6rem;text-wrap:balance}
+h2{font-size:1.22rem;font-weight:600;letter-spacing:-.008em;margin:2.6rem 0 .7rem;
+  padding-bottom:.45rem;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.02rem;font-weight:600;margin:1.8rem 0 .4rem;color:var(--fg)}
+h2+h3{margin-top:1rem}
+
+p{margin:0 0 1.05rem}
+ul,ol{margin:0 0 1.05rem;padding-left:1.35rem}
+li{margin-bottom:.35rem}
+strong{font-weight:600;color:#f2f5f7}
+em{color:var(--fg-dim)}
+
+a{color:var(--gold);text-decoration:underline;text-underline-offset:.15em;
+  text-decoration-color:var(--gold-dim)}
+a:hover,a:focus-visible{text-decoration-color:var(--gold)}
+
+code{font-family:var(--mono);font-size:.85em;background:var(--graphite-700);
+  border:1px solid var(--line);border-radius:3px;padding:.06em .34em;color:#dfe6ec}
+
+.lede{font-size:1.06rem;color:var(--fg-dim);max-width:60ch;margin:0 0 1.6rem}
+
+.meta{display:flex;flex-wrap:wrap;gap:.45rem;margin:0 0 2rem;padding:0;list-style:none}
+.meta li{font-family:var(--mono);font-size:.76rem;color:var(--fg-dim);
+  background:var(--graphite-700);border:1px solid var(--line);border-radius:3px;
+  padding:.26rem .6rem}
+
+.tablewrap{overflow-x:auto;margin:0 0 1.05rem;border:1px solid var(--line);
+  border-radius:4px;background:var(--graphite-800)}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;vertical-align:top;padding:.55rem .8rem;
+  border-bottom:1px solid var(--line)}
+th{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  color:var(--fg-dim);background:var(--graphite-700);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+
+blockquote{margin:0 0 1.05rem;padding:.7rem 1rem;border-left:3px solid var(--gold-dim);
+  background:var(--graphite-800);color:var(--fg-dim)}
+hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
+
+.callout{border:1px solid var(--line);border-left:3px solid var(--gold);
+  border-radius:0 4px 4px 0;background:var(--graphite-800);
+  padding:.9rem 1.1rem;margin:0 0 1.4rem}
+.callout>:last-child{margin-bottom:0}
+.callout .label{display:block;font-family:var(--mono);font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:.3rem}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));
+  gap:1rem;margin:0 0 1.5rem;padding:0;list-style:none}
+.cards li{margin:0}
+.cards a.card{display:block;height:100%;padding:1rem 1.1rem;text-decoration:none;
+  background:var(--graphite-800);border:1px solid var(--line);border-radius:4px;color:var(--fg)}
+.cards a.card:hover,.cards a.card:focus-visible{border-color:var(--gold-dim)}
+.cards .card-title{display:block;font-weight:600;margin-bottom:.25rem;color:var(--gold)}
+.cards .card-body{display:block;font-size:.9rem;color:var(--fg-dim);line-height:1.5}
+
+footer.site{border-top:1px solid var(--line);background:var(--graphite-800);
+  color:var(--fg-faint);font-size:.86rem}
+footer.site .wrap{padding-top:1.5rem;padding-bottom:2rem}
+footer.site p{margin:0 0 .3rem}
+
+:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+@media print{
+  body{background:#fff;color:#000}
+  nav.site,footer.site{display:none}
+  a{color:#000}
+}
+
+pre{overflow-x:auto;margin:0 0 1.05rem;padding:.8rem 1rem;background:var(--graphite-800);
+  border:1px solid var(--line);border-radius:4px;font-size:.85rem;line-height:1.5}
+pre code{border:0;padding:0;background:none}
+.docnav{display:flex;flex-wrap:wrap;gap:.4rem .9rem;margin:0 0 2rem;padding:0;list-style:none;font-size:.88rem}
+.docnav li{margin:0}
+.docnav a{color:var(--fg-dim);text-decoration:none}
+.docnav a:hover,.docnav a:focus-visible{color:var(--fg);text-decoration:underline}
+.docnav [aria-current="page"]{color:var(--gold)}
+h3[id],h2[id]{scroll-margin-top:1rem}
+footer.site .faint{color:var(--fg-faint)}
+</style>
+</head>
+<body>
+<header class="site"><div class="wrap"><div class="brand"><span class="name">Matify</span><span class="sep">/</span><span class="product">Document Generator for Jira</span></div></div></header>
+<nav class="site" aria-label="Document Generator for Jira"><ul><li><a href="../../">Overview</a></li><li><a href="../../docs/" aria-current="page">Documentation</a></li><li><a href="../../security-privacy/">Security & privacy</a></li><li><a href="../../privacy/">Privacy policy</a></li><li><a href="../../terms/">Terms</a></li><li><a href="../../support/">Support</a></li></ul></nav>
+<main><div class="wrap">
+<ul class="docnav" aria-label="Documentation pages"><li><a href="../../docs/">Overview</a></li><li><a href="../../docs/getting-started/">Getting started</a></li><li><a href="../../docs/user-guide/">User guide</a></li><li><a href="../../docs/admin-guide/">Admin guide</a></li><li><a href="../../docs/template-cookbook/">Template cookbook</a></li><li><span aria-current="page">Large sites</span></li><li><a href="../../docs/security/">Permissions and security</a></li><li><a href="../../docs/privacy/">Privacy and data</a></li><li><a href="../../docs/troubleshooting/">Troubleshooting</a></li><li><a href="../../docs/faq/">FAQ</a></li><li><a href="../../docs/known-limitations/">Known limitations</a></li><li><a href="../../docs/changelog/">Changelog</a></li></ul><h1 id="large-sites">Large sites</h1>
+<p>Document Generator is built for team-scale documents — a release, a sprint, an epic, a project status — on sites of any size. This page explains the limits, why they exist, and what happens when a site generates a lot.</p>
+<h2 id="the-limits">The limits</h2>
+<div class="tablewrap"><table><thead><tr><th scope="col"></th><th scope="col">Default (maximum)</th></tr></thead><tbody><tr><td>Work items in a document generated now, in the browser</td><td>200</td></tr><tr><td>… when comments are included</td><td>50</td></tr><tr><td>Work items in a background document (DOCX, PDF, XLSX)</td><td>1,000</td></tr><tr><td>Work items with comments per document</td><td>500, the 10 most recent comments each (up to 20)</td></tr><tr><td>Images</td><td>10 per work item, 200 and 100 MB per document, 5 MB each</td></tr><tr><td>Collected data per background document</td><td>50 MB</td></tr><tr><td>Background documents</td><td>3 in progress per person, 10 per site, one collecting at a time per site</td></tr><tr><td>API budget</td><td>6,000 points per hour per site</td></tr></tbody></table></div>
+<p>Jira administrators can lower every limit in Settings (<a href="../../docs/admin-guide/#settings">admin guide</a>), but not raise it above the maximum.</p>
+<p>The background limit of 1,000 work items applies at launch. A higher limit for DOCX and XLSX needs a large-site qualification that has not been done yet; it will be announced in the <a href="../../docs/changelog/">changelog</a> if and when it ships.</p>
+<h2 id="why-there-are-limits-jiras-shared-api-limit-for-apps">Why there are limits: Jira's shared API limit for apps</h2>
+<p>Jira limits how much every app may read, in <strong>points per hour</strong>. Each app has one shared hourly pool for <strong>all</strong> the sites it is installed on — 65,000 points per hour, as Jira reported it in our measurements. When an app uses up its pool, Jira refuses that app's requests on every customer site until the next full hour.</p>
+<p>So one very large export on one site could stop document generation for every other customer. Document Generator prevents that in three ways.</p>
+<h3 id="1-an-hourly-budget-per-site">1. An hourly budget per site</h3>
+<p>Each site may use <strong>6,000 points per UTC hour</strong> — about 9 % of the shared pool. Before every Jira read, the app reserves points from this budget; afterwards it books what the read really cost. A document that doesn't fit into this hour's remaining budget either waits (background) or is refused with a time to try again.</p>
+<p>Reads for permission checks and page loads may go 5 % over the budget, so the admin pages keep working when the budget is used up.</p>
+<p>You can lower the budget in Settings to leave more of the shared limit to other apps. It can't be raised by an admin; Matify can raise it only in a new release, and only if Atlassian grants the app a pool of its own per site (see <a href="#tier-2">Tier 2</a>).</p>
+<h3 id="2-what-a-document-costs">2. What a document costs</h3>
+<p>We measured the real costs on 19 October 2026:</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Read</th><th scope="col">Points</th></tr></thead><tbody><tr><td>A document of 1,000 work items, fields only</td><td>about 1,011 (1 per work item, 1 per page of 100)</td></tr><tr><td>… with rich text (descriptions)</td><td>the same — rich text costs nothing extra</td></tr><tr><td>… with comments</td><td>about 1 more point per work item</td></tr><tr><td>Field list, JQL check, work item count</td><td>about 1 each</td></tr><tr><td>Permission check</td><td>1 plus 2 per permission</td></tr></tbody></table></div>
+<p>The app reserves 1.25 times these measured costs, so a 1,000-work-item document reserves about 1,264 points. With the default budget, a site can collect roughly four such documents per hour — or dozens of typical 100-work-item documents.</p>
+<p>Images are fetched by your browser through Atlassian's own bridge. In our measurement these reads did not count against the app's hourly pool, but Atlassian does not document this, so it may change.</p>
+<h3 id="3-a-brake-when-the-shared-limit-runs-low">3. A brake when the shared limit runs low</h3>
+<p>Jira tells the app how much of its shared hourly pool is left. When it runs low, Document Generator steps back until the next full hour:</p>
+<div class="tablewrap"><table><thead><tr><th scope="col">Shared limit</th><th scope="col">What happens</th></tr></thead><tbody><tr><td>Less than 20 % left, or Jira reports it is nearly used up</td><td>Background documents pause until the next full hour; documents generated now are limited to 50 work items</td></tr><tr><td>Less than 5 % left</td><td>Only single work items can be generated now</td></tr><tr><td>Used up (Jira refuses requests)</td><td>Everything waits until Jira resets the limit; you can start the document in the background and it resumes on its own</td></tr></tbody></table></div>
+<p>Once triggered, each step stays in place until the next full hour. Admins see the current state on the Overview page. A short &quot;too many requests&quot; answer from Jira without a reason is treated as a burst limit: the app waits the few seconds Jira asks for, and doesn't pause for the hour.</p>
+<h2 id="background-documents">Background documents</h2>
+<p>Documents above the direct limit run in the background, in a Forge queue on Atlassian's infrastructure:</p>
+<ul><li>One background document collects at a time per site; others wait in the queue (&quot;Queued&quot;).</li><li>Background work spends at most one sixth of the site's hourly budget per ten minutes, so one large document cannot use the whole hour in seconds. Unused budget carries over within the hour.</li><li>When the budget is spent, the document waits (&quot;Waiting for budget&quot;) and continues on its own at the next full hour. A 1,000-work-item document normally fits into one hour. If the app can't hand the next step to the queue, the document shows <strong>Retry</strong> and continues where it stopped; a daily check also resumes documents whose next step was lost.</li><li>The data is collected in batches of up to 500 work items (100 with comments). If a batch fails five times, the document stops as <em>Failed</em>; <strong>Retry from checkpoint</strong> continues from the last saved batch, for 24 hours.</li><li>When the hour's budget is spent, new documents can start again after the time the app shows; the app's pages, My documents, Cancel, Delete and the admin pages keep working (their identity and permission checks use a small separate allowance of 300 points per hour). A generation that was reserved but abandoned — the window was closed — gives its unused budget back after 10 minutes.</li><li>The collected data is kept for 24 hours after it is ready. The document itself is built in your browser when you choose <strong>Render &amp; download</strong>.</li></ul>
+<h2 id="speed-in-the-browser">Speed in the browser</h2>
+<p>Documents are built in your browser, so speed depends on your computer. Measured examples:</p>
+<ul><li>1,000 work items, fields only, PDF: 1.6 seconds in Chrome on a fast desktop computer (24 threads) on a real Jira site.</li><li>1,000 work items with the Status report pack, in the engine benchmark (Node.js on the same kind of computer, not a browser): DOCX in under 0.2 seconds, PDF in about 1 second.</li></ul>
+<p>Image-heavy PDFs take longer. While the Word document is filled and while the PDF pages are laid out, the page can pause for a moment (about half a second per 1,000 work items in our tests). Before building, Document Generator estimates how much memory the document needs and stops with a message above 300 MB; if the browser runs out of memory anyway, it shows the same message (<a href="../../docs/troubleshooting/#DGJ-RENDER-MEMORY">DGJ-RENDER-MEMORY</a>). Try DOCX, fewer work items or a background document.</p>
+<h2 id="tier-2">Tier 2</h2>
+<p>Atlassian can move an app to a separate pool per customer site (&quot;Tier 2&quot;). Matify will apply for it when the first customer with 1,000 or more users goes live, when the shared limit is used up for the first time, or when eight or more sites run background documents in the same hour. Until Atlassian grants it, the per-site budget stays at 6,000 points per hour.</p>
+<h2 id="what-document-generator-is-not-built-for">What Document Generator is not built for</h2>
+<p>It is not built for exports of many thousands of work items in one file. For flat lists of that size, Jira's own CSV export or a dedicated export tool fits better. Split large documents by project, version or epic instead — they are easier to read, too.</p>
+</div></main>
+<footer class="site"><div class="wrap">
+<p>Document Generator for Jira is published by Matify for Atlassian Jira Cloud.</p>
+<p>Support: <a href="mailto:support@matifyapps.de">support@matifyapps.de</a> · <a href="https://matify25.github.io/matify-public/sla/">Service level agreement</a></p>
+<p class="faint">Atlassian and Jira are trademarks of Atlassian Pty Ltd. Microsoft Word and Excel are trademarks of Microsoft Corporation and are named only to describe file formats. Matify is an independent Marketplace Partner. © 2026 Matify.</p>
+</div></footer>
+</body>
+</html>
